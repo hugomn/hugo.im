@@ -14,7 +14,7 @@
     "gatsby-plugin-twitter": "2.7.0",
     "gatsby-remark-figure-caption": "^2.0.0",
     "lodash.throttle": "^4.1.1",
-    "moment": "2.29.1",
+    "moment": "2.29.2",
     "prismjs": "1.23.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
@@ -88,6 +88,6 @@
     "styled-components": "4.4.1"
   },
   "resolutions": {
-    "moment": "2.29.1"
+    "moment": "2.29.2"
   }
 }
