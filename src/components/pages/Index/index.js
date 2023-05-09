@@ -32,7 +32,7 @@ const Index = (props) => {
             {(txt) => <BtnLink to={`/${langKey !== 'en' ? `${langKey}/` : ''}blog`}>{txt}</BtnLink>}
           </FormattedMessage>
         </AllStoriesContainer>
-        <NewsletterForm />
+        {/* <NewsletterForm /> */}
       </Wrapper>
     </Layout>
   );
