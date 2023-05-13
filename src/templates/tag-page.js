@@ -95,8 +95,8 @@ export const pageQuery = graphql`
             date
             image {
               childImageSharp {
-                sizes(maxWidth: 750) {
-                  ...GatsbyImageSharpSizes
+                fluid(maxWidth: 750) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }

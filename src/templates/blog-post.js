@@ -139,7 +139,7 @@ class BlogPostRoute extends React.PureComponent {
           <header>
             <H1>{post.frontmatter.title}</H1>
             <Author author={author} date={post.frontmatter.date} timeToRead={post.timeToRead} showFollow />
-            <Img sizes={post.frontmatter.image.childImageSharp.sizes} />
+            <Img fluid={post.frontmatter.image.childImageSharp.fluid} />
           </header>
           {/* <EditBtn
             fileAbsolutePath={post.fileAbsolutePath}
@@ -193,8 +193,8 @@ export const pageQuery = graphql`
         date
         image {
           childImageSharp {
-            sizes(maxWidth: 750) {
-              ...GatsbyImageSharpSizes
+            fluid(maxWidth: 750) {
+              ...GatsbyImageSharpFluid
             }
           }
           publicURL

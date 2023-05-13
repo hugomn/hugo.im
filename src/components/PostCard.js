@@ -12,7 +12,7 @@ const PostCard = ({ post, author, imageOnTop }) => {
     <Wrapper imageOnTop={imageOnTop}>
       <Cell>
         <Link to={post.fields.slug}>
-          <Image sizes={post.frontmatter.image.childImageSharp.sizes} />
+          <Image fluid={post.frontmatter.image.childImageSharp.fluid} />
         </Link>
       </Cell>
       <Cell>

@@ -1,8 +1,9 @@
 import React from 'react';
-import Index from '../components/pages/Index';
+import IndexComponent from '../components/pages/Index';
 import { graphql } from 'gatsby';
 
-export default (props) => <Index {...props} />;
+const Index = (props) => <IndexComponent {...props} />;
+export default Index;
 
 export const pageQuery = graphql`
   query IndexPtQuery {
@@ -32,8 +33,8 @@ export const pageQuery = graphql`
             date
             image {
               childImageSharp {
-                sizes(maxWidth: 750) {
-                  ...GatsbyImageSharpSizes
+                fluid(maxWidth: 750) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
@@ -61,8 +62,8 @@ export const pageQuery = graphql`
             date
             image {
               childImageSharp {
-                sizes(maxWidth: 750) {
-                  ...GatsbyImageSharpSizes
+                fluid(maxWidth: 750) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }

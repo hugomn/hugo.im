@@ -2,7 +2,8 @@ import React from 'react';
 import Blog from '../../components/pages/Blog';
 import { graphql } from 'gatsby';
 
-export default (props) => <Blog {...props} />;
+const BlogIndex = (props) => <Blog {...props} />;
+export default BlogIndex;
 
 export const pageQuery = graphql`
   query BlogEnQuery {
@@ -29,8 +30,8 @@ export const pageQuery = graphql`
             date
             image {
               childImageSharp {
-                sizes(maxWidth: 750) {
-                  ...GatsbyImageSharpSizes
+                fluid(maxWidth: 750) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
