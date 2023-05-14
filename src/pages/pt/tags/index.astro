@@ -9,7 +9,7 @@ import Tag from "@components/Tag.astro";
 import getUniqueTags from "@utils/getUniqueTags";
 import { SITE } from "@config";
 
-changeLanguage("en");
+changeLanguage("pt");
 
 const posts = await getCollection("blog");
 let tags = getUniqueTags(posts);

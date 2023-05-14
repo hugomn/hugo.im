@@ -14,7 +14,7 @@ import i18next, { t, changeLanguage } from "i18next";
 
 const posts = await getCollection(
   "blog",
-  ({ data }) => !data.draft && data.locale === "en"
+  ({ data }) => !data.draft && data.locale === "pt"
 );
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);

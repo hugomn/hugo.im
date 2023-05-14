@@ -1,5 +1,6 @@
 ---
 import { LOGO_IMAGE, SITE } from "@config";
+import { LanguageSelector } from "astro-i18next/components";
 import Hr from "./Hr.astro";
 import LinkButton from "./LinkButton.astro";
 
@@ -7,7 +8,7 @@ import logoPNG from "/assets/logo.png";
 import logoSVG from "/assets/logo.svg";
 
 export interface Props {
-  activeNav?: "posts" | "tags" | "about" | "search";
+  activeNav?: "blog" | "tags" | "about" | "search";
 }
 
 const { activeNav } = Astro.props;
@@ -57,9 +58,10 @@ const { activeNav } = Astro.props;
             <line x1="6" y1="6" x2="18" y2="18" class="close"></line>
           </svg>
         </button>
+        <LanguageSelector showFlag={true} class="my-select-class" />
         <ul id="menu-items" class="display-none sm:flex">
           <li>
-            <a href="/posts" class={activeNav === "posts" ? "active" : ""}>
+            <a href="/blog" class={activeNav === "blog" ? "active" : ""}>
               Posts
             </a>
           </li>

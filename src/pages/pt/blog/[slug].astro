@@ -10,38 +10,31 @@ import { SITE } from "@config";
 export interface Props {
   post: CollectionEntry<"blog">;
 }
-
 export async function getStaticPaths() {
-  const posts = await getCollection("blog", ({ data }) => !data.draft);
-
+  const posts = await getCollection(
+    "blog",
+    ({ data }) => !data.draft && data.locale === "pt"
+  );
   const postResult = posts.map(post => ({
     params: { slug: slugify(post.data) },
     props: { post },
   }));
-
   const pagePaths = getPageNumbers(posts.length).map(pageNum => ({
     params: { slug: String(pageNum) },
   }));
-
   return [...postResult, ...pagePaths];
 }
-
 const { slug } = Astro.params;
 const { post } = Astro.props;
-
 const posts = await getCollection("blog");
-
 const sortedPosts = getSortedPosts(posts);
-
 const totalPages = getPageNumbers(sortedPosts.length);
-
 const currentPage =
   slug && !isNaN(Number(slug)) && totalPages.includes(Number(slug))
     ? Number(slug)
     : 0;
 const lastPost = currentPage * SITE.postPerPage;
 const startPost = lastPost - SITE.postPerPage;
-
 const paginatedPosts = sortedPosts.slice(startPost, lastPost);
 ---
 
