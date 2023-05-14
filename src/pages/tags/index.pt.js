@@ -2,7 +2,8 @@ import React from 'react';
 import TagsPageRoute from '../../components/pages/Tags';
 import { graphql } from 'gatsby';
 
-export default (props) => <TagsPageRoute {...props} />;
+const DefaultPage = (props) => <TagsPageRoute {...props} />;
+export default DefaultPage;
 
 export const pageQuery = graphql`
   query TagsPtQuery {

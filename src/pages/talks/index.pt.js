@@ -109,4 +109,5 @@ const i18n = {
   `,
 };
 
-export default (props) => <Page i18n={i18n} {...props} />;
+const DefaultPage = (props) => <Page i18n={i18n} {...props} />;
+export default DefaultPage;
