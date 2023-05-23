@@ -58,8 +58,10 @@ const { activeNav } = Astro.props;
             <line x1="6" y1="6" x2="18" y2="18" class="close"></line>
           </svg>
         </button>
-        <LanguagePicker />
         <ul id="menu-items" class="display-none sm:flex">
+          <li>
+            <LanguagePicker />
+          </li>
           <li>
             <a href="/blog" class={activeNav === "blog" ? "active" : ""}>
               Posts
