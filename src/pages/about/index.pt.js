@@ -22,8 +22,7 @@ const i18n = {
         Especialidades: CTO, Chefe de Engenharia e VP de Engenharia; Estratégia Tecnológica, Desenvolvimento de
         Produtos, Arquitetura de Soluções; Empreendedorismo, Foco no Start-up; Gerenciamento de Produtos de Sucesso e
         Desenvolvimento de Novos Produtos; Sistemas de Missão Crítica; Bancos e Finanças, Pagamentos, Mobile e Online
-        Banking; Software como Dispositivo Médico, Apps on Prescription (DiGA), Health Techs. Traduzido com a versão
-        gratuita do tradutor - www.DeepL.com/Translator
+        Banking; Software como Dispositivo Médico, Apps on Prescription (DiGA), Health Techs.
       </p>
       <p>
         Se quiser saber mais, <a href="/contact">entre em contato!</a>. Eu adoraria bater um papo, tomar um café ou uma
