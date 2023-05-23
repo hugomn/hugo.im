@@ -6,17 +6,18 @@ import getSortedPosts from "@utils/getSortedPosts";
 import getPageNumbers from "@utils/getPageNumbers";
 import slugify from "@utils/slugify";
 import { SITE } from "@config";
+import { defaultLang } from "@i18n/config";
 
 export interface Props {
   post: CollectionEntry<"blog">;
 }
 export async function getStaticPaths() {
-  const posts = await getCollection(
-    "blog",
-    ({ data }) => !data.draft && data.locale === "pt"
-  );
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
   const postResult = posts.map(post => ({
-    params: { slug: slugify(post.data) },
+    params: {
+      lang: post.data.locale === defaultLang ? undefined : post.data.locale,
+      slug: slugify(post.data),
+    },
     props: { post },
   }));
   const pagePaths = getPageNumbers(posts.length).map(pageNum => ({

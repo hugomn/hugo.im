@@ -1,5 +1,4 @@
 ---
-import { changeLanguage } from "i18next";
 import { CollectionEntry, getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Main from "@layouts/Main.astro";
@@ -10,26 +9,26 @@ import getUniqueTags from "@utils/getUniqueTags";
 import getPostsByTag from "@utils/getPostsByTag";
 import slugify from "@utils/slugify";
 import { SITE } from "@config";
-
-changeLanguage("pt");
+import { defaultLang, languages } from "@i18n/config";
 
 export interface Props {
-  post: CollectionEntry<"blog">;
+  posts: CollectionEntry<"blog">[];
   tag: string;
 }
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
-  const tags = getUniqueTags(posts);
-  return tags.map(tag => {
-    return {
-      params: { tag },
-      props: { tag },
-    };
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
+
+  return Object.keys(languages).map(lang => {
+    const locale = lang === defaultLang ? undefined : lang;
+    const filteredPosts = posts.filter(post => post.data.locale == lang);
+    console.log(filteredPosts.length);
+    return getUniqueTags(filteredPosts).map(tag => ({
+      params: { lang: locale, tag },
+      props: { tag, posts: getPostsByTag(filteredPosts, tag) },
+    }));
   });
 }
-const { tag } = Astro.props;
-const posts = await getCollection("blog", ({ data }) => !data.draft);
-const tagPosts = getPostsByTag(posts, tag);
+const { tag, posts } = Astro.props;
 ---
 
 <Layout title={`Tag:${tag} | ${SITE.title}`}>
@@ -40,7 +39,7 @@ const tagPosts = getPostsByTag(posts, tag);
   >
     <ul>
       {
-        tagPosts.map(({ data }) => (
+        posts.map(({ data }) => (
           <Card href={`/posts/${slugify(data)}`} frontmatter={data} />
         ))
       }

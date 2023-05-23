@@ -1,0 +1,16 @@
+---
+import { languages } from "@i18n/config";
+import { localizeUrl } from "@i18n/utils";
+
+const { pathname } = Astro.url;
+---
+
+<ul>
+  {
+    Object.entries(languages).map(([lang, label]) => (
+      <li>
+        <a href={localizeUrl(lang, pathname)}>{label}</a>
+      </li>
+    ))
+  }
+</ul>

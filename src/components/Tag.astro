@@ -1,10 +1,14 @@
 ---
+import { getLangFromUrl, localizeUrl } from "@i18n/utils";
+import { loadTSConfig } from "astro/dist/core/config";
+
 export interface Props {
   name: string;
   size?: "sm" | "lg";
 }
 
 const { name, size = "sm" } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <li
@@ -13,7 +17,7 @@ const { name, size = "sm" } = Astro.props;
   }`}
 >
   <a
-    href={`/tags/${name.toLowerCase()}`}
+    href={localizeUrl(lang, `/tags/${name.toLowerCase()}`)}
     class={`${size === "sm" ? "text-sm" : "text-lg"} pr-2 group`}
   >
     <svg

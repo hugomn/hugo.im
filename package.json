@@ -12,19 +12,20 @@
     "format": "prettier --plugin-search-dir=. --write .",
     "cz": "cz",
     "prepare": "husky install",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "vitest"
   },
   "dependencies": {
     "@astrojs/rss": "^2.3.0",
     "@resvg/resvg-js": "^2.4.1",
     "astro": "^2.1.5",
-    "astro-i18next": "1.0.0-beta.21",
     "fuse.js": "^6.6.2",
     "github-slugger": "^2.0.0",
     "remark-collapse": "^0.1.2",
     "remark-toc": "^8.0.1",
     "satori": "^0.4.3",
-    "tailwindcss": "^3.2.7"
+    "tailwindcss": "^3.2.7",
+    "vitest": "^0.31.1"
   },
   "devDependencies": {
     "@astrojs/react": "^2.1.0",

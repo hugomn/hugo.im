@@ -1,5 +1,4 @@
 import { defineConfig } from "astro/config";
-import astroI18next from "astro-i18next";
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 import remarkToc from "remark-toc";
@@ -11,7 +10,6 @@ import { SITE } from "./src/config";
 export default defineConfig({
   site: SITE.website,
   integrations: [
-    astroI18next(),
     tailwind({
       config: {
         applyBaseStyles: false,

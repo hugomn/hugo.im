@@ -1,6 +1,6 @@
 ---
 title: "Sobre"
-pageSlug: "sobre"
+pageSlug: "about"
 locale: "pt"
 description: "Sobre desc"
 ---

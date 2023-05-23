@@ -1,8 +1,7 @@
 ---
 import { SITE } from "@config";
 import "@styles/base.css";
-import i18next from "i18next";
-import { HeadHrefLangs } from "astro-i18next/components";
+import { getLangFromUrl } from "@i18n/utils";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
@@ -26,10 +25,12 @@ const socialImageURL = new URL(
   ogImage ? ogImage : SITE.ogImage,
   Astro.url.origin
 ).href;
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -55,9 +56,6 @@ const socialImageURL = new URL(
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={socialImageURL} />
-
-    <!-- Href langs -->
-    <!-- <HeadHrefLangs /> -->
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

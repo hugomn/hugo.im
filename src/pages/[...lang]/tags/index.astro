@@ -1,5 +1,4 @@
 ---
-import { changeLanguage } from "i18next";
 import { getCollection } from "astro:content";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
@@ -8,11 +7,26 @@ import Main from "@layouts/Main.astro";
 import Tag from "@components/Tag.astro";
 import getUniqueTags from "@utils/getUniqueTags";
 import { SITE } from "@config";
+import { defaultLang, languages } from "@i18n/config";
 
-changeLanguage("en");
+export interface Props {
+  tags: string[];
+}
 
-const posts = await getCollection("blog");
-let tags = getUniqueTags(posts);
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
+
+  return Object.keys(languages).map(lang => {
+    const locale = lang === defaultLang ? undefined : lang;
+    const tags = getUniqueTags(posts.filter(post => post.data.locale == lang));
+    return {
+      params: { lang: locale },
+      props: { tags },
+    };
+  });
+}
+
+const { tags } = Astro.props;
 ---
 
 <Layout title={`Tags | ${SITE.title}`}>
