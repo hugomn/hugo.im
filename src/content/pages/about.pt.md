@@ -5,34 +5,16 @@ locale: "pt"
 description: "Sobre desc"
 ---
 
-Sobre
+Olá, Hugo aqui!
 
-This theme is aimed to be accessible out of the box. Light and dark mode are supported by
-default and additional color schemes can also be configured.
+Sou estrategista de tecnologia, especialista em desenvolvimento de produtos e gerente de equipe com cerca de 20 anos de experiência em software e consultoria.
 
-This theme is self-documented \_ which means articles/posts in this theme can also be considered as documentations. So, see the documentation for more info.
+Trabalho como Venture CTO e Engineering Lead na BCG Digital Ventures, onde inventamos, construímos e investimos em startups com as empresas mais influentes do mundo.
 
-<div>
-  <img src="/assets/dev.svg" class="sm:w-1/2 mx-auto" alt="coding dev illustration">
-</div>
+Tenho trabalhado recentemente no setor de Health Tech, principalmente em software como Dispositivo Médico e aplicativos sob prescrição para o mercado alemão (DiGA).
 
-## Tech Stack
+Especialidades: CTO, Chefe de Engenharia e VP de Engenharia; Estratégia Tecnológica, Desenvolvimento de Produtos, Arquitetura de Soluções; Empreendedorismo, Foco no Start-up; Gerenciamento de Produtos de Sucesso e Desenvolvimento de Novos Produtos; Sistemas de Missão Crítica; Bancos e Finanças, Pagamentos, Mobile e Online Banking; Software como Dispositivo Médico, Apps on Prescription (DiGA), Health Techs.
 
-This theme is written in vanilla JavaScript (+ TypeScript for type checking) and a little bit of ReactJS for some interactions. TailwindCSS is used for styling; and Markdown is used for blog contents.
+Se quiser saber mais, [entre em contato!](/pt/contact) Eu adoraria bater um papo, tomar um café ou uma cerveja.
 
-## Features
-
-Here are certain features of this site.
-
-- fully responsive and accessible
-- SEO-friendly
-- light & dark mode
-- fuzzy search
-- super fast performance
-- draft posts
-- pagination
-- sitemap & rss feed
-- highly customizable
-
-If you like this theme, you can star/contribute to the [repo](https://github.com/satnaing/astro-paper).  
-Or you can even give any feedback via my [email](mailto:contact@satnaing.dev).
+Cheers!

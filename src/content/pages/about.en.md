@@ -5,34 +5,16 @@ locale: "en"
 description: "About"
 ---
 
-AstroPaper is a minimal, responsive and SEO-friendly Astro blog theme. I designed and crafted this based on [my personal blog](https://satnaing.dev/blog).
+Hello, it’s Hugo here.
 
-This theme is aimed to be accessible out of the box. Light and dark mode are supported by
-default and additional color schemes can also be configured.
+I am a technology strategist, product development specialist, and team manager with about 20 years of experience in software and consulting.
 
-This theme is self-documented \_ which means articles/posts in this theme can also be considered as documentations. So, see the documentation for more info.
+I work as Venture CTO and Engineering Lead at BCG Digital Ventures, where we invent, build and invest in startups with the world's most influential companies.
 
-<div>
-  <img src="/assets/dev.svg" class="sm:w-1/2 mx-auto" alt="coding dev illustration">
-</div>
+I've been working recently on the Health Tech sector, mainly on software as Medical Device and apps on prescription for the german market (DiGA).
 
-## Tech Stack
+Specialties: CTO, Head of Engineering and VP Engineering; Technology Strategy, Product Development, Solution Architecture; Entrepreneurial, Start-up Focus; Successful Product Management and New Product Development; Mission Critical Systems; Banking and Finance, Payments, Mobile and Online Banking; Software as Medical Device, Apps on Prescription (DiGA), Health Techs.
 
-This theme is written in vanilla JavaScript (+ TypeScript for type checking) and a little bit of ReactJS for some interactions. TailwindCSS is used for styling; and Markdown is used for blog contents.
+If you want to know more, [please contact me](/contact). I’d love to chat or have a beer.
 
-## Features
-
-Here are certain features of this site.
-
-- fully responsive and accessible
-- SEO-friendly
-- light & dark mode
-- fuzzy search
-- super fast performance
-- draft posts
-- pagination
-- sitemap & rss feed
-- highly customizable
-
-If you like this theme, you can star/contribute to the [repo](https://github.com/satnaing/astro-paper).  
-Or you can even give any feedback via my [email](mailto:contact@satnaing.dev).
+Cheers!
