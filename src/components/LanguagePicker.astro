@@ -9,7 +9,7 @@ const { pathname } = Astro.url;
   {
     Object.entries(languages).map(([lang, label]) => (
       <li>
-        <a href={localizeUrl(lang, pathname)}>{label}</a>
+        <a href={localizeUrl(lang, pathname)}>{lang}</a>
       </li>
     ))
   }
