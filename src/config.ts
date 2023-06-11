@@ -3,7 +3,7 @@ import type { Site, SocialObjects } from "./types";
 export const SITE: Site = {
   website: "https://hugo.im/",
   author: "Hugo Nogueira",
-  desc: "I am a technology strategist, product development specialist and team manager with about 20 years of experience in software and consulting.",
+  desc: "I'm a product-orientated Chief Technology Officer with more than 12 years of deep technical experience developing, implementing and supporting complex infrastructures for fast growing startups.",
   title: "Hugo Nogueira",
   ogImage: "meta-og.jpg",
   lightAndDarkMode: true,
