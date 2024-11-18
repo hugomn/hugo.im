@@ -1,5 +1,4 @@
 ---
-import { languages } from "@i18n/config";
 // Remove current url path and remove trailing slash if exists
 const currentUrlPath = Astro.url.pathname.replace(/\/+$/, "");
 
@@ -7,22 +6,29 @@ const currentUrlPath = Astro.url.pathname.replace(/\/+$/, "");
 // eg: /tags/tailwindcss => ['tags', 'tailwindcss']
 const breadcrumbList = currentUrlPath.split("/").slice(1);
 
-// Remove lang
-if (breadcrumbList[0] in languages) {
-  breadcrumbList.splice(0, 1);
-}
-
 // if breadcrumb is Home > Posts > 1 <etc>
 // replace Posts with Posts (page number)
 breadcrumbList[0] === "posts" &&
   breadcrumbList.splice(0, 2, `Posts (page ${breadcrumbList[1] || 1})`);
+
+// if breadcrumb is Home > Tags > [tag] > [page] <etc>
+// replace [tag] > [page] with [tag] (page number)
+breadcrumbList[0] === "tags" &&
+  !isNaN(Number(breadcrumbList[2])) &&
+  breadcrumbList.splice(
+    1,
+    3,
+    `${breadcrumbList[1]} ${
+      Number(breadcrumbList[2]) === 1 ? "" : "(page " + breadcrumbList[2] + ")"
+    }`
+  );
 ---
 
 <nav class="breadcrumb" aria-label="breadcrumb">
   <ul>
     <li>
       <a href="/">Home</a>
-      <span aria-hidden="true">&#62;</span>
+      <span aria-hidden="true">&raquo;</span>
     </li>
     {
       breadcrumbList.map((breadcrumb, index) =>
@@ -33,13 +39,13 @@ breadcrumbList[0] === "posts" &&
               aria-current="page"
             >
               {/* make the last part lowercase in Home > Tags > some-tag */}
-              {breadcrumb}
+              {decodeURIComponent(breadcrumb)}
             </span>
           </li>
         ) : (
           <li>
-            <a href={`/${breadcrumb}`}>{breadcrumb}</a>
-            <span aria-hidden="true">&#62;</span>
+            <a href={`/${breadcrumb}/`}>{breadcrumb}</a>
+            <span aria-hidden="true">&raquo;</span>
           </li>
         )
       )

@@ -1,13 +1,13 @@
 ---
-import { languages } from "@i18n/config";
-import { localizeUrl } from "@i18n/utils";
+import { SUPPORTED_LANGUAGES } from "@config";
+import { localizeUrl } from "@utils/i18n";
 
 const { pathname } = Astro.url;
 ---
 
-<ul>
+<ul class="flex flex-row gap-3">
   {
-    Object.entries(languages).map(([lang, label]) => (
+    SUPPORTED_LANGUAGES.map(lang => (
       <li>
         <a href={localizeUrl(lang, pathname)}>{lang}</a>
       </li>

@@ -3,14 +3,31 @@ import type { Site, SocialObjects } from "./types";
 export const SITE: Site = {
   website: "https://hugo.im/",
   author: "Hugo Nogueira",
+  profile: "https://hugo.im/",
   desc: "I'm a product-orientated Chief Technology Officer with more than 12 years of deep technical experience developing, implementing and supporting complex infrastructures for fast growing startups.",
   title: "Hugo Nogueira",
   ogImage: "meta-og.jpg",
   lightAndDarkMode: true,
   postPerPage: 5,
+  postPerIndex: 4,
+  scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
+  showArchives: true,
+  editPost: {
+    url: "https://github.com/hugomn/hugo.im/edit/main/src/content/blog",
+    text: "Suggest Changes",
+    appendFilePath: true,
+  },
 };
 
-export const LOCALE = ["en-EN"]; // set to [] to use the environment default
+export const DEFAULT_LANGUAGE = "en";
+export const SUPPORTED_LANGUAGES = ["en", "pt"];
+
+export const LOCALE = {
+  lang: DEFAULT_LANGUAGE, // html lang code. Set this empty and default will be "en"
+  langTag: [], // BCP 47 Language Tags. Set this empty [] to use the environment default
+} as const;
+
+export type Language = (typeof SUPPORTED_LANGUAGES)[number];
 
 export const LOGO_IMAGE = {
   enable: false,
@@ -30,6 +47,12 @@ export const SOCIALS: SocialObjects = [
     name: "Facebook",
     href: "http://facebook.hugo.im",
     linkTitle: `${SITE.title} on Facebook`,
+    active: false,
+  },
+  {
+    name: "Threads",
+    href: "https://go.hugo.im/threads",
+    linkTitle: `${SITE.title} on Threads`,
     active: true,
   },
   {
@@ -51,9 +74,9 @@ export const SOCIALS: SocialObjects = [
     active: false,
   },
   {
-    name: "Twitter",
-    href: "http://twitter.hugo.im",
-    linkTitle: `${SITE.title} on Twitter`,
+    name: "X",
+    href: "https://github.com/hugomn",
+    linkTitle: `${SITE.title} on X`,
     active: false,
   },
   {

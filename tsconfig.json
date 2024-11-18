@@ -11,9 +11,7 @@
       "@layouts/*": ["layouts/*"],
       "@pages/*": ["pages/*"],
       "@styles/*": ["styles/*"],
-      "@utils/*": ["utils/*"],
-      "@i18n/*": ["i18n/*"]
-    },
-    "types": ["vite/client"]
+      "@utils/*": ["utils/*"]
+    }
   }
 }

@@ -2,35 +2,39 @@
 import { LOGO_IMAGE, SITE } from "@config";
 import Hr from "./Hr.astro";
 import LinkButton from "./LinkButton.astro";
-
-import logoPNG from "/assets/logo.png";
-import logoSVG from "/assets/logo.svg";
 import LanguagePicker from "./LanguagePicker.astro";
-import { getLangFromUrl, localizeUrl } from "@i18n/utils";
+import { localizeUrl } from "@utils/i18n";
 
 export interface Props {
-  activeNav?: "blog" | "tags" | "about" | "search" | "contact";
+  activeNav?: "posts" | "archives" | "tags" | "about" | "search" | "contact";
 }
 
 const { activeNav } = Astro.props;
-const lang = getLangFromUrl(Astro.url);
 ---
 
 <header>
   <a id="skip-to-content" href="#main-content">Skip to content</a>
   <div class="nav-container">
     <div class="top-nav-wrap">
-      <a href={localizeUrl(lang, "/")} class="logo">
+      <a href="/" class="logo flex flex-row items-center whitespace-nowrap">
         {
           LOGO_IMAGE.enable ? (
             <img
-              src={LOGO_IMAGE.svg ? logoSVG : logoPNG}
-              alt="AstroPaper Logo"
+              src={`/assets/${LOGO_IMAGE.svg ? "logo.svg" : "logo.png"}`}
+              alt={SITE.title}
               width={LOGO_IMAGE.width}
               height={LOGO_IMAGE.height}
             />
           ) : (
-            SITE.title
+            <>
+              <div class="avatar mr-2">
+                <img src={`/assets/profile_picture.jpg`} alt={SITE.title} />
+              </div>
+              {SITE.title}
+              <div class="ml-2 h-full w-5 content-center">
+                <img src={`/assets/material-symbols_verified.svg`} />
+              </div>
+            </>
           )
         }
       </a>
@@ -62,46 +66,72 @@ const lang = getLangFromUrl(Astro.url);
         </button>
         <ul id="menu-items" class="display-none sm:flex">
           <li>
-            <LanguagePicker />
-          </li>
-          <li>
             <a
-              href={localizeUrl(lang, "/about")}
+              href={localizeUrl(Astro.currentLocale, "/about")}
               class={activeNav === "about" ? "active" : ""}
             >
               About
             </a>
           </li>
           <li>
-            <a
-              href={localizeUrl(lang, "/blog")}
-              class={activeNav === "blog" ? "active" : ""}
-            >
-              Blog
+            <a href="/posts/" class={activeNav === "posts" ? "active" : ""}>
+              Posts
             </a>
           </li>
           <li>
-            <a
-              href={localizeUrl(lang, "/tags")}
-              class={activeNav === "tags" ? "active" : ""}
-            >
+            <a href="/tags/" class={activeNav === "tags" ? "active" : ""}>
               Tags
             </a>
           </li>
           <li>
             <a
-              href={localizeUrl(lang, "/contact")}
+              href={localizeUrl(Astro.currentLocale, "/contact")}
               class={activeNav === "contact" ? "active" : ""}
             >
               Contact
             </a>
           </li>
+          {
+            SITE.showArchives && (
+              <li>
+                <LinkButton
+                  href="/archives/"
+                  className={`focus-outline flex justify-center p-3 sm:p-1`}
+                  ariaLabel="archives"
+                  title="Archives"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class:list={[
+                      "icon icon-tabler icons-tabler-outline !hidden sm:!inline-block",
+                      activeNav === "archives" && "!stroke-skin-accent",
+                    ]}
+                  >
+                    <>
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                      <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+                      <path d="M10 12l4 0" />
+                    </>
+                  </svg>
+                  <span
+                    class:list={[
+                      "sm:sr-only",
+                      activeNav === "archives" && "active",
+                    ]}
+                  >
+                    Archives
+                  </span>
+                </LinkButton>
+              </li>
+            )
+          }
           <li>
             <LinkButton
-              href={localizeUrl(lang, "/search")}
+              href="/search/"
               className={`focus-outline p-3 sm:p-1 ${
                 activeNav === "search" ? "active" : ""
-              }`}
+              } flex`}
               ariaLabel="search"
               title="Search"
             >
@@ -112,11 +142,12 @@ const lang = getLangFromUrl(Astro.url);
                   d="M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z"
                 ></path>
               </svg>
+              <span class="sr-only">Search</span>
             </LinkButton>
           </li>
-          <li>
-            {
-              SITE.lightAndDarkMode && (
+          {
+            SITE.lightAndDarkMode && (
+              <li>
                 <button
                   id="theme-btn"
                   class="focus-outline"
@@ -131,9 +162,9 @@ const lang = getLangFromUrl(Astro.url);
                     <path d="M6.993 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007S14.761 6.993 12 6.993 6.993 9.239 6.993 12zM12 8.993c1.658 0 3.007 1.349 3.007 3.007S13.658 15.007 12 15.007 8.993 13.658 8.993 12 10.342 8.993 12 8.993zM10.998 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2h-3zm17 0h3v2h-3zM4.219 18.363l2.12-2.122 1.415 1.414-2.12 2.122zM16.24 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.342 7.759 4.22 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z" />
                   </svg>
                 </button>
-              )
-            }
-          </li>
+              </li>
+            )
+          }
         </ul>
       </nav>
     </div>
@@ -142,6 +173,10 @@ const lang = getLangFromUrl(Astro.url);
 </header>
 
 <style>
+  :root {
+    --size-avatar: 46px;
+    --size-border: 2px;
+  }
   #skip-to-content {
     @apply absolute -top-full left-16 z-50 bg-skin-accent px-3 py-2 text-skin-inverted transition-all focus:top-4;
   }
@@ -152,7 +187,37 @@ const lang = getLangFromUrl(Astro.url);
     @apply relative flex w-full items-start justify-between p-4 sm:items-center sm:py-8;
   }
   .logo {
-    @apply absolute py-1 text-xl font-semibold sm:static sm:text-2xl;
+    @apply absolute py-1 text-lg font-semibold sm:static sm:text-xl;
+  }
+  .logo .avatar {
+    @apply mr-2 rounded-full;
+    background-image: linear-gradient(
+      45deg,
+      #ffa95f 5%,
+      #f99c4a 15%,
+      #f47838 30%,
+      #e75157 45%,
+      #d92d7a 70%,
+      #cc2a92 80%,
+      #c32e92 95%
+    );
+    height: var(--size-avatar);
+    width: var(--size-avatar);
+    min-width: var(--size-avatar);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    padding: var(--size-border);
+    border: var(--size-border) solid var(--color-fill, --color-fill);
+  }
+  .logo > .avatar > img {
+    @apply rounded-full;
+    height: auto;
+    width: 100%;
+    transition: transform 0.6s ease-in-out;
+    border-color: rgba(var(--color-fill), var(--tw-bg-opacity));
+    border-width: var(--size-border);
   }
   .hamburger-menu {
     @apply self-end p-2 sm:hidden;
@@ -162,7 +227,7 @@ const lang = getLangFromUrl(Astro.url);
   }
 
   nav {
-    @apply flex w-full flex-col items-center bg-skin-fill sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0;
+    @apply flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0;
   }
   nav ul {
     @apply mt-4 grid w-44 grid-cols-2 grid-rows-4 gap-x-2 gap-y-2 sm:ml-0 sm:mt-0 sm:w-auto sm:gap-x-5 sm:gap-y-0;
@@ -173,14 +238,14 @@ const lang = getLangFromUrl(Astro.url);
   nav ul li a {
     @apply w-full px-4 py-3 text-center font-medium hover:text-skin-accent sm:my-0 sm:px-2 sm:py-1;
   }
-  nav ul li:nth-child(4) a {
+  nav ul li:nth-last-child(2) a {
     @apply w-auto;
   }
-  nav ul li:nth-child(4),
-  nav ul li:nth-child(5) {
+  nav ul li:nth-last-child(1),
+  nav ul li:nth-last-child(2) {
     @apply col-span-1;
   }
-  nav a.active {
+  nav .active {
     @apply underline decoration-wavy decoration-2 underline-offset-4;
   }
   nav a.active svg {
@@ -215,19 +280,26 @@ const lang = getLangFromUrl(Astro.url);
 </style>
 
 <script>
-  // Toggle menu
-  const menuBtn = document.querySelector(".hamburger-menu");
-  const menuIcon = document.querySelector(".menu-icon");
-  const menuItems = document.querySelector("#menu-items");
+  function toggleNav() {
+    // Toggle menu
+    const menuBtn = document.querySelector(".hamburger-menu");
+    const menuIcon = document.querySelector(".menu-icon");
+    const menuItems = document.querySelector("#menu-items");
 
-  menuBtn?.addEventListener("click", () => {
-    const menuExpanded = menuBtn.getAttribute("aria-expanded") === "true";
-    menuIcon?.classList.toggle("is-active");
-    menuBtn.setAttribute("aria-expanded", menuExpanded ? "false" : "true");
-    menuBtn.setAttribute(
-      "aria-label",
-      menuExpanded ? "Open Menu" : "Close Menu"
-    );
-    menuItems?.classList.toggle("display-none");
-  });
+    menuBtn?.addEventListener("click", () => {
+      const menuExpanded = menuBtn.getAttribute("aria-expanded") === "true";
+      menuIcon?.classList.toggle("is-active");
+      menuBtn.setAttribute("aria-expanded", menuExpanded ? "false" : "true");
+      menuBtn.setAttribute(
+        "aria-label",
+        menuExpanded ? "Open Menu" : "Close Menu"
+      );
+      menuItems?.classList.toggle("display-none");
+    });
+  }
+
+  toggleNav();
+
+  // Runs on view transitions navigation
+  document.addEventListener("astro:after-swap", toggleNav);
 </script>

@@ -1,8 +1,7 @@
 ---
 import Hr from "./Hr.astro";
+import LanguagePicker from "./LanguagePicker.astro";
 import Socials from "./Socials.astro";
-
-const currentYear = new Date().getFullYear();
 
 export interface Props {
   noMarginTop?: boolean;
@@ -15,10 +14,9 @@ const { noMarginTop = false } = Astro.props;
   <Hr noPadding />
   <div class="footer-wrapper">
     <Socials centered />
+    <LanguagePicker centered />
     <div class="copyright-wrapper">
-      <span>Copyright &#169; {currentYear}</span>
-      <span class="separator">&nbsp;|&nbsp;</span>
-      <span>All rights reserved.</span>
+      <span>Designed and coded by Hugo Nogueira.</span>
     </div>
   </div>
 </footer>

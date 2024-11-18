@@ -36,7 +36,7 @@ The author begins the book by showing the idea of "the west and the rest of the 
 
 With this division, Rosling shows that between extreme poverty (level 1) and extreme wealth (level 4), there are levels 2 and 3. And guess what: there are 5 billion people in these two intermediate levels. People think instinctively at opposite ends, neglecting the 'gap' between where true development occurs.
 
-![Income per person in dollars per day adjusted for price differences](./images/20210110_income_levels.png "Income levels. Source: Gapminder")
+![Income per person in dollars per day adjusted for price differences](/images/20210110_income_levels.png "Income levels. Source: Gapminder")
 
 The gap is the first of the 10 instincts that make up the chapters of the book. Instincts are intuitive ways of thinking that originated during the evolution of our species. Fear, generalization, or guilt may have been useful in the past to quickly form judgments as preparation for action. But in our complex world, instincts obscure rational judgement, argues Rosling. Instead, we must be aware of our innate mental traps and use data to provide context and reveal trends.
 
@@ -46,7 +46,7 @@ The book, however, has received some criticism for being extremely optimistic, e
 
 ## Conclusion
 
-![](./images/20210110_factfulness.jpg#width=160px;padding=8px 40px 40px 0;float=left; 'Income levels. Source: Gapminder')
+<img src="/images/20210110_factfulness.jpg" alt="Factfulness" align="left" style="max-width: 200px; margin-right: 20px"/>
 Factfulness is a fantastic collection of experiences and insights that help us to better understand how we have evolved. The 10 instincts presented in the book also help us to understand how some extremist movements have gained strength recently, such as anti-vaccine, fascists, and neo-Nazis movements. Ultimately, the author wants us to shift our focus to the five real risks for our humanity: poverty, pandemics, financial collapse, world war III and climate change.
 
 My final rating for the book is 4.5/5. And I leave here the main message I take after finishing it: not everything is as bad as it seems. Our instincts can fool us, so always be equipped with reliable data and information. And a little bit of history and positivity doesn't hurt anyone!
