@@ -36,7 +36,7 @@ O autor começa o livro mostrando a ideia de "Oriente e resto do mundo" que muit
 
 Com esse divisão, Rosling mostra que entre a pobreza extrema (nível 1) e a extrema riqueza (nível 4), existem os níveis 2 e 3. E adivinhem: existem 5 bilhões de pessoas nesses dois níveis intermediários. As pessoas pensam instintivamente em extremos opostos, negligenciando a 'lacuna' entre onde o verdadeiro desenvolvimento ocorre.
 
-![Income per person in dollars per day adjusted for price differences](./images/20210110_income_levels.png "Income levels. Source: Gapminder")
+![Income per person in dollars per day adjusted for price differences](/images/20210110_income_levels.png "Income levels. Source: Gapminder")
 
 A lacuna é o primeiro dos 10 instintos que compõem os capítulos do livro. Os instintos são formas intuitivas de pensar que se originaram durante a evolução de nossa espécie. Medo, generalização ou culpa podem ter sido úteis no passado para formar rapidamente julgamentos como preparação para a ação. Mas em nosso mundo complexo, os instintos obscurecem o julgamento racional, argumenta Rosling. Em vez disso, devemos estar cientes de nossas armadilhas mentais inatas e usar dados para fornecer contexto e revelar tendências.
 
@@ -46,7 +46,7 @@ O livro, no entanto, recebeu algumas críticas por ser extremamente otimista, at
 
 ## Conclusão
 
-![](./images/20210110_factfulness.jpg#width=160px;padding=8px 40px 40px 0;float=left; 'Income levels. Source: Gapminder')
+<img src="/images/20210110_factfulness.jpg" alt="Factfulness" align="left" style="max-width: 200px; margin-right: 20px"/>
 Factfulness é uma coleção fantástica de experiências e insights que nos ajudam a entender melhor como temos evoluído. Os 10 instintos apresentados no livro, também nos ajudam a entender como alguns movimentos extremistas tem ganhado força recentemente, como movimentos anti-vacinas, fascistas, neo-nazistas, etc. No fim das contas, o autor quer que desviemos nosso foco aos cinco riscos reais de nossa humanidade: pobreza, pandemias, colapso financeiro terceira guerra mundial e alterações climáticas.
 
 Minha nota final para o livro é 4,5/5. E deixo aqui a mensagem principal que levo após terminá-lo: nem tudo está tão ruim quanto parece. Nossos instintos podem nos enganar, então esteja sempre munido de dados e informações confiáveis. E um poquinho de história e positividade não faz mal a ninguém!
