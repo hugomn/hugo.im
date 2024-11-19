@@ -13,9 +13,14 @@ import { getTranslator, localizeUrl } from "@utils/i18n";
 
 const posts = await getCollection("blog");
 
+const locale = "pt";
 const sortedPosts = getSortedPosts(posts);
-const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
-const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
+const featuredPosts = sortedPosts.filter(
+  ({ data }) => data.featured && data.locale == locale
+);
+const recentPosts = sortedPosts.filter(
+  ({ data }) => !data.featured && data.locale == locale
+);
 
 const socialCount = SOCIALS.filter(social => social.active).length;
 const t = getTranslator(Astro.currentLocale);

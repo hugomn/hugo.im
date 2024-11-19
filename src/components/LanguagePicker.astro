@@ -1,15 +1,18 @@
 ---
 import { SUPPORTED_LANGUAGES } from "@config";
-import { localizeUrl } from "@utils/i18n";
+import { getLangFromUrl, localizeUrl } from "@utils/i18n";
 
 const { pathname } = Astro.url;
+const currentLang = getLangFromUrl(Astro.url);
 ---
 
 <ul class="flex flex-row gap-3">
   {
     SUPPORTED_LANGUAGES.map(lang => (
       <li>
-        <a href={localizeUrl(lang, pathname)}>{lang}</a>
+        <a class={lang === currentLang ? "font-bold" : ""} href={localizeUrl(lang, pathname)}>
+          {lang}
+        </a>
       </li>
     ))
   }
