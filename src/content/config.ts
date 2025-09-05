@@ -1,10 +1,8 @@
 import { SITE } from "@config";
-import { glob } from "astro/loaders";
 import { defineCollection, z } from "astro:content";
 
 const blog = defineCollection({
-  type: "content_layer",
-  loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }),
+  type: "content",
   schema: ({ image }) =>
     z.object({
       author: z.string().default(SITE.author),
