@@ -88,7 +88,7 @@ const EditPost = ({ editPost, postId }: EditPostProps) => {
   const appendFilePath =
     editPost?.appendFilePath ?? SITE?.editPost?.appendFilePath ?? false;
   if (appendFilePath && postId) {
-    editPostUrl += `/${postId}`;
+    editPostUrl += `/${postId}.md`;
   }
   const editPostText = editPost?.text ?? SITE?.editPost?.text ?? "Edit";
 
