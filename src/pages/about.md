@@ -10,20 +10,20 @@ Hello, I'm Hugo.
 
 I'm a cross-functional product and technology leader with 20+ years of experience building high-impact software across fintech, health tech, and enterprise SaaS.
 
-Currently CPTO at **[Complyance](https://www.complyance.com)**, where I lead product, engineering, and design in building the most modern end-to-end GRC platform on the market. I'm obsessed with shipping secure, scalable systems — but equally passionate about elegant UX and design that actually delights users.
+Currently CPTO at **[Complyance](https://www.complyance.com)**, where I lead product, engineering, and design in building the most modern end-to-end GRC platform on the market. I'm obsessed with shipping secure, scalable systems, but equally passionate about elegant UX and design that actually delights users.
 
 ## The AI Productivity Revolution
 
-I'm living proof that AI coding tools are transforming how we build software. In 2025, I achieved a **1,082% increase in coding productivity** using tools like Claude Code, shipping 146,000 lines of production TypeScript in just 4 months — more than I had in the previous 2 years combined.
+I'm living proof that AI coding tools are transforming how we build software. In 2025, I achieved a **1,082% increase in coding productivity** using tools like Claude Code, shipping 146,000 lines of production TypeScript in just 4 months. More than I had in the previous 2 years combined.
 
 This isn't about replacing developers; it's about elevating our work. AI handles the boilerplate while we focus on product thinking, system design, and solving real user problems.
 
 ## What I Believe
 
 Great software comes from three pillars:
-- **Deep user empathy** — Understanding problems before building solutions
-- **Strong product intuition** — Knowing what to build and why
-- **Relentlessly high standards** — Excellence in both engineering and design
+- **Deep user empathy**: Understanding problems before building solutions
+- **Strong product intuition**: Knowing what to build and why
+- **Relentlessly high standards**: Excellence in both engineering and design
 
 My background spans hands-on engineering, product strategy, team building, and customer discovery. I thrive at the intersection of technology, design, and business.
 
