@@ -1,6 +1,7 @@
 # build output
 dist/
 .output/
+.history/
 
 # dependencies
 node_modules/
