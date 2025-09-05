@@ -37,6 +37,6 @@ My background spans hands-on engineering, product strategy, team building, and c
 
 ---
 
-Want to discuss AI coding, product strategy, or building great software? [Let's connect](/contact). I'd love to chat over coffee or a beer.
+Want to discuss AI coding, product strategy, or building great software? [Let's connect](/contact). I'd love to chat over coffee.
 
-Cheers! 🍺
+Cheers! ☕

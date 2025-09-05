@@ -37,6 +37,6 @@ Minha experiência abrange engenharia prática, estratégia de produto, constru�
 
 ---
 
-Quer discutir codificação com IA, estratégia de produto ou construção de grande software? [Vamos nos conectar](/pt/contact). Adoraria conversar tomando um café ou uma cerveja.
+Quer discutir codificação com IA, estratégia de produto ou construção de grande software? [Vamos nos conectar](/pt/contact). Adoraria conversar tomando um café.
 
-Saúde! 🍺
+Saúde! ☕
