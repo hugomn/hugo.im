@@ -10,7 +10,7 @@ Hello, I'm Hugo.
 
 I'm a cross-functional product and technology leader with 20+ years of experience building high-impact software across fintech, health tech, and enterprise SaaS.
 
-Currently CPTO at **Complyance**, where I lead product, engineering, and design in building the most modern end-to-end GRC platform on the market. I'm obsessed with shipping secure, scalable systems — but equally passionate about elegant UX and design that actually delights users.
+Currently CPTO at **[Complyance](https://www.complyance.com)**, where I lead product, engineering, and design in building the most modern end-to-end GRC platform on the market. I'm obsessed with shipping secure, scalable systems — but equally passionate about elegant UX and design that actually delights users.
 
 ## The AI Productivity Revolution
 

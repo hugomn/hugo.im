@@ -10,7 +10,7 @@ Olá, eu sou o Hugo.
 
 Sou um líder de produto e tecnologia multifuncional com mais de 20 anos de experiência construindo software de alto impacto em fintech, health tech e SaaS empresarial.
 
-Atualmente CPTO na **Complyance**, onde lidero produto, engenharia e design na construção da mais moderna plataforma GRC end-to-end do mercado. Sou obcecado por entregar sistemas seguros e escaláveis — mas igualmente apaixonado por UX elegante e design que realmente encanta usuários.
+Atualmente CPTO na **[Complyance](https://www.complyance.com)**, onde lidero produto, engenharia e design na construção da mais moderna plataforma GRC end-to-end do mercado. Sou obcecado por entregar sistemas seguros e escaláveis — mas igualmente apaixonado por UX elegante e design que realmente encanta usuários.
 
 ## A Revolução da Produtividade com IA
 
