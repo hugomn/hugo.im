@@ -22,6 +22,11 @@
 - Follow existing code style and patterns
 - Update documentation when making significant changes
 
+### ✍️ Writing Style Rules
+- **NEVER use EM dashes (—)** - Replace with regular statement, or rephrase completely
+- Use clear, concise language
+- Avoid unnecessary punctuation complexity
+
 ## Project-Specific Notes
 - This is a personal blog built with Astro
 - Uses TypeScript throughout
