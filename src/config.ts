@@ -4,7 +4,7 @@ export const SITE: Site = {
   website: "https://hugo.im/",
   author: "Hugo Nogueira",
   profile: "https://hugo.im/",
-  desc: "I'm a product-orientated Chief Technology Officer with more than 12 years of deep technical experience developing, implementing and supporting complex infrastructures for fast growing startups.",
+  desc: "AI-forward CPTO building the future of enterprise software. 20+ years leading product x engineering x design teams. Currently shipping the most modern GRC platform at Complyance.",
   title: "Hugo Nogueira",
   ogImage: "meta-og.jpg",
   lightAndDarkMode: true,
@@ -75,9 +75,9 @@ export const SOCIALS: SocialObjects = [
   },
   {
     name: "X",
-    href: "https://github.com/hugomn",
+    href: "https://x.com/hugomn",
     linkTitle: `${SITE.title} on X`,
-    active: false,
+    active: true,
   },
   {
     name: "Twitch",
