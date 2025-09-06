@@ -21,7 +21,7 @@ const {
   title,
   author,
   description,
-  ogImage,
+  image,
   canonicalURL,
   pubDatetime,
   modDatetime,
@@ -31,7 +31,7 @@ const {
 
 const { Content } = await render(post);
 
-const ogImageUrl = typeof ogImage === "string" ? ogImage : ogImage?.src;
+const ogImageUrl = typeof image === "string" ? image : image?.src;
 const ogUrl = new URL(
   ogImageUrl ?? `/posts/${slugifyStr(title)}.png`,
   Astro.url.origin
@@ -87,10 +87,10 @@ const nextPost =
       editPost={editPost}
       postId={post.id}
     />
-    {ogImage && (
+    {image && (
       <div class="featured-image-container my-8">
         <img 
-          src={ogImage}
+          src={image}
           alt={title}
           class="featured-image w-full rounded-lg"
           loading="eager"

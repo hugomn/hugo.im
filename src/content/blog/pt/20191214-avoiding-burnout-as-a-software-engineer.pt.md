@@ -6,7 +6,7 @@ locale: pt
 postSlug: avoiding-burnout-as-a-software-engineer
 featured: false
 draft: false
-ogImage: /images/20191214.jpg
+image: /images/20191214.jpg
 tags:
   - liderança
   - gerenciamento

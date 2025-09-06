@@ -6,7 +6,7 @@ locale: pt
 postSlug: beber-liquidos-durante-refeicoes-atrapalha-digestao-mito-ou-verdade
 featured: false
 draft: false
-ogImage: /images/20170313.jpg
+image: /images/20170313.jpg
 tags:
   - saúde
   - alimentação

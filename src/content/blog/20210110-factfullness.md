@@ -5,7 +5,7 @@ title: "The world is not that bad! Book review: Factfulness"
 locale: en
 postSlug: book-review-factfulness
 featured: false
-ogImage: /images/20210110.jpg
+image: /images/20210110.jpg
 tags:
   - books
   - economy

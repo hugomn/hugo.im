@@ -6,7 +6,7 @@ locale: pt
 postSlug: what-diversity-should-not-be-about-especially-in-software-teams
 featured: false
 draft: false
-ogImage: /images/20190125.jpg
+image: /images/20190125.jpg
 tags:
   - liderança
   - diversidade

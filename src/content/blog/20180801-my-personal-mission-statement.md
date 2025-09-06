@@ -6,7 +6,7 @@ locale: en
 postSlug: my-personal-mission-statement
 featured: false
 draft: false
-ogImage: /images/20180801.jpg
+image: /images/20180801.jpg
 tags:
   - personal
   - development

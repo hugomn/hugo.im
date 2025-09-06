@@ -6,7 +6,7 @@ locale: pt
 postSlug: a-brief-look-at-heycom-stack
 featured: false
 draft: false
-ogImage: /images/20200630.jpg
+image: /images/20200630.jpg
 tags:
   - technology
   - ruby-on-rails

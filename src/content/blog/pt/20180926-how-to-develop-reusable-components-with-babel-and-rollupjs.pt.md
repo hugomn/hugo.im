@@ -6,7 +6,7 @@ locale: pt
 postSlug: how-to-develop-reusable-components-with-babel-and-rollupjs
 featured: false
 draft: false
-ogImage: /images/20180926.jpg
+image: /images/20180926.jpg
 tags:
   - javascript
   - rollup.js

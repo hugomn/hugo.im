@@ -9,7 +9,7 @@ export interface Props {
 }
 
 export default function Card({ href, frontmatter, secHeading = true }: Props) {
-  const { title, pubDatetime, modDatetime, description, ogImage } = frontmatter;
+  const { title, pubDatetime, modDatetime, description, image } = frontmatter;
 
   const headerProps = {
     style: { viewTransitionName: slugifyStr(title) },
@@ -19,10 +19,10 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
   return (
     <li className="my-6">
       <div className="card-container">
-        {ogImage && (
+        {image && (
           <a href={href} className="card-image-link block mb-4">
             <img
-              src={ogImage}
+              src={image}
               alt={title}
               className="card-image w-full rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
               loading="lazy"

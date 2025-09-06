@@ -5,7 +5,7 @@ title: "O mundo não é tão ruim assim! Review de livro: Factfulness"
 locale: pt
 postSlug: book-review-factfulness
 featured: false
-ogImage: /images/20210110.jpg
+image: /images/20210110.jpg
 tags:
   - books
   - economy
