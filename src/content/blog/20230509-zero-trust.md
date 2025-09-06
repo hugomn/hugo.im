@@ -5,7 +5,7 @@ title: The importance of zero trust architecture for enterprises with remote or 
 locale: en
 postSlug: the-importance-of-zero-trust-architecture-for-enterprises-with-remote-or-hybrid-work-models
 featured: true
-ogImage: https://user-images.githubusercontent.com/53733092/215771435-25408246-2309-4f8b-a781-1f3d93bdf0ec.png
+ogImage: /images/20230509.jpg
 tags:
   - zero-trust-architecture
   - cybersecurity

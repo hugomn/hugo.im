@@ -5,7 +5,6 @@ title: "How to strike the right balance between not rushing to show value and ex
 locale: en
 postSlug: balancing-the-cofounder-mindset
 featured: true
-ogImage: https://user-images.githubusercontent.com/53733092/215771435-25408246-2309-4f8b-a781-1f3d93bdf0ec.png
 tags:
   - startups
   - management

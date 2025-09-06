@@ -87,6 +87,17 @@ const nextPost =
       editPost={editPost}
       postId={post.id}
     />
+    {ogImage && (
+      <div class="featured-image-container my-8">
+        <img 
+          src={ogImage}
+          alt={title}
+          class="featured-image w-full rounded-lg"
+          loading="eager"
+          transition:name={`img-${slugifyStr(title)}`}
+        />
+      </div>
+    )}
     <article id="article" class="prose mx-auto mt-8 max-w-5xl">
       <Content />
     </article>
@@ -188,6 +199,16 @@ const nextPost =
   }
   .post-title {
     @apply text-2xl font-semibold text-skin-accent;
+  }
+  
+  .featured-image-container {
+    @apply mx-auto max-w-5xl;
+  }
+  
+  .featured-image {
+    @apply shadow-lg;
+    max-height: 500px;
+    object-fit: cover;
   }
 </style>
 

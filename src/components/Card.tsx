@@ -9,7 +9,7 @@ export interface Props {
 }
 
 export default function Card({ href, frontmatter, secHeading = true }: Props) {
-  const { title, pubDatetime, modDatetime, description } = frontmatter;
+  const { title, pubDatetime, modDatetime, description, ogImage } = frontmatter;
 
   const headerProps = {
     style: { viewTransitionName: slugifyStr(title) },
@@ -18,18 +18,35 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
 
   return (
     <li className="my-6">
-      <a
-        href={href}
-        className="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
-      >
-        {secHeading ? (
-          <h2 {...headerProps}>{title}</h2>
-        ) : (
-          <h3 {...headerProps}>{title}</h3>
+      <div className="card-container">
+        {ogImage && (
+          <a href={href} className="card-image-link block mb-4">
+            <img
+              src={ogImage}
+              alt={title}
+              className="card-image w-full rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+              loading="lazy"
+              style={{
+                maxHeight: "300px",
+                objectFit: "cover",
+                viewTransitionName: `img-${slugifyStr(title)}`,
+              }}
+            />
+          </a>
         )}
-      </a>
-      <Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} />
-      <p>{description}</p>
+        <a
+          href={href}
+          className="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
+        >
+          {secHeading ? (
+            <h2 {...headerProps}>{title}</h2>
+          ) : (
+            <h3 {...headerProps}>{title}</h3>
+          )}
+        </a>
+        <Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} />
+        <p>{description}</p>
+      </div>
     </li>
   );
 }
