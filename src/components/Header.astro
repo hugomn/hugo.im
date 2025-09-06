@@ -5,7 +5,7 @@ import LinkButton from "./LinkButton.astro";
 import { localizeUrl } from "@utils/i18n";
 
 export interface Props {
-  activeNav?: "posts" | "archives" | "tags" | "about" | "search" | "contact";
+  activeNav?: "posts" | "archives" | "tags" | "about" | "search" | "contact" | "talks";
 }
 
 const { activeNav } = Astro.props;
@@ -75,6 +75,14 @@ const { activeNav } = Astro.props;
           <li>
             <a href="/posts/" class={activeNav === "posts" ? "active" : ""}>
               Posts
+            </a>
+          </li>
+          <li>
+            <a
+              href={localizeUrl(Astro.currentLocale, "/talks")}
+              class={activeNav === "talks" ? "active" : ""}
+            >
+              Talks
             </a>
           </li>
           <li>
