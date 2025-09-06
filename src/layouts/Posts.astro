@@ -5,16 +5,21 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Pagination from "@components/Pagination.astro";
 import Card from "@components/Card";
+import Tag from "@components/Tag.astro";
 import { SITE } from "@config";
 import type { Page } from "astro";
 import type { CollectionEntry } from "astro:content";
 import { localizeUrl } from "@utils/i18n";
+import { getCollection } from "astro:content";
+import getUniqueTags from "@utils/getUniqueTags";
 
 export interface Props {
   page: Page<CollectionEntry<"blog">>;
 }
 
 const { page } = Astro.props;
+const posts = await getCollection("blog");
+const tags = getUniqueTags(posts);
 ---
 
 <Layout title={`Posts | ${SITE.title}`}>
@@ -32,7 +37,28 @@ const { page } = Astro.props;
     </ul>
   </Main>
 
+  <section class="tags-section">
+    <h2>Explore by Tags</h2>
+    <div class="tag-cloud">
+      {tags.map(({ tag }) => <Tag {tag} />)}
+    </div>
+  </section>
+
   <Pagination {page} />
 
   <Footer noMarginTop={page.lastPage > 1} />
 </Layout>
+
+<style>
+  .tags-section {
+    @apply mx-auto max-w-5xl px-4 pb-8;
+  }
+  
+  .tags-section h2 {
+    @apply mb-6 text-2xl font-semibold text-skin-base;
+  }
+  
+  .tag-cloud {
+    @apply flex flex-wrap gap-3;
+  }
+</style>
