@@ -22,28 +22,11 @@ Um estudo recente da Gallup descobriu que cerca de 2/3 dos trabalhadores em temp
 
 ## Palestras passadas
 
-### How to develop reusable components with Babel and RollupJS 🇺🇸 (2018)
-Nesta palestra tento mostrar, com um exemplo muito simples, o contexto da criação do conceito de módulos em JavaScript. Também fiz uma sessão de codificação ao vivo, mostrando como criar e publicar componentes reutilizáveis.
-
-**Links**: [Post](https://www.hugo.im/blog/how-to-develop-reusable-components-with-babel-and-rollupjs) | [Slides](https://speakerdeck.com/hugomn/how-to-develop-reusable-components-with-babel-and-rollup-dot-js) | [Recording](https://www.youtube.com/watch?v=Dve_bYaAVZ0)
-
-### Inbound marketing - a nova forma de se comunicar e conquistar seus clientes 🇧🇷 (2016)
-**Links**: [Slides](https://www.slideshare.net/hugomn/inbound-marketing-a-nova-forma-de-se-comunicar-e-conquistar-seus-clientes)
-
-### Conhecendo os fundamentos e desenvolvendo uma aplicação básica com Angular 2 🇧🇷 (2016)
-**Links**: [Slides](https://www.slideshare.net/hugomn/conhecendo-os-fundamentos-e-desenvolvendo-uma-apliao-bsica-com-angular2)
-
-### Empreendedorismo e as Oportunidades Disfarçadas 🇧🇷 (2012)
-**Links**: [Slides](https://www.slideshare.net/hugomn/empreendedorismo-e-as-oportunidades-disfaradas)
-
-### Introdução ao Symfony 2 🇧🇷 (2012)
-**Links**: [Slides](https://www.slideshare.net/hugomn/introduo-ao-symfony-2)
-
-### Desenvolvimento de aplicações PHP usando framework de alta produtividade 🇧🇷 (2011)
-**Links**: [Slides](https://www.slideshare.net/hugomn/symfony-framework-php-de-alta-produtividade)
-
-### Mídias sociais para negócios 🇧🇷 (2011)
-**Links**: [Slides](https://www.slideshare.net/hugomn/mdias-sociais-para-negcios)
-
-### SEO - Como e porque otimizar um website 🇧🇷 (2010)
-**Links**: [Slides](https://www.slideshare.net/hugomn/seo-como-e-porque-otimizar-um-website-semana-da-informtica-ufv)
+- How to develop reusable components with Babel and RollupJS 🇺🇸 (2018) - [Post](https://www.hugo.im/blog/how-to-develop-reusable-components-with-babel-and-rollupjs) | [Slides](https://speakerdeck.com/hugomn/how-to-develop-reusable-components-with-babel-and-rollup-dot-js) | [Recording](https://www.youtube.com/watch?v=Dve_bYaAVZ0)
+- Inbound marketing - a nova forma de se comunicar e conquistar seus clientes 🇧🇷 (2016) - [Slides](https://www.slideshare.net/hugomn/inbound-marketing-a-nova-forma-de-se-comunicar-e-conquistar-seus-clientes)
+- Conhecendo os fundamentos e desenvolvendo uma aplicação básica com Angular 2 🇧🇷 (2016) - [Slides](https://www.slideshare.net/hugomn/conhecendo-os-fundamentos-e-desenvolvendo-uma-apliao-bsica-com-angular2)
+- Empreendedorismo e as Oportunidades Disfarçadas 🇧🇷 (2012) - [Slides](https://www.slideshare.net/hugomn/empreendedorismo-e-as-oportunidades-disfaradas)
+- Introdução ao Symfony 2 🇧🇷 (2012) - [Slides](https://www.slideshare.net/hugomn/introduo-ao-symfony-2)
+- Desenvolvimento de aplicações PHP usando framework de alta produtividade 🇧🇷 (2011) - [Slides](https://www.slideshare.net/hugomn/symfony-framework-php-de-alta-produtividade)
+- Mídias sociais para negócios 🇧🇷 (2011) - [Slides](https://www.slideshare.net/hugomn/mdias-sociais-para-negcios)
+- SEO - Como e porque otimizar um website 🇧🇷 (2010) - [Slides](https://www.slideshare.net/hugomn/seo-como-e-porque-otimizar-um-website-semana-da-informtica-ufv)
