@@ -40,7 +40,7 @@ Since April 2025, using primarily Claude Code, I've shipped:
 
 **Personal Fitness Tracker** (April 2025): A private mobile app to replace the Google spreadsheet my family and friends used for our fitness challenges. Something I'd never justify spending weeks building just for our small group, but AI made it feasible (and fun!) to create in a few vacation days. **67,000 lines** of production TypeScript code with React Native and Supabase.
 
-**Internal Risk Scanning Tool** (August 2025): An enterprise-grade internal risk scanning tool for Complyance that sat in our backlog for months due to resource constraints. I built the first working version in **3 days**. **79,000 lines** of core TypeScript across backend services and frontend.
+**Internal Risk Scanning Tool** (August 2025): An enterprise-grade internal risk scanning tool for Complyance (my current company) that sat in our backlog for months due to resource constraints. I built the first working version in **3 days**. **79,000 lines** of core TypeScript across backend services and frontend.
 
 **Total output: 146,000 lines of production TypeScript in 4 months. More than I wrote in the past 2 years combined.**
 
@@ -96,13 +96,13 @@ Judge's reasoning makes intuitive sense. If AI truly creates 10x developers, wou
 
 **Quality over Quantity:** AI doesn't just enable more apps. It enables better apps. Instead of 10 mediocre projects, I'm building production-grade applications with features I never would have attempted before. Like the custom SVG charting library in my fitness tracker. After evaluating 4 major charting libraries, AI gave me the confidence to build exactly what I needed from scratch.
 
-**The Hidden Revolution in Private Code:** The real transformation is happening where we can't measure it. Just this week:
+**The Hidden Revolution in Private Code:** Beyond the measurable metrics, there's a whole ecosystem of AI-assisted development happening that we'll never see in commit logs or app stores. Here are a few examples that illustrate this broader trend:
 - A friend finally used Claude Code to create complex Home Assistant dashboards in minutes that would normally take days
 - Another friend's wife, not even a developer, built two private apps with Cursor and automated chunks of her workflow
 - A colleague at a Fortune 500 told me their team is shipping internal tools weekly that sat in backlog for years
 - My neighbor, a data analyst, is now writing Python scripts to automate reports that used to take him hours
 
-We can't count the code being generated privately and inside organizations. These productivity gains are invisible to public metrics but transforming how people work.
+These examples aren't proof of the productivity gains I've documented. They're illustrations of a much larger phenomenon. We can't count the code being generated privately and inside organizations, but these invisible productivity gains are transforming how people work in ways that won't show up in Judge's charts.
 
 ### The Measurement Problems Nobody Talks About
 
@@ -153,6 +153,8 @@ That last point is crucial. AI is shifting the definition of what it means to "b
 <div style="margin: 2rem 0;">
 
 ![How AI Transforms Developer Time Allocation](/images/developer-time-allocation.png)
+
+*My hypothesis on how AI transforms developer time allocation, based on my experience and observations of the evolving development landscape.*
 
 </div>
 

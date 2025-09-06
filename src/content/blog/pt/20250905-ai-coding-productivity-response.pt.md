@@ -40,7 +40,7 @@ Desde abril de 2025, usando principalmente Claude Code, entreguei:
 
 **Fitness Tracker Pessoal** (Abril 2025): Um app móvel privado para substituir a planilha do Google que minha família e amigos usavam para nossos desafios fitness. Algo que eu nunca justificaria gastar semanas construindo só para nosso pequeno grupo, mas a IA tornou viável (e divertido!) criar em poucos dias de férias. **67.000 linhas** de código TypeScript com React Native e Supabase.
 
-**Ferramenta Interna de Análise de Riscos** (Agosto 2025): Uma ferramenta corporativa de análise de riscos internos para a Complyance que ficou meses no nosso backlog por falta de recursos. Construí a primeira versão funcional em **3 dias**. **79.000 linhas** de TypeScript em serviços backend e frontend.
+**Ferramenta Interna de Análise de Riscos** (Agosto 2025): Uma ferramenta corporativa de análise de riscos internos para a Complyance (minha empresa atual) que ficou meses no nosso backlog por falta de recursos. Construí a primeira versão funcional em **3 dias**. **79.000 linhas** de TypeScript em serviços backend e frontend.
 
 **Produção total: 146.000 linhas de código em 4 meses. Mais do que escrevi nos últimos 2 anos combinados.**
 
@@ -96,13 +96,13 @@ O raciocínio de Judge faz sentido intuitivo. Se IA realmente cria desenvolvedor
 
 **Qualidade sobre Quantidade:** IA não apenas permite mais apps. Permite apps melhores. Em vez de 10 projetos medíocres, estou construindo aplicações de alto nível com recursos que eu nunca teria tentado antes. Como a biblioteca de gráficos SVG customizada no meu rastreador fitness. Depois de avaliar 4 grandes bibliotecas de gráficos, IA me deu confiança para construir exatamente o que eu precisava, "na unha".
 
-**A Revolução Oculta em Código Privado:** A transformação real está acontecendo onde não podemos medir. Só esta semana:
+**A Revolução Oculta em Código Privado:** Além das métricas mensuráveis, existe todo um ecossistema de desenvolvimento assistido por IA acontecendo que nunca veremos em logs de commit ou app stores. Aqui estão alguns exemplos que ilustram essa tendência mais ampla:
 - Um amigo finalmente usou Claude Code para criar dashboards complexos do Home Assistant em minutos que normalmente levariam dias
 - A esposa de um conhecido, nem mesmo desenvolvedora, construiu dois apps privados com Cursor e automatizou parte do seu fluxo de trabalho
 - Um colega numa Fortune 500 me disse que sua equipe está entregando ferramentas internas semanalmente que ficaram no backlog por anos
 - Meu vizinho, um analista de dados, agora está escrevendo scripts Python para automatizar relatórios que costumavam levar horas
 
-Não podemos contar o código sendo gerado privadamente e dentro de empresas. Esses ganhos de produtividade são invisíveis para métricas públicas mas transformando como as pessoas trabalham.
+Esses exemplos não são prova dos ganhos de produtividade que documentei. São ilustrações de um fenômeno muito maior. Não podemos contar o código sendo gerado privadamente e dentro de empresas, mas esses ganhos invisíveis de produtividade estão transformando como as pessoas trabalham de formas que não aparecerão nos gráficos do Judge.
 
 ### Os Problemas de Medição que Ninguém Fala
 
@@ -150,6 +150,8 @@ Esse último ponto é crucial. IA está mudando a definição do que significa "
 <div style="margin: 2rem 0;">
 
 ![Como IA Transforma a Alocação de Tempo do Desenvolvedor](/images/developer-time-allocation.png)
+
+*Minha hipótese sobre como IA transforma a alocação de tempo do desenvolvedor, baseada na minha experiência e observações do cenário de desenvolvimento em evolução.*
 
 </div>
 
