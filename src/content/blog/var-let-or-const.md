@@ -6,6 +6,7 @@ locale: en
 postSlug: var-let-or-const
 featured: false
 draft: false
+ogImage: /images/20180806.png
 tags:
   - javascript
 description: Understanding the differences between var, let, and const in JavaScript ES6, including scope behaviors and when to use each variable declaration.

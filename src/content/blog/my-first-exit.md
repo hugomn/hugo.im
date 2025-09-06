@@ -6,6 +6,7 @@ locale: en
 postSlug: my-first-exit
 featured: false
 draft: false
+ogImage: /images/20190116.jpg
 tags:
   - personal
   - entrepreneurship
