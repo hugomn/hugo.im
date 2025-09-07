@@ -14,10 +14,7 @@ export default function FeaturedCard({ href, frontmatter }: Props) {
     const options: Intl.DateTimeFormatOptions = {
       month: 'long',
       day: 'numeric',
-      year: 'numeric',
-      hour: 'numeric',
-      minute: '2-digit',
-      hour12: true,
+      year: 'numeric'
     };
     const formatted = new Intl.DateTimeFormat('en-US', options).format(date);
     // Remove 'at' and format as "Month D, YYYY | HH:MM AM/PM"
@@ -29,11 +26,7 @@ export default function FeaturedCard({ href, frontmatter }: Props) {
 
   return (
     <article className="featured-card group">
-      <a
-        href={href}
-        className="featured-card-link"
-        aria-labelledby={titleId}
-      >
+      <a href={href} className="featured-card-link" aria-labelledby={titleId}>
         {/* Top media - Cover image */}
         <div className="featured-card-image-container">
           {image ? (
@@ -72,12 +65,15 @@ export default function FeaturedCard({ href, frontmatter }: Props) {
               className="calendar-icon"
               aria-hidden="true"
             >
-              <path d="M8 2v4"/>
-              <path d="M16 2v4"/>
-              <rect width="18" height="18" x="3" y="4" rx="2"/>
-              <path d="M3 10h18"/>
+              <path d="M8 2v4" />
+              <path d="M16 2v4" />
+              <rect width="18" height="18" x="3" y="4" rx="2" />
+              <path d="M3 10h18" />
             </svg>
-            <time dateTime={pubDatetime.toISOString()} className="featured-card-date">
+            <time
+              dateTime={pubDatetime.toISOString()}
+              className="featured-card-date"
+            >
               {formattedDate}
             </time>
           </div>
@@ -92,9 +88,7 @@ export default function FeaturedCard({ href, frontmatter }: Props) {
           </h3>
 
           {/* Excerpt */}
-          <p className="featured-card-excerpt">
-            {description}
-          </p>
+          <p className="featured-card-excerpt">{description}</p>
         </div>
       </a>
     </article>

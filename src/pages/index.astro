@@ -16,8 +16,12 @@ const posts = await getCollection("blog");
 
 const locale = "en";
 const sortedPosts = getSortedPosts(posts);
-const featuredPosts = sortedPosts.filter(({ data }) => data.featured && data.locale == locale);
-const recentPosts = sortedPosts.filter(({ data }) => !data.featured && data.locale == locale);
+const featuredPosts = sortedPosts.filter(
+  ({ data }) => data.featured && data.locale == locale
+);
+const recentPosts = sortedPosts.filter(
+  ({ data }) => !data.featured && data.locale == locale
+);
 
 const socialCount = SOCIALS.filter(social => social.active).length;
 const t = getTranslator(Astro.currentLocale);
@@ -64,7 +68,7 @@ const t = getTranslator(Astro.currentLocale);
         <>
           <section id="featured">
             <div class="featured-container">
-              <h2 class="featured-heading">Featured Posts</h2>
+              <h2>Featured Posts</h2>
               <div class="featured-grid">
                 {featuredPosts.map(({ data }) => (
                   <FeaturedCard
@@ -149,32 +153,20 @@ const t = getTranslator(Astro.currentLocale);
   #featured {
     @apply py-12;
   }
-  
+
   @media (min-width: 768px) {
     #featured {
       @apply py-16;
     }
   }
-  
+
   .featured-container {
-    @apply mx-auto px-4;
+    @apply mx-auto;
     max-width: 1280px;
   }
-  
-  .featured-heading {
-    @apply mb-8 text-4xl font-semibold text-skin-base;
-    font-size: 36px;
-    text-align: left;
-  }
-  
-  @media (min-width: 768px) {
-    .featured-heading {
-      font-size: 40px;
-    }
-  }
-  
+
   .featured-grid {
-    @apply grid grid-cols-1 gap-6;
+    @apply my-6 grid grid-cols-1 gap-6;
   }
 
   @media (min-width: 768px) {
@@ -193,7 +185,8 @@ const t = getTranslator(Astro.currentLocale);
   #recent-posts {
     @apply pb-6 pt-12;
   }
-  #recent-posts h2 {
+  #recent-posts h2,
+  #featured h2 {
     @apply text-2xl font-semibold tracking-wide;
   }
   .all-posts-btn-wrapper {

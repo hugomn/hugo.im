@@ -1,11 +1,11 @@
 /* ===== Featured Card Component Styles ===== */
 
 .featured-card {
-  @apply flex h-full;
+  @apply flex;
 }
 
 .featured-card-link {
-  @apply relative flex flex-col h-full w-full bg-white border border-gray-200 rounded-2xl shadow-sm transition-all duration-200 ease-in-out;
+  @apply relative flex flex-col h-full w-full bg-white rounded-2xl shadow-sm transition-all duration-200 ease-in-out;
   text-decoration: none;
 }
 
@@ -68,42 +68,42 @@
 }
 
 .featured-card-date {
-  @apply text-sm text-gray-500;
+  @apply text-xs text-gray-400;
 }
 
 [data-theme="dark"] .featured-card-date {
-  @apply text-gray-400;
+  @apply text-gray-300;
 }
 
 /* Title */
 .featured-card-title {
   @apply mb-3 text-xl font-bold leading-tight text-skin-accent;
-  font-size: 22px;
+  font-size: 16px;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
 @media (min-width: 1024px) {
   .featured-card-title {
-    font-size: 24px;
+    font-size: 18px;
   }
 }
 
 /* Excerpt */
 .featured-card-excerpt {
   @apply mt-auto text-gray-600 leading-relaxed;
-  font-size: 15px;
+  font-size: 11px;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
 @media (min-width: 1024px) {
   .featured-card-excerpt {
-    font-size: 16px;
+    font-size: 12px;
   }
 }
 
