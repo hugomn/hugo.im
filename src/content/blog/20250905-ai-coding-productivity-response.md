@@ -11,7 +11,12 @@ tags:
   - productivity
   - engineering
   - coding
+  - claude-code
+  - github-copilot
+  - software-development
+  - engineering-leadership
 description: Real data showing 1082% productivity gains with AI coding tools. GitHub metrics, workflow diagrams, and evidence-based response to AI coding skeptics with 146,000 lines shipped in 4 months.
+keywords: Hugo Nogueira, AI coding tools, Claude Code, software productivity, engineering leadership, Complyance, TypeScript development, React Native
 ---
 
 I read [Mike Judge's viral piece](https://substack.com/inbox/post/172538377) "Where's the Shovelware? Why AI Coding Claims Don't Add Up," and I respect his skepticism. He's right to be frustrated at overblown marketing claims and the human cost of premature "AI efficiency" layoffs. His questions about measurable productivity gains deserve serious answers, not more hype.
@@ -40,7 +45,7 @@ Since April 2025, using primarily Claude Code, I've shipped:
 
 **Personal Fitness Tracker** (April 2025): A private mobile app to replace the Google spreadsheet my family and friends used for our fitness challenges. Something I'd never justify spending weeks building just for our small group, but AI made it feasible (and fun!) to create in a few vacation days. **67,000 lines** of production TypeScript code with React Native and Supabase.
 
-**Internal Risk Scanning Tool** (August 2025): An enterprise-grade internal risk scanning tool for Complyance (my current company) that sat in our backlog for months due to resource constraints. I built the first working version in **3 days**. **79,000 lines** of core TypeScript across backend services and frontend.
+**Internal Enterprise Tool** (August 2025): An enterprise-grade internal tool for Complyance (my current company) that sat in our backlog for months due to resource constraints. I built the first working version in **3 days**. **79,000 lines** of core TypeScript across backend services and frontend.
 
 **Total output: 146,000 lines of production TypeScript in 4 months. More than I wrote in the past 2 years combined.**
 

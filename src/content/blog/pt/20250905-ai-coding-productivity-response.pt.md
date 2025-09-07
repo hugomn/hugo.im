@@ -40,7 +40,7 @@ Desde abril de 2025, usando principalmente Claude Code, entreguei:
 
 **Fitness Tracker Pessoal** (Abril 2025): Um app móvel privado para substituir a planilha do Google que minha família e amigos usavam para nossos desafios fitness. Algo que eu nunca justificaria gastar semanas construindo só para nosso pequeno grupo, mas a IA tornou viável (e divertido!) criar em poucos dias de férias. **67.000 linhas** de código TypeScript com React Native e Supabase.
 
-**Ferramenta Interna de Análise de Riscos** (Agosto 2025): Uma ferramenta corporativa de análise de riscos internos para a Complyance (minha empresa atual) que ficou meses no nosso backlog por falta de recursos. Construí a primeira versão funcional em **3 dias**. **79.000 linhas** de TypeScript em serviços backend e frontend.
+**Ferramenta Corporativa Interna** (Agosto 2025): Uma ferramenta corporativa interna para a Complyance (minha empresa atual) que ficou meses no nosso backlog por falta de recursos. Construí a primeira versão funcional em **3 dias**. **79.000 linhas** de TypeScript em serviços backend e frontend.
 
 **Produção total: 146.000 linhas de código em 4 meses. Mais do que escrevi nos últimos 2 anos combinados.**
 

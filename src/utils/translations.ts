@@ -1,7 +1,7 @@
 const translations = {
   en: {
     "pages.about.title": "About",
-    "home.title": `Hi! I'm <span class="name">Hugo</span> 👋 `,
+    "home.title": `Hi! I'm <span class="name">Hugo Nogueira</span> 👋 `,
     "home.bio":
       "CPTO with 20 years building products at the intersection of engineering, product, and design. I write code, shape product strategy, and design user experiences. Currently leading development of AI-driven GRC platform at <a href='https://www.complyance.com' target='_blank' rel='noopener noreferrer'>Complyance</a>, where we're building intelligent systems that understand complex regulatory workflows.",
   },
