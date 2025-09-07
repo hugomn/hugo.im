@@ -13,6 +13,7 @@ tags:
   - Cultural fit
   - Diversity
 description: Create an efficient interview process for engineers. Learn practical tips for assessing skills, fit, and diversity, attracting top talent, and mitigating biases.
+image: "/assets/interview-process.jpg"
 ---
 
 With over ten years of experience leading engineering teams, I understand the importance of an interview process that is not only efficient but also promotes diversity and inclusion. Today, I want to share practical insights and a suggested ideal process for evaluating engineers, ensuring technical proficiency, cultural fit, and mitigating biases. By combining technical assessments, diverse interview panels, blind evaluation, and inclusive job descriptions, we can build an interview process that attracts top talent and fosters an inclusive environment.

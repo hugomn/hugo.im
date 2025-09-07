@@ -9,6 +9,7 @@ tags:
   - startups
   - management
 description: Explore the significance of balancing value and a co-founder mindset in early-stage startups. Learn how to show value while respecting team dynamics and collaborating towards common goals.
+image: "/assets/cofounder-mindset.jpg"
 ---
 
 Entering startups in their early stages is a unique opportunity for entrepreneurs and professionals in the product field in general to contribute to their growth and have a significant impact on the market. However, striking a balance between not rushing to demonstrate value and exceeding expectations while respecting existing processes and decisions can be quite challenging. In this post, I explore the ideas shared by Will Larson in his article ["The rush to show value"](https://lethain.com/showing-value/), which are extremely relevant, and I attempt to provide a counterpoint by emphasizing the importance of embracing a "co-founder mindset." By understanding the intricacies of this balance, individuals can create a high impact and exceed expectations in their early months of work.
@@ -36,3 +37,7 @@ Finding the right balance between not rushing to demonstrate value and surpassin
 - Take initiative to solve problems and fill gaps that you identify.
 
 By embracing these responsibilities and actively seeking opportunities to contribute and collaborate with your teammates, you will make a significant impact and drive the startup's success. Finding this balance requires understanding, patience, and adaptability. By doing so, you will become a valuable asset, unlock collective potential, and help the startup reach new levels of success.
+
+---
+
+*Photo by [Peter Nguyen](https://unsplash.com/@peterng1618) on [Unsplash](https://unsplash.com/photos/a-crowd-of-people-standing-next-to-a-train-HF9WtHWy9cM)*

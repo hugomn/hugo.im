@@ -17,6 +17,7 @@ tags:
   - engineering-leadership
 description: Real data showing 1082% productivity gains with AI coding tools. GitHub metrics, workflow diagrams, and evidence-based response to AI coding skeptics with 146,000 lines shipped in 4 months.
 keywords: Hugo Nogueira, AI coding tools, Claude Code, software productivity, engineering leadership, Complyance, TypeScript development, React Native
+image: "/assets/vibecoding.jpg"
 ---
 
 I read [Mike Judge's viral piece](https://substack.com/inbox/post/172538377) "Where's the Shovelware? Why AI Coding Claims Don't Add Up," and I respect his skepticism. He's right to be frustrated at overblown marketing claims and the human cost of premature "AI efficiency" layoffs. His questions about measurable productivity gains deserve serious answers, not more hype.
