@@ -1,0 +1,161 @@
+/* ===== Featured Card Component Styles ===== */
+
+.featured-card {
+  @apply flex h-full;
+}
+
+.featured-card-link {
+  @apply relative flex flex-col h-full w-full bg-white border border-gray-200 rounded-2xl shadow-sm transition-all duration-200 ease-in-out;
+  text-decoration: none;
+}
+
+/* Dark mode card */
+[data-theme="dark"] .featured-card-link {
+  @apply bg-skin-card border-gray-700;
+  border-color: #30363d;
+}
+
+/* Image container - full bleed at top */
+.featured-card-image-container {
+  @apply relative overflow-hidden;
+  border-radius: 16px 16px 0 0;
+  height: 176px;
+}
+
+@media (min-width: 768px) {
+  .featured-card-image-container {
+    height: 192px;
+  }
+}
+
+.featured-card-image {
+  @apply h-full w-full object-cover;
+}
+
+/* Placeholder for missing image */
+.featured-card-placeholder {
+  @apply flex h-full w-full items-center justify-center bg-gray-100;
+}
+
+[data-theme="dark"] .featured-card-placeholder {
+  @apply bg-gray-800;
+}
+
+.placeholder-text {
+  @apply text-sm font-medium text-gray-500 px-4 text-center;
+}
+
+[data-theme="dark"] .placeholder-text {
+  @apply text-gray-400;
+}
+
+/* Content area */
+.featured-card-content {
+  @apply flex flex-1 flex-col p-5;
+}
+
+/* Meta row */
+.featured-card-meta {
+  @apply mb-3 flex items-center gap-2;
+}
+
+.calendar-icon {
+  @apply flex-shrink-0 text-gray-500;
+}
+
+[data-theme="dark"] .calendar-icon {
+  @apply text-gray-400;
+}
+
+.featured-card-date {
+  @apply text-sm text-gray-500;
+}
+
+[data-theme="dark"] .featured-card-date {
+  @apply text-gray-400;
+}
+
+/* Title */
+.featured-card-title {
+  @apply mb-3 text-xl font-bold leading-tight text-skin-accent;
+  font-size: 22px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .featured-card-title {
+    font-size: 24px;
+  }
+}
+
+/* Excerpt */
+.featured-card-excerpt {
+  @apply mt-auto text-gray-600 leading-relaxed;
+  font-size: 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .featured-card-excerpt {
+    font-size: 16px;
+  }
+}
+
+[data-theme="dark"] .featured-card-excerpt {
+  @apply text-gray-300;
+}
+
+/* Hover interactions */
+@media (hover: hover) {
+  .featured-card-link:hover {
+    @apply shadow-md;
+    transform: translateY(-2px);
+  }
+  
+  .featured-card-link:hover .featured-card-title {
+    @apply underline underline-offset-2;
+  }
+  
+  [data-theme="dark"] .featured-card-link:hover {
+    @apply shadow-lg;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Active state */
+.featured-card-link:active {
+  transform: translateY(1px);
+  @apply shadow-sm;
+}
+
+/* Focus styles for accessibility */
+.featured-card-link:focus-visible {
+  @apply outline-none ring-2 ring-offset-2;
+  ring-color: rgb(var(--color-accent));
+}
+
+[data-theme="dark"] .featured-card-link:focus-visible {
+  @apply ring-offset-gray-900;
+  ring-color: rgb(var(--color-accent));
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .featured-card-link {
+    @apply transition-none;
+  }
+  
+  .featured-card-link:hover {
+    transform: none;
+  }
+  
+  .featured-card-link:active {
+    transform: none;
+  }
+}
