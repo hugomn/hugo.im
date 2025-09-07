@@ -6,6 +6,41 @@ slug: "about"
 
 Hello, I'm Hugo.
 
+<style>
+.profile-image {
+  float: left;
+  margin-right: 1.5rem;
+  margin-top: 2rem;
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 10%;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  border: 1px solid rgb(156 163 175 / 0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+.profile-image:hover {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+@media (max-width: 640px) {
+  .profile-image {
+    float: none;
+    display: block;
+    margin: 0 auto 1.5rem auto;
+    width: 180px;
+    height: 180px;
+  }
+}
+</style>
+
+<img 
+  src="/assets/profile_picture.jpg" 
+  alt="Hugo Nogueira - Chief Product & Technology Officer" 
+  class="not-prose profile-image"
+/>
+
 ## I Build Products That Matter
 
 With two decades of experience at the intersection of engineering, product, and design, I specialize in turning complex technical challenges into elegant solutions that users actually love. Currently leading the development of [Complyance's](https://www.complyance.com) AI-driven GRC platform, where we're reimagining enterprise compliance through intelligent automation and thoughtful user experience.

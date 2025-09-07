@@ -5,7 +5,7 @@ import LinkButton from "./LinkButton.astro";
 import { localizeUrl } from "@utils/i18n";
 
 export interface Props {
-  activeNav?: "posts" | "archives" | "tags" | "about" | "search" | "contact" | "talks";
+  activeNav?: "posts" | "archives" | "tags" | "about" | "search" | "contact" | "talks" | "investing";
 }
 
 const { activeNav } = Astro.props;
@@ -63,7 +63,7 @@ const { activeNav } = Astro.props;
             <line x1="6" y1="6" x2="18" y2="18" class="close"></line>
           </svg>
         </button>
-        <ul id="menu-items" class="display-none sm:flex">
+        <ul id="menu-items" class="display-none md:flex">
           <li>
             <a
               href={localizeUrl(Astro.currentLocale, "/about")}
@@ -87,6 +87,14 @@ const { activeNav } = Astro.props;
           </li>
           <li>
             <a
+              href={localizeUrl(Astro.currentLocale, "/investing")}
+              class={activeNav === "investing" ? "active" : ""}
+            >
+              Investing
+            </a>
+          </li>
+          <li>
+            <a
               href={localizeUrl(Astro.currentLocale, "/contact")}
               class={activeNav === "contact" ? "active" : ""}
             >
@@ -98,14 +106,14 @@ const { activeNav } = Astro.props;
               <li>
                 <LinkButton
                   href="/archives/"
-                  className={`focus-outline flex justify-center p-3 sm:p-1`}
+                  className={`focus-outline flex justify-center p-3 md:p-1`}
                   ariaLabel="archives"
                   title="Archives"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class:list={[
-                      "icon icon-tabler icons-tabler-outline !hidden sm:!inline-block",
+                      "icon icon-tabler icons-tabler-outline !hidden md:!inline-block",
                       activeNav === "archives" && "!stroke-skin-accent",
                     ]}
                   >
@@ -118,7 +126,7 @@ const { activeNav } = Astro.props;
                   </svg>
                   <span
                     class:list={[
-                      "sm:sr-only",
+                      "md:sr-only",
                       activeNav === "archives" && "active",
                     ]}
                   >
@@ -131,7 +139,7 @@ const { activeNav } = Astro.props;
           <li>
             <LinkButton
               href="/search/"
-              className={`focus-outline p-3 sm:p-1 ${
+              className={`focus-outline p-3 md:p-1 ${
                 activeNav === "search" ? "active" : ""
               } flex`}
               ariaLabel="search"
@@ -139,7 +147,7 @@ const { activeNav } = Astro.props;
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="scale-125 sm:scale-100"
+                class="scale-125 md:scale-100"
                 ><path
                   d="M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z"
                 ></path>
@@ -183,13 +191,13 @@ const { activeNav } = Astro.props;
     @apply absolute -top-full left-16 z-50 bg-skin-accent px-3 py-2 text-skin-inverted transition-all focus:top-4;
   }
   .nav-container {
-    @apply mx-auto flex max-w-5xl flex-col items-center justify-between sm:flex-row;
+    @apply mx-auto flex max-w-5xl flex-col items-center justify-between md:flex-row;
   }
   .top-nav-wrap {
-    @apply relative flex w-full items-start justify-between p-4 sm:items-center sm:py-8;
+    @apply relative flex w-full items-start justify-between p-4 md:items-center md:py-8;
   }
   .logo {
-    @apply absolute py-1 text-lg font-semibold sm:static sm:text-xl;
+    @apply absolute py-1 text-lg font-semibold md:static md:text-xl;
   }
   .logo .avatar {
     @apply mr-2 rounded-full;
@@ -222,23 +230,23 @@ const { activeNav } = Astro.props;
     border-width: var(--size-border);
   }
   .hamburger-menu {
-    @apply self-end p-2 sm:hidden;
+    @apply self-end p-2 md:hidden;
   }
   .hamburger-menu svg {
     @apply h-6 w-6 scale-125 fill-skin-base;
   }
 
   nav {
-    @apply flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0;
+    @apply flex w-full flex-col items-center md:ml-2 md:flex-row md:justify-end md:space-x-4 md:py-0;
   }
   nav ul {
-    @apply mt-4 grid w-44 grid-cols-2 grid-rows-4 gap-x-2 gap-y-2 sm:ml-0 sm:mt-0 sm:w-auto sm:gap-x-5 sm:gap-y-0;
+    @apply mt-4 grid w-44 grid-cols-2 grid-rows-4 gap-x-2 gap-y-2 md:ml-0 md:mt-0 md:w-auto md:gap-x-5 md:gap-y-0;
   }
   nav ul li {
     @apply col-span-2 flex items-center justify-center;
   }
   nav ul li a {
-    @apply w-full px-4 py-3 text-center font-medium hover:text-skin-accent sm:my-0 sm:px-2 sm:py-1;
+    @apply w-full px-4 py-3 text-center font-medium hover:text-skin-accent md:my-0 md:px-2 md:py-1;
   }
   nav ul li:nth-last-child(2) a {
     @apply w-auto;
@@ -261,10 +269,10 @@ const { activeNav } = Astro.props;
     @apply h-6 w-6 fill-skin-base hover:fill-skin-accent;
   }
   #theme-btn {
-    @apply p-3 sm:p-1;
+    @apply p-3 md:p-1;
   }
   #theme-btn svg {
-    @apply scale-125 hover:rotate-12 sm:scale-100;
+    @apply scale-125 hover:rotate-12 md:scale-100;
   }
 
   .menu-icon line {

@@ -60,15 +60,26 @@
 }
 
 .calendar-icon {
-  @apply flex-shrink-0 text-gray-500;
+  max-width: 14px;
+  max-height: 14px;
+  @apply flex-shrink-0 text-gray-500 transition-colors duration-200;
 }
 
 [data-theme="dark"] .calendar-icon {
   @apply text-gray-400;
 }
 
+/* Hover effects for date row */
+.featured-card-link:hover .calendar-icon {
+  @apply text-skin-accent;
+}
+
+.featured-card-link:hover .featured-card-date {
+  @apply text-skin-accent;
+}
+
 .featured-card-date {
-  @apply text-xs text-gray-400;
+  @apply text-xs text-gray-400 transition-colors duration-200;
 }
 
 [data-theme="dark"] .featured-card-date {
