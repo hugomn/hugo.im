@@ -31,7 +31,7 @@ export default function FeaturedCard({ href, frontmatter }: Props) {
         <div className="featured-card-image-container">
           {image ? (
             <img
-              src={image}
+              src={typeof image === 'string' ? image : image.src}
               alt={`Featured image for ${title}`}
               className="featured-card-image"
               loading="lazy"

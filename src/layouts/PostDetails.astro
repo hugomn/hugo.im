@@ -90,7 +90,7 @@ const nextPost =
     {image && (
       <div class="featured-image-container my-8">
         <img 
-          src={image}
+          src={typeof image === 'string' ? image : image.src}
           alt={title}
           class="featured-image w-full rounded-lg"
           loading="eager"

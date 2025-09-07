@@ -106,8 +106,8 @@ const websiteStructuredData = {
 
 <Layout>
   <!-- Structured Data for LLM Optimization -->
-  <script type="application/ld+json" set:html={JSON.stringify(personStructuredData)} />
-  <script type="application/ld+json" set:html={JSON.stringify(websiteStructuredData)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(personStructuredData)}></script>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteStructuredData)}></script>
   
   <Header />
   <main id="main-content">
