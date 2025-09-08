@@ -22,7 +22,7 @@ Instead of only guarding an organization’s perimeter, Zero Trust architecture 
 
 The principles of Zero Trust are to verify explicitly, use least privileged access, assume breach and require end-to-end encryption. By implementing these principles, businesses can enjoy stronger security, support for remote and hybrid work, lower risk and more time for people to focus on high-priority work instead of tedious tasks.
 
-## How to Implement Zero Trust Architecture
+## How to implement zero trust architecture
 
 Implementing Zero Trust Architecture involves several steps. First, it is important to define your protect surface - the critical items that need to be defended. Next, you should map out how traffic moves to these parts of the network and architect your zero-trust system accordingly.
 
