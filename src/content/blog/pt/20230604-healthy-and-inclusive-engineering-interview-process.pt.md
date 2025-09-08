@@ -1,6 +1,6 @@
 ---
 author: Hugo Nogueira
-pubDatetime: 2023-06-04T10:30:00.000Z
+pubDatetime: 2024-03-15T14:20:00.000Z
 title: "Criando um Processo de Entrevista Eficiente e Saudável para Engenheiros: Dicas Práticas e Sugestões"
 locale: pt
 postSlug: healthy-and-inclusive-engineering-interview-process

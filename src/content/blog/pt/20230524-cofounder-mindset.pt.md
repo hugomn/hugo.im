@@ -1,6 +1,6 @@
 ---
 author: Hugo Nogueira
-pubDatetime: 2023-05-24T14:45:00.000Z
+pubDatetime: 2024-07-22T09:15:00.000Z
 title: "Como encontrar o equilíbrio entre não se apressar para mostrar serviço e superar expectativas em startups early stage"
 locale: pt
 postSlug: balancing-the-cofounder-mindset

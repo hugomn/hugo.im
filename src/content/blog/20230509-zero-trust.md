@@ -4,7 +4,7 @@ pubDatetime: 2023-05-09T10:00:00.000Z
 title: The importance of zero trust architecture for enterprises with remote or hybrid work models
 locale: en
 postSlug: the-importance-of-zero-trust-architecture-for-enterprises-with-remote-or-hybrid-work-models
-featured: true
+featured: false
 image: /images/20230509.jpg
 tags:
   - zero-trust-architecture

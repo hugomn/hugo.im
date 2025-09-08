@@ -1,6 +1,6 @@
 ---
 author: Hugo Nogueira
-pubDatetime: 2023-06-04T10:30:00.000Z
+pubDatetime: 2024-03-15T14:20:00.000Z
 title: "Creating an Efficient and Healthy Interview Process for Engineers: Insights from a Decade of Leading Engineering Teams"
 locale: en
 postSlug: healthy-and-inclusive-engineering-interview-process
