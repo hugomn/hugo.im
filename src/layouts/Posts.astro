@@ -18,7 +18,15 @@ export interface Props {
 }
 
 const { page } = Astro.props;
-const posts = await getCollection("blog");
+
+// Get the current locale from the URL
+const currentLocale = Astro.url.pathname.startsWith('/pt/') ? 'pt' : 'en';
+
+// Get only posts from the current locale for tags
+const posts = await getCollection(
+  "blog",
+  ({ data }) => !data.draft && data.locale === currentLocale
+);
 const tags = getUniqueTags(posts);
 ---
 

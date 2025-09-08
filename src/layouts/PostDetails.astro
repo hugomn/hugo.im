@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
@@ -10,12 +11,29 @@ import { slugifyStr } from "@utils/slugify";
 import ShareLinks from "@components/ShareLinks.astro";
 import { SITE } from "@config";
 
+// Import all images from src/assets/images
+import cofoundMindsetImg from "@assets/images/cofounder-mindset.jpg";
+import interviewProcessImg from "@assets/images/interview-process.jpg";
+import noEstimatesImg from "@assets/images/no-estimates.jpg";
+import profilePictureImg from "@assets/images/profile_picture.jpg";
+import vibecodingImg from "@assets/images/vibecoding.jpg";
+
+// Map image paths to imported images
+const imageMap: Record<string, any> = {
+  "/assets/cofounder-mindset.jpg": cofoundMindsetImg,
+  "/assets/interview-process.jpg": interviewProcessImg,
+  "/assets/no-estimates.jpg": noEstimatesImg,
+  "/assets/profile_picture.jpg": profilePictureImg,
+  "/assets/vibecoding.jpg": vibecodingImg,
+};
+
 export interface Props {
   post: CollectionEntry<"blog">;
   posts: CollectionEntry<"blog">[];
+  locale?: "en" | "pt";
 }
 
-const { post, posts } = Astro.props;
+const { post, posts, locale = "en" } = Astro.props;
 
 const {
   title,
@@ -50,9 +68,10 @@ const layoutProps = {
 
 /* ========== Prev/Next Posts ========== */
 
-const allPosts = posts.map(({ data: { title }, id }) => ({
+const allPosts = posts.map(({ data: { title, postSlug }, id }) => ({
   id,
   title,
+  slug: postSlug,
 }));
 
 const currentPostIndex = allPosts.findIndex(a => a.id === post.id);
@@ -60,6 +79,16 @@ const currentPostIndex = allPosts.findIndex(a => a.id === post.id);
 const prevPost = currentPostIndex !== 0 ? allPosts[currentPostIndex - 1] : null;
 const nextPost =
   currentPostIndex !== allPosts.length ? allPosts[currentPostIndex + 1] : null;
+
+// Get the optimized image
+let optimizedImage = null;
+if (image) {
+  if (typeof image === 'string' && imageMap[image]) {
+    optimizedImage = imageMap[image];
+  } else {
+    optimizedImage = image;
+  }
+}
 ---
 
 <Layout {...layoutProps}>
@@ -74,7 +103,7 @@ const nextPost =
         ><path
           d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
         ></path>
-      </svg><span>Go back</span>
+      </svg><span>{locale === "pt" ? "Voltar" : "Go back"}</span>
     </button>
   </div>
   <main id="main-content">
@@ -87,15 +116,29 @@ const nextPost =
       editPost={editPost}
       postId={post.id}
     />
-    {image && (
+    {optimizedImage && (
       <div class="featured-image-container my-8">
-        <img 
-          src={typeof image === 'string' ? image : image.src}
-          alt={title}
-          class="featured-image w-full rounded-lg"
-          loading="eager"
-          transition:name={`img-${slugifyStr(title)}`}
-        />
+        {typeof optimizedImage === 'string' ? (
+          <img 
+            src={optimizedImage}
+            alt={title}
+            class="featured-image w-full rounded-lg"
+            loading="eager"
+            transition:name={`img-${slugifyStr(title)}`}
+          />
+        ) : (
+          <Image
+            src={optimizedImage}
+            alt={title}
+            class="featured-image w-full rounded-lg"
+            loading="eager"
+            widths={[640, 768, 1024, 1280]}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1024px"
+            quality="high"
+            format="webp"
+            transition:name={`img-${slugifyStr(title)}`}
+          />
+        )}
       </div>
     )}
     <article id="article" class="prose mx-auto mt-8 max-w-5xl">
@@ -118,7 +161,7 @@ const nextPost =
             d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
           ></path>
         </svg>
-        <span>Back to Top</span>
+        <span>{locale === "pt" ? "Voltar ao Topo" : "Back to Top"}</span>
       </button>
 
       <ShareLinks />
@@ -131,7 +174,7 @@ const nextPost =
       {
         prevPost && (
           <a
-            href={`/posts/${prevPost.id}`}
+            href={locale === "pt" ? `/pt/posts/${prevPost.slug}` : `/posts/${prevPost.slug}`}
             class="flex w-full gap-1 hover:opacity-75"
           >
             <svg
@@ -152,7 +195,7 @@ const nextPost =
               </>
             </svg>
             <div>
-              <span>Previous Post</span>
+              <span>{locale === "pt" ? "Post Anterior" : "Previous Post"}</span>
               <div class="text-sm text-skin-accent/85">{prevPost.title}</div>
             </div>
           </a>
@@ -161,11 +204,11 @@ const nextPost =
       {
         nextPost && (
           <a
-            href={`/posts/${nextPost.id}`}
+            href={locale === "pt" ? `/pt/posts/${nextPost.slug}` : `/posts/${nextPost.slug}`}
             class="flex w-full justify-end gap-1 text-right hover:opacity-75 sm:col-start-2"
           >
             <div>
-              <span>Next Post</span>
+              <span>{locale === "pt" ? "Próximo Post" : "Next Post"}</span>
               <div class="text-sm text-skin-accent/85">{nextPost.title}</div>
             </div>
             <svg

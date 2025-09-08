@@ -1,0 +1,137 @@
+---
+import { Image } from "astro:assets";
+import { slugifyStr } from "@utils/slugify";
+import type { CollectionEntry } from "astro:content";
+
+// Import all images from src/assets/images
+import cofoundMindsetImg from "@assets/images/cofounder-mindset.jpg";
+import interviewProcessImg from "@assets/images/interview-process.jpg";
+import noEstimatesImg from "@assets/images/no-estimates.jpg";
+import profilePictureImg from "@assets/images/profile_picture.jpg";
+import vibecodingImg from "@assets/images/vibecoding.jpg";
+
+// Map image paths to imported images
+const imageMap: Record<string, any> = {
+  "/assets/cofounder-mindset.jpg": cofoundMindsetImg,
+  "/assets/interview-process.jpg": interviewProcessImg,
+  "/assets/no-estimates.jpg": noEstimatesImg,
+  "/assets/profile_picture.jpg": profilePictureImg,
+  "/assets/vibecoding.jpg": vibecodingImg,
+};
+
+export interface Props {
+  href: string;
+  frontmatter: CollectionEntry<"blog">["data"];
+}
+
+const { href, frontmatter } = Astro.props;
+const { title, pubDatetime, description, image } = frontmatter;
+
+// Format date as "Month D, YYYY"
+const formatDate = (date: Date) => {
+  const options: Intl.DateTimeFormatOptions = {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric'
+  };
+  return new Intl.DateTimeFormat('en-US', options).format(date);
+};
+
+const formattedDate = formatDate(new Date(pubDatetime));
+const titleId = `featured-title-${slugifyStr(title)}`;
+
+// Get the optimized image
+let optimizedImage = null;
+if (image) {
+  if (typeof image === 'string' && imageMap[image]) {
+    optimizedImage = imageMap[image];
+  } else {
+    optimizedImage = image;
+  }
+}
+---
+
+<article class="featured-card group">
+  <a href={href} class="featured-card-link" aria-labelledby={titleId}>
+    <!-- Top media - Cover image -->
+    <div class="featured-card-image-container">
+      {optimizedImage ? (
+        typeof optimizedImage === 'string' ? (
+          <img
+            src={optimizedImage}
+            alt={`Featured image for ${title}`}
+            class="featured-card-image"
+            loading="lazy"
+            width="400"
+            height="192"
+            style={`view-transition-name: img-${slugifyStr(title)}`}
+          />
+        ) : (
+          <Image
+            src={optimizedImage}
+            alt={`Featured image for ${title}`}
+            class="featured-card-image"
+            loading="lazy"
+            widths={[400, 800]}
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
+            quality="mid"
+            format="webp"
+            style={`view-transition-name: img-${slugifyStr(title)}`}
+          />
+        )
+      ) : (
+        <div class="featured-card-placeholder">
+          <span class="placeholder-text">{title}</span>
+        </div>
+      )}
+    </div>
+
+    <!-- Content -->
+    <div class="featured-card-content">
+      <!-- Meta row -->
+      <div class="featured-card-meta">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="calendar-icon"
+          aria-hidden="true"
+        >
+          <path d="M8 2v4" fill="none"></path>
+          <path d="M16 2v4" fill="none"></path>
+          <rect width="18" height="18" x="3" y="4" rx="2" fill="none"></rect>
+          <path d="M3 10h18" fill="none"></path>
+        </svg>
+        <time
+          datetime={pubDatetime.toISOString()}
+          class="featured-card-date"
+        >
+          {formattedDate}
+        </time>
+      </div>
+
+      <!-- Title -->
+      <h3
+        id={titleId}
+        class="featured-card-title"
+        style={`view-transition-name: ${slugifyStr(title)}`}
+      >
+        {title}
+      </h3>
+
+      <!-- Excerpt -->
+      <p class="featured-card-excerpt">{description}</p>
+    </div>
+  </a>
+</article>
+
+<style>
+  /* Import the existing styles */
+  @import url('/src/styles/featured-card.css');
+</style>
