@@ -25,6 +25,7 @@ Antes de mostrar nos resultados, vou compartilhar um pouco de como medi a produt
 **Ferramentas Usadas:** Principalmente Claude Code (CLI oficial da Anthropic), complementado com GitHub Copilot para certas tarefas. Comecei uso intensivo em 15 de abril de 2025.
 
 **Abordagem:**
+
 - Frequência e complexidade de commits no GitHub (via API GraphQL)
 - Linhas de código entregues (medidas via estatísticas do git)
 - Taxas de conclusão de projetos (ideias para produtos concluídas)
@@ -97,6 +98,7 @@ O raciocínio de Judge faz sentido intuitivo. Se IA realmente cria desenvolvedor
 **Qualidade sobre Quantidade:** IA não apenas permite mais apps. Permite apps melhores. Em vez de 10 projetos medíocres, estou construindo aplicações de alto nível com recursos que eu nunca teria tentado antes. Como a biblioteca de gráficos SVG customizada no meu rastreador fitness. Depois de avaliar 4 grandes bibliotecas de gráficos, IA me deu confiança para construir exatamente o que eu precisava, "na unha".
 
 **A Revolução Oculta em Código Privado:** Além das métricas mensuráveis, existe todo um ecossistema de desenvolvimento assistido por IA acontecendo que nunca veremos em logs de commit ou app stores. Aqui estão alguns exemplos que ilustram essa tendência mais ampla:
+
 - Um amigo finalmente usou Claude Code para criar dashboards complexos do Home Assistant em minutos que normalmente levariam dias
 - A esposa de um conhecido, nem mesmo desenvolvedora, construiu dois apps privados com Cursor e automatizou parte do seu fluxo de trabalho
 - Um colega numa Fortune 500 me disse que sua equipe está entregando ferramentas internas semanalmente que ficaram no backlog por anos
@@ -109,6 +111,7 @@ Esses exemplos não são prova dos ganhos de produtividade que documentei. São 
 **Transformação Individual de Desenvolvedor:** As métricas macro de Judge não conseguem capturar saltos pessoais de produtividade. Em 4 meses, entreguei mais código de produção do que tinha nos 2 anos anteriores combinados. Isso não é visível em números agregados de app stores.
 
 **Variáveis de Confusão na Medição:** Minha explosão de produtividade coincidiu com o uso de IA, mas foi puramente as ferramentas? Pergunta justa. Eu também tive:
+
 - Tempo dedicado de projeto durante minhas férias
 - Visão clara de produto de anos usando nossa planilha compartilhada
 - Investimento pessoal motivado em fitness tracking (venho passado por uma jornada de transformação total nos últimos dois anos, tendo resultados que nunca tive. Mas isso é papo para outro post).
@@ -151,7 +154,7 @@ Esse último ponto é crucial. IA está mudando a definição do que significa "
 
 ![Como IA Transforma a Alocação de Tempo do Desenvolvedor](/images/developer-time-allocation.png)
 
-*Minha hipótese sobre como IA transforma a alocação de tempo do desenvolvedor, baseada na minha experiência e observações do cenário de desenvolvimento em evolução.*
+_Minha hipótese sobre como IA transforma a alocação de tempo do desenvolvedor, baseada na minha experiência e observações do cenário de desenvolvimento em evolução._
 
 </div>
 

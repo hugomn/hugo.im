@@ -5,7 +5,15 @@ import LinkButton from "./LinkButton.astro";
 import { localizeUrl } from "@utils/i18n";
 
 export interface Props {
-  activeNav?: "posts" | "archives" | "tags" | "about" | "search" | "contact" | "talks" | "investing";
+  activeNav?:
+    | "posts"
+    | "archives"
+    | "tags"
+    | "about"
+    | "search"
+    | "contact"
+    | "talks"
+    | "investing";
 }
 
 const { activeNav } = Astro.props;

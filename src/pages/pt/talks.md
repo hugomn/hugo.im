@@ -8,11 +8,11 @@ Tenho uma paixão especial por compartilhar conteúdo, conhecer novas pessoas e 
 
 ## Palestras disponíveis atualmente
 
-### Assistentes de Código com IA em Escala: Construindo Times de Alta Performance na Era da IA 🇺🇸 *(Em Desenvolvimento)*
+### Assistentes de Código com IA em Escala: Construindo Times de Alta Performance na Era da IA 🇺🇸 _(Em Desenvolvimento)_
 
 À medida que equipes adotam rapidamente assistentes de código com IA, a diferença entre caos e vantagem competitiva está na implementação cuidadosa. Esta palestra explora estratégias práticas para integrar ferramentas de IA em equipes de engenharia, cobrindo governança centralizada, barreiras de segurança, medição de produtividade e criação de melhores práticas para toda a equipe. Com base na experiência real de entregar 146.000 linhas de código em produção em 4 meses, compartilharei o que realmente funciona ao escalar a adoção de IA entre equipes, incluindo padrões de engenharia de prompt, estratégias de gerenciamento de contexto e como manter a qualidade do código enquanto acelera a entrega. Perfeito para líderes de engenharia, CTOs e desenvolvedores seniores que buscam transformar a produtividade de suas equipes sem sacrificar padrões.
 
-**Status**: *Atualmente em desenvolvimento, mas disponível para conferências interessadas em práticas de ponta de engenharia com IA*
+**Status**: _Atualmente em desenvolvimento, mas disponível para conferências interessadas em práticas de ponta de engenharia com IA_
 
 ### Avoiding burnout as a software engineer 🇺🇸
 

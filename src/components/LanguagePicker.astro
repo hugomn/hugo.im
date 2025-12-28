@@ -10,7 +10,10 @@ const currentLang = getLangFromUrl(Astro.url);
   {
     SUPPORTED_LANGUAGES.map(lang => (
       <li>
-        <a class={lang === currentLang ? "font-bold" : ""} href={localizeUrl(lang, pathname)}>
+        <a
+          class={lang === currentLang ? "font-bold" : ""}
+          href={localizeUrl(lang, pathname)}
+        >
           {lang}
         </a>
       </li>

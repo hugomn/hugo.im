@@ -30,23 +30,23 @@ const t = getTranslator(Astro.currentLocale);
 const personStructuredData = {
   "@context": "https://schema.org",
   "@type": "Person",
-  "name": "Hugo Nogueira",
-  "jobTitle": "Chief Product & Technology Officer",
-  "worksFor": {
+  name: "Hugo Nogueira",
+  jobTitle: "Chief Product & Technology Officer",
+  worksFor: {
     "@type": "Organization",
-    "name": "Complyance",
-    "description": "Enterprise GRC (Governance, Risk & Compliance) Platform"
+    name: "Complyance",
+    description: "Enterprise GRC (Governance, Risk & Compliance) Platform",
   },
-  "url": "https://hugo.im",
-  "sameAs": [
+  url: "https://hugo.im",
+  sameAs: [
     "https://github.com/hugomn",
     "https://linkedin.com/in/hugomn",
-    "https://twitter.com/hugomn"
+    "https://twitter.com/hugomn",
   ],
-  "knowsAbout": [
+  knowsAbout: [
     "Technology Leadership",
     "Product Strategy",
-    "Engineering Leadership", 
+    "Engineering Leadership",
     "AI Platform Architecture",
     "LLM Pipeline Development",
     "Model Training and Fine-tuning",
@@ -61,54 +61,65 @@ const personStructuredData = {
     "TypeScript",
     "React",
     "Node.js",
-    "Modern Development Practices"
+    "Modern Development Practices",
   ],
-  "hasOccupation": {
+  hasOccupation: {
     "@type": "Occupation",
-    "name": "Chief Product & Technology Officer",
-    "occupationLocation": {
+    name: "Chief Product & Technology Officer",
+    occupationLocation: {
       "@type": "Place",
-      "name": "Global/Remote"
+      name: "Global/Remote",
     },
-    "skills": [
+    skills: [
       "Executive Leadership",
-      "Product Strategy", 
+      "Product Strategy",
       "AI Platform Architecture",
       "LLM System Development",
       "Model Training and Deployment",
       "Technology Architecture",
       "Team Scaling",
-      "Enterprise Software Development"
-    ]
+      "Enterprise Software Development",
+    ],
   },
-  "description": "Chief Product & Technology Officer specializing in AI platform architecture, LLM system development, and scaling AI-enabled organizations. 20 years experience from individual contributor to C-level executive."
+  description:
+    "Chief Product & Technology Officer specializing in AI platform architecture, LLM system development, and scaling AI-enabled organizations. 20 years experience from individual contributor to C-level executive.",
 };
 
-// Website structured data  
+// Website structured data
 const websiteStructuredData = {
   "@context": "https://schema.org",
   "@type": "Website",
-  "name": "Hugo Nogueira - Technology Leadership & AI Development",
-  "url": "https://hugo.im",
-  "author": {
+  name: "Hugo Nogueira - Technology Leadership & AI Development",
+  url: "https://hugo.im",
+  author: {
     "@type": "Person",
-    "name": "Hugo Nogueira",
-    "jobTitle": "Chief Product & Technology Officer"
+    name: "Hugo Nogueira",
+    jobTitle: "Chief Product & Technology Officer",
   },
-  "description": "Technology leadership insights by Hugo Nogueira, CPTO at Complyance. Expertise in AI platform architecture, LLM system development, engineering leadership, and scaling AI-enabled organizations.",
-  "keywords": "technology leadership, CPTO, AI platform architecture, LLM development, model training, product strategy, engineering management, enterprise software, scaling teams",
-  "audience": {
+  description:
+    "Technology leadership insights by Hugo Nogueira, CPTO at Complyance. Expertise in AI platform architecture, LLM system development, engineering leadership, and scaling AI-enabled organizations.",
+  keywords:
+    "technology leadership, CPTO, AI platform architecture, LLM development, model training, product strategy, engineering management, enterprise software, scaling teams",
+  audience: {
     "@type": "Audience",
-    "name": "Technology Executives and Engineering Leaders"
-  }
+    name: "Technology Executives and Engineering Leaders",
+  },
 };
 ---
 
 <Layout>
   <!-- Structured Data for LLM Optimization -->
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(personStructuredData)}></script>
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteStructuredData)}></script>
-  
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(personStructuredData)}
+  />
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(websiteStructuredData)}
+  />
+
   <Header />
   <main id="main-content">
     <section id="hero">

@@ -25,9 +25,11 @@ Meus investimentos se concentram em áreas onde posso fornecer valor genuíno al
 ## Portfolio
 
 ### MoMo Coffee (2024)
+
 Uma cadeia de cafeterias habilitada por tecnologia que está reimaginando como as cafeterias operam. O que me empolgou na MoMo não foi apenas sua abordagem ao café, mas como eles estão usando tecnologia para criar melhores experiências tanto para clientes quanto para baristas. Os fundadores combinam profunda experiência em hospitalidade com implementação tecnológica cuidadosa.
 
 ### Ferramenta de Gestão de Projetos Stealth (2024)
+
 Uma empresa em estágio inicial construindo software de gestão de projetos para equipes técnicas. Não posso compartilhar detalhes ainda, mas o que me atraiu foi a perspectiva única dos fundadores sobre como equipes de engenharia realmente trabalham versus como as ferramentas atuais assumem que elas trabalham.
 
 ## Planos para 2025
@@ -46,4 +48,4 @@ A melhor forma de me contactar é através de [email](/contact) ou [LinkedIn](ht
 
 ---
 
-*Esta página foi inspirada pela [abordagem do Zeno Rocha](https://zenorocha.com/investing) para investimentos anjo transparentes.*
+_Esta página foi inspirada pela [abordagem do Zeno Rocha](https://zenorocha.com/investing) para investimentos anjo transparentes._

@@ -69,9 +69,15 @@ Defenda as minorias, mas **nunca** levante a bandeira de uma específica. Quando
 ### Referências
 
 [^1]: [Menezes, Álvaro & Prikladnicki, Rafael. (2018). Diversity in software engineering. 45-48](https://www.researchgate.net/publication/326079170_Diversity_in_software_engineering)
+
 [^2]: [How Diversity Makes Us Smarter. Scientific American](https://www.scientificamerican.com/article/how-diversity-makes-us-smarter/)
+
 [^3]: [Management 3.0: Leading Agile Developers, Developing Agile Leaders. Apello, Jurgen](https://www.amazon.com/gp/product/0321712471/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0321712471&linkCode=as2&tag=hugomn-20&linkId=7032864bf8f0b16d34dc719dde244755)
+
 [^4]: [Fixing the flawed approach to diversity - BCG](https://www.bcg.com/publications/2019/fixing-the-flawed-approach-to-diversity.aspx?utm_medium=Email&utm_source=201901DIVERSITY&utm_campaign=201901_DIVERSITY_IANDI_NONE_GLOBAL&utm_usertoken=72668727a50b366d71d3ea87ce70b221e5ccea0b&redir=true)
+
 [^5]: [Is Your Company's Diversity Training Making You More Biased?](https://www.strategy-business.com/blog/Is-Your-Companys-Diversity-Training-Making-You-More-Biased?gko=72ffc)
+
 [^6]: [The concept of diversity ](https://www.vbcassdhd.org/vbchd/eo/documents/DIVERSITY.pdf)
+
 [^7]: [5 Strategies for Promoting Diversity in the Workplace](https://www.hult.edu/blog/promoting-diversity-in-workplace/)

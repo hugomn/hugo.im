@@ -39,7 +39,7 @@ Aviso importante: como o código do [hey.com](http://hey.com) não é livre, e n
 
 Como podíamos imaginar, [hey.com](http://hey.com) é uma aplicação web Ruby on Rails renderizada no servidor, sem utilizar nenhum framework front-end no lado do cliente (como React, Vue). Ao inspecionar o código, de cara esbarramos com [turbolinks](https://github.com/turbolinks/turbolinks), uma biblioteca para navegação de páginas sem a necessidade de recarregar todo o HTML, e que proporciona uma navegação bastante rápida:
 
-![Turbolinks in hey.com code](/images/20200630_web.png 'Turbolinks')
+![Turbolinks in hey.com code](/images/20200630_web.png "Turbolinks")
 
 Eu não vou me aprofundar muito na aplicação Ruby on Rails do [hey.com](http://hey.com) aqui, mas se você tiver interesse, o Matouš Borák fez um artigo bastante aprofundado [aqui](https://dev.to/borama/a-few-sneak-peeks-into-hey-com-technology-i-intro-4bjg).
 

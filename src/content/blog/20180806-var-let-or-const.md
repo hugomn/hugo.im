@@ -12,7 +12,7 @@ tags:
 description: Understanding the differences between var, let, and const in JavaScript ES6, including scope behaviors and when to use each variable declaration.
 ---
 
-One (or two) of the most important features that came with ES2015 (ES6) was  the addition of `let` and `const` which can be used for variable declaration. But, the first question that you may have is: what makes them different from our old `var`? If you are still not clear about this, this article is for you.
+One (or two) of the most important features that came with ES2015 (ES6) was the addition of `let` and `const` which can be used for variable declaration. But, the first question that you may have is: what makes them different from our old `var`? If you are still not clear about this, this article is for you.
 
 Let's first review the most important points about `var`.
 

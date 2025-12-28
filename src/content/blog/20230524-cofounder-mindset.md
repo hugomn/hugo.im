@@ -40,4 +40,4 @@ By embracing these responsibilities and actively seeking opportunities to contri
 
 ---
 
-*Photo by [Peter Nguyen](https://unsplash.com/@peterng1618) on [Unsplash](https://unsplash.com/photos/a-crowd-of-people-standing-next-to-a-train-HF9WtHWy9cM)*
+_Photo by [Peter Nguyen](https://unsplash.com/@peterng1618) on [Unsplash](https://unsplash.com/photos/a-crowd-of-people-standing-next-to-a-train-HF9WtHWy9cM)_

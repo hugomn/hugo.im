@@ -128,11 +128,11 @@
     @apply shadow-md;
     transform: translateY(-2px);
   }
-  
+
   .featured-card-link:hover .featured-card-title {
     @apply underline underline-offset-2;
   }
-  
+
   [data-theme="dark"] .featured-card-link:hover {
     @apply shadow-lg;
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
@@ -161,11 +161,11 @@
   .featured-card-link {
     @apply transition-none;
   }
-  
+
   .featured-card-link:hover {
     transform: none;
   }
-  
+
   .featured-card-link:active {
     transform: none;
   }
