@@ -4,7 +4,7 @@ pubDatetime: 2024-03-15T14:20:00.000Z
 title: "Creating an efficient and healthy interview process for engineers: insights from a decade of leading engineering teams"
 locale: en
 postSlug: healthy-and-inclusive-engineering-interview-process
-featured: true
+featured: false
 tags:
   - Engineering
   - Interview process
