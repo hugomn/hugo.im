@@ -21,15 +21,15 @@ Most AI agent tutorials gloss over memory with a hand-wave: "just use a vector d
 
 Memory is the hidden bottleneck that separates toy demos from production systems. Get it wrong, and your agent forgets critical context mid-conversation. Get it right, and you unlock genuinely useful autonomous behavior.
 
-Here's what I've learned about the memory problem—and the patterns that actually work.
+Here's what I've learned about the memory problem, and the patterns that actually work.
 
 ## The Three Memory Horizons
 
 When we talk about agent memory, we're actually talking about three distinct problems:
 
-**Working Memory** is what the agent needs right now. It's the current conversation, the task at hand, the immediate context. This is the easiest to implement—it's basically your context window—but it's also the most constrained. Token limits are real, and stuffing everything into the prompt doesn't scale.
+**Working Memory** is what the agent needs right now. It's the current conversation, the task at hand, the immediate context. This is the easiest to implement: it's basically your context window but it's also the most constrained. Token limits are real, and stuffing everything into the prompt doesn't scale.
 
-**Episodic Memory** is what happened before. Previous conversations, past actions, historical context. This is where vector databases come in, but naive RAG retrieval often pulls irrelevant context or misses critical details. The challenge isn't storage—it's retrieval relevance.
+**Episodic Memory** is what happened before. Previous conversations, past actions, historical context. This is where vector databases come in, but naive RAG retrieval often pulls irrelevant context or misses critical details. The challenge isn't storage: it's retrieval relevance.
 
 **Semantic Memory** is what the agent knows. Facts, preferences, learned patterns. This is the hardest to get right because it requires the agent to actually learn and update its understanding over time, not just retrieve past events.
 
@@ -37,7 +37,7 @@ Most systems only implement working memory well. The good ones nail episodic. Al
 
 ## Why Vector Search Isn't Enough
 
-The default approach—embed everything, retrieve by similarity—breaks down in practice for several reasons:
+The default approach: embed everything, retrieve by similarity—breaks down in practice for several reasons:
 
 **Temporal relevance matters.** What the user said 6 months ago might be semantically similar to today's query but completely irrelevant. A user's preferences change. Context evolves. Pure similarity search doesn't capture this.
 
@@ -53,26 +53,26 @@ After much trial and error, here are the patterns I've found effective:
 
 Don't rely on a single retrieval mechanism. Combine:
 
-- **Recency** — what happened recently is probably relevant
-- **Importance** — explicitly scored when storing
-- **Similarity** — semantic relevance to current query
-- **Explicit links** — memories that reference each other
+- **Recency**: what happened recently is probably relevant
+- **Importance**: explicitly scored when storing
+- **Similarity**: semantic relevance to current query
+- **Explicit links**: memories that reference each other
 
 Weight these differently based on the task. A "remind me" query should weight recency highly. A "what do I think about X" query should weight semantic similarity.
 
 ### Memory Consolidation
 
-Borrow from cognitive science: memories should consolidate over time. Recent memories stay detailed. Older memories get summarized and compressed. This isn't just about storage efficiency—it's about relevance. The gist of what happened last month is more useful than the raw transcript.
+Borrow from cognitive science: memories should consolidate over time. Recent memories stay detailed. Older memories get summarized and compressed. This isn't just about storage efficiency: it's about relevance. The gist of what happened last month is more useful than the raw transcript.
 
 Implement a background process that periodically reviews and consolidates memories. Summarize, extract key facts, update importance scores, prune the irrelevant.
 
 ### Explicit Semantic Extraction
 
-Don't just store what happened—extract what it means. After conversations, explicitly pull out:
+Don't just store what happened. Extract what it means. After conversations, explicitly pull out:
 
-- **Facts learned** — user's name, preferences, constraints
-- **Relationships** — who knows who, what relates to what
-- **Patterns** — user tends to prefer X, always asks about Y
+- **Facts learned**: user's name, preferences, constraints
+- **Relationships**: who knows who, what relates to what
+- **Patterns**: user tends to prefer X, always asks about Y
 
 Store these as first-class semantic memories, not just embedded conversation chunks.
 
@@ -80,9 +80,9 @@ Store these as first-class semantic memories, not just embedded conversation chu
 
 Not all memories should be accessible everywhere. Create explicit scopes:
 
-- **Global** — always relevant: user identity, core preferences
-- **Project-specific** — only relevant in context
-- **Conversation-specific** — temporary working memory
+- **Global**: always relevant: user identity, core preferences
+- **Project-specific**: only relevant in context
+- **Conversation-specific**: temporary working memory
 
 This prevents context pollution and makes retrieval more precise.
 
