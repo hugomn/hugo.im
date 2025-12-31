@@ -4,7 +4,7 @@ pubDatetime: 2024-03-15T14:20:00.000Z
 title: "Criando um processo de entrevista eficiente e saudável para engenheiros: dicas práticas e sugestões"
 locale: pt
 postSlug: healthy-and-inclusive-engineering-interview-process
-featured: true
+featured: false
 tags:
   - Processo de entrevista
   - Engenheiros

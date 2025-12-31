@@ -20,7 +20,7 @@ export interface Props {
 const { page } = Astro.props;
 
 // Get the current locale from the URL
-const currentLocale = Astro.url.pathname.startsWith('/pt/') ? 'pt' : 'en';
+const currentLocale = Astro.url.pathname.startsWith("/pt/") ? "pt" : "en";
 
 // Get only posts from the current locale for tags
 const posts = await getCollection(
@@ -61,11 +61,11 @@ const tags = getUniqueTags(posts);
   .tags-section {
     @apply mx-auto max-w-5xl px-4 pb-8;
   }
-  
+
   .tags-section h2 {
     @apply mb-6 text-2xl font-semibold text-skin-base;
   }
-  
+
   .tag-cloud {
     @apply flex flex-wrap gap-3;
   }

@@ -25,9 +25,11 @@ My investments center on areas where I can provide genuine value beyond capital:
 ## Portfolio
 
 ### MoMo Coffee (2024)
+
 A technology-enabled coffee chain that's reimagining how coffee shops operate. What excited me about MoMo wasn't just their approach to coffee, but how they're using technology to create better experiences for both customers and baristas. The founders combine deep hospitality experience with thoughtful technology implementation.
 
 ### Stealth Project Management Tool (2024)
+
 An early-stage company building project management software for technical teams. I can't share details yet, but what drew me in was the founders' unique perspective on how engineering teams actually work versus how current tools assume they work.
 
 ## 2025 Plans
@@ -46,4 +48,4 @@ The best way to reach me is through [email](/contact) or [LinkedIn](https://link
 
 ---
 
-*This page was inspired by [Zeno Rocha's approach](https://zenorocha.com/investing) to transparent angel investing.*
+_This page was inspired by [Zeno Rocha's approach](https://zenorocha.com/investing) to transparent angel investing._

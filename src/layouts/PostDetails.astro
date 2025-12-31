@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
@@ -19,7 +20,7 @@ import profilePictureImg from "@assets/images/profile_picture.jpg";
 import vibecodingImg from "@assets/images/vibecoding.jpg";
 
 // Map image paths to imported images
-const imageMap: Record<string, any> = {
+const imageMap: Record<string, ImageMetadata> = {
   "/assets/cofounder-mindset.jpg": cofoundMindsetImg,
   "/assets/interview-process.jpg": interviewProcessImg,
   "/assets/no-estimates.jpg": noEstimatesImg,
@@ -83,7 +84,7 @@ const nextPost =
 // Get the optimized image
 let optimizedImage = null;
 if (image) {
-  if (typeof image === 'string' && imageMap[image]) {
+  if (typeof image === "string" && imageMap[image]) {
     optimizedImage = imageMap[image];
   } else {
     optimizedImage = image;
@@ -116,31 +117,33 @@ if (image) {
       editPost={editPost}
       postId={post.id}
     />
-    {optimizedImage && (
-      <div class="featured-image-container my-8">
-        {typeof optimizedImage === 'string' ? (
-          <img 
-            src={optimizedImage}
-            alt={title}
-            class="featured-image w-full rounded-lg"
-            loading="eager"
-            transition:name={`img-${slugifyStr(title)}`}
-          />
-        ) : (
-          <Image
-            src={optimizedImage}
-            alt={title}
-            class="featured-image w-full rounded-lg"
-            loading="eager"
-            widths={[640, 768, 1024, 1280]}
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1024px"
-            quality="high"
-            format="webp"
-            transition:name={`img-${slugifyStr(title)}`}
-          />
-        )}
-      </div>
-    )}
+    {
+      optimizedImage && (
+        <div class="featured-image-container my-8">
+          {typeof optimizedImage === "string" ? (
+            <img
+              src={optimizedImage}
+              alt={title}
+              class="featured-image w-full rounded-lg"
+              loading="eager"
+              transition:name={`img-${slugifyStr(title)}`}
+            />
+          ) : (
+            <Image
+              src={optimizedImage}
+              alt={title}
+              class="featured-image w-full rounded-lg"
+              loading="eager"
+              widths={[640, 768, 1024, 1280]}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1024px"
+              quality="high"
+              format="webp"
+              transition:name={`img-${slugifyStr(title)}`}
+            />
+          )}
+        </div>
+      )
+    }
     <article id="article" class="prose mx-auto mt-8 max-w-5xl">
       <Content />
     </article>
@@ -174,7 +177,11 @@ if (image) {
       {
         prevPost && (
           <a
-            href={locale === "pt" ? `/pt/posts/${prevPost.slug}` : `/posts/${prevPost.slug}`}
+            href={
+              locale === "pt"
+                ? `/pt/posts/${prevPost.slug}`
+                : `/posts/${prevPost.slug}`
+            }
             class="flex w-full gap-1 hover:opacity-75"
           >
             <svg
@@ -204,7 +211,11 @@ if (image) {
       {
         nextPost && (
           <a
-            href={locale === "pt" ? `/pt/posts/${nextPost.slug}` : `/posts/${nextPost.slug}`}
+            href={
+              locale === "pt"
+                ? `/pt/posts/${nextPost.slug}`
+                : `/posts/${nextPost.slug}`
+            }
             class="flex w-full justify-end gap-1 text-right hover:opacity-75 sm:col-start-2"
           >
             <div>
@@ -243,11 +254,11 @@ if (image) {
   .post-title {
     @apply text-2xl font-semibold text-skin-accent;
   }
-  
+
   .featured-image-container {
     @apply mx-auto max-w-5xl;
   }
-  
+
   .featured-image {
     @apply shadow-lg;
     max-height: 500px;

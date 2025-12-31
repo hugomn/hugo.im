@@ -18,7 +18,7 @@ keywords: estimativas software, no estimates, desenvolvimento ágil, gestão pro
 image: "/assets/no-estimates.jpg"
 ---
 
-*Como aumentamos a entrega de features em 40% e salvamos nossa sanidade*
+_Como aumentamos a entrega de features em 40% e salvamos nossa sanidade_
 
 "A release India vai ser entregue amanhã."
 
@@ -27,6 +27,7 @@ Essas quatro palavras costumavam gerar um tipo específico de pavor na Complyanc
 Já tínhamos passado por isso nove vezes. Alpha até India, seguindo o alfabeto da aviação. Releases de seis semanas, features cuidadosamente estimadas, promessas feitas para clientes enterprise baseadas nessas estimativas.
 
 Todos. Os. Releases. O mesmo padrão:
+
 - Semana 1-2: "Temos tempo de sobra"
 - Semana 3-4: "Está apertando mas é controlável"
 - Semana 5: "Precisamos cortar algumas features"
@@ -53,9 +54,11 @@ O que minha experiência nesta indústria me ensinou? **Não somos ruins em esti
 O desenvolvimento de software viola as leis que fazem a estimativa funcionar em outros campos:
 
 ### 1. O Efeito do Observador
+
 No momento em que você estima uma tarefa, você a modifica. Equipes inconscientemente ajustam seu trabalho para se adequar à estimativa: correndo quando estão "atrasadas", polindo demais quando estão "adiantadas". Isso é conhecido como [Lei de Parkinson](https://en.wikipedia.org/wiki/Parkinson%27s_law): o trabalho se expande para preencher o tempo disponível para sua conclusão. A estimativa se torna a realidade.
 
 ### 2. O Cone da Incerteza é uma Mentira
+
 O famoso ["Cone da Incerteza"](https://en.wikipedia.org/wiki/Cone_of_uncertainty) sugere que estimativas melhoram com o tempo. Mas pesquisas mostram que no desenvolvimento moderno de software, a incerteza frequentemente aumenta conforme você aprende mais. Por quê? Porque bom desenvolvimento de software é sobre descobrir o que você deveria construir, não apenas construir o que foi planejado.
 
 Na Complyance, vivemos essa realidade por 54 semanas através de nove releases. Cada "melhoria simples de 2 semanas" tinha um iceberg escondido por baixo. Só na release "India", três features foram estimadas em uma semana cada. Tempo final de entrega? Cinco semanas, duas semanas, e três dias respectivamente.
@@ -65,6 +68,7 @@ Mas aqui está o ponto: sempre conseguimos fazer funcionar. Não porque nossas e
 A estimativa não estava prevendo o trabalho. O trabalho estava se conformando à estimativa, a um tremendo custo humano.
 
 ### 3. A Cascata de Complexidade
+
 A complexidade de software segue uma [distribuição de lei de potência](https://en.wikipedia.org/wiki/Power_law). A maioria das mudanças são triviais, algumas são moderadas, mas uma pequena porcentagem são exponencialmente complexas. O problema? Você não pode dizer qual é qual até estar no meio do caminho. Esse padrão é bem documentado em múltiplos projetos de software e códigos.
 
 Através dos nossos nove releases, vimos esse padrão repetidamente: tarefas "simples" que revelaram problemas fundamentais de arquitetura, e features "complexas" que se mostraram diretas graças a bibliotecas ou abordagens existentes que descobrimos durante a implementação.
@@ -76,12 +80,14 @@ Depois de nove releases, nossa precisão de estimativas não estava melhorando. 
 Vamos fazer as contas do que a estimativa realmente custa:
 
 **Custos diretos (baseado em pesquisa da indústria e nosso próprio rastreamento):**
+
 - Planejamento de sprint com estimativas: 4 horas/sprint × 26 sprints = 104 horas/ano por pessoa
 - Refinamento de backlog e estimativas: 2-3 horas/semana × 50 semanas = 100-150 horas/ano por pessoa
 - Reuniões de reestimativa e ajuste: ~50 horas/ano por pessoa
 - **Total: 250-300 horas/ano por desenvolvedor = 6-7.5 semanas de tempo de desenvolvimento perdido**
 
 **Custos indiretos (mais difíceis de medir, mas mais prejudiciais):**
+
 - Troca de contexto de reuniões de estimativa
 - Impacto no moral de "perder" estimativas
 - Jogos políticos em torno de inflacionar estimativas
@@ -94,6 +100,7 @@ Com um salário médio de desenvolvedor de $130.000/ano, isso são 6.3 semanas �
 Depois da release "India", fizemos a mudança. Hoje na Complyance fazemos assim, e mostro alguns dados que provam que a mudança está funcionando:
 
 ### 1. De Releases para Fluxo Contínuo
+
 **Antes (Alpha até India):** Releases de 6 semanas, batching de features, planning poker, sessões de planejamento de release, modo crise da última semana
 
 **Depois:** Deploy contínuo, uma reunião semanal de refinamento (nossa única reunião restante de uma longa lista), entrega diária, CI e CD de verdade.
@@ -101,9 +108,11 @@ Depois da release "India", fizemos a mudança. Hoje na Complyance fazemos assim,
 A mudança psicológica foi imediata. Sem mais "calmaria da semana 1" seguida de "pânico da semana 6". Apenas progresso estável e sustentável. Nossa velocidade realmente se tornou previsível, não através de estimativas, mas através de fluxo consistente.
 
 ### 2. Pequenas entregas ao invés de grandes deploys
+
 Você deve estar argumentando: mas você pode claramente fazer o deploys de features novas durante uma release usando feature flags. Corretíssimo, fazíamos assim. Mas a questão era que no setup anterior, toda feature devia ter um escopo sempre menor ou igual ao tamanho da release, e muitas vezes isso não acontecia.
 
 Ao invés de estimar uma "feature completa" e agrupá-la para um release, entregamos incrementos:
+
 - Segunda: Funcionalidade básica que funciona para um caso de uso
 - Quarta: Casos extremos tratados baseado no que aprendemos
 - Sexta: Performance otimizada onde importa
@@ -112,7 +121,9 @@ Ao invés de estimar uma "feature completa" e agrupá-la para um release, entreg
 Nossos clientes agora veem progresso diariamente ao invés de a cada 6 semanas. Eles podem começar a usar features imediatamente. E podemos pivotar baseado em feedback real, não requisitos imaginados.
 
 ### 3. Tempo Fixo, Escopo Variável
+
 Comprometemos com faixas de tempo, não listas de features:
+
 - "Vamos trabalhar em melhorias de busca por 2 semanas"
 - "A equipe vai focar em performance até as métricas melhorarem 20%"
 - "Temos 1 mês para tornar o onboarding agradável"
@@ -120,6 +131,7 @@ Comprometemos com faixas de tempo, não listas de features:
 Isso inverte toda a conversa. Em vez de "Quando X vai estar pronto?" vira "Qual o máximo de valor que podemos entregar até a data Y?"
 
 ### 4. Previsão Probabilística Quando Necessário
+
 Quando absolutamente precisamos fornecer previsões (para compliance regulatório, contratos grandes, etc.), usamos previsão probabilística baseada em dados reais:
 
 - Rastrear quanto tempo itens de trabalho realmente levam (não estimativas, dados reais)
@@ -133,12 +145,14 @@ Isso é tanto mais honesto quanto mais preciso que estimativas tradicionais.
 Depois de abandonar releases e estimativas:
 
 Os números:
+
 - 40% de aumento em features entregues
 - 60% de redução em bugs (sem mais código apressado da semana 6)
 - 90% de redução em reuniões (de planning poker, planejamento de release, sessões de estimativa para apenas um refinamento semanal)
 - Zero madrugadas no último ano (costumávamos ter 9)
 
 O lado humano:
+
 - Sem mais ciclos de ansiedade de release
 - Engenheiros realmente tiram férias sem cronometrá-las em torno de releases
 - Clientes mais felizes apesar de não receberem datas prometidas (eles veem progresso constante)
@@ -147,7 +161,9 @@ O lado humano:
 A métrica mais reveladora? Não tivemos um único "modo crise" desde que abandonamos as estimativas. Nem um.
 
 ### 5. A Mentalidade de Investimento
+
 Tratamos desenvolvimento como um investidor trata startups:
+
 - Pequenos investimentos iniciais
 - Dobrar a aposta no que está funcionando
 - Matar o que não está
@@ -201,7 +217,7 @@ Como Holub diz: "Planejamento acontece constantemente. Suas projeções mudam to
 
 ## Seu Desafio de 30 Dias Sem Estimativas
 
-*Inspirado pelo [movimento #NoEstimates](https://www.infoq.com/articles/noestimates-monte-carlo/)*
+_Inspirado pelo [movimento #NoEstimates](https://www.infoq.com/articles/noestimates-monte-carlo/)_
 
 Ainda cético? Tente isso:
 
@@ -219,6 +235,7 @@ Aqui está a mudança fundamental: Desenvolvimento de software não é construç
 Quando você constrói uma casa, você sabe o que está construindo. Os desconhecidos são mínimos. Estimativas funcionam.
 
 Quando você desenvolve software, você está descobrindo:
+
 - O que usuários realmente precisam (versus o que dizem que querem)
 - Quais abordagens técnicas funcionam (versus o que parecia bom em teoria)
 - Quais são as restrições reais (versus o que você assumiu)
@@ -235,7 +252,7 @@ Pare de estimar. Comece a entregar. Seus usuários estão esperando.
 
 ---
 
-*Qual sua experiência com estimativas? Já tentou trabalhar sem estimativas? Compartilhe sua história nos comentários ou [entre em contato diretamente](/contact). Respondo a todas as mensagens.*
+_Qual sua experiência com estimativas? Já tentou trabalhar sem estimativas? Compartilhe sua história nos comentários ou [entre em contato diretamente](/contact). Respondo a todas as mensagens._
 
 ## Leituras Complementares
 
@@ -247,4 +264,4 @@ Pare de estimar. Comece a entregar. Seus usuários estão esperando.
 
 ---
 
-*Foto do cabeçalho por [Josh A. D.](https://unsplash.com/@mista_j) no [Unsplash](https://unsplash.com/photos/a-person-holding-a-tape-measure-in-their-hand-wTtBtw80erg)*
+_Foto do cabeçalho por [Josh A. D.](https://unsplash.com/@mista_j) no [Unsplash](https://unsplash.com/photos/a-person-holding-a-tape-measure-in-their-hand-wTtBtw80erg)_

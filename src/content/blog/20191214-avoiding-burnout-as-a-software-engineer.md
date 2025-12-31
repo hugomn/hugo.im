@@ -169,4 +169,5 @@ And I would like to finish this article with one very simple and powerful idea:
 ### References
 
 [^1]: [Gallup: Employee Burnout, Part 1: The 5 Main Causes (2018)](https://www.gallup.com/workplace/237059/employee-burnout-part-main-causes.aspx)
+
 [^2]: [World Psychiatry: Understanding the burnout experience: recent research and its implications for psychiatry](https://onlinelibrary.wiley.com/doi/full/10.1002/wps.20311)

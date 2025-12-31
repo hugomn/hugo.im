@@ -20,18 +20,21 @@ Feel free to fork and adapt for your own projects. No contributions expected, bu
 ## 🎯 Technical Features
 
 **Modern Stack:**
+
 - Astro 5.x for optimal performance and developer experience
 - TypeScript throughout for type safety and maintainability
 - Tailwind CSS with custom design system implementation
 - React components for interactive elements
 
 **Content Management:**
+
 - Markdown-based blog with comprehensive frontmatter
 - Full bilingual support (English/Portuguese)
 - Dynamic OG image generation
 - RSS feeds and sitemap generation
 
 **Performance & UX:**
+
 - Perfect Lighthouse scores (100/100/100/100)
 - Responsive design with mobile-first approach
 - Search functionality with fuzzy matching
@@ -40,6 +43,7 @@ Feel free to fork and adapt for your own projects. No contributions expected, bu
 ## 🚀 Key Technical Features
 
 ### 📝 Content Architecture
+
 ```typescript
 // Example: Multilingual blog structure
 src/content/blog/
@@ -48,18 +52,22 @@ src/content/blog/
 ```
 
 ### 🎨 Design System Implementation
+
 - Typography scale optimized for readability
 - Consistent spacing and visual hierarchy
 - Accessible color palette with proper contrast ratios
 - Comprehensive ARIA support and semantic markup
 
 ### 📊 Data Integration Examples
+
 The codebase includes patterns for:
+
 - GitHub API integration for dynamic content
 - Custom visualization generation with Python/matplotlib
 - Interactive component development with React
 
 ### 🌐 Production-Ready Architecture
+
 - Scalable component structure with TypeScript interfaces
 - Comprehensive error boundaries and fallback states
 - Performance optimization with lazy loading and prefetching
@@ -68,6 +76,7 @@ The codebase includes patterns for:
 ## 🏁 Quick Start
 
 ### 1. Clone & Setup
+
 ```bash
 git clone https://github.com/hugomn/hugo.im.git your-project
 cd your-project
@@ -75,6 +84,7 @@ npm install
 ```
 
 ### 2. Configuration
+
 ```typescript
 // src/config.ts
 export const SITE: Site = {
@@ -86,12 +96,14 @@ export const SITE: Site = {
 ```
 
 ### 3. Content Structure
+
 - Replace `src/pages/about.md` with your content
 - Update blog posts in `src/content/blog/`
 - Add images to `public/assets/`
 - Customize favicon and branding assets
 
 ### 4. Styling & Branding
+
 ```bash
 # Generate favicon set
 python3 scripts/generate_favicon.py your-image.jpg
@@ -103,18 +115,19 @@ python3 scripts/generate_favicon.py your-image.jpg
 
 ## 📱 Development & Deployment
 
-| Command | Action |
-|---------|--------|
-| `npm install` | Install all dependencies |
-| `npm run dev` | Start development server at `localhost:4321` |
-| `npm run build` | Build optimized production site |
-| `npm run preview` | Preview production build locally |
-| `npm run lint` | Run ESLint with TypeScript support |
-| `npm run format` | Format codebase with Prettier |
+| Command           | Action                                       |
+| ----------------- | -------------------------------------------- |
+| `npm install`     | Install all dependencies                     |
+| `npm run dev`     | Start development server at `localhost:4321` |
+| `npm run build`   | Build optimized production site              |
+| `npm run preview` | Preview production build locally             |
+| `npm run lint`    | Run ESLint with TypeScript support           |
+| `npm run format`  | Format codebase with Prettier                |
 
 ## 🎨 Architecture Patterns
 
 ### Component Structure
+
 ```
 src/
 ├── components/     # Reusable UI components
@@ -126,12 +139,14 @@ src/
 ```
 
 ### Internationalization Implementation
+
 - Translation system with TypeScript support
 - Content collection patterns for multilingual posts
 - Locale-aware routing and URL generation
 - SEO optimization for multiple languages
 
 ### Performance Optimizations
+
 - Static site generation with Astro's island architecture
 - Image optimization with responsive loading
 - CSS optimization with Tailwind purging
@@ -140,6 +155,7 @@ src/
 ## 🌐 Production Considerations
 
 This codebase includes:
+
 - **Comprehensive TypeScript** configuration with strict mode
 - **Testing setup** with component and integration test examples
 - **CI/CD pipeline** configuration for automated deployment

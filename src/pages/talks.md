@@ -8,11 +8,11 @@ I have a special passion for sharing content, meeting new people, and contributi
 
 ## Current available talks
 
-### AI Coding Assistants at Scale: Building High-Performance Teams in the Age of AI 🇺🇸 *(Work in Progress)*
+### AI Coding Assistants at Scale: Building High-Performance Teams in the Age of AI 🇺🇸 _(Work in Progress)_
 
 As teams rapidly adopt AI coding assistants, the difference between chaos and competitive advantage lies in thoughtful implementation. This talk explores practical strategies for integrating AI tools into engineering teams, covering centralized governance, security guardrails, productivity measurement, and creating team-wide best practices. Drawing from real-world experience shipping 146,000 lines of production code in 4 months, I'll share what actually works when scaling AI adoption across teams, including prompt engineering patterns, context management strategies, and how to maintain code quality while accelerating delivery. Perfect for engineering leaders, CTOs, and senior developers looking to transform their teams' productivity without sacrificing standards.
 
-**Status**: *Currently being developed, but available for conferences interested in cutting-edge AI engineering practices*
+**Status**: _Currently being developed, but available for conferences interested in cutting-edge AI engineering practices_
 
 ### Avoiding burnout as a software engineer 🇺🇸
 

@@ -16,38 +16,43 @@ description: A comprehensive guide on creating and publishing reusable JavaScrip
 On October 10th, I have had the pleasure of talking about reusable components using the Rollup.js library, at the meetup [React Open Source](https://www.meetup.com/React-Open-Source/) in Berlin. I tried to show, with a very simple example, the context of creating the concept of modules in JavaScript. I also did a live-coding session, showing how to create and publish reusable components. Watch the full video at the end of this post.
 
 ## Why would I need to expose my components?
+
 There are several reasons and examples of situations where it is interesting to create reusable components. It is important to list some of them:
 
 ### 1. Sharing components between different applications
+
 This is the most obvious and most common case. The essential idea of ​​component architecture is to create reusable pieces of code. A classic example of reusability is the creation of UI components that can be reused among different applications.
 
-### 2. Sharing configuration 
+### 2. Sharing configuration
+
 Another fairly common case of reuse happens when we need to share configurations between projects. A simple way to do this is to compile the settings as components.
 
 ### 3. Micro-services for front-end applications
+
 The micro-service architecture is a development and deploy technique that relies on services with well-defined and totally disconnected responsibilities, providing system maintenance and scalability. This approach has become common in front-end applications and the use of reusable components is a way of developing micro-services.
 
 ## How to manage encapsulation and dependency in JavaScript?
-A basic principle for creating independent and reusable components is that they should be encapsulated and that the dependencies are properly managed. To solve this problem, the concept of JavaScript Modules has been introduced. 
+
+A basic principle for creating independent and reusable components is that they should be encapsulated and that the dependencies are properly managed. To solve this problem, the concept of JavaScript Modules has been introduced.
 
 Initially, immediately executed functions (IIFE) and the "Revelling module" standard for components creation were used, as in the following example:
 
 ```javascript
 var myRevealingModule = (function () {
-        var privateName;
- 
-        function privateDisplay() {
-            console.log("Name:" + privateName);
-        }
- 
-        function publicDisplay( name ) {
-            privateName = name;
-            privateDisplay();
-        }
- 
-        return { display: publicDisplay };
-    })();
- 
+  var privateName;
+
+  function privateDisplay() {
+    console.log("Name:" + privateName);
+  }
+
+  function publicDisplay(name) {
+    privateName = name;
+    privateDisplay();
+  }
+
+  return { display: publicDisplay };
+})();
+
 myRevealingModule.display("My JavaScript Module");
 ```
 
@@ -59,14 +64,14 @@ But in May 2013, Isaac Z. Schlueter, npm author, said that CommonJS was being di
 
 ```javascript
 // commonJs_double.js
-module.exports = function(number) {
-  return number * 2; 
-}
+module.exports = function (number) {
+  return number * 2;
+};
 ```
 
 ```javascript
 // commonJs_index.js
-var double = require('/commonJs_double');
+var double = require("/commonJs_double");
 
 console.log(double(4)); // 8
 ```
@@ -77,10 +82,10 @@ Since the implementation of CommonJS was not compatible with browsers, the defin
 
 ```javascript
 define(["module1", "module2"], function(module1, module2) {
-    // The function is called only when the requested modules 
-    // are finished loading. The define function takes the first 
-    // argument as an array of dependency modules. These modules are 
-    // loaded in a non-blocking manner in the background and once the 
+    // The function is called only when the requested modules
+    // are finished loading. The define function takes the first
+    // argument as an array of dependency modules. These modules are
+    // loaded in a non-blocking manner in the background and once the
     // loading is completed, the callback function is executed.
     module1.someMethod();
 }
@@ -93,13 +98,13 @@ ES2015 modules have been implemented in the recent ECMAScript 2015 implementatio
 ```javascript
 // es2015_square.js
 export function square(x) {
-    return x * x; 
+  return x * x;
 }
 ```
 
 ```javascript
 // es2015_index.js
-import { square } from 'es2015_square';
+import { square } from "es2015_square";
 
 console.log(square(11)); // 121
 ```
@@ -107,13 +112,15 @@ console.log(square(11)); // 121
 Now that we've seen a quick introduction to JavaScript modules, let's understand how **Rollup.js** can help us compile our components into reusable components.
 
 ## What is Rollup.js?
-Rollup is a module bundler for JavaScript libraries that compiles small pieces of code into something larger and more complex, such as a library or an application. 
+
+Rollup is a module bundler for JavaScript libraries that compiles small pieces of code into something larger and more complex, such as a library or an application.
 
 You must be asking yourself? **Why not Webpack?** Webpack was basically created as a bundler for web applications, mainly to solve code-splitting and asset management issues. Recently both libraries have grown a lot and are able to solve most of the problems, both for libraries, and for web applications. However, conventional wisdow among bundlers has been this:
 
 > For complex web applications, use **Webpack**. For libraries, use **Rollup**.
 
 ## Talk is cheap, show me the code
+
 Let's finally see a real example. I will use an extremely basic **React** component. We'll create a **Header**, and compile it for reuse on external projects!
 
 #### 1. First, we need to install Rollup.js globally
@@ -123,13 +130,14 @@ npm install --global rollup
 ```
 
 #### 2. Now, we create our basic header component
+
 Our component will only have a tag **h1**, and will be published in npm so it can be used by other projects:
 
 ```javascript
 // src/header.js
 import React from "react";
 
-const Header = function() {
+const Header = function () {
   return <h1>Hello, DV!</h1>;
 };
 
@@ -159,16 +167,16 @@ const presets = [
   [
     "@babel/env",
     {
-      modules: false
-    }
+      modules: false,
+    },
   ],
-  ["@babel/preset-react"]
+  ["@babel/preset-react"],
 ];
 
 module.exports = { presets };
 ```
 
-Now that we have installed and configured Babel, we need to install the  **Rollup.js** plugin that will integrate with **Babel**:
+Now that we have installed and configured Babel, we need to install the **Rollup.js** plugin that will integrate with **Babel**:
 
 #### 5. Installing Rollup.js Babel plugin
 
@@ -186,19 +194,19 @@ export default [
     output: {
       name: "reusableComponents",
       file: "dist/main.js",
-      format: "iife"
+      format: "iife",
     },
     external: ["react"],
     plugins: [
       babel({
-        exclude: "node_modules/**"
-      })
-    ]
-  }
+        exclude: "node_modules/**",
+      }),
+    ],
+  },
 ];
 ```
 
-It's super important to note the line **external: ["react"]** 
+It's super important to note the line **external: ["react"]**
 Without this configuration, Rollup will compile the entire React source code along with your library.
 
 Now we can already compile our component:
@@ -233,6 +241,7 @@ To avoid having to publish and update your component every time you make a chang
 We're ready! Now you have a complete and simple environment to develop your reusable components. I hope you enjoy it and please send me any questions or feedback you have. 🤘🏻
 
 ## Watch the full video
+
 Below are the slides and the full video of the talk.
 
 <div class="container" style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; margin-bottom: 40px"><iframe src="https://www.youtube.com/embed/Dve_bYaAVZ0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>

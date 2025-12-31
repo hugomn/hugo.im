@@ -57,7 +57,7 @@ Líquidos podem ajudar a quebrar grandes partes de comida, facilitando o process
 
 Além disso, nosso estômago também produz água, juntamente com o suco gástrico e as digestivas enzimas, durante a digestão. De fato, a água é _necessária_ para promover o funcionamento adequado das enzimas digestivas.
 
-> **Resumo:** Não importa se consumidos antes ou depois das refeições, os líquidos em um importante papel no processo digetivo do corpo humano.*
+> **Resumo:** Não importa se consumidos antes ou depois das refeições, os líquidos em um importante papel no processo digetivo do corpo humano.\*
 
 ## Água pode reduzir o apetite e a ingestão de calorias
 
@@ -75,7 +75,7 @@ Curiosamente, acontece uma redução do total de calorias queimadas quando a ág
 
 Para a maioria das pessoas, é improvável que ingerir líquidos durante as refeições tenha algum efeito negativo. Porém, caso você sofra da [doença do refluxo gastroesofágico](https://pt.wikipedia.org/wiki/Doen%C3%A7a_de_refluxo_gastroesof%C3%A1gico), você não deve ingerir líquidos durante as refeições. Os líquidos aumentam o volume do que foi digerido, o que pode aumentar a pressão do estômago, assim como alimentos grandes fariam. Isso pode gerar o refluxo ácido para pessoas que possuem a doença ([14](http://www.ncbi.nlm.nih.gov/pubmed/24789125)).
 
-> **Resumo:** Se você sofre de refluxo gastroesofágico, beber líquidos durante as refeições pode não ser o ideal para você.*
+> **Resumo:** Se você sofre de refluxo gastroesofágico, beber líquidos durante as refeições pode não ser o ideal para você.\*
 
 ## No fim, é uma escolha pessoal
 

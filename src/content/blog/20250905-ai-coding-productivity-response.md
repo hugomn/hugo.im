@@ -31,6 +31,7 @@ Before diving into results, here's how I tracked productivity:
 **Tools Used:** Primarily Claude Code (Anthropic's official CLI), supplemented with GitHub Copilot for certain tasks. I started heavy usage on April 15, 2025.
 
 **Measurement Approach:**
+
 - GitHub commit frequency and complexity (via GraphQL API)
 - Lines of production code shipped (measured via git statistics)
 - Project completion rates (ideas to shipped products)
@@ -103,6 +104,7 @@ Judge's reasoning makes intuitive sense. If AI truly creates 10x developers, wou
 **Quality over Quantity:** AI doesn't just enable more apps. It enables better apps. Instead of 10 mediocre projects, I'm building production-grade applications with features I never would have attempted before. Like the custom SVG charting library in my fitness tracker. After evaluating 4 major charting libraries, AI gave me the confidence to build exactly what I needed from scratch.
 
 **The Hidden Revolution in Private Code:** Beyond the measurable metrics, there's a whole ecosystem of AI-assisted development happening that we'll never see in commit logs or app stores. Here are a few examples that illustrate this broader trend:
+
 - A friend finally used Claude Code to create complex Home Assistant dashboards in minutes that would normally take days
 - Another friend's wife, not even a developer, built two private apps with Cursor and automated chunks of her workflow
 - A colleague at a Fortune 500 told me their team is shipping internal tools weekly that sat in backlog for years
@@ -115,6 +117,7 @@ These examples aren't proof of the productivity gains I've documented. They're i
 **Individual Developer Transformation:** Judge's macro metrics can't capture personal productivity leaps. In 4 months, I shipped more production code than I had in the previous 2 years combined. That's not visible in aggregate app store numbers.
 
 **Confounding Variables in Measurement:** My productivity explosion coincided with using AI, but was it purely the tools? Fair question. I also had:
+
 - Dedicated project time during vacation
 - Clear product vision from years of using our shared spreadsheet
 - Motivated personal investment in fitness tracking (I've been on a total transformation journey these past two years, achieving results I never had before. But that's a story for another post)
@@ -127,10 +130,9 @@ However, the GitHub data shows the pattern extends beyond these projects. The pr
 
 **Enterprise Velocity:** Internal tools that sat in backlogs for months are now getting built in days. These don't appear in public repositories or app stores, but they're transforming business operations.
 
-
 ## 3. "Marketing claims are hype"
 
-Judge is absolutely right about this. The marketing claims are often absurd, and companies using "AI efficiency" to justify layoffs deserve criticism. But we shouldn't let marketing failures blind us to genuine technological capability. 
+Judge is absolutely right about this. The marketing claims are often absurd, and companies using "AI efficiency" to justify layoffs deserve criticism. But we shouldn't let marketing failures blind us to genuine technological capability.
 
 ### What Marketing Gets Wrong (And Right)
 
@@ -142,7 +144,6 @@ Judge is absolutely right about this. The marketing claims are often absurd, and
 
 **Quality Evidence:** In the fitness app, AI didn't just help me write more code. It helped me write better code. My custom SVG charting library is cleaner and more maintainable than if I'd rushed to integrate a heavy third-party solution. AI gave me the patience and speed to do things right the first time.
 
-
 ## 4. "If there were 10x engineers, we'd see proof in the charts"
 
 Not necessarily. Productivity doesn't always show up in raw output of public shovelware. Instead, it shows up as:
@@ -153,14 +154,13 @@ Not necessarily. Productivity doesn't always show up in raw output of public sho
 
 That last point is crucial. AI is shifting the definition of what it means to "be productive."
 
-
 ## The Future of Development Work
 
 <div style="margin: 2rem 0;">
 
 ![How AI Transforms Developer Time Allocation](/images/developer-time-allocation.png)
 
-*My hypothesis on how AI transforms developer time allocation, based on my experience and observations of the evolving development landscape.*
+_My hypothesis on how AI transforms developer time allocation, based on my experience and observations of the evolving development landscape._
 
 </div>
 
@@ -173,7 +173,6 @@ The future isn't about drowning the world in half-baked clones. It's about shift
 - Reviewing, refining, and maintaining code at a strategic level, while AI handles the scaffolding and repetition.
 
 I don't just code more. I build more.
-
 
 ## The Challenge: Prove Me Wrong (Or Right)
 
