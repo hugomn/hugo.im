@@ -44,6 +44,16 @@ Early benchmarks showed GPT-5 was the first model to outperform humans on Simple
 
 Ten days later, **ChatGPT Agent** arrived (July 17th). OpenAI's most capable agent product—it could complete complex online tasks, conduct research across websites and connected tools, fill forms, edit spreadsheets, and know when to ask for human input. Operator's functionality was folded in. The standalone browser agent became a full platform feature.
 
+## Fall: Claude Opus 4.5 Raises the Bar
+
+**November 24th** brought **Claude Opus 4.5**—and it was a breakthrough. Anthropic's new flagship scored 80.9% on SWE-bench Verified, crushing GPT-5.1 Codex Max (77.9%) and Gemini 3 Pro (76.2%). But the benchmarks only tell part of the story.
+
+What made Opus 4.5 special was its efficiency. It uses dramatically fewer tokens than its predecessors to reach similar or better outcomes. For agent builders, this matters—fewer tokens means lower costs and faster execution. Anthropic also introduced **effort control**, letting developers tune how hard the model thinks based on task complexity.
+
+Perhaps most impressive: Opus 4.5 outperformed every human candidate ever on Anthropic's notoriously difficult take-home exam for performance engineering roles. This wasn't just pattern matching anymore.
+
+Anthropic called it "the most robustly aligned model we have released to date"—with improved resistance to prompt injection and reduced rates of concerning behavior. For agents operating autonomously, alignment isn't optional.
+
 ## December: Google's Comeback
 
 Just when you thought the year was winding down, **Google dropped Gemini 3 Flash on December 17th**. After a rocky 2024, Google came back swinging.
@@ -75,7 +85,7 @@ Vector databases are just one piece. The real challenge is deciding what to reme
 
 **Long-horizon planning remains hard.** Agents executing 20+ steps still drift, lose track of goals, get stuck in loops. The solution isn't better models—it's better architectures: checkpointing, human review gates, graceful recovery.
 
-**Costs add up fast.** Claude Opus 4 and GPT-5 aren't cheap. Multiply by retries, long contexts, and multi-agent setups, and you're looking at real money. Cost optimization became a core skill—knowing when to use a smaller model, when to route to DeepSeek, how to cache effectively.
+**Costs add up fast.** Claude Opus 4.5 and GPT-5 aren't cheap. Multiply by retries, long contexts, and multi-agent setups, and you're looking at real money. Cost optimization became a core skill—knowing when to use a smaller model, when to route to DeepSeek, how to cache effectively.
 
 **Testing is still unsolved.** How do you test something non-deterministic? We have better tools—evaluation frameworks, golden datasets, LLM-as-judge approaches—but no silver bullet.
 
@@ -93,7 +103,7 @@ The question shifts from "can we build agents?" to **"why isn't this an agent?"*
 
 ## The Bottom Line
 
-2025 proved that AI agents are infrastructure, not magic. DeepSeek proved you don't need billions to compete. Google proved comebacks are possible. And everyone proved that the demos are over—now we build things that work.
+2025 proved that AI agents are infrastructure, not magic. DeepSeek proved you don't need billions to compete. Google proved comebacks are possible. Anthropic proved that alignment and capability can advance together. And everyone proved that the demos are over—now we build things that work.
 
 The companies that won weren't the ones with the cleverest prompts—they were the ones that treated agents like software: with proper engineering, observability, testing, and iteration.
 
