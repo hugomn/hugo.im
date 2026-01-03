@@ -1,9 +1,20 @@
 ---
+author: Hugo Nogueira
+pubDatetime: 2026-01-03T14:00:00.000Z
 title: "2025: The Year AI Agents Got Real"
-description: "A practitioner's look back at what happened in AI agents in 2025—from DeepSeek shaking the markets to GPT-5, Gemini 3, and the rise of agentic AI."
-pubDate: "2026-01-03"
-tags: ["ai-agents", "autonomous-systems", "year-in-review"]
-heroImage: "/images/blog/ai-agents-year-review-2025.jpg"
+locale: en
+postSlug: ai-agents-year-review-2025
+featured: true
+draft: false
+tags:
+  - ai-agents
+  - autonomous-systems
+  - year-in-review
+  - ai
+  - engineering
+description: A practitioner's look back at what happened in AI agents in 2025—from DeepSeek shaking the markets to GPT-5, Gemini 3, and the rise of agentic AI.
+keywords: Hugo Nogueira, AI agents, 2025 review, DeepSeek, GPT-5, Claude, Gemini, autonomous agents, AI engineering
+image: "/images/blog/ai-agents-year-review-2025.jpg"
 ---
 
 A year ago, AI agents were still finding their footing. Frameworks were multiplying, but production deployments were rare. Most "agents" were glorified chatbots with tool access.
@@ -73,8 +84,9 @@ OpenAI adopted it. IDEs integrated it. By mid-year, there were MCP connectors fo
 **Human-in-the-loop became non-negotiable.** The fully autonomous agent dream didn't die, but it got realistic. The winning pattern: agents that do 90% autonomously and know when to ask for help. This isn't a limitation—it's good design.
 
 **Memory architectures matured.** We learned that agents need three types of memory:
+
 - **Working memory**: current context, what's happening now
-- **Episodic memory**: what happened before, conversation history  
+- **Episodic memory**: what happened before, conversation history
 - **Semantic memory**: what the agent knows—facts, preferences, learned patterns
 
 Vector databases are just one piece. The real challenge is deciding what to remember, when to forget, and how to retrieve the right context.
@@ -111,4 +123,4 @@ What a year.
 
 ---
 
-*What was your biggest AI agent learning in 2025? I'd love to hear—find me on [X](https://x.com/hugomn) or [LinkedIn](https://linkedin.com/in/hugomn).*
+_What was your biggest AI agent learning in 2025? I'd love to hear—find me on [X](https://x.com/hugomn) or [LinkedIn](https://linkedin.com/in/hugomn)._

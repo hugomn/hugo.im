@@ -1,9 +1,20 @@
 ---
+author: Hugo Nogueira
+pubDatetime: 2026-01-03T14:00:00.000Z
 title: "2025: O Ano em que os Agentes de IA Ficaram Reais"
-description: "Um olhar de quem constrói sobre o que aconteceu com agentes de IA em 2025—do DeepSeek abalando os mercados ao GPT-5, Gemini 3 e a ascensão da IA agêntica."
-pubDate: "2026-01-03"
-tags: ["ai-agents", "autonomous-systems", "year-in-review"]
-heroImage: "/images/blog/ai-agents-year-review-2025.jpg"
+locale: pt
+postSlug: ai-agents-year-review-2025
+featured: true
+draft: false
+tags:
+  - ai-agents
+  - autonomous-systems
+  - year-in-review
+  - ai
+  - engineering
+description: Um olhar de quem constrói sobre o que aconteceu com agentes de IA em 2025—do DeepSeek abalando os mercados ao GPT-5, Gemini 3 e a ascensão da IA agêntica.
+keywords: Hugo Nogueira, AI agents, agentes de IA, 2025 review, DeepSeek, GPT-5, Claude, Gemini, autonomous agents, AI engineering
+image: "/images/blog/ai-agents-year-review-2025.jpg"
 ---
 
 Há um ano, os agentes de IA ainda estavam encontrando seu caminho. Frameworks se multiplicavam, mas implantações em produção eram raras. A maioria dos "agentes" eram chatbots glorificados com acesso a ferramentas.
@@ -73,6 +84,7 @@ A OpenAI o adotou. IDEs o integraram. Até meados do ano, havia conectores MCP p
 **Human-in-the-loop se tornou inegociável.** O sonho do agente totalmente autônomo não morreu, mas ficou realista. O padrão vencedor: agentes que fazem 90% autonomamente e sabem quando pedir ajuda. Isso não é uma limitação—é bom design.
 
 **Arquiteturas de memória amadureceram.** Aprendemos que agentes precisam de três tipos de memória:
+
 - **Memória de trabalho**: contexto atual, o que está acontecendo agora
 - **Memória episódica**: o que aconteceu antes, histórico de conversas
 - **Memória semântica**: o que o agente sabe—fatos, preferências, padrões aprendidos
@@ -111,4 +123,4 @@ Que ano.
 
 ---
 
-*Qual foi seu maior aprendizado sobre agentes de IA em 2025? Adoraria ouvir—me encontre no [X](https://x.com/hugomn) ou [LinkedIn](https://linkedin.com/in/hugomn).*
+_Qual foi seu maior aprendizado sobre agentes de IA em 2025? Adoraria ouvir—me encontre no [X](https://x.com/hugomn) ou [LinkedIn](https://linkedin.com/in/hugomn)._
