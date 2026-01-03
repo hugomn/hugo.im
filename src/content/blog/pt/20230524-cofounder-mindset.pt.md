@@ -4,7 +4,7 @@ pubDatetime: 2024-07-22T09:15:00.000Z
 title: "Como encontrar o equilíbrio entre não se apressar para mostrar serviço e superar expectativas em startups early stage"
 locale: pt
 postSlug: balancing-the-cofounder-mindset
-featured: true
+featured: false
 tags:
   - startups
   - management

@@ -4,7 +4,7 @@ pubDatetime: 2024-07-22T09:15:00.000Z
 title: "How to strike the right balance between not rushing to show value and exceeding expectations in early-stage startups"
 locale: en
 postSlug: balancing-the-cofounder-mindset
-featured: true
+featured: false
 tags:
   - startups
   - management
