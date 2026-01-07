@@ -4,7 +4,7 @@ pubDatetime: 2025-06-28T15:30:00.000Z
 title: "Why I stopped estimating: a data-driven case against software predictions"
 locale: en
 postSlug: why-i-stopped-estimating
-featured: true
+featured: false
 draft: false
 tags:
   - software-development

@@ -4,7 +4,7 @@ pubDatetime: 2025-06-28T15:30:00.000Z
 title: "Por que parei de estimar: um argumento baseado em dados contra previsões de software"
 locale: pt
 postSlug: why-i-stopped-estimating
-featured: true
+featured: false
 draft: false
 tags:
   - desenvolvimento-software

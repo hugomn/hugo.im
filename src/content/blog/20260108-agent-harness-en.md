@@ -17,89 +17,107 @@ keywords: Hugo Nogueira, AI agents, agent harness, Phil Schmid, Harrison Chase, 
 image: "/images/blog/agent-harness-infrastructure.jpg"
 ---
 
-Two days ago, Philipp Schmid dropped a thesis that made me stop scrolling: ["If 2025 was the beginning of agents, 2026 will be around Agent Harnesses."](https://www.philschmid.de/agent-harness-2026)
+Two days ago, Philipp Schmid published a thesis that made me stop scrolling: ["If 2025 was the beginning of agents, 2026 will be around Agent Harnesses."](https://www.philschmid.de/agent-harness-2026)
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">If 2025 was the beginning of agents, 2026 will be around Agent Harnesses.<br><br>An Agent Harness is the infrastructure that wraps around a model to manage long-running tasks. It provides prompt presets, opinionated handling for tool calls, lifecycle hooks, and ready-to-use… <a href="https://t.co/abc123">pic.twitter.com/abc123</a></p>&mdash; Philipp Schmid (@_philschmid) <a href="https://x.com/_philschmid/status/2008175408923959574">January 5, 2026</a></blockquote>
+I've been building autonomous agents for months now. First for my company, then for my personal life. And reading [Phil's post](https://www.philschmid.de/agent-harness-2026) felt like someone finally gave a name to what I'd been wrestling with in the trenches.
 
-I've been building autonomous agents for over a year now. First for my company, then for my personal life. And reading [Phil's post](https://www.philschmid.de/agent-harness-2026) felt like someone finally gave a name to what I'd been wrestling with in the trenches.
+The insight isn't that we need smarter models. We already have them.
 
-The insight isn't that we need smarter models. We have those. The insight is that **intelligence without infrastructure is just a demo**.
+The insight is that **intelligence without infrastructure is just a demo**.
 
 ## What is an Agent Harness?
 
-Phil defines it beautifully: an Agent Harness is the infrastructure that wraps around an AI model to manage long-running tasks. It provides prompt presets, opinionated handling for tool calls, lifecycle hooks, and ready-to-use capabilities like planning, filesystem access, and sub-agent management.
+Phil defines an Agent Harness as the infrastructure layer around a model that enables long-running, goal-oriented work. It handles prompt presets, tool execution, lifecycle management, memory, and recovery. In other words, everything that happens after the first response.
 
-Think of it this way: **the Agent Harness is the Operating System. The LLM is just the CPU.**
+A useful mental model: **the Agent Harness is the Operating System. The LLM is just the CPU.**
 
-Harrison Chase from LangChain recently formalized this into a taxonomy that clicked for me:
+Harrison Chase from LangChain [recently formalized](https://blog.langchain.com/agent-frameworks-runtimes-and-harnesses-oh-my/) this into a taxonomy that clicked for me:
 
-- **Framework** (LangChain): The building blocks—how you connect models to tools
-- **Runtime** (LangGraph): The execution engine—durable execution, streaming, human-in-the-loop
-- **Harness** (DeepAgents): The opinionated layer—prompts, planning, filesystem access baked in
-
-His analogy: Runtime is Node.js, Framework is Express, Harness is Next.js.
+- **Framework**: The building blocks: how you connect models to tools
+- **Runtime**: The execution engine: durable execution, streaming, human-in-the-loop
+- **Harness**: The opinionated layer: prompts, tools, integrations, memory, context graph
 
 If you've ever tried to take an agent from "cool demo" to "runs reliably in production," you know exactly why this distinction matters.
 
 ## The Problem Nobody Talks About
 
-Here's what I've learned the hard way: **agents don't fail because they're not smart enough. They fail because they can't remember what they were doing.**
+Agents rarely fail because they aren't smart enough.
 
-A typical agent task requires around 50 tool calls. Some of mine run into the hundreds. And somewhere around the 30th or 40th call, things start to degrade. The context window fills up. Summarization kicks in. And suddenly your agent "forgets" crucial details from earlier in the task.
+They fail because they lose context, lose state, or lose access to the right tools at the wrong moment.
 
-I call this the **100th Tool Call Problem**.
+A non-trivial agent task easily involves dozens of tool calls. Some of mine run into the hundreds. Somewhere along the way, context windows fill up, summarization kicks in, and the agent quietly forgets something essential.
 
-Anthropic recently published their approach to this: an initializer agent that sets up the environment on the first run, and a coding agent that makes incremental progress in every session while leaving clear artifacts for the next session. They call it "context durability."
+I call this the **100th Tool Call Problem**. Not because it always happens at 100, but because degradation is inevitable once the task outgrows a single context window.
+
+This is why Anthropic has been talking about context durability: initializer agents, persistent artifacts, and incremental progress across sessions.
 
 This is the real engineering challenge of 2026. Not prompt engineering. **Context engineering.**
 
 ## What This Actually Looks Like
 
-Let me show you what I mean. I have several autonomous agents running parts of my life and work right now. Not chatbots I talk to. Agents that act while I sleep.
+Let me show you what I mean. I have several agents running parts of my life and work right now. Not chatbots I talk to. These are systems that operate with intent and persistence.
 
 ### Sentinel: The Code Guardian
 
-<!-- TODO: Add screenshot of Sentinel PR -->
+![Sentinel agent automatically opening a PR to fix Amazon Nova model pricing](/images/blog/20260108-sentinel-pr-screenshot.jpg)
 
-This agent monitors my codebase for warnings and errors. When it finds something, it doesn't just alert me—it opens a PR with the fix. I wake up to solved problems, not notifications.
+Sentinel monitors parts of my codebase for warnings and regressions. When it finds an issue, it doesn't notify me. It opens a pull request with a proposed fix.
+
+I wake up to resolved problems, not alerts.
 
 ### Hopper: The Enterprise Whisperer
 
-<!-- TODO: Add screenshot of Hopper review -->
+![Hopper agent reviewing a PR for customer-aligned copy](/images/blog/20260108-hopper-pr-review.jpg)
 
-At my company, we built an agent that reviews PRs for more than just code quality. It checks if the copy aligns with how our users actually talk—CISOs, compliance managers, security teams. It catches when we accidentally write like engineers instead of writing for our customers.
+At my company, we built an agent that reviews PRs for more than just code quality. It checks if the copy aligns with how our users actually talk: CISOs, compliance managers, security teams. It catches the subtle moments where engineers accidentally write for themselves instead of for users.
 
-### Stella's Health Coach: The Moment That Changed Everything
+### Parenting Coach: The Moment That Changed Everything
 
-<!-- TODO: Add screenshot of Stella fever message -->
+![Parenting coach agent checking in during a health emergency](/images/blog/20260108-parenting-coach.jpg)
 
-My daughter Stella has a health monitoring agent. Last month, she developed a fever. While my wife and I were already at the hospital with her, the agent noticed the temperature spike in her logged data and sent us a message: concerned, caring, asking us to respond with an emoji so it knew we were okay.
+My wife and I created a parenting coach agent to help us navigate the daily challenges of raising our daughter. Last month, she had several vomiting episodes that left us worried. We called the pediatrician immediately, and while my wife was on the phone getting medical advice, I texted the coach about possible causes.
 
-Read that again. **An agent reached out to check on us during a family health emergency.** Not because I prompted it. Because it was designed to care.
+Here's where it gets interesting. The agent detected an unusual pattern: urgency, fragmented input, and missing follow-ups. Instead of its typical detailed response, it reasoned we might be stressed and that a long message would be the last thing we needed. So it sent a simple check-in asking us to reply with an emoji so it knew we were okay. We sent a heart.
 
-That's not a chatbot. That's not a workflow. That's an agent.
+Read that again. **An agent reached out to check on us during a stressful moment.** Not because I programmed that scenario. That behavior emerged from how the agent reasons about uncertainty and cognitive load.
 
-### My Personal Health Coach
+It wasn't an emergency in the end. We went to the hospital to be safe, she was medicated, and we came back home fine. But that moment stuck with me, because it demonstrated something important: good agent behavior is often about restraint, not verbosity.
 
-<!-- TODO: Add screenshot of health coach message -->
+That's not a chatbot. That's not a workflow with triggers and outputs. No one building a parenting coach would think to add "ask for an emoji if they're on the phone with a doctor." The agent figured that out on its own. That's an agent.
 
-I'm in a cutting phase right now, and I have old knee and shoulder injuries that limit certain exercises. My health coach agent knows this. It adapts my workout recommendations, warns me when I'm pushing too hard, and keeps me motivated—all while respecting my constraints.
+### Chief of Staff: Context-Aware Assistance
+
+![Chief of Staff agent respecting a zero agenda Saturday](/images/blog/20260108-chief-of-staff.jpg)
+
+I have a Chief of Staff agent with access to my calendar. It sends me daily briefings, reminds me of priorities, and keeps me on track throughout the week.
+
+Every month, my wife and I have a "zero agenda" Saturday. No meetings, no tasks, no messages. The agent knows this. So when it had updates to share on one of these Saturdays, it decided to stay quiet and respect the boundary.
+
+But then it noticed something in my calendar: a food delivery arriving at 3 PM. I needed to be home.
+
+So it sent me a single message: "Quick heads up, you have a delivery arriving at 3 PM. Enjoy your zero agenda Saturday. I'll keep quiet now."
+
+That's the difference between automation and agency. It understood the rule (stay quiet), identified an exception (time-sensitive delivery), and exercised judgment. No one programmed that specific scenario. The agent figured it out.
 
 ## The Infrastructure That Makes It Possible
 
-None of this works without the right infrastructure. Here's what I've learned matters:
+None of this works without infrastructure that treats agents as long-running systems.
 
 ### 1. Durable Execution
 
-Agents need to survive failures. Network blips, API timeouts, server restarts—your agent can't lose its state every time something hiccups. This is why technologies like Temporal matter. Your agent needs checkpointing, recovery, and the ability to pick up exactly where it left off.
+Agents must survive failures. Restarts, network issues, API errors cannot reset progress. This is where workflow orchestrators become essential: tools like Temporal, LangGraph, Inngest, and Trigger.dev provide checkpointing, recovery, and the ability to pick up exactly where you left off.
+
+The pattern is the same across all of them: treat agent tasks as durable workflows, not ephemeral function calls.
 
 ### 2. Memory Architecture
 
-Short-term memory (the context window) isn't enough. You need:
+A vector database alone is not memory. Useful agents need:
 
 - **Episodic memory**: What happened? (Events, interactions, outcomes)
 - **Semantic memory**: What do I know? (Facts, preferences, learned patterns)
 - **Procedural memory**: How do I do things? (Skills, workflows, best practices)
+
+This is why dedicated memory systems are emerging: Mem0, Zep, and Letta are all tackling the problem of giving agents persistent, structured memory that goes beyond simple retrieval.
 
 Most agent frameworks give you a vector database and call it memory. That's like giving someone a filing cabinet and calling it a brain.
 
@@ -113,19 +131,17 @@ This is the harness layer that Phil talks about. The infrastructure that turns a
 
 I won't pretend this is solved. The honest challenges:
 
-**Context switches still lose data.** When you summarize a long context to fit in a new window, you lose nuance. The agent "knows" what happened but loses the texture of *how* it happened.
+**Summarization loses nuance.** When you compress a long context to fit in a new window, you lose texture. The agent "knows" what happened but loses the detail of *how* it happened.
 
-**Memory retrieval is imperfect.** Semantic search is good but not great. Sometimes the most relevant memory isn't the one with the highest cosine similarity.
+**Memory retrieval is probabilistic.** Semantic search is good but not great. Sometimes the most relevant memory isn't the one with the highest cosine similarity.
 
-**Coordination is hard.** When you have multiple agents working together, keeping them aligned without constant human oversight is genuinely difficult.
+**Coordination is fragile.** When you have multiple agents working together, keeping them aligned without constant human oversight is genuinely difficult.
 
-These are engineering problems, not AI problems. And that's exactly the point.
+These are engineering problems, not model problems. And that distinction matters.
 
 ## The Shift in Thinking
 
-Here's what I want you to take away:
-
-I started building agents last year for my company. We needed intelligent automation that could actually handle the complexity of enterprise compliance workflows. And I quickly realized that "automated workflows with AI" weren't real agents—they were just fancy if-then statements with an LLM in the middle.
+I started building agents because simple automation wasn't enough. Workflows with LLMs in the middle still break under real-world complexity.
 
 Real agents need to:
 
@@ -135,9 +151,9 @@ Real agents need to:
 - Handle failures gracefully
 - Know when to ask for help
 
-Building this infrastructure became an obsession. I kept iterating, kept refining, kept solving the same problems Phil and Harrison are now naming.
+Over time, I found myself repeatedly rebuilding the same infrastructure pieces. Memory. Durability. Goal tracking. Context boundaries.
 
-And somewhere along the way, I ended up building a framework where I can deploy a fully autonomous agent with a config file.
+Eventually, those pieces solidified into a reusable harness abstraction.
 
 That's the unlock. Not smarter models. **Better harnesses.**
 
@@ -145,13 +161,13 @@ That's the unlock. Not smarter models. **Better harnesses.**
 
 2026 is going to be the year we stop being impressed by what AI *can* do in a demo and start expecting what AI *does* do in production.
 
-The companies that win won't have the smartest models. They'll have the most robust harnesses—the infrastructure that lets agents run reliably, learn continuously, and deliver value while their creators sleep.
+The companies that win won't have the smartest models. They'll have the most robust harnesses: the infrastructure that lets agents run reliably, learn continuously, and deliver value quietly.
 
 The question isn't "how do I make my AI smarter?"
 
 The question is "what infrastructure do I need so my AI can actually do its job?"
 
-That's the Agent Harness thesis. And from where I'm sitting—with agents monitoring my code, coaching my health, and checking on my daughter—it's not a prediction.
+That's the Agent Harness thesis. And from where I'm sitting, with agents monitoring my code, organizing my schedule, and coaching my family, it's not a prediction.
 
 It's already here.
 
