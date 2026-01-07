@@ -17,9 +17,11 @@ keywords: Hugo Nogueira, AI agents, agent harness, Phil Schmid, Harrison Chase, 
 image: "/images/blog/agent-harness-infrastructure.jpg"
 ---
 
-Last week, Philipp Schmid dropped a thesis that made me stop scrolling: "If 2025 was the beginning of agents, 2026 will be around Agent Harnesses."
+Two days ago, Philipp Schmid dropped a thesis that made me stop scrolling: ["If 2025 was the beginning of agents, 2026 will be around Agent Harnesses."](https://www.philschmid.de/agent-harness-2026)
 
-I've been building autonomous agents for over a year now. First for my company, then for my personal life. And reading Phil's post felt like someone finally gave a name to what I'd been wrestling with in the trenches.
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">If 2025 was the beginning of agents, 2026 will be around Agent Harnesses.<br><br>An Agent Harness is the infrastructure that wraps around a model to manage long-running tasks. It provides prompt presets, opinionated handling for tool calls, lifecycle hooks, and ready-to-use… <a href="https://t.co/abc123">pic.twitter.com/abc123</a></p>&mdash; Philipp Schmid (@_philschmid) <a href="https://x.com/_philschmid/status/2008175408923959574">January 5, 2026</a></blockquote>
+
+I've been building autonomous agents for over a year now. First for my company, then for my personal life. And reading [Phil's post](https://www.philschmid.de/agent-harness-2026) felt like someone finally gave a name to what I'd been wrestling with in the trenches.
 
 The insight isn't that we need smarter models. We have those. The insight is that **intelligence without infrastructure is just a demo**.
 
