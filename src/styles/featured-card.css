@@ -5,13 +5,13 @@
 }
 
 .featured-card-link {
-  @apply relative flex flex-col h-full w-full bg-white rounded-2xl shadow-sm transition-all duration-200 ease-in-out;
+  @apply relative flex h-full w-full flex-col rounded-2xl bg-white shadow-sm transition-all duration-200 ease-in-out;
   text-decoration: none;
 }
 
 /* Dark mode card */
 [data-theme="dark"] .featured-card-link {
-  @apply bg-skin-card border-gray-700;
+  @apply border-gray-700 bg-skin-card;
   border-color: #30363d;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .placeholder-text {
-  @apply text-sm font-medium text-gray-500 px-4 text-center;
+  @apply px-4 text-center text-sm font-medium text-gray-500;
 }
 
 [data-theme="dark"] .placeholder-text {
@@ -104,7 +104,7 @@
 
 /* Excerpt */
 .featured-card-excerpt {
-  @apply mt-auto text-gray-600 leading-relaxed;
+  @apply mt-auto leading-relaxed text-gray-600;
   font-size: 11px;
   display: -webkit-box;
   -webkit-line-clamp: 6;
