@@ -32,6 +32,7 @@ Mas há uma leitura perigosa escondida por baixo: que isso significa que program
 Eis o que o futuro "spec as code" realmente exige:
 
 Para escrever uma spec que uma IA possa implementar de forma confiável, você precisa entender:
+
 - Quais casos extremos existem
 - Quais modos de falha são possíveis
 - Quais características de performance importam
@@ -40,13 +41,14 @@ Para escrever uma spec que uma IA possa implementar de forma confiável, você p
 
 Em outras palavras: **você precisa saber programar.**
 
-Não digitar sintaxe. *Pensar* como engenheiro.
+Não digitar sintaxe. _Pensar_ como engenheiro.
 
 A spec não é de graça. A spec é a destilação do julgamento de engenharia. É a parte que sempre foi difícil—só que antes a escondíamos dentro dos detalhes de implementação.
 
 Considere esta spec "simples": "Construa um sistema de autenticação de usuários."
 
 Um engenheiro experiente lê isso e imediatamente pensa:
+
 - Algoritmos de hash de senha e gerenciamento de salt
 - Geração e rotação de tokens de sessão
 - Rate limiting e proteção contra força bruta
@@ -67,6 +69,7 @@ Para protótipos e MVPs, isso é genuinamente poderoso. Construí coisas em hora
 Mas eis o que aprendi construindo agentes de IA em produção: vibe coding cria sistemas que funcionam até não funcionarem mais. E quando falham, falham de formas quase impossíveis de debugar—porque ninguém realmente entende o que o sistema está fazendo.
 
 A IA gerou código que "funciona" mas:
+
 - Tem complexidade O(n²) escondida numa função auxiliar
 - Engole erros silenciosamente que vão aparecer em produção
 - Cria race conditions que aparecem uma vez a cada 1000 requisições
@@ -81,6 +84,7 @@ Eis o segundo insight que o post do Matthias provocou: o problema de contexto é
 A conversa atual foca em "janelas de contexto"—quanto texto você consegue alimentar a IA? Mas contexto não é um arquivo. **Contexto é um ecossistema.**
 
 Software real existe em:
+
 - Histórico do Git e as decisões embutidas nele
 - Conversas no Slack sobre por que escolhemos a abordagem A em vez da B
 - Métricas de produção que revelam padrões reais de uso
@@ -105,7 +109,7 @@ Então se a IA cuida da implementação, o que programadores realmente fazem?
 
 **Nos tornamos operadores de IA.** Monitoramos, ajustamos e corrigimos o curso. Lidamos com os casos onde a IA gera algo errado com confiança.
 
-Isso não é menos programação. É programação num nível mais alto de abstração—o que historicamente sempre exigiu *mais* habilidade, não menos.
+Isso não é menos programação. É programação num nível mais alto de abstração—o que historicamente sempre exigiu _mais_ habilidade, não menos.
 
 ## A Mudança Real
 
@@ -121,7 +125,7 @@ E essa mudança favorece engenheiros que entendem fundamentos: estruturas de dad
 
 A IA sabe a sintaxe. A IA leu todas as respostas do Stack Overflow.
 
-A IA não conhece o *seu* sistema. A IA não sabe o que importa. A IA não sabe o que "funcionando" significa no seu contexto específico.
+A IA não conhece o _seu_ sistema. A IA não sabe o que importa. A IA não sabe o que "funcionando" significa no seu contexto específico.
 
 Isso ainda é seu trabalho. E é o trabalho que sempre foi difícil.
 
@@ -134,6 +138,7 @@ Por anos, programação foi gargalada por detalhes de implementação. Designs d
 A IA fecha essa lacuna. Mas não elimina a necessidade de concepção. Ela a amplifica.
 
 Os engenheiros que vão prosperar são os que conseguem:
+
 1. Pensar claramente sobre sistemas
 2. Especificar precisamente o que querem
 3. Avaliar criticamente o que recebem
@@ -145,8 +150,8 @@ Agora as praticamos diretamente.
 
 ---
 
-*A spec não é de graça. Mas para engenheiros que entendem o que estão construindo, a spec finalmente é suficiente.*
+_A spec não é de graça. Mas para engenheiros que entendem o que estão construindo, a spec finalmente é suficiente._
 
 ---
 
-*Qual sua experiência com desenvolvimento assistido por IA? Estou curioso se você está achando que exige mais julgamento de engenharia ou menos. Me encontre no [X](https://x.com/hugomn) ou [LinkedIn](https://linkedin.com/in/hugomn).*
+_Qual sua experiência com desenvolvimento assistido por IA? Estou curioso se você está achando que exige mais julgamento de engenharia ou menos. Me encontre no [X](https://x.com/hugomn) ou [LinkedIn](https://linkedin.com/in/hugomn)._

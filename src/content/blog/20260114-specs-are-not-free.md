@@ -32,6 +32,7 @@ But there's a dangerous misreading lurking underneath: that this means programmi
 Here's what the "spec as code" future actually requires:
 
 To write a spec that an AI can reliably implement, you need to understand:
+
 - What edge cases exist
 - What failure modes are possible
 - What performance characteristics matter
@@ -40,13 +41,14 @@ To write a spec that an AI can reliably implement, you need to understand:
 
 In other words: **you need to know how to program.**
 
-Not how to type syntax. How to *think* like an engineer.
+Not how to type syntax. How to _think_ like an engineer.
 
 The spec isn't free. The spec is the distillation of engineering judgment. It's the part that was always hard—we just used to hide it inside implementation details.
 
 Consider this "simple" spec: "Build a user authentication system."
 
 An experienced engineer reads that and immediately thinks:
+
 - Password hashing algorithms and salt management
 - Session token generation and rotation
 - Rate limiting and brute force protection
@@ -67,6 +69,7 @@ For prototypes and MVPs, this is genuinely powerful. I've built things in hours 
 But here's what I've learned building production AI agents: vibe coding creates systems that work until they don't. And when they fail, they fail in ways that are nearly impossible to debug—because no one actually understands what the system is doing.
 
 The AI generated code that "works" but:
+
 - Has O(n²) complexity hidden in a helper function
 - Silently swallows errors that will surface in production
 - Creates race conditions that appear once every 1000 requests
@@ -81,6 +84,7 @@ Here's the second insight that Matthias's post sparked: the context problem is b
 The current conversation focuses on "context windows"—how much text can you feed the AI? But context isn't a file. **Context is an ecosystem.**
 
 Real software exists in:
+
 - Git history and the decisions embedded in it
 - Slack conversations about why we chose approach A over B
 - Production metrics that reveal actual usage patterns
@@ -105,7 +109,7 @@ So if AI handles implementation, what do programmers actually do?
 
 **We become AI operators.** We monitor, adjust, and course-correct. We handle the cases where the AI confidently generates something wrong.
 
-This isn't less programming. It's programming at a higher level of abstraction—which historically has always required *more* skill, not less.
+This isn't less programming. It's programming at a higher level of abstraction—which historically has always required _more_ skill, not less.
 
 ## The Real Shift
 
@@ -121,7 +125,7 @@ And that change favors engineers who understand fundamentals: data structures, s
 
 The AI knows the syntax. The AI has read every Stack Overflow answer.
 
-The AI doesn't know *your* system. The AI doesn't know what matters. The AI doesn't know what "working" means in your specific context.
+The AI doesn't know _your_ system. The AI doesn't know what matters. The AI doesn't know what "working" means in your specific context.
 
 That's still your job. And it's the job that was always hard.
 
@@ -134,6 +138,7 @@ For years, programming has been bottlenecked by implementation details. Brillian
 AI closes that gap. But it doesn't eliminate the need for conception. It amplifies it.
 
 The engineers who will thrive are the ones who can:
+
 1. Think clearly about systems
 2. Specify precisely what they want
 3. Evaluate critically what they get
@@ -145,8 +150,8 @@ Now we practice them directly.
 
 ---
 
-*The spec isn't free. But for engineers who understand what they're building, the spec is finally enough.*
+_The spec isn't free. But for engineers who understand what they're building, the spec is finally enough._
 
 ---
 
-*What's your experience with AI-assisted development? I'm curious whether you're finding that it requires more engineering judgment or less. Find me on [X](https://x.com/hugomn) or [LinkedIn](https://linkedin.com/in/hugomn).*
+_What's your experience with AI-assisted development? I'm curious whether you're finding that it requires more engineering judgment or less. Find me on [X](https://x.com/hugomn) or [LinkedIn](https://linkedin.com/in/hugomn)._
