@@ -1,7 +1,7 @@
 ---
 author: Hugo Nogueira
 pubDatetime: 2026-01-14T10:00:00.000Z
-title: "Specs não são de graça: por que a IA não vai substituir a programação (mas vai transformá-la)"
+title: "Specs Não São de Graça: Por Que a IA Não Vai Substituir a Programação (Mas Vai Transformá-la)"
 locale: pt
 postSlug: specs-are-not-free
 featured: true
