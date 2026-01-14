@@ -1,7 +1,7 @@
 ---
 author: Hugo Nogueira
 pubDatetime: 2026-01-14T10:00:00.000Z
-title: "Specs Are Not Free: Why AI Won't Replace Programming (It Will Transform It)"
+title: "Specs are not free: why AI won't replace programming (it will transform it)"
 locale: en
 postSlug: specs-are-not-free
 featured: true
@@ -17,140 +17,71 @@ keywords: Hugo Nogueira, AI agents, spec as code, programming, software engineer
 image: "/images/blog/specs-are-not-free.jpg"
 ---
 
-Matthias Georgi's post ["Spec as Code"](https://www.georgi.io/blog/spec-as-code) went viral this week, and it crystallized something I've been thinking about for months.
+Matthias Georgi's post about ["2026 being the year where we will stop writing code"](https://www.linkedin.com/feed/update/urn:li:activity:7417153311512100864/) caught my attention today. It crystallized something I have been seeing firsthand while building autonomous agents and agent infrastructure over the last year.
 
-His thesis: we're moving from "code as spec" to "spec as code." Instead of writing implementation details, we'll write specifications and let AI generate the code. The spec becomes the source of truth.
+His thesis is clear: we are moving from "code as spec" to "spec as code". Instead of writing implementation details, we will write specifications and let AI generate the code. The specification becomes the source of truth. It is a compelling vision, and I think it is directionally correct.
 
-It's a compelling vision. And I think it's directionally correct.
-
-But there's a dangerous misreading lurking underneath: that this means programming gets easier. That specs are somehow "free." That we can finally skip the hard parts.
-
-**We can't. And here's why that's actually good news.**
+The possible misreading is believing that this shift makes programming easier. That specs are somehow free. That we can finally skip the hard parts. **We cannot, and that is actually good news.**
 
 ## The Spec Illusion
 
-Here's what the "spec as code" future actually requires:
+The future where we write specs instead of code is real, but a good spec is the distillation of engineering judgment. It encodes understanding of edge cases, performance characteristics, failure modes, security boundaries, and integration constraints.
 
-To write a spec that an AI can reliably implement, you need to understand:
+In other words, **it requires knowing how to program**, not just how to type syntax, but how to **think like an engineer**.
 
-- What edge cases exist
-- What failure modes are possible
-- What performance characteristics matter
-- What security boundaries are necessary
-- How components interact at scale
+Consider the seemingly simple spec: "Build a user authentication system."
 
-In other words: **you need to know how to program.**
+A junior reads that and imagines a login form. A senior reads that and immediately considers hashing algorithms, session token rotation, rate limiting, account recovery flows, OAuth providers, logging and alerting, and regulatory requirements like GDPR. AI does not make the gap between those two disappear. It makes the gap matter more.
 
-Not how to type syntax. How to _think_ like an engineer.
+The spec is not the easy part. The spec is the part we used to hide inside implementation details. It becomes visible now, and that is healthy for the craft.
 
-The spec isn't free. The spec is the distillation of engineering judgment. It's the part that was always hard—we just used to hide it inside implementation details.
+## Vibe Coding vs Engineering
 
-Consider this "simple" spec: "Build a user authentication system."
+There is a term floating around: "vibe coding." Ship fast, let the AI figure it out, iterate until it works. For prototypes, this is genuinely powerful. I have built things in hours that would have taken days. The creative velocity is real.
 
-An experienced engineer reads that and immediately thinks:
+But here is what I learned while putting AI agents into production: vibe coding creates systems that work until they do not, and when they fail, they fail in ways that are almost impossible to debug because there is no shared understanding of the system. The AI produced code that passed tests, but hid O(n²) behavior in helpers, swallowed errors, leaked memory in edge cases, or introduced race conditions that only appear under real traffic.
 
-- Password hashing algorithms and salt management
-- Session token generation and rotation
-- Rate limiting and brute force protection
-- Account recovery flows
-- OAuth integration patterns
-- GDPR compliance for user data
-
-A junior engineer reads it and thinks: "Cool, I'll add a login form."
-
-**The AI doesn't make the gap between these two disappear. It makes the gap matter more.**
-
-## Vibe Coding vs. Engineering
-
-There's a term floating around: "vibe coding." Ship fast, let the AI figure it out, iterate until it works.
-
-For prototypes and MVPs, this is genuinely powerful. I've built things in hours that would have taken days. The creative velocity is real.
-
-But here's what I've learned building production AI agents: vibe coding creates systems that work until they don't. And when they fail, they fail in ways that are nearly impossible to debug—because no one actually understands what the system is doing.
-
-The AI generated code that "works" but:
-
-- Has O(n²) complexity hidden in a helper function
-- Silently swallows errors that will surface in production
-- Creates race conditions that appear once every 1000 requests
-- Leaks memory in edge cases the tests don't cover
-
-**Vibe coding is prototyping. Engineering is what happens when you need it to work at 3 AM when you're not there.**
+> Vibe coding is prototyping. Engineering is what you do when it needs to work at 3 AM when you are not there.\*\*
 
 ## Context Is an Ecosystem
 
-Here's the second insight that Matthias's post sparked: the context problem is bigger than we think.
+The second insight that Matthias's post sparked is that context is far larger than we admit. Most discussion focuses on "context windows": how much text we can feed an AI. But real software context does not live in one file. **Context is an ecosystem.**
 
-The current conversation focuses on "context windows"—how much text can you feed the AI? But context isn't a file. **Context is an ecosystem.**
+Systems live in Git history, in Slack threads that debate tradeoffs, in monitoring dashboards that tell you what users do versus what you expected, in incident reports that document failure modes, and in tribal knowledge no one ever wrote down. No spec captures all of this. No context window is big enough.
 
-Real software exists in:
-
-- Git history and the decisions embedded in it
-- Slack conversations about why we chose approach A over B
-- Production metrics that reveal actual usage patterns
-- Incident reports that document failure modes
-- Tribal knowledge that never got written down
-
-No spec captures this. No context window is big enough.
-
-The engineers who thrive in the AI era won't be the ones who write the best prompts. They'll be the ones who understand their systems deeply enough to know what context matters—and how to structure it so AI can actually use it.
-
-This is why I'm bullish on what I call "context engineering": the discipline of organizing system knowledge so that both humans and AI can navigate it effectively. It's documentation, but weaponized. Architecture, but legible.
+Engineers who thrive in this new environment are not the ones who write clever prompts, but the ones who understand what context matters, how to structure it, and how to feed it into the system. This is why I like the term "context engineering." It is documentation made actionable, architecture made legible, and knowledge made computable.
 
 ## What Programming Becomes
 
-So if AI handles implementation, what do programmers actually do?
+If AI handles implementation, what is left for programmers to do?
 
-**We become system designers.** We define boundaries, interfaces, and contracts. We decide what components exist and how they communicate.
+**We become system designers.** We define boundaries, contracts, and interfaces. We decide which components exist and how they communicate.
 
-**We become failure engineers.** We anticipate what can go wrong and specify how the system should respond. This is the part AI can't do—because it requires imagining scenarios that aren't in the training data.
+**We become failure engineers.** We anticipate what can go wrong, not by looking at syntax, but by imagining adversarial scenarios, recovery paths, and constraints. This requires judgment, which does not come from training data.
 
-**We become context architects.** We structure knowledge so AI can be effective. We build the scaffolding that makes "spec as code" actually work.
+**We become context architects.** We structure system knowledge so that both humans and AI can navigate it. We build the scaffolding that makes "spec as code" work.
 
-**We become AI operators.** We monitor, adjust, and course-correct. We handle the cases where the AI confidently generates something wrong.
-
-This isn't less programming. It's programming at a higher level of abstraction—which historically has always required _more_ skill, not less.
+**We become AI operators.** We evaluate the results, adjust constraints, and handle the situations where the AI generates something confidently wrong. This is not less programming. It is programming at a higher level of abstraction.
 
 ## The Real Shift
 
-Here's what I think Matthias got exactly right: the source of truth is shifting.
+Here is where Matthias is exactly right: the source of truth is shifting. We used to write code and derive behavior from it. Now we write specifications and derive code from them. But a spec is not a natural language wishlist. A good spec is precise, complete, testable, and grounded in engineering fundamentals.
 
-We used to write code and derive behavior from it. Now we'll increasingly write specifications and derive code from them.
+> We do not stop programming. We change what programming means.
 
-But specifications are not natural language wishlists. Good specs are precise, complete, and testable. They encode engineering judgment in a different syntax.
+The change favors engineers who understand data structures, system design, performance characteristics, failure modes, and security. The things that once felt academic when you could just Google the syntax.
 
-**We don't stop programming. We change what programming means.**
-
-And that change favors engineers who understand fundamentals: data structures, system design, failure modes, performance characteristics, security boundaries. The stuff that seemed "academic" when you could just look up the syntax.
-
-The AI knows the syntax. The AI has read every Stack Overflow answer.
-
-The AI doesn't know _your_ system. The AI doesn't know what matters. The AI doesn't know what "working" means in your specific context.
-
-That's still your job. And it's the job that was always hard.
+The AI knows the syntax. It has read every Stack Overflow answer. What it does not know is what matters in your specific system, and what "working" means in your specific context. That is still your job, and it is the job that was always hard.
 
 ## The Opportunity
 
-I'm not pessimistic about this shift. I'm energized by it.
+I am not pessimistic about this shift. I am energized by it. For years, software creation has been bottlenecked by implementation. Brilliant ideas died because typing the code took too long. AI compresses that gap, and that frees engineers to spend more time on conception, design, and correctness.
 
-For years, programming has been bottlenecked by implementation details. Brilliant system designs never got built because typing the code took too long. Creative ideas died in the gap between conception and execution.
+The engineers who will thrive are the ones who can think clearly about systems, specify precisely what they want, evaluate critically what they get, and iterate rapidly toward correctness.
 
-AI closes that gap. But it doesn't eliminate the need for conception. It amplifies it.
-
-The engineers who will thrive are the ones who can:
-
-1. Think clearly about systems
-2. Specify precisely what they want
-3. Evaluate critically what they get
-4. Iterate rapidly toward correctness
-
-These are engineering skills. They always were. We just used to practice them while typing semicolons.
+These were always the real engineering skills. We just practiced them while typing semicolons.
 
 Now we practice them directly.
-
----
-
-_The spec isn't free. But for engineers who understand what they're building, the spec is finally enough._
 
 ---
 
