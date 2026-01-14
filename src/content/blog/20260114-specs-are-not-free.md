@@ -1,6 +1,6 @@
 ---
 author: Hugo Nogueira
-pubDatetime: 2026-01-14T21:00:00.000Z
+pubDatetime: 2026-01-14T10:00:00.000Z
 title: "Specs Are Not Free: Why AI Won't Replace Programming (It Will Transform It)"
 locale: en
 postSlug: specs-are-not-free
