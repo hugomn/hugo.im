@@ -4,7 +4,7 @@ pubDatetime: 2025-09-05T14:00:00.000Z
 title: "Where's the shovelware? Right here. Why AI coding works (if you know how to use it)"
 locale: en
 postSlug: ai-coding-productivity-response
-featured: true
+featured: false
 draft: false
 tags:
   - ai
