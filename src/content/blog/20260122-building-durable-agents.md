@@ -1,6 +1,6 @@
 ---
 author: Hugo Nogueira
-pubDatetime: 2026-01-22T10:00:00.000Z
+pubDatetime: 2026-01-15T10:00:00.000Z
 title: "Building Durable Agents: What I Learned Running Autonomous Systems in Production"
 locale: en
 postSlug: building-durable-agents
