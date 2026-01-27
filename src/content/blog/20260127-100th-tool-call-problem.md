@@ -3,7 +3,7 @@ author: Hugo Nogueira
 pubDatetime: 2026-01-27T08:00:00.000Z
 title: "The 100th Tool Call Problem: Why Most AI Agents Fail in Production"
 locale: en
-postSlug: building-durable-agents
+postSlug: 100th-tool-call-problem
 featured: true
 draft: false
 tags:
