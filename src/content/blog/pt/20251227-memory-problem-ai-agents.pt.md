@@ -4,7 +4,7 @@ pubDatetime: 2025-12-27T14:00:00.000Z
 title: "O Problema da Memória em Agentes de IA"
 locale: pt
 postSlug: memory-problem-ai-agents
-featured: false
+featured: true
 draft: false
 tags:
   - ai-agents
