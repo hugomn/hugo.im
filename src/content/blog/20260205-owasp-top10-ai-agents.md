@@ -31,9 +31,9 @@ But autonomous agents break this model. To be useful, an agent needs broad acces
 
 This creates what I call the **agent security paradox**: autonomy requires access, but access creates attack surface.
 
-The Moltbot incident from last month perfectly illustrates this paradox. Users granted Moltbot sweeping permissions to act as their personal assistant. When security researchers found hundreds of exposed control panels, they could access private conversations, API keys, and even hijack agents.
+The OpenClaw incident from last month perfectly illustrates this paradox. Users granted OpenClaw sweeping permissions to act as their personal assistant. When security researchers found hundreds of exposed control panels, they could access private conversations, API keys, and even hijack agents.
 
-This isn't a bug in Moltbot's implementation. It's a fundamental flaw in how we think about agent security.
+This isn't a bug in OpenClaw's implementation. It's a fundamental flaw in how we think about agent security.
 
 ## The OWASP Top 10 for Agentic Applications 2026
 
