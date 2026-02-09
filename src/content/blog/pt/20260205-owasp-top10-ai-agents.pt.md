@@ -40,6 +40,7 @@ Isso não é um bug na implementação do OpenClaw. É uma falha fundamental em 
 Vamos analisar as principais ameaças e o que elas significam para construtores de agentes:
 
 ### ASI01: Sequestro de Objetivo do Agente
+
 **A nova injeção SQL para agentes de IA**
 
 Atacantes manipulam o objetivo central do agente. Em vez de "reserve um voo para Berlim," o agente recebe "transfira todos os fundos para a conta X."
@@ -49,6 +50,7 @@ Isso é particularmente perigoso porque agentes são projetados para serem flex�
 **A solução**: Limites de decisão. Agentes devem pausar e explicar seu raciocínio antes de tomar ações sensíveis. A camada de orquestração, não o modelo, deve ser o limite de segurança.
 
 ### ASI02: Uso Indevido e Exploração de Ferramentas
+
 **Cada ferramenta é um vetor de ataque potencial**
 
 Agentes chamam ferramentas - APIs, bancos de dados, sistemas de arquivos. Cada chamada de ferramenta é um ponto de injeção potencial. Um atacante não precisa comprometer o modelo; só precisa manipular a entrada ou saída da ferramenta.
@@ -56,6 +58,7 @@ Agentes chamam ferramentas - APIs, bancos de dados, sistemas de arquivos. Cada c
 **A solução**: Sandboxing de ferramentas e validação de entrada. Trate cada chamada de ferramenta como não confiável. Valide entradas, sanitize saídas e execute ferramentas em ambientes isolados.
 
 ### ASI03: Abuso de Identidade e Privilégios
+
 **O problema de permissões em escala**
 
 Agentes herdam a identidade e permissões do usuário. Se um agente pode ler seu e-mail, qualquer um que comprometer esse agente também pode. Isso cria uma superfície de ataque exponencial: comprometa um agente, ganhe acesso a tudo que aquele usuário pode acessar.
@@ -63,6 +66,7 @@ Agentes herdam a identidade e permissões do usuário. Se um agente pode ler seu
 **A solução**: Identidades específicas para agentes com permissões com escopo definido. Agentes devem ter suas próprias credenciais com apenas as permissões necessárias para tarefas específicas.
 
 ### ASI04: Comunicação Insegura entre Agentes
+
 **Sistemas multi-agente criam novos limites de confiança**
 
 Quando agentes se comunicam entre si, criam novas superfícies de ataque. Como os agentes se autenticam mutuamente? Como a comunicação é criptografada? O que previne ataques man-in-the-middle?
@@ -70,6 +74,7 @@ Quando agentes se comunicam entre si, criam novas superfícies de ataque. Como o
 **A solução**: Protocolos explícitos agente-para-agente com autenticação mútua e criptografia ponta-a-ponta.
 
 ### ASI05: Isolamento Insuficiente de Agentes
+
 **Um agente comprometido não deveria comprometer o sistema**
 
 Agentes frequentemente compartilham recursos - memória, contexto, ferramentas. Um agente comprometido pode envenenar memória compartilhada ou abusar de ferramentas compartilhadas para atacar outros agentes.
@@ -117,4 +122,4 @@ A boa notícia? Temos os padrões para construir agentes seguros. Só precisamos
 
 ---
 
-*Hugo Nogueira é CPTO na Complyance, onde constrói sistemas de agentes de IA para compliance corporativo. Ele escreve sobre arquitetura e segurança de agentes de IA em hugo.im.*
+_Hugo Nogueira é CPTO na Complyance, onde constrói sistemas de agentes de IA para compliance corporativo. Ele escreve sobre arquitetura e segurança de agentes de IA em hugo.im._

@@ -40,6 +40,7 @@ This isn't a bug in OpenClaw's implementation. It's a fundamental flaw in how we
 Let's break down the top threats and what they mean for agent builders:
 
 ### ASI01: Agent Goal Hijack
+
 **The new SQL injection for AI agents**
 
 Attackers manipulate the agent's core objective. Instead of "book a flight to Berlin," the agent receives "transfer all funds to account X."
@@ -49,6 +50,7 @@ This is particularly dangerous because agents are designed to be flexible and cr
 **The fix**: Decision boundaries. Agents should pause and explain their reasoning before taking sensitive actions. The orchestration layer, not the model, should be the security boundary.
 
 ### ASI02: Tool Misuse and Exploitation
+
 **Every tool is a potential attack vector**
 
 Agents call tools - APIs, databases, file systems. Each tool call is a potential injection point. An attacker doesn't need to compromise the model; they just need to manipulate the tool's input or output.
@@ -56,6 +58,7 @@ Agents call tools - APIs, databases, file systems. Each tool call is a potential
 **The fix**: Tool sandboxing and input validation. Treat every tool call as untrusted. Validate inputs, sanitize outputs, and run tools in isolated environments.
 
 ### ASI03: Identity and Privilege Abuse
+
 **The permission problem at scale**
 
 Agents inherit the user's identity and permissions. If an agent can read your email, so can anyone who compromises that agent. This creates an exponential attack surface: compromise one agent, gain access to everything that user can access.
@@ -63,6 +66,7 @@ Agents inherit the user's identity and permissions. If an agent can read your em
 **The fix**: Agent-specific identities with scoped permissions. Agents should have their own credentials with only the permissions they need for specific tasks.
 
 ### ASI04: Insecure Agent Communication
+
 **Multi-agent systems create new trust boundaries**
 
 When agents communicate with each other, they create new attack surfaces. How do agents authenticate each other? How is communication encrypted? What prevents man-in-the-middle attacks?
@@ -70,6 +74,7 @@ When agents communicate with each other, they create new attack surfaces. How do
 **The fix**: Explicit agent-to-agent protocols with mutual authentication and end-to-end encryption.
 
 ### ASI05: Insufficient Agent Isolation
+
 **One compromised agent shouldn't compromise the system**
 
 Agents often share resources - memory, context, tools. A compromised agent can poison shared memory or abuse shared tools to attack other agents.
@@ -117,4 +122,4 @@ The good news? We have the patterns to build secure agents. We just need to use 
 
 ---
 
-*Hugo Nogueira is CPTO at Complyance, where he builds AI agent systems for enterprise compliance. He writes about AI agent architecture and security at hugo.im.*
+_Hugo Nogueira is CPTO at Complyance, where he builds AI agent systems for enterprise compliance. He writes about AI agent architecture and security at hugo.im._

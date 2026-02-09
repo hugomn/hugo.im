@@ -74,7 +74,13 @@ export default async (post: CollectionEntry<"blog">) => {
               fontSize: 32,
             }}
           >
-            <span style={{ overflow: "hidden", fontWeight: "bold", color: "#667eea" }}>
+            <span
+              style={{
+                overflow: "hidden",
+                fontWeight: "bold",
+                color: "#667eea",
+              }}
+            >
               {SITE.title}
             </span>
           </div>
