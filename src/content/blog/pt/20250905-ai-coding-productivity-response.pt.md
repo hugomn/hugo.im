@@ -4,7 +4,7 @@ pubDatetime: 2025-09-05T14:00:00.000Z
 title: "Software produzido em massa? Temos. Por que programar com IA funciona (se você souber usar)"
 locale: pt
 postSlug: ai-coding-productivity-response
-featured: true
+featured: false
 draft: false
 tags:
   - ia
