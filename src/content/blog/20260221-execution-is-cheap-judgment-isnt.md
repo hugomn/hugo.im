@@ -27,7 +27,7 @@ The answer forced me to rethink something I thought was settled.
 
 ## The CTO/CPO split was a solution to a different problem
 
-For most of the last decade, building software was the scarce resource. Large teams, long cycles, significant capital. Architecture decisions were expensive to reverse. Product bets had feedback loops measured in quarters. In that world, separating engineering leadership from product leadership made sense. One role optimized *how*. The other optimized *what* and *why*. The separation wasn't dysfunction. It was an honest response to the cost structure of software.
+For most of the last decade, building software was the scarce resource. Large teams, long cycles, significant capital. Architecture decisions were expensive to reverse. Product bets had feedback loops measured in quarters. In that world, separating engineering leadership from product leadership made sense. One role optimized _how_. The other optimized _what_ and _why_. The separation wasn't dysfunction. It was an honest response to the cost structure of software.
 
 AI is dismantling that cost structure.
 
@@ -81,7 +81,7 @@ When I moved to Berlin to lead engineering teams, I went deep into technical lea
 
 When I eventually settled fully into a CPTO role, the title caught up to how I was already operating. The shift wasn't mental. It was structural.
 
-The real job became designing leverage. Deciding what *not* to build. Connecting user feedback to architectural constraints. Building AI capabilities that amplify teams rather than just automating their existing workflows.
+The real job became designing leverage. Deciding what _not_ to build. Connecting user feedback to architectural constraints. Building AI capabilities that amplify teams rather than just automating their existing workflows.
 
 ---
 
@@ -103,4 +103,4 @@ That's where leadership lives now.
 
 ---
 
-*I'm CPTO at Complyance, building AI-first compliance software. I also build autonomous agents on the side for personal automation and learning. [Wrote about some of that here](https://hugo.im/tags/ai-agents). Find me on [LinkedIn](https://linkedin.com/in/hugomn) or [X](https://x.com/hugomn).*
+_I'm CPTO at Complyance, building AI-first compliance software. I also build autonomous agents on the side for personal automation and learning. [Wrote about some of that here](https://hugo.im/tags/ai-agents). Find me on [LinkedIn](https://linkedin.com/in/hugomn) or [X](https://x.com/hugomn)._

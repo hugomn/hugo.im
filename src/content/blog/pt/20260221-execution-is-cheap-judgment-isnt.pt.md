@@ -27,7 +27,7 @@ A resposta me forçou a repensar algo que achei que já estava resolvido.
 
 ## A divisão CTO/CPO era uma solução para um problema diferente
 
-Durante a maior parte da última década, construir software era o recurso escasso. Times grandes, ciclos longos, capital significativo. Decisões de arquitetura eram caras de reverter. As apostas de produto tinham loops de feedback medidos em trimestres. Nesse mundo, separar a liderança de engenharia da liderança de produto fazia sentido. Um papel otimizava o *como*. O outro otimizava o *o quê* e o *por quê*. A separação não era disfunção. Era uma resposta honesta à estrutura de custos do software.
+Durante a maior parte da última década, construir software era o recurso escasso. Times grandes, ciclos longos, capital significativo. Decisões de arquitetura eram caras de reverter. As apostas de produto tinham loops de feedback medidos em trimestres. Nesse mundo, separar a liderança de engenharia da liderança de produto fazia sentido. Um papel otimizava o _como_. O outro otimizava o _o quê_ e o _por quê_. A separação não era disfunção. Era uma resposta honesta à estrutura de custos do software.
 
 A IA está desmontando essa estrutura de custos.
 
@@ -81,7 +81,7 @@ Quando me mudei para Berlim para liderar times de engenharia, fui fundo na lider
 
 Quando finalmente assumi um papel de CPTO de verdade, o título foi só a formalização de como eu já operava. A mudança não foi mental. Foi estrutural.
 
-O trabalho de verdade se tornou desenhar alavancagem. Decidir o que *não* construir. Conectar feedbacks de usuários a restrições arquiteturais. Criar capacidades de IA que amplificam times ao invés de apenas automatizar os fluxos existentes.
+O trabalho de verdade se tornou desenhar alavancagem. Decidir o que _não_ construir. Conectar feedbacks de usuários a restrições arquiteturais. Criar capacidades de IA que amplificam times ao invés de apenas automatizar os fluxos existentes.
 
 ---
 
@@ -103,4 +103,4 @@ Execução está cada vez mais automatizada. O julgamento sobre o que executar, 
 
 ---
 
-*Sou CPTO na Complyance, construindo software de compliance nativo em IA. Também construo agentes autônomos nas horas vagas para automação pessoal e aprendizado. [Escrevi sobre isso aqui](https://hugo.im/tags/ai-agents). Me encontre no [LinkedIn](https://linkedin.com/in/hugomn) ou no [X](https://x.com/hugomn).*
+_Sou CPTO na Complyance, construindo software de compliance nativo em IA. Também construo agentes autônomos nas horas vagas para automação pessoal e aprendizado. [Escrevi sobre isso aqui](https://hugo.im/tags/ai-agents). Me encontre no [LinkedIn](https://linkedin.com/in/hugomn) ou no [X](https://x.com/hugomn)._
