@@ -27,7 +27,7 @@ The answer forced me to rethink something I thought was settled.
 
 ## The CTO/CPO split was a solution to a different problem
 
-For most of the last decade, building software was the scarce resource. Large teams, long cycles, significant capital. Architecture decisions were expensive to reverse. Product bets had feedback loops measured in quarters. In that world, separating engineering leadership from product leadership made sense. One role optimized _how_. The other optimized _what_ and _why_. The separation wasn't dysfunction. It was an honest response to the cost structure of software.
+For most of the last decade, building software was the scarce resource. Large teams, long cycles, significant capital. Architecture decisions were expensive to reverse. Product bets had feedback loops measured in quarters. In that world, separating engineering leadership from product leadership made sense. One role optimized *how*. The other optimized *what* and *why*. The separation wasn't dysfunction. It was an honest response to the cost structure of software.
 
 AI is dismantling that cost structure.
 
@@ -39,8 +39,7 @@ In that environment, the most important architecture in a company is not the sys
 
 ---
 
-## When the bottleneck shifts, the org chart should too
-
+When the bottleneck shifts, the org chart should too
 When we built that agent framework in two weeks, the immediate win was obvious. But what became clear almost immediately was that the hard problem had simply moved. Now the question wasn't "can we build this?" It was "what should this framework actually do, for which workflows, under what constraints, and what does it mean if it gets something wrong?"
 
 That last part matters especially in compliance work. An AI agent operating in a GRC context that acts with too much autonomy creates regulatory exposure. Too little autonomy and you've built expensive automation that still requires constant hand-holding, which destroys the value proposition entirely.
@@ -55,8 +54,7 @@ This is the pattern I keep running into. The decisions that matter most in an AI
 
 ---
 
-## Build the car, not the faster horse
-
+Build the car, not the faster horse
 Here's a different kind of example, one that has nothing to do with AI but everything to do with why the CPTO model matters.
 
 For a long time, users of our platform were asking for the ability to add generic references between entities. The request came up repeatedly. It was consistent. It had strong signal.
@@ -71,8 +69,7 @@ Users were asking for a faster horse. They needed a car. The engineer in me knew
 
 ---
 
-## This was not a title transition for me
-
+This was not a title transition for me
 I want to be careful here, because "CPTO" can sound like a prestige move, two roles stacked into one title. That's not what I mean, and it's not how I got here.
 
 When I was running meuingresso.com in Brazil, there was no product team and no engineering team. There was survival. Every onboarding decision affected conversion rates. Every infrastructure choice affected whether the platform held up during events with 15,000 attendees. Pricing, UX, performance, and architecture were the same problem from different angles. I didn't separate them because I couldn't afford to.
@@ -81,12 +78,11 @@ When I moved to Berlin to lead engineering teams, I went deep into technical lea
 
 When I eventually settled fully into a CPTO role, the title caught up to how I was already operating. The shift wasn't mental. It was structural.
 
-The real job became designing leverage. Deciding what _not_ to build. Connecting user feedback to architectural constraints. Building AI capabilities that amplify teams rather than just automating their existing workflows.
+The real job became designing leverage. Deciding what *not* to build. Connecting user feedback to architectural constraints. Building AI capabilities that amplify teams rather than just automating their existing workflows.
 
 ---
 
-## What this means if you're building now
-
+What this means if you're building now
 The CTO/CPO divide made sense when software was primarily an execution challenge. That world is shrinking fast for companies building AI-native products.
 
 For founders: if you're early enough to shape the org, resist the instinct to separate these concerns too soon. The decisions AI forces you to make don't respect clean organizational boundaries. How much autonomy to grant, what the system does when it's uncertain, what a wrong answer costs to the user.
@@ -103,4 +99,4 @@ That's where leadership lives now.
 
 ---
 
-_I'm CPTO at Complyance, building AI-first compliance software. I also build autonomous agents on the side for personal automation and learning. [Wrote about some of that here](https://hugo.im/tags/ai-agents). Find me on [LinkedIn](https://linkedin.com/in/hugomn) or [X](https://x.com/hugomn)._
+*I'm CPTO at Complyance, building AI-first compliance software. I also build autonomous agents on the side for personal automation and learning. **[Wrote about some of that here](https://hugo.im/tags/ai-agents)**. Find me on **[LinkedIn](https://linkedin.com/in/hugomn)** or **[X](https://x.com/hugomn)**.*
