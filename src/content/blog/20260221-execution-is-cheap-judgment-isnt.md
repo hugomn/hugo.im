@@ -17,7 +17,11 @@ imageAlt: "Decision text for leadership and business presentation"
 imageAttribution: "Photo by Edho Pratama on Unsplash"
 ---
 
-Last week, my team shipped the first version of an internal AI agent framework we built in two weeks. The kind of infrastructure that would have taken us three to four months a year ago.
+Last week, my team shipped the first ve
+
+rsion of an internal 
+
+AI agent framework we built in two weeks. The kind of infrastructure that would have taken us three to four months a year ago.
 
 My first reaction wasn't satisfaction. It was a quiet, uncomfortable question: if we can build that fast, what's the bottleneck now?
 
