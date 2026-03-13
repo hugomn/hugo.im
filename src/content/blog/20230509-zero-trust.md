@@ -16,7 +16,7 @@ description: Learn about Zero Trust Architecture for remote and hybrid work. Thi
 
 As more and more enterprises adopt remote or hybrid work models, the need for robust cybersecurity measures has never been greater. One approach that is gaining popularity is Zero Trust Architecture (ZTA), an evolving set of cybersecurity paradigms that move defenses from static, network-based perimeters to focus on users, assets, and resources.
 
-In a traditional security architecture, once someone signs in at work, they can access the entire corporate network. This only protects an organization’s perimeter and is tied to the physical office premises. This model doesn’t support remote work and exposes the organization to risk because if someone steals a password, they can access everything.
+In a traditional security architecture, once someone signs in at work, they can access the entire corporate network. This only protects an organization’s perimeter and is tied to the physical office premises. This model doesn’t support remote work and exposes the organization to risk because if someone steals a password, they can access everything. H
 
 Instead of only guarding an organization’s perimeter, Zero Trust architecture protects each file, email, and network by authenticating every identity and device. Rather than just securing one network, Zero Trust architecture also helps secure remote access, personal devices, and third-party apps.
 
