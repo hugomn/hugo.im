@@ -23,7 +23,9 @@ rsion of an internal
 
 AI agent framework we built in two weeks. The kind of infrastructure that would have taken us three to four months a year ago.
 
-My first reaction wasn't satisfaction. It was a quiet, uncomfortable question: if we can build that fast, what's the bottleneck now?
+My first reaction wasn't satisfaction. It was a quiet, uncomfortable question: if we can build that fast, what's t
+
+he bottleneck now?
 
 The answer forced me to rethink something I thought was settled.
 
@@ -31,7 +33,7 @@ The answer forced me to rethink something I thought was settled.
 
 ## The CTO/CPO split was a solution to a different problem
 
-For most of the last decade, building software was the scarce resource. Large teams, long cycles, significant capital. Architecture decisions were expensive to reverse. Product bets had feedback loops measured in quarters. In that world, separating engineering leadership from product leadership made sense. One role optimized *how*. The other optimized *what* and *why*. The separation wasn't dysfunction. It was an honest response to the cost structure of software.
+dsadasdsadFor most of the last decade, building software was the scarce resource. Large teams, long cycles, significant capital. Architecture decisions were expensive to reverse. Product bets had feedback loops measured in quarters. In that world, separating engineering leadership from product leadership made sense. One role optimized *how*. The other optimized *what* and *why*. The separation wasn't dysfunction. It was an honest response to the cost structure of software.
 
 AI is dismantling that cost structure.
 
