@@ -4,7 +4,7 @@ pubDatetime: 2026-01-03T08:00:00.000Z
 title: "2025: The Year AI Agents Got Real"
 locale: en
 postSlug: ai-agents-year-review-2025
-featured: true
+featured: false
 draft: false
 tags:
   - ai-agents

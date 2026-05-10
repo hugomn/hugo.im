@@ -4,7 +4,7 @@ pubDatetime: 2026-01-03T08:00:00.000Z
 title: "2025: O Ano em que os Agentes de IA Ficaram Reais"
 locale: pt
 postSlug: ai-agents-year-review-2025
-featured: true
+featured: false
 draft: false
 tags:
   - ai-agents
