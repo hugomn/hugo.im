@@ -4,7 +4,7 @@ pubDatetime: 2026-01-07T22:00:00.000Z
 title: "The Agent Harness: Why 2026 is About Infrastructure, Not Intelligence"
 locale: en
 postSlug: agent-harness-infrastructure
-featured: true
+featured: false
 draft: false
 tags:
   - ai-agents
