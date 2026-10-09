@@ -2,87 +2,63 @@ import satori from "satori";
 import { SITE } from "@config";
 import loadGoogleFonts, { type FontOptions } from "../loadGoogleFont";
 
+// Same navy data-card language as the post covers.
 export default async () => {
   return satori(
     <div
       style={{
-        background: "#fefbfb",
+        background: "#0e1117",
         width: "100%",
         height: "100%",
         display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        padding: "72px 80px",
+        fontFamily: "Schibsted Grotesk",
       }}
     >
-      <div
-        style={{
-          position: "absolute",
-          top: "-1px",
-          right: "-1px",
-          border: "4px solid #000",
-          background: "#ecebeb",
-          opacity: "0.9",
-          borderRadius: "4px",
-          display: "flex",
-          justifyContent: "center",
-          margin: "2.5rem",
-          width: "88%",
-          height: "80%",
-        }}
-      />
-
-      <div
-        style={{
-          border: "4px solid #000",
-          background: "#fefbfb",
-          borderRadius: "4px",
-          display: "flex",
-          justifyContent: "center",
-          margin: "2rem",
-          width: "88%",
-          height: "80%",
-        }}
-      >
+      <div style={{ display: "flex", flexDirection: "column" }}>
         <div
           style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            margin: "20px",
-            width: "90%",
-            height: "90%",
+            width: 72,
+            height: 6,
+            background: "#5aa2e0",
+            borderRadius: 3,
+            marginBottom: 40,
+          }}
+        />
+        <div
+          style={{
+            fontSize: 88,
+            fontWeight: 700,
+            color: "#e6eaf0",
+            letterSpacing: "-0.03em",
+            lineHeight: 1.05,
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "90%",
-              maxHeight: "90%",
-              overflow: "hidden",
-              textAlign: "center",
-            }}
-          >
-            <p style={{ fontSize: 72, fontWeight: "bold" }}>{SITE.title}</p>
-            <p style={{ fontSize: 28 }}>{SITE.desc}</p>
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "flex-end",
-              width: "100%",
-              marginBottom: "8px",
-              fontSize: 28,
-            }}
-          >
-            <span style={{ overflow: "hidden", fontWeight: "bold" }}>
-              {new URL(SITE.website).hostname}
-            </span>
-          </div>
+          {SITE.title}
         </div>
+        <div
+          style={{
+            marginTop: 28,
+            fontSize: 32,
+            lineHeight: 1.4,
+            color: "#9aa5b4",
+            maxWidth: 960,
+          }}
+        >
+          {SITE.desc}
+        </div>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          fontSize: 30,
+          color: "#9aa5b4",
+        }}
+      >
+        {new URL(SITE.website).hostname}
       </div>
     </div>,
     {

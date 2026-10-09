@@ -6,7 +6,7 @@ export const SITE: Site = {
   profile: "https://hugo.im/",
   desc: "Hugo Nogueira is CPTO at Complyance. He writes about running AI agents in production, with a focus on security and reliability, and publishes open research on how agents fail.",
   title: "Hugo Nogueira",
-  ogImage: "meta-og.jpg",
+  ogImage: "og.png",
   lightAndDarkMode: true,
   postPerPage: 5,
   postPerIndex: 4,
