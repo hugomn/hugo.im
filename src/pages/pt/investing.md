@@ -4,48 +4,34 @@ title: "Investimentos"
 slug: "investing"
 ---
 
-Sou um investidor anjo que faz pequenos aportes em fundadores inspiradores em estágio inicial.
+Sou investidor anjo de forma ocasional. Faço poucos e pequenos aportes em empresas em estágio inicial, geralmente de fundadores técnicos construindo com IA, e tento ser mais útil com o meu tempo do que com o meu dinheiro.
 
-Meu lema: **Invisto em fundadores com quem eu adoraria trabalhar, mas não posso devido ao meu entusiasmo com a Complyance.**
+A maior parte da minha energia vai para a Complyance, onde sou CPTO. Isso deixa meus investimentos bem seletivos: não fiz novos investimentos em 2025, enquanto levantávamos nossa Série A, e em 2026 voltei a estar aberto a alguns poucos fundadores por ano.
 
-## Filosofia de Investimento
+## O que eu procuro
 
-Após duas décadas construindo produtos e liderando equipes de engenharia, aprendi que fundadores excepcionais compartilham certas qualidades: eles veem problemas que outros não percebem, constroem soluções com genuína empatia pelo usuário, e executam com tanto profundidade técnica quanto intuição de produto.
+Invisto onde consigo trazer experiência real, e não só capital:
 
-Invisto em fundadores que combinam profunda expertise de domínio com a capacidade de transformar desafios técnicos complexos em soluções elegantes que os usuários realmente adoram. São pessoas que eu gostaria de ter como colegas de equipe se não estivesse tão comprometido com o que estamos construindo na Complyance.
+- **Agentes de IA e a infraestrutura ao redor deles.** Runtimes de agentes, avaliação, observabilidade, segurança e identidade para agentes. A camada pouco glamorosa que decide se agentes podem receber trabalho de verdade.
+- **IA em trabalho regulado e de alto risco.** Compliance, risco, segurança, fintech e saúde, onde errar sai caro e a confiança é o produto.
+- **Ferramentas que mudam como software é construído.** Principalmente para times pequenos fazendo o trabalho que antes exigia times grandes.
 
-## Áreas de Foco
+Não invisto em empresas que competem com a Complyance.
 
-Meus investimentos se concentram em áreas onde posso fornecer valor genuíno além do capital:
+## Como posso ajudar
 
-- **Fintech**: Sistemas que lidam com fluxos financeiros complexos com experiência do usuário excepcional
-- **IA e Machine Learning**: Aplicações práticas de IA que amplificam capacidades humanas em vez de substituí-las
-- **B2B SaaS**: Ferramentas empresariais que tornam trabalhos profissionais complexos mais intuitivos e eficientes
+- **Arquitetura e segurança de agentes.** Construí infraestrutura de agentes que roda dentro dos ambientes de clientes enterprise, e posso revisar a sua: sandboxing, credenciais, evals, modos de falha.
+- **Do primeiro contratado à Série A.** Entrei na Complyance como primeiro funcionário e construí a organização de produto, engenharia e design até uma Série A liderada pela GV.
+- **Vender para empresas exigentes em segurança.** Revisões de segurança, questionários e como conquistar a confiança de compradores que dizem não por profissão.
+- **Construir do zero, mais de uma vez.** Cofundei uma startup que foi adquirida e construí mais de 8 ventures como venture CTO na BCG Digital Ventures.
 
-## Portfolio
+## Portfólio
 
-### MoMo Coffee (2024)
+- **MoMo Coffee** (2024). Uma rede de cafés com tecnologia no centro, repensando como uma cafeteria funciona, para clientes e baristas.
+- **Stealth** (2024). Software de gestão de projetos pensado para como times de engenharia realmente trabalham.
 
-Uma cadeia de cafeterias habilitada por tecnologia que está reimaginando como as cafeterias operam. O que me empolgou na MoMo não foi apenas sua abordagem ao café, mas como eles estão usando tecnologia para criar melhores experiências tanto para clientes quanto para baristas. Os fundadores combinam profunda experiência em hospitalidade com implementação tecnológica cuidadosa.
+## Como me apresentar sua empresa
 
-### Ferramenta de Gestão de Projetos Stealth (2024)
+Mande um email para [hello@hugo.im](mailto:hello@hugo.im?subject=Founder%3A%20) com o assunto **"Founder: nome da sua empresa"**. Uma mensagem curta funciona melhor: o que você está construindo e para quem, por que agora, o que já está funcionando e a rodada que está levantando. Um deck é bem-vindo, mas opcional.
 
-Uma empresa em estágio inicial construindo software de gestão de projetos para equipes técnicas. Não posso compartilhar detalhes ainda, mas o que me atraiu foi a perspectiva única dos fundadores sobre como equipes de engenharia realmente trabalham versus como as ferramentas atuais assumem que elas trabalham.
-
-## Planos para 2025
-
-Este ano, planejo ajudar 10 fundadores através de pequenos mas significativos investimentos. Estou particularmente interessado em conhecer fundadores que estão:
-
-- Construindo em espaços onde a tecnologia pode criar melhorias exponenciais em como as pessoas trabalham
-- Resolvendo problemas que experimentaram pessoalmente como praticantes em seu domínio
-- Combinando inovação técnica com pensamento excepcional de produto
-
-## Vamos Conversar
-
-Se você está construindo algo em fintech, IA, ou B2B SaaS e acha que podemos ser uma boa combinação, adoraria saber sobre o que você está trabalhando.
-
-A melhor forma de me contactar é através de [email](/contact) ou [LinkedIn](https://linkedin.com/in/hugomn). Tento responder a todo fundador que me procura.
-
----
-
-_Esta página foi inspirada pela [abordagem do Zeno Rocha](https://zenorocha.com/investing) para investimentos anjo transparentes._
+Leio todos os emails e respondo a todos os fundadores, geralmente em até uma semana.
