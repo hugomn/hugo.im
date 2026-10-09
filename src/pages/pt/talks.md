@@ -51,8 +51,8 @@ Uma foto em alta resolução está disponível [aqui](/assets/profile_picture.jp
 
 ## Palestras anteriores
 
-- Avoiding burnout as a software engineer 🇺🇸 - [Post](https://www.hugo.im/blog/avoiding-burnout-as-a-software-engineer) | [Slides](https://docs.google.com/presentation/d/1263EGGzzQI4VQbbpo84kctB7FAhaeQhHDiz9AfHoBxE/edit?usp=sharing)
-- How to develop reusable components with Babel and RollupJS 🇺🇸 (2018) - [Post](https://www.hugo.im/blog/how-to-develop-reusable-components-with-babel-and-rollupjs) | [Slides](https://speakerdeck.com/hugomn/how-to-develop-reusable-components-with-babel-and-rollup-dot-js) | [Gravação](https://www.youtube.com/watch?v=Dve_bYaAVZ0)
+- Avoiding burnout as a software engineer 🇺🇸 - [Post](/pt/posts/avoiding-burnout-as-a-software-engineer/) | [Slides](https://docs.google.com/presentation/d/1263EGGzzQI4VQbbpo84kctB7FAhaeQhHDiz9AfHoBxE/edit?usp=sharing)
+- How to develop reusable components with Babel and RollupJS 🇺🇸 (2018) - [Post](/posts/how-to-develop-reusable-components-with-babel-and-rollupjs/) | [Slides](https://speakerdeck.com/hugomn/how-to-develop-reusable-components-with-babel-and-rollup-dot-js) | [Gravação](https://www.youtube.com/watch?v=Dve_bYaAVZ0)
 - Inbound marketing: a nova forma de se comunicar com seus clientes 🇧🇷 (2016) - [Slides](https://www.slideshare.net/hugomn/inbound-marketing-a-nova-forma-de-se-comunicar-e-conquistar-seus-clientes)
 - Conhecendo os fundamentos e desenvolvendo uma aplicação básica com Angular 2 🇧🇷 (2016) - [Slides](https://www.slideshare.net/hugomn/conhecendo-os-fundamentos-e-desenvolvendo-uma-apliao-bsica-com-angular2)
 - Empreendedorismo e as oportunidades disfarçadas 🇧🇷 (2012) - [Slides](https://www.slideshare.net/hugomn/empreendedorismo-e-as-oportunidades-disfaradas)
