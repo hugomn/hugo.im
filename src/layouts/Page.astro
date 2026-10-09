@@ -23,9 +23,13 @@ const { frontmatter } = Astro.props;
   <Header activeNav={frontmatter.slug} />
   <Breadcrumbs />
   <main id="main-content">
-    <section id="about" class="prose mb-28 max-w-5xl prose-img:border-0">
-      <h1 class="text-2xl tracking-wider sm:text-3xl">{frontmatter.title}</h1>
-      <slot />
+    <section id="about" class="mb-28">
+      <div class="prose prose-lg max-w-[42rem]">
+        <h1 class="mt-2 text-3xl font-bold tracking-[-0.025em] sm:text-4xl">
+          {frontmatter.title}
+        </h1>
+        <slot />
+      </div>
     </section>
   </main>
   <Footer />

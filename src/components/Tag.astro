@@ -7,32 +7,21 @@ export interface Props {
 const { tag, size = "sm" } = Astro.props;
 ---
 
-<li
-  class={`inline-block ${
-    size === "sm" ? "my-1 underline-offset-4" : "my-3 mx-1 underline-offset-8"
-  }`}
->
+<li class={`inline-block ${size === "sm" ? "my-1 mr-1" : "my-2 mr-2"}`}>
   <a
     href={`/tags/${tag}/`}
     transition:name={tag}
-    class={`${size === "sm" ? "text-sm" : "text-lg"} pr-2 group`}
+    class={`tag ${size === "sm" ? "px-3 py-1 text-sm" : "px-4 py-1.5 text-base"}`}
   >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class={`${size === "sm" ? " scale-75" : "scale-110"}`}
-      ><path
-        d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z"
-      ></path>
-    </svg>
-    &nbsp;<span>{tag}</span>
+    <span class="tag-hash" aria-hidden="true">#</span>{tag}
   </a>
 </li>
 
 <style>
-  a {
-    @apply relative underline decoration-dashed hover:-top-0.5 hover:text-skin-accent focus-visible:p-1;
+  .tag {
+    @apply inline-flex items-center rounded-full border border-skin-line font-medium text-skin-muted transition-colors hover:border-skin-accent hover:text-skin-accent;
   }
-  a svg {
-    @apply -mr-5 h-6 w-6 scale-95 text-skin-base opacity-80 group-hover:fill-skin-accent;
+  .tag-hash {
+    @apply mr-0.5 opacity-60;
   }
 </style>

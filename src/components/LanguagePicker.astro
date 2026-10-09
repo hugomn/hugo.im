@@ -6,12 +6,17 @@ const { pathname } = Astro.url;
 const currentLang = getLangFromUrl(Astro.url);
 ---
 
-<ul class="flex flex-row gap-3">
+<ul class="flex flex-row gap-3 uppercase tracking-wide">
   {
     SUPPORTED_LANGUAGES.map(lang => (
       <li>
         <a
-          class={lang === currentLang ? "font-bold" : ""}
+          class={
+            lang === currentLang
+              ? "font-semibold text-skin-base"
+              : "transition-colors hover:text-skin-accent"
+          }
+          aria-current={lang === currentLang ? "true" : undefined}
           href={localizeUrl(lang, pathname)}
         >
           {lang}

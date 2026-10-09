@@ -24,34 +24,26 @@ export default function Datetime({
   editPost,
   postId,
 }: Props) {
+  const textSize = size === "sm" ? "text-sm" : "text-[0.9375rem]";
+  const isUpdated = modDatetime && modDatetime > pubDatetime;
+
   return (
     <div
-      className={`flex items-center space-x-2 opacity-80 ${className}`.trim()}
+      className={`flex flex-wrap items-center gap-x-3 text-skin-muted ${textSize} ${className}`.trim()}
+      style={{ fontVariantNumeric: "tabular-nums" }}
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className={`${
-          size === "sm" ? "scale-90" : "scale-100"
-        } inline-block h-6 w-6 min-w-[1.375rem] fill-skin-base`}
-        aria-hidden="true"
-      >
-        <path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"></path>
-        <path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"></path>
-      </svg>
-      {modDatetime && modDatetime > pubDatetime ? (
-        <span className={`italic ${size === "sm" ? "text-sm" : "text-base"}`}>
-          Updated:
-        </span>
-      ) : (
-        <span className="sr-only">Published:</span>
-      )}
-      <span className={`italic ${size === "sm" ? "text-sm" : "text-base"}`}>
+      <span>
+        {isUpdated ? (
+          <span>Updated </span>
+        ) : (
+          <span className="sr-only">Published: </span>
+        )}
         <FormattedDatetime
           pubDatetime={pubDatetime}
           modDatetime={modDatetime}
         />
-        {size === "lg" && <EditPost editPost={editPost} postId={postId} />}
       </span>
+      {size === "lg" && <EditPost editPost={editPost} postId={postId} />}
     </div>
   );
 }
@@ -67,19 +59,7 @@ const FormattedDatetime = ({ pubDatetime, modDatetime }: DatetimesProps) => {
     day: "numeric",
   });
 
-  const time = myDatetime.toLocaleTimeString(LOCALE.langTag, {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-
-  return (
-    <>
-      <time dateTime={myDatetime.toISOString()}>{date}</time>
-      <span aria-hidden="true"> | </span>
-      <span className="sr-only">&nbsp;at&nbsp;</span>
-      <span className="text-nowrap">{time}</span>
-    </>
-  );
+  return <time dateTime={myDatetime.toISOString()}>{date}</time>;
 };
 
 const EditPost = ({ editPost, postId }: EditPostProps) => {
@@ -95,16 +75,20 @@ const EditPost = ({ editPost, postId }: EditPostProps) => {
   return (
     showEditPost && (
       <>
-        <span aria-hidden="true"> | </span>
+        <span
+          aria-hidden="true"
+          className="inline-block h-3.5 w-px bg-skin-inverted opacity-25"
+        />
         <a
-          className="space-x-1.5 hover:opacity-75"
+          className="inline-flex items-center gap-1 transition-colors hover:text-skin-accent"
           href={editPostUrl}
           rel="noopener noreferrer"
           target="_blank"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="icon icon-tabler icons-tabler-outline icon-tabler-edit inline-block !scale-90 fill-skin-base"
+            viewBox="0 0 24 24"
+            className="icon icon-tabler icons-tabler-outline icon-tabler-edit inline-block !h-4 !w-4 !scale-100"
             aria-hidden="true"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -112,7 +96,7 @@ const EditPost = ({ editPost, postId }: EditPostProps) => {
             <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" />
             <path d="M16 5l3 3" />
           </svg>
-          <span className="text-base italic">{editPostText}</span>
+          <span>{editPostText}</span>
         </a>
       </>
     )

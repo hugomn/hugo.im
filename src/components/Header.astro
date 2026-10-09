@@ -39,7 +39,7 @@ const { activeNav } = Astro.props;
               </div>
               {SITE.title}
               <div class="ml-2 h-full w-5 content-center">
-                <img src={`/assets/material-symbols_verified.svg`} />
+                <img src={`/assets/material-symbols_verified.svg`} alt="" />
               </div>
             </>
           )
@@ -192,7 +192,7 @@ const { activeNav } = Astro.props;
 
 <style>
   :root {
-    --size-avatar: 46px;
+    --size-avatar: 40px;
     --size-border: 2px;
   }
   #skip-to-content {
@@ -202,23 +202,14 @@ const { activeNav } = Astro.props;
     @apply mx-auto flex max-w-5xl flex-col items-center justify-between md:flex-row;
   }
   .top-nav-wrap {
-    @apply relative flex w-full items-start justify-between p-4 md:items-center md:py-8;
+    @apply relative flex w-full items-start justify-between p-4 md:items-center md:py-6;
   }
   .logo {
-    @apply absolute py-1 text-lg font-semibold md:static md:text-xl;
+    @apply absolute py-1 text-[1.0625rem] font-bold tracking-[-0.01em] md:static md:text-lg;
   }
   .logo .avatar {
-    @apply mr-2 rounded-full;
-    background-image: linear-gradient(
-      45deg,
-      #ffa95f 5%,
-      #f99c4a 15%,
-      #f47838 30%,
-      #e75157 45%,
-      #d92d7a 70%,
-      #cc2a92 80%,
-      #c32e92 95%
-    );
+    @apply mr-2.5 rounded-full;
+    background: rgba(var(--color-accent), 0.55);
     height: var(--size-avatar);
     width: var(--size-avatar);
     min-width: var(--size-avatar);
@@ -227,7 +218,7 @@ const { activeNav } = Astro.props;
     justify-content: center;
     overflow: hidden;
     padding: var(--size-border);
-    border: var(--size-border) solid var(--color-fill, --color-fill);
+    border: 0;
   }
   .logo > .avatar > img {
     @apply rounded-full;
@@ -254,7 +245,7 @@ const { activeNav } = Astro.props;
     @apply col-span-2 flex items-center justify-center;
   }
   nav ul li a {
-    @apply w-full px-4 py-3 text-center font-medium hover:text-skin-accent md:my-0 md:px-2 md:py-1;
+    @apply w-full px-4 py-3 text-center text-[0.9375rem] font-medium text-skin-muted transition-colors hover:text-skin-base md:my-0 md:px-2 md:py-1;
   }
   nav ul li:nth-last-child(2) a {
     @apply w-auto;
@@ -264,7 +255,8 @@ const { activeNav } = Astro.props;
     @apply col-span-1;
   }
   nav .active {
-    @apply underline decoration-wavy decoration-2 underline-offset-4;
+    @apply text-skin-base underline decoration-2 underline-offset-[6px];
+    text-decoration-color: rgb(var(--color-accent));
   }
   nav a.active svg {
     @apply fill-skin-accent;

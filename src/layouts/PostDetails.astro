@@ -52,7 +52,7 @@ const { Content } = await render(post);
 
 const ogImageUrl = typeof image === "string" ? image : image?.src;
 const ogUrl = new URL(
-  ogImageUrl ?? `/posts/${slugifyStr(title)}.png`,
+  ogImageUrl ?? `/posts/${slugifyStr(title)}/index.png`,
   Astro.url.origin
 ).href;
 
@@ -95,31 +95,31 @@ if (image) {
 <Layout {...layoutProps}>
   <Header />
 
-  <div class="mx-auto flex w-full max-w-5xl justify-start px-2">
+  <div class="post-column flex justify-start">
     <button
-      class="focus-outline mb-2 mt-8 flex hover:opacity-75"
+      class="focus-outline -ml-1 mb-2 mt-6 flex items-center text-sm font-medium text-skin-muted transition-colors hover:text-skin-base md:mt-10"
       onclick="(() => (history.length === 1) ? window.location = '/' : history.back())()"
     >
-      <svg xmlns="http://www.w3.org/2000/svg"
+      <svg xmlns="http://www.w3.org/2000/svg" class="!h-5 !w-5 !fill-current"
         ><path
           d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
         ></path>
       </svg><span>{locale === "pt" ? "Voltar" : "Go back"}</span>
     </button>
   </div>
-  <main id="main-content">
+  <main id="main-content" class="post-column">
     <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
     <Datetime
       pubDatetime={pubDatetime}
       modDatetime={modDatetime}
       size="lg"
-      className="my-2"
+      className="mt-4"
       editPost={editPost}
       postId={post.id}
     />
     {
       optimizedImage && (
-        <div class="featured-image-container my-8">
+        <div class="featured-image-container mb-10 mt-8">
           {typeof optimizedImage === "string" ? (
             <img
               src={optimizedImage}
@@ -144,11 +144,11 @@ if (image) {
         </div>
       )
     }
-    <article id="article" class="prose mx-auto mt-8 max-w-5xl">
+    <article id="article" class="prose prose-lg mx-auto mt-8 max-w-none">
       <Content />
     </article>
 
-    <ul class="my-8">
+    <ul class="mb-8 mt-12 flex flex-wrap gap-2">
       {tags.map(tag => <Tag tag={slugifyStr(tag)} />)}
     </ul>
 
@@ -170,7 +170,7 @@ if (image) {
       <ShareLinks />
     </div>
 
-    <hr class="my-6 border-dashed" />
+    <hr class="my-8 border-skin-line" />
 
     <!-- Previous/Next Post Buttons -->
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -182,7 +182,7 @@ if (image) {
                 ? `/pt/posts/${prevPost.slug}`
                 : `/posts/${prevPost.slug}`
             }
-            class="flex w-full gap-1 hover:opacity-75"
+            class="post-nav flex w-full gap-1"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -202,8 +202,12 @@ if (image) {
               </>
             </svg>
             <div>
-              <span>{locale === "pt" ? "Post Anterior" : "Previous Post"}</span>
-              <div class="text-sm text-skin-accent/85">{prevPost.title}</div>
+              <span class="text-sm text-skin-muted">
+                {locale === "pt" ? "Post Anterior" : "Previous Post"}
+              </span>
+              <div class="mt-0.5 font-semibold leading-snug text-skin-base">
+                {prevPost.title}
+              </div>
             </div>
           </a>
         )
@@ -216,11 +220,15 @@ if (image) {
                 ? `/pt/posts/${nextPost.slug}`
                 : `/posts/${nextPost.slug}`
             }
-            class="flex w-full justify-end gap-1 text-right hover:opacity-75 sm:col-start-2"
+            class="post-nav flex w-full justify-end gap-1 text-right sm:col-start-2"
           >
             <div>
-              <span>{locale === "pt" ? "Próximo Post" : "Next Post"}</span>
-              <div class="text-sm text-skin-accent/85">{nextPost.title}</div>
+              <span class="text-sm text-skin-muted">
+                {locale === "pt" ? "Próximo Post" : "Next Post"}
+              </span>
+              <div class="mt-0.5 font-semibold leading-snug text-skin-base">
+                {nextPost.title}
+              </div>
             </div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -248,21 +256,31 @@ if (image) {
 </Layout>
 
 <style>
+  /* One reading column for title, cover and body (~75 characters per line) */
+  .post-column {
+    @apply mx-auto w-full max-w-[44rem] px-4;
+  }
   main {
-    @apply mx-auto w-full max-w-5xl px-4 pb-12;
+    @apply pb-16;
   }
   .post-title {
-    @apply text-2xl font-semibold text-skin-accent;
+    @apply mt-2 text-[2rem] font-bold leading-[1.1] tracking-[-0.025em] text-skin-base sm:text-[2.75rem];
+    text-wrap: balance;
   }
 
   .featured-image-container {
-    @apply mx-auto max-w-5xl;
+    @apply mx-auto;
   }
 
   .featured-image {
-    @apply shadow-lg;
-    max-height: 500px;
+    @apply rounded-xl;
+    box-shadow: 0 0 0 1px rgb(var(--color-border));
+    max-height: 520px;
     object-fit: cover;
+  }
+
+  .post-nav:hover div {
+    @apply text-skin-accent;
   }
 </style>
 
