@@ -2,6 +2,11 @@
 import LinkButton from "./LinkButton.astro";
 import socialIcons from "@assets/socialIcons";
 
+export interface Props {
+  label?: string;
+}
+
+const { label = "Share this post on:" } = Astro.props;
 const URL = Astro.url;
 
 const shareLinks = [
@@ -39,7 +44,7 @@ const shareLinks = [
 ---
 
 <div class={`social-icons`}>
-  <span class="text-sm text-skin-muted">Share this post on:</span>
+  <span class="text-sm text-skin-muted">{label}</span>
   <div class="text-center">
     {
       shareLinks.map(social => (

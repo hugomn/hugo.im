@@ -14,7 +14,3 @@ A Complyance tem quase toda a minha atenção, então mantenho poucos compromiss
 **Fundadores.** Invisto ocasionalmente em fundadores técnicos construindo com IA. A página de [Investimentos](/pt/investing/) explica o que eu procuro. Use o assunto "Founder: nome da empresa".
 
 **Imprensa e todo o resto.** Uma mensagem curta com o contexto é perfeita.
-
-**Email:** [hello@hugo.im](mailto:hello@hugo.im)<br/>
-**LinkedIn:** [linkedin.com/in/hugomn](https://linkedin.com/in/hugomn)<br/>
-**GitHub:** [github.com/hugomn](https://github.com/hugomn)<br/>

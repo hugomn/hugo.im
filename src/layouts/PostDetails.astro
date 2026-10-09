@@ -5,12 +5,14 @@ import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Tag from "@components/Tag.astro";
-import Datetime from "@components/Datetime";
+import Datetime, { EditPost } from "@components/Datetime";
 import type { CollectionEntry } from "astro:content";
 import { render } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
 import ShareLinks from "@components/ShareLinks.astro";
 import { SITE } from "@config";
+import getReadingTime from "@utils/readingTime";
+import { getTranslator } from "@utils/i18n";
 
 // Import all images from src/assets/images
 import cofoundMindsetImg from "@assets/images/cofounder-mindset.jpg";
@@ -48,7 +50,13 @@ const {
   editPost,
 } = post.data;
 
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
+
+const t = getTranslator(locale);
+const minutes = getReadingTime(post.body);
+const tocHeadings = headings.filter(
+  h => h.depth === 2 && h.slug !== "table-of-contents"
+);
 
 const ogImageUrl = typeof image === "string" ? image : image?.src;
 const ogUrl = new URL(
@@ -95,47 +103,58 @@ if (image) {
 <Layout {...layoutProps}>
   <Header />
 
-  <div class="post-column flex justify-start">
-    <button
-      class="focus-outline -ml-1 mb-2 mt-6 flex items-center text-sm font-medium text-skin-muted transition-colors hover:text-skin-base md:mt-10"
-      onclick="(() => (history.length === 1) ? window.location = '/' : history.back())()"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" class="!h-5 !w-5 !fill-current"
-        ><path
-          d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
-        ></path>
-      </svg><span>{locale === "pt" ? "Voltar" : "Go back"}</span>
-    </button>
-  </div>
-  <main id="main-content" class="post-column">
-    <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
-    <Datetime
-      pubDatetime={pubDatetime}
-      modDatetime={modDatetime}
-      size="lg"
-      className="mt-4"
-      editPost={editPost}
-      postId={post.id}
-    />
+  <main id="main-content" class="post-shell">
+    <!-- Post header: aligned to the reading column -->
+    <div class="post-head">
+      <button
+        class="focus-outline -ml-1 mb-2 mt-6 flex items-center text-sm font-medium text-skin-muted transition-colors hover:text-skin-base md:mt-10"
+        onclick="(() => (history.length === 1) ? window.location = '/' : history.back())()"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="!h-5 !w-5 !fill-current"
+          aria-hidden="true"
+          ><path
+            d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
+          ></path>
+        </svg><span>{t("post.goBack")}</span>
+      </button>
+      <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
+      <div
+        class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-[0.9375rem] text-skin-muted"
+      >
+        <Datetime
+          pubDatetime={pubDatetime}
+          modDatetime={modDatetime}
+          className="!text-[0.9375rem]"
+        />
+        <span class="meta-sep" aria-hidden="true"></span>
+        <span>{minutes} {t("post.minRead")}</span>
+        <EditPost editPost={editPost} postId={post.id} />
+      </div>
+    </div>
+
+    <!-- Cover: spans the full grid width -->
     {
       optimizedImage && (
-        <div class="featured-image-container mb-10 mt-8">
+        <div class="featured-image-container">
           {typeof optimizedImage === "string" ? (
             <img
               src={optimizedImage}
               alt={title}
-              class="featured-image w-full rounded-lg"
+              class="featured-image w-full"
               loading="eager"
+              fetchpriority="high"
               transition:name={`img-${slugifyStr(title)}`}
             />
           ) : (
             <Image
               src={optimizedImage}
               alt={title}
-              class="featured-image w-full rounded-lg"
+              class="featured-image w-full"
               loading="eager"
-              widths={[640, 768, 1024, 1280]}
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1024px"
+              widths={[640, 1024, 1280, 1984]}
+              sizes="(max-width: 1024px) 100vw, 992px"
               quality="high"
               format="webp"
               transition:name={`img-${slugifyStr(title)}`}
@@ -144,139 +163,205 @@ if (image) {
         </div>
       )
     }
-    <article id="article" class="prose prose-lg mx-auto mt-8 max-w-none">
-      <Content />
-    </article>
 
-    <ul class="mb-8 mt-12 flex flex-wrap gap-2">
-      {tags.map(tag => <Tag tag={slugifyStr(tag)} />)}
-    </ul>
+    <div class="post-grid">
+      <div class="post-main">
+        <article id="article" class="prose prose-lg max-w-none">
+          <Content />
+        </article>
 
-    <div
-      class="flex flex-col-reverse items-center justify-between gap-6 sm:flex-row-reverse sm:items-end sm:gap-4"
-    >
-      <button
-        id="back-to-top"
-        class="focus-outline whitespace-nowrap py-1 hover:opacity-75"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="rotate-90">
-          <path
-            d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
-          ></path>
-        </svg>
-        <span>{locale === "pt" ? "Voltar ao Topo" : "Back to Top"}</span>
-      </button>
+        <ul class="mb-8 mt-12 flex flex-wrap gap-2">
+          {tags.map(tag => <Tag tag={slugifyStr(tag)} />)}
+        </ul>
 
-      <ShareLinks />
-    </div>
-
-    <hr class="my-8 border-skin-line" />
-
-    <!-- Previous/Next Post Buttons -->
-    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-      {
-        prevPost && (
-          <a
-            href={
-              locale === "pt"
-                ? `/pt/posts/${prevPost.slug}`
-                : `/posts/${prevPost.slug}`
-            }
-            class="post-nav flex w-full gap-1"
+        <div
+          class="flex flex-col-reverse items-center justify-between gap-6 sm:flex-row-reverse sm:items-end sm:gap-4"
+        >
+          <button
+            id="back-to-top"
+            class="focus-outline whitespace-nowrap py-1 hover:opacity-75"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left flex-none"
-            >
-              <>
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M15 6l-6 6l6 6" />
-              </>
+            <svg xmlns="http://www.w3.org/2000/svg" class="rotate-90">
+              <path
+                d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
+              ></path>
             </svg>
-            <div>
-              <span class="text-sm text-skin-muted">
-                {locale === "pt" ? "Post Anterior" : "Previous Post"}
-              </span>
-              <div class="mt-0.5 font-semibold leading-snug text-skin-base">
-                {prevPost.title}
-              </div>
-            </div>
-          </a>
-        )
-      }
-      {
-        nextPost && (
-          <a
-            href={
-              locale === "pt"
-                ? `/pt/posts/${nextPost.slug}`
-                : `/posts/${nextPost.slug}`
-            }
-            class="post-nav flex w-full justify-end gap-1 text-right sm:col-start-2"
-          >
-            <div>
-              <span class="text-sm text-skin-muted">
-                {locale === "pt" ? "Próximo Post" : "Next Post"}
-              </span>
-              <div class="mt-0.5 font-semibold leading-snug text-skin-base">
-                {nextPost.title}
-              </div>
-            </div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right flex-none"
-            >
-              <>
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M9 6l6 6l-6 6" />
-              </>
-            </svg>
-          </a>
-        )
-      }
+            <span>{locale === "pt" ? "Voltar ao Topo" : "Back to Top"}</span>
+          </button>
+
+          <ShareLinks label={t("post.share")} />
+        </div>
+
+        <hr class="my-8 border-skin-line" />
+
+        <!-- Previous/Next Post Buttons -->
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {
+            prevPost && (
+              <a
+                href={
+                  locale === "pt"
+                    ? `/pt/posts/${prevPost.slug}`
+                    : `/posts/${prevPost.slug}`
+                }
+                class="post-nav flex w-full gap-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left flex-none"
+                >
+                  <>
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M15 6l-6 6l6 6" />
+                  </>
+                </svg>
+                <div>
+                  <span class="text-sm text-skin-muted">
+                    {locale === "pt" ? "Post Anterior" : "Previous Post"}
+                  </span>
+                  <div class="mt-0.5 font-semibold leading-snug text-skin-base">
+                    {prevPost.title}
+                  </div>
+                </div>
+              </a>
+            )
+          }
+          {
+            nextPost && (
+              <a
+                href={
+                  locale === "pt"
+                    ? `/pt/posts/${nextPost.slug}`
+                    : `/posts/${nextPost.slug}`
+                }
+                class="post-nav flex w-full justify-end gap-1 text-right sm:col-start-2"
+              >
+                <div>
+                  <span class="text-sm text-skin-muted">
+                    {locale === "pt" ? "Próximo Post" : "Next Post"}
+                  </span>
+                  <div class="mt-0.5 font-semibold leading-snug text-skin-base">
+                    {nextPost.title}
+                  </div>
+                </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right flex-none"
+                >
+                  <>
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M9 6l6 6l-6 6" />
+                  </>
+                </svg>
+              </a>
+            )
+          }
+        </div>
+      </div>
+
+      <!-- Right rail: table of contents (desktop only) -->
+      <aside class="post-rail" aria-label={t("post.onThisPage")}>
+        <div class="rail-sticky">
+          {
+            tocHeadings.length > 1 && (
+              <nav class="toc">
+                <p class="rail-heading">{t("post.onThisPage")}</p>
+                <ol>
+                  {tocHeadings.map(h => (
+                    <li>
+                      <a href={`#${h.slug}`} data-toc-link={h.slug}>
+                        {h.text}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+            )
+          }
+        </div>
+      </aside>
     </div>
   </main>
   <Footer />
 </Layout>
 
 <style>
-  /* One reading column for title, cover and body (~75 characters per line) */
-  .post-column {
-    @apply mx-auto w-full max-w-[44rem] px-4;
+  /* Editorial grid: reading column on the left (aligned with the logo), rail on the right */
+  .post-shell {
+    @apply mx-auto w-full max-w-5xl px-4 pb-16;
   }
-  main {
-    @apply pb-16;
+  .post-head {
+    @apply max-w-[42rem];
   }
   .post-title {
     @apply mt-2 font-serif text-[2.125rem] font-semibold leading-[1.08] tracking-[-0.02em] text-skin-base sm:text-[3rem];
     text-wrap: balance;
   }
-
-  .featured-image-container {
-    @apply mx-auto;
+  .meta-sep {
+    @apply inline-block h-1 w-1 rounded-full bg-skin-accent;
   }
 
+  .featured-image-container {
+    @apply mb-10 mt-8;
+  }
   .featured-image {
     @apply rounded-xl;
     box-shadow: 0 0 0 1px rgb(var(--color-border));
-    max-height: 520px;
+    max-height: 560px;
     object-fit: cover;
+  }
+
+  .post-grid {
+    @apply grid grid-cols-1;
+  }
+  .post-main {
+    @apply min-w-0 max-w-[42rem];
+  }
+  .post-rail {
+    @apply hidden;
+  }
+
+  @media (min-width: 1024px) {
+    .post-grid {
+      grid-template-columns: minmax(0, 42rem) 16rem;
+      justify-content: space-between;
+      column-gap: 3rem;
+    }
+    .post-rail {
+      @apply block;
+    }
+  }
+
+  .rail-sticky {
+    @apply sticky top-10;
+  }
+  .rail-heading {
+    @apply mb-3 text-sm font-semibold text-skin-base;
+  }
+  .toc ol {
+    @apply border-l border-skin-line;
+  }
+  .toc a {
+    @apply -ml-px block border-l-2 border-transparent py-1.5 pl-4 text-sm leading-snug text-skin-muted transition-colors hover:text-skin-base;
+  }
+  .toc a[aria-current="true"] {
+    @apply border-skin-accent text-skin-base;
   }
 
   .post-nav:hover div {
@@ -399,6 +484,30 @@ if (image) {
     });
   }
   backToTop();
+
+  /** Highlights the table-of-contents entry for the section being read. */
+  function trackToc() {
+    const links = Array.from(document.querySelectorAll("[data-toc-link]"));
+    if (!links.length || !("IntersectionObserver" in window)) return;
+    const headings = links
+      .map(link => document.getElementById(link.dataset.tocLink))
+      .filter(Boolean);
+    const setCurrent = id =>
+      links.forEach(link =>
+        link.setAttribute("aria-current", String(link.dataset.tocLink === id))
+      );
+    const observer = new IntersectionObserver(
+      entries => {
+        const visible = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible.length) setCurrent(visible[0].target.id);
+      },
+      { rootMargin: "0px 0px -70% 0px" }
+    );
+    headings.forEach(heading => observer.observe(heading));
+  }
+  trackToc();
 
   /* Go to page start after page swap */
   document.addEventListener("astro:after-swap", () =>

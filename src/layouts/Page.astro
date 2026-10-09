@@ -1,7 +1,9 @@
 ---
+import type { MarkdownHeading } from "astro";
 import { SITE } from "@config";
 import Breadcrumbs from "@components/Breadcrumbs.astro";
 import Footer from "@components/Footer.astro";
+import PageRail from "@components/PageRail.astro";
 import Layout from "./Layout.astro";
 import Header from "@components/Header.astro";
 
@@ -11,9 +13,10 @@ export interface Props {
     description?: string;
     slug?: typeof Header.prototype.activeNav;
   };
+  headings?: MarkdownHeading[];
 }
 
-const { frontmatter } = Astro.props;
+const { frontmatter, headings = [] } = Astro.props;
 ---
 
 <Layout
@@ -22,17 +25,41 @@ const { frontmatter } = Astro.props;
 >
   <Header activeNav={frontmatter.slug} />
   <Breadcrumbs />
-  <main id="main-content">
-    <section id="about" class="mb-28">
-      <div class="prose prose-lg max-w-[42rem]">
-        <h1
-          class="mt-2 font-serif text-[2.25rem] font-semibold tracking-[-0.02em] sm:text-[2.75rem]"
-        >
-          {frontmatter.title}
-        </h1>
-        <slot />
-      </div>
-    </section>
+  <main id="main-content" class="page-grid">
+    <article class="prose prose-lg page-main">
+      <h1
+        class="mt-2 font-serif text-[2.25rem] font-semibold tracking-[-0.02em] sm:text-[2.75rem]"
+      >
+        {frontmatter.title}
+      </h1>
+      <slot />
+    </article>
+    <aside class="page-rail">
+      <PageRail slug={frontmatter.slug} headings={headings} />
+    </aside>
   </main>
   <Footer />
 </Layout>
+
+<style>
+  /* Same editorial grid as posts: reading column + right rail */
+  .page-grid {
+    @apply mx-auto grid w-full max-w-5xl grid-cols-1 gap-y-12 px-4 pb-24;
+  }
+  .page-main {
+    @apply min-w-0 max-w-[42rem];
+  }
+  .page-rail {
+    @apply max-w-[42rem];
+  }
+  @media (min-width: 1024px) {
+    .page-grid {
+      grid-template-columns: minmax(0, 42rem) 16rem;
+      justify-content: space-between;
+      column-gap: 3rem;
+    }
+    .page-rail {
+      @apply sticky top-10 self-start pt-6;
+    }
+  }
+</style>

@@ -62,7 +62,7 @@ const FormattedDatetime = ({ pubDatetime, modDatetime }: DatetimesProps) => {
   return <time dateTime={myDatetime.toISOString()}>{date}</time>;
 };
 
-const EditPost = ({ editPost, postId }: EditPostProps) => {
+export const EditPost = ({ editPost, postId }: EditPostProps) => {
   let editPostUrl = editPost?.url ?? SITE?.editPost?.url ?? "";
   const showEditPost = !editPost?.disabled && editPostUrl.length > 0;
   const appendFilePath =

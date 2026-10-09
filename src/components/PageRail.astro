@@ -1,0 +1,166 @@
+---
+import { Image } from "astro:assets";
+import type { MarkdownHeading } from "astro";
+import { getTranslator, localizeUrl } from "@utils/i18n";
+import portrait from "@assets/images/portrait.jpg";
+
+export interface Props {
+  slug?: string;
+  headings?: MarkdownHeading[];
+}
+
+const { slug, headings = [] } = Astro.props;
+const locale = Astro.currentLocale;
+const t = getTranslator(locale);
+
+const toc = headings.filter(h => h.depth === 2);
+const showToc = ["talks", "investing", "projects"].includes(slug ?? "");
+const isAbout = slug === "about";
+
+const facts = [
+  t("rail.fact.role"),
+  t("rail.fact.funding"),
+  t("rail.fact.city"),
+  t("rail.fact.languages"),
+];
+
+const exploreLinks = [
+  { href: localizeUrl(locale, "/projects"), label: t("nav.research") },
+  { href: localizeUrl(locale, "/talks"), label: t("nav.talks") },
+  { href: localizeUrl(locale, "/contact"), label: t("nav.contact") },
+];
+
+const contactLinks = [
+  { href: "mailto:hello@hugo.im", label: "Email", value: "hello@hugo.im" },
+  {
+    href: "https://linkedin.com/in/hugomn",
+    label: "LinkedIn",
+    value: "in/hugomn",
+  },
+  { href: "https://github.com/hugomn", label: "GitHub", value: "hugomn" },
+];
+---
+
+<div class:list={["rail", { "rail--toc": showToc && toc.length > 1 }]}>
+  {
+    isAbout && (
+      <>
+        <Image
+          src={portrait}
+          alt={t("rail.portraitAlt")}
+          widths={[320, 640]}
+          sizes="(min-width: 1024px) 272px, 320px"
+          class="rail-portrait"
+          loading="eager"
+        />
+        <div class="rail-card">
+          <p class="rail-heading">{t("rail.glance")}</p>
+          <ul class="rail-facts">
+            {facts.map(fact => (
+              <li>{fact}</li>
+            ))}
+          </ul>
+        </div>
+        <div class="rail-card">
+          <p class="rail-heading">{t("rail.explore")}</p>
+          <ul class="rail-links">
+            {exploreLinks.map(link => (
+              <li>
+                <a href={link.href}>{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </>
+    )
+  }
+
+  {
+    showToc && toc.length > 1 && (
+      <nav class="rail-card rail-toc" aria-label={t("post.onThisPage")}>
+        <p class="rail-heading">{t("post.onThisPage")}</p>
+        <ol>
+          {toc.map(h => (
+            <li>
+              <a href={`#${h.slug}`}>{h.text}</a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+    )
+  }
+
+  {
+    !isAbout && (
+      <div class="rail-card">
+        <p class="rail-heading">{t("rail.contact")}</p>
+        <dl class="rail-contact">
+          {contactLinks.map(link => (
+            <div>
+              <dt>{link.label}</dt>
+              <dd>
+                <a href={link.href}>{link.value}</a>
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    )
+  }
+</div>
+
+<style>
+  .rail {
+    @apply flex flex-col gap-6;
+  }
+  /* The table of contents only helps on desktop, next to the text */
+  .rail-toc {
+    @apply hidden;
+  }
+  @media (min-width: 1024px) {
+    .rail-toc {
+      @apply block;
+    }
+    .rail-links {
+      @apply flex-col;
+    }
+  }
+  .rail-portrait {
+    @apply aspect-square w-full max-w-[20rem] rounded-xl object-cover;
+    box-shadow: 0 0 0 1px rgb(var(--color-border));
+  }
+  .rail-card {
+    @apply border-t border-skin-line pt-4;
+  }
+  .rail-heading {
+    @apply mb-3 text-sm font-semibold text-skin-base;
+  }
+  .rail-facts li {
+    @apply py-1 text-[0.9375rem] text-skin-muted;
+  }
+  .rail-links {
+    @apply flex flex-wrap gap-x-4 gap-y-1;
+  }
+  .rail-links a,
+  .rail-toc a,
+  .rail-contact a {
+    @apply text-[0.9375rem] text-skin-muted transition-colors hover:text-skin-accent;
+  }
+  .rail-links a {
+    @apply text-skin-base underline decoration-1 underline-offset-4;
+    text-decoration-color: rgba(var(--color-accent), 0.5);
+  }
+  .rail-toc li {
+    @apply py-1 leading-snug;
+  }
+  .rail-contact div {
+    @apply flex items-baseline justify-between gap-4 py-1.5 text-[0.9375rem];
+  }
+  .rail-contact dt {
+    @apply text-skin-muted;
+  }
+  .rail-contact a {
+    @apply text-skin-base underline decoration-1 underline-offset-4;
+    text-decoration-color: rgba(var(--color-accent), 0.5);
+  }
+</style>

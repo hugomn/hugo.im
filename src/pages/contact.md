@@ -14,7 +14,3 @@ Complyance has most of my attention, so I keep outside commitments few and choos
 **Founders.** I invest occasionally in technical founders building with AI. The [Investing](/investing/) page explains what I look for. Use the subject "Founder: company name".
 
 **Press and everything else.** A short note with the context is perfect.
-
-**Email:** [hello@hugo.im](mailto:hello@hugo.im)<br/>
-**LinkedIn:** [linkedin.com/in/hugomn](https://linkedin.com/in/hugomn)<br/>
-**GitHub:** [github.com/hugomn](https://github.com/hugomn)<br/>
