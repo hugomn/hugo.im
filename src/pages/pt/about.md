@@ -2,50 +2,27 @@
 layout: ../../layouts/Page.astro
 title: "Sobre"
 slug: "about"
+description: "Hugo Nogueira é CPTO da Complyance, onde construiu a infraestrutura de agentes por trás dos agentes de compliance da empresa. Escreve sobre agentes de IA em produção e publica pesquisa aberta sobre como eles falham."
 ---
 
 Olá, eu sou o Hugo.
 
-## Construo Produtos Que Importam
+Sou CPTO da [Complyance](https://www.complyance.com), uma plataforma de governança, risco e compliance nativa em IA. Entrei em 2022 como primeiro funcionário e hoje lidero produto, engenharia e design. A Complyance é usada por empresas da Fortune 500, e em 2026 levantamos uma Série A de US$ 20 milhões liderada pela GV.
 
-Com duas décadas de experiência na intersecção de engenharia, produto e design, me especializo em transformar desafios técnicos complexos em soluções elegantes que os usuários realmente amam. Atualmente lidero o desenvolvimento da plataforma GRC com IA da [Complyance](https://www.complyance.com), onde estamos reimaginando compliance empresarial através de automação inteligente e experiência de usuário cuidadosa.
+## No que eu trabalho
 
-Minha formação é incomum para um CPTO: escrevo código, moldo estratégia de produto e desenho interfaces de usuário. Passei anos como engenheiro prático construindo sistemas escaláveis, liderei equipes de produto em lançamentos 0→1, e criei experiências de usuário desde wireframes até implementação final. Penso em design systems e arquiteturas técnicas simultaneamente. Essa rara intersecção tripla me permite conectar restrições de engenharia, requisitos de produto e necessidades do usuário de formas que criam produtos que são tanto tecnicamente excelentes quanto genuinamente úteis.
+A maior parte do meu tempo vai para os sistemas que permitem que agentes de IA façam trabalho real de compliance dentro dos ambientes dos nossos clientes. Construí o runtime em que esses agentes rodam e um broker de isolamento de credenciais que dá a cada agente uma capability estreita para chamar o GitHub ou a conta AWS de um cliente, em vez de uma chave que ele poderia vazar. Compliance é um lugar exigente para aprender isso. Nossos clientes são times de segurança que leem cada diagrama de arquitetura, e um agente que acerta na maior parte das vezes não passa na revisão deles.
 
-Sou particularmente atraído por domínios de problemas complexos onde estratégia de produto cuidadosa, engenharia sólida e design atencioso podem criar melhorias significativas em como as pessoas trabalham.
+Esse trabalho dá forma ao que escrevo aqui. Os posts de que mais gosto tratam de como agentes falham em produção, de como dar acesso a eles sem dar uma confiança que ainda não conquistaram, e do que muda na liderança de produto e engenharia quando executar fica barato.
 
-## No Que Estou Trabalhando
+## Pesquisa
 
-Na Complyance, estou liderando o desenvolvimento do que se tornará a plataforma GRC mais sofisticada do mercado. Estamos construindo sistemas de IA que entendem contextos de compliance, automatizam fluxos regulatórios complexos e mostram insights que realmente ajudam equipes a tomar melhores decisões. É o tipo de produto que requer inovação técnica profunda, estratégia de produto cuidadosa e experiência de usuário excepcional trabalhando juntas.
+No meu tempo livre faço experimentos pequenos e públicos sobre confiabilidade de agentes. O [LHC](/pt/posts/lhc-v02-long-horizon-coherence-benchmark/) é um benchmark aberto de coerência de longo prazo para modelos da classe 8B, publicado com uma matriz de decisão travada antes de qualquer modelo rodar e com um fine-tune meu que não superou o modelo base, o que reportei exatamente como aconteceu. Também apliquei a taxonomia de falhas MAST a [639.000 passos de agentes em produção](/pt/posts/mast-production-agent-failures/) e publiquei o código e os resultados agregados. Os dois estão na página de [Pesquisa](/pt/projects/).
 
-O desafio é fascinante: como construir software que consegue entender requisitos regulatórios nuanceados, aprender com especialistas em compliance, e apresentar informações complexas de formas que ajudem pessoas a tomar decisões confiantes? Requer tudo que amo sobre desenvolvimento de produto.
+## Antes da Complyance
 
-## Minha Abordagem
+Construo software há mais de vinte anos. No Brasil, cofundei o meuingresso.com, uma plataforma de venda de ingressos self-service que foi adquirida em 2018, e escrevi sobre [o que esses anos me ensinaram](/pt/posts/my-first-exit/). Depois de me mudar para Berlim, fui venture CTO na BCG Digital Ventures, onde ajudei a construir mais de oito ventures, entre elas a Tilda, um aplicativo de terapia digital certificado como DiGA, e a Tenera, que aplicava machine learning a concorrências da construção civil em 2020. Também liderei a engenharia de uma venture de banking para PMEs da finleap, onde aprendi a construir sob a regulação do BaFin e os requisitos de KYC. Estudei Ciência da Computação na UFV.
 
-Grandes produtos vêm de entender problemas profundamente antes de construir soluções. Minha abordagem combina:
+## Em outros lugares
 
-- **Empatia pelo usuário primeiro**: Tecnologia deve resolver problemas reais elegantemente
-- **Pensamento de produto**: Construir o que mais importa, na sequência certa
-- **Profundidade técnica**: Decisões de arquitetura que escalam com o crescimento do negócio
-- **Cuidado com design**: Interfaces que parecem intuitivas mesmo para fluxos complexos
-- **Excelência de equipe**: Criar ambientes onde engenharia, produto e design colaboram perfeitamente
-
-## Experiência
-
-Vinte anos construindo produtos em fintech, health tech e SaaS empresarial. Arquitetei sistemas que lidam com milhões de transações, liderei equipes de engenharia através de escala rápida, guiei estratégia de produto desde conceito inicial até sucesso de mercado, e desenhei experiências de usuário que fazem fluxos complexos parecerem simples.
-
-O que mais me emociona é a rara oportunidade de influenciar as três dimensões: construir sistemas tecnicamente robustos, moldar direção de produto baseada em entendimento profundo do usuário, e criar interfaces que as pessoas realmente gostam de usar.
-
-## Foco Atual
-
-Hoje, estou fascinado por como IA pode amplificar capacidades humanas sem substituir julgamento humano. Na Complyance, estamos construindo sistemas de IA agêntica que entendem contexto regulatório, aprendem com input de especialistas, e ajudam equipes de compliance a trabalhar em um nível mais alto de abstração. Minha experiência recente entregando funcionalidades com IA me mostrou como automação cuidadosa, combinada com estratégia de produto atenciosa e design intuitivo, pode transformar fluxos de trabalho profissionais complexos.
-
-Estamos em um ponto de inflexão onde IA finalmente consegue entender contexto bem o suficiente para ser genuinamente útil ao invés de apenas impressionante. O desafio é construir sistemas que amplificam expertise humana ao invés de substitui-la, e isso requer fazer produto, engenharia e experiência de usuário trabalharem juntos perfeitamente.
-
-Ainda é cedo, mas acredito que estamos vendo o início de uma mudança fundamental em como software pode entender e auxiliar trabalho profissional.
-
----
-
-Quer discutir estratégia de produto, liderança técnica ou construção de grande software? [Vamos nos conectar](/pt/contact). Adoraria conversar tomando um café.
-
-Saúde! ☕
+Moro em Berlim e escrevo em inglês e português. Falo sobre agentes em produção em conferências e meetups, e de vez em quando invisto em fundadores técnicos; as páginas de [Palestras](/pt/talks/) e [Investimentos](/pt/investing/) têm os detalhes. Se você trabalha com problemas parecidos, sempre gosto de trocar ideias em [hello@hugo.im](mailto:hello@hugo.im).

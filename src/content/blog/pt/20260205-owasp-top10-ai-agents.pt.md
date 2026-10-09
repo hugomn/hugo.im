@@ -4,7 +4,7 @@ pubDatetime: 2026-02-09T08:00:00.000Z
 title: "OWASP Top 10 para Agentes de IA - Segurança na Era da Autonomia"
 locale: pt
 postSlug: owasp-top10-ai-agents
-featured: true
+featured: false
 draft: false
 tags:
   - agentes-ia

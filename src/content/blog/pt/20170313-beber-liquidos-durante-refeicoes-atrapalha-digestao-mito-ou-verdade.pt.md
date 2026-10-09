@@ -5,7 +5,7 @@ title: "Beber líquidos durante as refeições atrapalha a digestão. Mito ou ve
 locale: pt
 postSlug: beber-liquidos-durante-refeicoes-atrapalha-digestao-mito-ou-verdade
 featured: false
-draft: false
+draft: true
 image: /images/20170313.jpg
 tags:
   - saúde

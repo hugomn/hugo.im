@@ -4,7 +4,7 @@ pubDatetime: 2026-02-21T10:00:00.000Z
 title: "Execution Is Cheap. Judgment Isn't: AI Agents and the Collapse of the CTO/CPO Divide"
 locale: en
 postSlug: execution-is-cheap-judgment-isnt
-featured: true
+featured: false
 draft: false
 tags:
   - ai-agents

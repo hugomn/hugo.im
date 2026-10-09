@@ -70,7 +70,7 @@ Terceiro, há uma cultura de sempre estar enviando. Terminamos uma versão e dep
 
 #### Pressão cultural por promoções rápidas
 
-Vivemos em uma cultura que valoriza e encoraja promoções rápidas! Os Millennials ocupam uma média de 7,2 empregos dos 18 aos 28 anos. Um relatório da Gallup de 2016 revelou que 21% dos Millennials dizem que mudaram de emprego no último ano — mais de três vezes o número de não-Millennials. Além disso, essa rotatividade dos Millennials está custando à economia dos EUA US$ 30,5 bilhões anualmente.
+Vivemos em uma cultura que valoriza e encoraja promoções rápidas! Os Millennials ocupam uma média de 7,2 empregos dos 18 aos 28 anos. Um relatório da Gallup de 2016 revelou que 21% dos Millennials dizem que mudaram de emprego no último ano, mais de três vezes o número de não-Millennials. Além disso, essa rotatividade dos Millennials está custando à economia dos EUA US$ 30,5 bilhões anualmente.
 
 ### Mídia social: estamos sempre conectados!
 

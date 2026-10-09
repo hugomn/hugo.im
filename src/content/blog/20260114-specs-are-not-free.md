@@ -12,7 +12,7 @@ tags:
   - software-engineering
   - ai
   - future-of-work
-description: A response to the viral "spec as code" thesis. We don't stop programming—we change what programming means. And that change requires more engineering fundamentals, not fewer.
+description: A response to the viral "spec as code" thesis. We don't stop programming. We change what programming means. And that change requires more engineering fundamentals, not fewer.
 keywords: Hugo Nogueira, AI agents, spec as code, programming, software engineering, Matthias Georgi, vibe coding, AI coding, future of programming
 image: "/images/blog/specs-are-not-free.jpg"
 ---

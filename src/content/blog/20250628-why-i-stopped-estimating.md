@@ -98,7 +98,7 @@ At an average developer salary of $130,000/year, that's 6.3 weeks × 10 develope
 
 ## The transformation: what actually works
 
-After India, we made the switch. Here's exactly what we do now at Complyance—and what the data shows about why it works:
+After India, we made the switch. Here's exactly what we do now at Complyance, and what the data shows about why it works:
 
 ### 1. From releases to continuous flow
 
@@ -106,7 +106,7 @@ After India, we made the switch. Here's exactly what we do now at Complyance—a
 
 **After:** Continuous deployment, one weekly refinement call (our only remaining meeting from a long list), daily shipping
 
-The psychological shift was immediate. No more "week 1 chill" followed by "week 6 panic." Just steady, sustainable progress. Our velocity actually became predictable—not through estimates, but through consistent flow.
+The psychological shift was immediate. No more "week 1 chill" followed by "week 6 panic." Just steady, sustainable progress. Our velocity actually became predictable, not through estimates, but through consistent flow.
 
 ### 2. Thin slices instead of big batches
 
@@ -212,7 +212,7 @@ But here's where both Holub and our experience go further: Even with perfect psy
 
 The right question isn't "How long will this take?" It's "What should we work on next to deliver the most value?"
 
-As Holub says: "Planning happens constantly. Your projections change every time you complete a story." That's exactly what we discovered—real predictability comes from measuring what we actually deliver, not guessing what we might deliver.
+As Holub says: "Planning happens constantly. Your projections change every time you complete a story." That's exactly what we discovered: real predictability comes from measuring what we actually deliver, not guessing what we might deliver.
 
 ## Your 30-day no-estimates challenge
 
@@ -225,7 +225,7 @@ Still skeptical? Try this:
 3. **Week 4:** Forecast using your actual data, not guesses.
 4. **Week 5:** Compare results to your last estimated sprint.
 
-Teams that embrace this approach report the same pattern: less time talking about work, more time doing work, happier developers, and—surprisingly—happier stakeholders.
+Teams that embrace this approach report the same pattern: less time talking about work, more time doing work, happier developers, and, surprisingly, happier stakeholders.
 
 ## The bottom line: a new mental model
 
@@ -241,7 +241,7 @@ When you develop software, you're discovering:
 
 You can't estimate discovery any more than Columbus could estimate how long it would take to "reach India." He was solving the wrong problem entirely.
 
-The companies succeeding today—from Spotify to Amazon to Netflix—don't estimate better. They've built systems that make estimation irrelevant. They ship continuously, measure constantly, and pivot quickly.
+The companies succeeding today, from Spotify to Amazon to Netflix, don't estimate better. They've built systems that make estimation irrelevant. They ship continuously, measure constantly, and pivot quickly.
 
 The question isn't "How can we estimate better?"
 

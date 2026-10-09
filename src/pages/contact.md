@@ -2,22 +2,19 @@
 layout: ../layouts/Page.astro
 title: "Contact"
 slug: "contact"
-description: "I spend most of my time building agent infrastructure, but I'm also interested in building innovative products, creating great UI/UX, investing in early-stage founders, and solving hard technical problems."
+description: "How to reach Hugo Nogueira about AI agents in production, speaking invitations, early-stage investing or press."
 ---
 
-I spend most of my time building agent infrastructure and solving the gnarly problems of making autonomous systems work safely in production. But that's just one of the things I'm passionate about.
+Complyance has most of my attention, so I keep outside commitments few and choose them carefully. I do read everything that reaches me, and these are the conversations I enjoy most.
 
-I'm also interested in conversations about:
+**Building agents that act on real systems.** If you're working on agent security, reliability or evaluation, or you've read something here and see it differently, I'd like to compare notes. These are my favourite emails to get.
 
-- **Building innovative products and startups** - I love early-stage chaos and finding product-market fit
-- **Creating great UI/UX** - Design and user experience are at the core of everything I build
-- **Investing in early-stage founders** - Helping technical founders navigate growth and scale
-- **Hard technical problems** - Especially around infrastructure, systems architecture, and production challenges
+**Speaking.** For conferences, meetups, podcasts or internal sessions, the [Talks](/talks/) page has the topics and what to include. Use the subject "Speaking: event name".
 
-I'm not looking for a new role. I'm deeply engaged in what I'm building right now. But I'm always open to interesting conversations with founders tackling hard problems, early-stage companies looking for product/technical guidance, or people working on things that could genuinely change how we build software.
+**Founders.** I invest occasionally in technical founders building with AI. The [Investing](/investing/) page explains what I look for. Use the subject "Founder: company name".
 
-If you're building something ambitious, dealing with a complex problem, or think we should talk, reach out.
+**Press and everything else.** A short note with the context is perfect.
 
-**Email:** hello@hugo.im<br/>
-**LinkedIn:** http://linkedin.hugo.im<br/>
-**GitHub:** http://github.hugo.im<br/>
+**Email:** [hello@hugo.im](mailto:hello@hugo.im)<br/>
+**LinkedIn:** [linkedin.com/in/hugomn](https://linkedin.com/in/hugomn)<br/>
+**GitHub:** [github.com/hugomn](https://github.com/hugomn)<br/>

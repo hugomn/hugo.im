@@ -70,7 +70,7 @@ Third, there's a culture of always be shipping. We finish a release and then com
 
 #### Cultural pressure for fast promotions
 
-We live in a culture that values and encourages fast promotions! Millennials hold an average of 7.2 jobs from age 18 through age 28. A 2016 Gallup report revealed that 21 percent of Millennials say they've changed jobs within the past year — more than three times the number of non-Millennials. What's more, this Millennial turnover is costing the U.S. economy $30.5 billion annually.
+We live in a culture that values and encourages fast promotions! Millennials hold an average of 7.2 jobs from age 18 through age 28. A 2016 Gallup report revealed that 21 percent of Millennials say they've changed jobs within the past year, more than three times the number of non-Millennials. What's more, this Millennial turnover is costing the U.S. economy $30.5 billion annually.
 
 ### Social Media: we are always connected!
 

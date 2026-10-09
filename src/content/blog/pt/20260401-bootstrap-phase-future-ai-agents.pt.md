@@ -4,7 +4,7 @@ pubDatetime: 2026-04-01T08:00:00.000Z
 title: "Estamos Confundindo a Fase de Bootstrap com o Futuro dos Agentes de IA"
 locale: pt
 postSlug: bootstrap-phase-future-ai-agents
-featured: true
+featured: false
 draft: false
 tags:
   - ai-agents

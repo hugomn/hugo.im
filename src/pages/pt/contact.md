@@ -2,22 +2,19 @@
 layout: ../../layouts/Page.astro
 title: "Contato"
 slug: "contact"
-description: "Passo a maior parte do tempo construindo infraestrutura de agentes, mas também tenho interesse em construir produtos inovadores, criar ótimos UI/UX, investir em founders early-stage e resolver problemas técnicos complexos."
+description: "Como falar com Hugo Nogueira sobre agentes de IA em produção, convites para palestras, investimento em estágio inicial ou imprensa."
 ---
 
-Passo a maior parte do tempo construindo infraestrutura de agentes e resolvendo os problemas complexos de fazer sistemas autônomos funcionarem com segurança em produção. Mas essa é só uma das coisas pelas quais sou apaixonado.
+A Complyance tem quase toda a minha atenção, então mantenho poucos compromissos de fora e escolho com cuidado. Mesmo assim, leio tudo o que chega até mim, e estas são as conversas de que mais gosto.
 
-Também tenho interesse em conversas sobre:
+**Construindo agentes que agem sobre sistemas reais.** Se você trabalha com segurança, confiabilidade ou avaliação de agentes, ou leu algo aqui e vê de outro jeito, eu gostaria de trocar ideias. São os meus emails favoritos.
 
-- **Construir produtos inovadores e startups** - Adoro o caos de early-stage e encontrar product-market fit
-- **Criar ótimos UI/UX** - Design e experiência do usuário estão no centro de tudo que construo
-- **Investir em founders early-stage** - Ajudar founders técnicos a navegar crescimento e escala
-- **Problemas técnicos complexos** - Especialmente em infraestrutura, arquitetura de sistemas e desafios de produção
+**Palestras.** Para conferências, meetups, podcasts ou sessões internas, a página de [Palestras](/pt/talks/) tem os temas e o que incluir. Use o assunto "Speaking: nome do evento".
 
-Não estou procurando uma nova posição. Estou profundamente engajado no que estou construindo agora. Mas sempre aberto a conversas interessantes com founders enfrentando problemas difíceis, empresas early-stage buscando orientação em produto/técnica, ou pessoas trabalhando em coisas que podem genuinamente mudar como construímos software.
+**Fundadores.** Invisto ocasionalmente em fundadores técnicos construindo com IA. A página de [Investimentos](/pt/investing/) explica o que eu procuro. Use o assunto "Founder: nome da empresa".
 
-Se você está construindo algo ambicioso, lidando com um problema complexo, ou acha que devemos conversar, entre em contato.
+**Imprensa e todo o resto.** Uma mensagem curta com o contexto é perfeita.
 
-**Email:** hello@hugo.im<br/>
-**LinkedIn:** http://linkedin.hugo.im<br/>
-**GitHub:** http://github.hugo.im<br/>
+**Email:** [hello@hugo.im](mailto:hello@hugo.im)<br/>
+**LinkedIn:** [linkedin.com/in/hugomn](https://linkedin.com/in/hugomn)<br/>
+**GitHub:** [github.com/hugomn](https://github.com/hugomn)<br/>

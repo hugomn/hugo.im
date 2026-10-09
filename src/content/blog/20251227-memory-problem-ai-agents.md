@@ -37,11 +37,11 @@ Most systems only implement working memory well. The good ones nail episodic. Al
 
 ## Why Vector Search Isn't Enough
 
-The default approach: embed everything, retrieve by similarity—breaks down in practice for several reasons:
+The default approach: embed everything, retrieve by similarity, breaks down in practice for several reasons:
 
 **Temporal relevance matters.** What the user said 6 months ago might be semantically similar to today's query but completely irrelevant. A user's preferences change. Context evolves. Pure similarity search doesn't capture this.
 
-**Importance isn't uniform.** Some memories matter more than others. The user's name matters more than what they had for lunch. But embedding similarity doesn't know this—it treats all memories equally.
+**Importance isn't uniform.** Some memories matter more than others. The user's name matters more than what they had for lunch. But embedding similarity doesn't know this. It treats all memories equally.
 
 **Context requires context.** A memory about "the project" only makes sense if you also retrieve which project. Memories form graphs, not flat lists. Retrieving isolated chunks loses the connections that give them meaning.
 
@@ -90,7 +90,7 @@ This prevents context pollution and makes retrieval more precise.
 
 Here's something counterintuitive: good memory systems need to forget. Not everything is worth remembering. Storing everything creates noise that drowns out signal.
 
-Implement explicit decay. Memories that aren't accessed fade. Memories that are reinforced strengthen. This mimics how human memory works—and it works for agents too.
+Implement explicit decay. Memories that aren't accessed fade. Memories that are reinforced strengthen. This mimics how human memory works, and it works for agents too.
 
 The goal isn't perfect recall. It's relevant recall. An agent that remembers everything but retrieves the wrong things is worse than one with selective, accurate memory.
 
@@ -108,7 +108,7 @@ Memory in agents is still an unsolved problem. Some open questions I'm wrestling
 
 Memory is what separates an AI agent from a stateless chatbot. It's what enables continuity, learning, and genuine usefulness over time.
 
-But memory isn't a solved problem you can bolt on with a vector database. It requires careful architecture: layered retrieval, active consolidation, explicit semantics, and yes—strategic forgetting.
+But memory isn't a solved problem you can bolt on with a vector database. It requires careful architecture: layered retrieval, active consolidation, explicit semantics, and yes, strategic forgetting.
 
 If you're building agents, invest in memory architecture early. It's harder to retrofit than almost any other component, and it's the foundation that everything else builds on.
 

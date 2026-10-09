@@ -4,7 +4,7 @@ export const SITE: Site = {
   website: "https://hugo.im/",
   author: "Hugo Nogueira",
   profile: "https://hugo.im/",
-  desc: "AI-forward CPTO building the future of enterprise software. 20+ years leading product x engineering x design teams. Currently shipping the most modern GRC platform at Complyance.",
+  desc: "Hugo Nogueira is CPTO at Complyance. He writes about running AI agents in production, with a focus on security and reliability, and publishes open research on how agents fail.",
   title: "Hugo Nogueira",
   ogImage: "meta-og.jpg",
   lightAndDarkMode: true,

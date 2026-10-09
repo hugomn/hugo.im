@@ -4,7 +4,7 @@ pubDatetime: 2026-02-21T10:00:00.000Z
 title: "Execução Ficou Barata. Julgamento, Não: Agentes de IA e o Fim da Divisão CTO/CPO"
 locale: pt
 postSlug: execution-is-cheap-judgment-isnt
-featured: true
+featured: false
 draft: false
 tags:
   - ai-agents

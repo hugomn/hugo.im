@@ -32,13 +32,13 @@ The best way to promote diversity in your workplace is by embracing it and worki
 
 ### 2. Reconsider stereotypes
 
-Stereotypes are oversimplified images or ideas about social identity groups — for instance, older adults are sometimes assumed to be "bad at technology." And while this may seem harmless, stereotypes are overwhelmingly inaccurate and can negatively impact decisions around employment, education, the justice system, housing and financial services. By taking time to reconsider stereotypes internally and question whether the assumptions we are making are supported by real evidence specific to an individual, we can work to ensure everyone is valued equally.
+Stereotypes are oversimplified images or ideas about social identity groups. For instance, older adults are sometimes assumed to be "bad at technology." And while this may seem harmless, stereotypes are overwhelmingly inaccurate and can negatively impact decisions around employment, education, the justice system, housing and financial services. By taking time to reconsider stereotypes internally and question whether the assumptions we are making are supported by real evidence specific to an individual, we can work to ensure everyone is valued equally.
 
 ### 3. Seek difference
 
-In short, when people perceive one another as members of the same in-group, racial bias — and possibly other forms of bias against groups of people — tends to melt away. Thus, the way to increase inclusion in the workplace is to make everyone feel like they're part of the same team.
+In short, when people perceive one another as members of the same in-group, racial bias, and possibly other forms of bias against groups of people, tends to melt away. Thus, the way to increase inclusion in the workplace is to make everyone feel like they're part of the same team.
 
-Many studies[^5] support this idea, at least implicitly, and one way to create an in-group feeling among people is to establish shared goals. Inclusion programs can make a start by creating teams whose members matter to one another because they're part of the same in-group, pursuing the same interests. Focusing on common goals, and a common identity, will be critically important for eliminating bias — both within the enterprise and in leading the way for society at large.
+Many studies[^5] support this idea, at least implicitly, and one way to create an in-group feeling among people is to establish shared goals. Inclusion programs can make a start by creating teams whose members matter to one another because they're part of the same in-group, pursuing the same interests. Focusing on common goals, and a common identity, will be critically important for eliminating bias, both within the enterprise and in leading the way for society at large.
 
 ## What diversity should not be about
 

@@ -4,7 +4,7 @@ pubDatetime: 2026-04-01T08:00:00.000Z
 title: "We're Mistaking the Bootstrap Phase for the Future of AI Agents"
 locale: en
 postSlug: bootstrap-phase-future-ai-agents
-featured: true
+featured: false
 draft: false
 tags:
   - ai-agents

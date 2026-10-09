@@ -4,7 +4,7 @@ pubDatetime: 2026-02-05T10:00:00.000Z
 title: "From OpenClaw's Chaos to OpenAI's Frontier: The Agent Infrastructure Reckoning"
 locale: en
 postSlug: agent-security-paradox
-featured: true
+featured: false
 draft: false
 tags:
   - ai-agents

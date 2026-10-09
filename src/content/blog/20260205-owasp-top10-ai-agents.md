@@ -4,7 +4,7 @@ pubDatetime: 2026-02-09T08:00:00.000Z
 title: "The OWASP Top 10 for AI Agents - Security in the Age of Autonomy"
 locale: en
 postSlug: owasp-top10-ai-agents
-featured: true
+featured: false
 draft: false
 tags:
   - ai-agents

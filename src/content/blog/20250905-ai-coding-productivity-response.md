@@ -15,7 +15,7 @@ tags:
   - github-copilot
   - software-development
   - engineering-leadership
-description: Real data showing 1082% productivity gains with AI coding tools. GitHub metrics, workflow diagrams, and evidence-based response to AI coding skeptics with 146,000 lines shipped in 4 months.
+description: What changed when I used AI coding tools seriously for four months, with my GitHub data, the workflows behind it, and a response to the skeptics based on 146,000 lines shipped.
 keywords: Hugo Nogueira, AI coding tools, Claude Code, software productivity, engineering leadership, Complyance, TypeScript development, React Native
 image: "/assets/vibecoding.jpg"
 ---

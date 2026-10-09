@@ -12,7 +12,7 @@ tags:
   - year-in-review
   - ai
   - engineering
-description: A practitioner's look back at what happened in AI agents in 2025—from DeepSeek shaking the markets to GPT-5, Gemini 3, and the rise of agentic AI.
+description: A practitioner's look back at what happened in AI agents in 2025, from DeepSeek shaking the markets to GPT-5, Gemini 3, and the rise of agentic AI.
 keywords: Hugo Nogueira, AI agents, 2025 review, DeepSeek, GPT-5, Claude, Gemini, autonomous agents, AI engineering, AAIF, Agentic AI Foundation
 image: "/images/blog/ai-agents-year-review-2025.jpg"
 ---
@@ -49,7 +49,7 @@ DeepSeek kept pushing too. **V3-0324** in March, then **R1-0528** in late May. T
 
 ## Summer: GPT-5 Finally Arrives
 
-After 2.5 years of waiting, **GPT-5 launched on August 7th**. Not just a single model—an entire family: GPT-5, GPT-5-mini, GPT-5-nano, and GPT-5-chat. Each designed for specific use cases, from lightweight mobile tasks to enterprise-grade conversations.
+After 2.5 years of waiting, **GPT-5 launched on August 7th**. Not just a single model, but an entire family: GPT-5, GPT-5-mini, GPT-5-nano, and GPT-5-chat. Each designed for specific use cases, from lightweight mobile tasks to enterprise-grade conversations.
 
 Early benchmarks showed GPT-5 was the first model to outperform humans on SimpleBench, scoring 90% against the average human score of 83%. The gains in logical reasoning, multi-step problem solving, and memory retention were significant.
 
@@ -75,9 +75,9 @@ But the bigger story might be what happened on **December 9th**: the [Agentic AI
 
 Anthropic, OpenAI, and Block came together under the Linux Foundation to create a vendor-neutral home for open-source agentic AI. The founding contributions tell the story:
 
-- **MCP (Model Context Protocol)** from Anthropic—now governed by the community, not a single company
-- [**Goose**](https://github.com/block/goose) from Block—an open-source, local-first agent framework
-- **AGENTS.md** from OpenAI—a convention for agent discovery and interaction
+- **MCP (Model Context Protocol)** from Anthropic, now governed by the community, not a single company
+- [**Goose**](https://github.com/block/goose) from Block: an open-source, local-first agent framework
+- **AGENTS.md** from OpenAI: a convention for agent discovery and interaction
 
 This is huge. The three biggest players in AI agents agreeing on open standards and neutral governance? That's infrastructure maturing. That's the ecosystem growing up.
 
@@ -99,7 +99,7 @@ With MCP's transition to AAIF governance, it's now a true open standard, not con
 
 - **Working memory**: current context, what's happening now
 - **Episodic memory**: what happened before, conversation history
-- **Semantic memory**: what the agent knows—facts, preferences, learned patterns
+- **Semantic memory**: what the agent knows: facts, preferences, learned patterns
 
 Vector databases are just one piece. The real challenge is deciding what to remember, when to forget, and how to retrieve the right context.
 
@@ -107,11 +107,11 @@ Vector databases are just one piece. The real challenge is deciding what to reme
 
 ## What Still Struggles
 
-**Long-horizon planning remains hard.** Agents executing 20+ steps still drift, lose track of goals, get stuck in loops. The solution isn't better models—it's better architectures: checkpointing, human review gates, graceful recovery.
+**Long-horizon planning remains hard.** Agents executing 20+ steps still drift, lose track of goals, get stuck in loops. The solution isn't better models. It's better architectures: checkpointing, human review gates, graceful recovery.
 
 **Costs add up fast.** Claude Opus 4.5 and GPT-5 aren't cheap. Multiply by retries, long contexts, and multi-agent setups, and you're looking at real money. Cost optimization became a core skill: knowing when to use a smaller model, when to route to DeepSeek, how to cache effectively.
 
-**Testing is still unsolved.** How do you test something non-deterministic? We have better tools: evaluation frameworks, golden datasets, LLM-as-judge approaches—but no silver bullet.
+**Testing is still unsolved.** How do you test something non-deterministic? We have better tools: evaluation frameworks, golden datasets, LLM-as-judge approaches, but no silver bullet.
 
 ## What's Coming in 2026
 
@@ -137,4 +137,4 @@ What a year.
 
 ---
 
-_What was your biggest AI agent learning in 2025? I'd love to hear—find me on [X](https://x.com/hugomn) or [LinkedIn](https://linkedin.com/in/hugomn)._
+_What was your biggest AI agent learning in 2025? I'd love to hear about it. Find me on [X](https://x.com/hugomn) or [LinkedIn](https://linkedin.com/in/hugomn)._

@@ -169,7 +169,7 @@ def with_approval_check(tool_guardrails, tool_name):
     return wrapper
 ```
 
-The interrupt isn't just about "asking permission." It captures the exact state at the decision point. When the human approves and the graph resumes, the agent continues with full context—no state reconstruction needed.
+The interrupt isn't just about "asking permission." It captures the exact state at the decision point. When the human approves and the graph resumes, the agent continues with full context, with no state reconstruction needed.
 
 ### 5. Budget Guardrails: Constrain Before You Trust
 

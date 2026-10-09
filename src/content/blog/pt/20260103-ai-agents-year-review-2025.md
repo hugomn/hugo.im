@@ -12,7 +12,7 @@ tags:
   - year-in-review
   - ai
   - engineering
-description: Um olhar de quem constrói sobre o que aconteceu com agentes de IA em 2025—do DeepSeek abalando os mercados ao GPT-5, Gemini 3 e a ascensão da IA agêntica.
+description: Um olhar de quem constrói sobre o que aconteceu com agentes de IA em 2025, do DeepSeek abalando os mercados ao GPT-5, Gemini 3 e a ascensão da IA agêntica.
 keywords: Hugo Nogueira, AI agents, agentes de IA, 2025 review, DeepSeek, GPT-5, Claude, Gemini, autonomous agents, AI engineering, AAIF, Agentic AI Foundation
 image: "/images/blog/ai-agents-year-review-2025.jpg"
 ---
@@ -59,7 +59,7 @@ Dez dias depois, o **ChatGPT Agent** chegou (17 de julho). O produto de agente m
 
 **24 de novembro** trouxe o **Claude Opus 4.5**: e foi um avanço. O novo carro-chefe da Anthropic pontuou 80,9% no SWE-bench Verified, esmagando o GPT-5.1 Codex Max (77,9%) e o Gemini 3 Pro (76,2%). Mas os benchmarks contam apenas parte da história.
 
-O que tornou o Opus 4.5 especial foi sua eficiência. Ele usa dramaticamente menos tokens que seus predecessores para alcançar resultados similares ou melhores. Para construtores de agentes, isso importa—menos tokens significa custos mais baixos e execução mais rápida. A Anthropic também introduziu o **controle de esforço**, permitindo que desenvolvedores ajustem o quanto o modelo pensa com base na complexidade da tarefa.
+O que tornou o Opus 4.5 especial foi sua eficiência. Ele usa dramaticamente menos tokens que seus predecessores para alcançar resultados similares ou melhores. Para construtores de agentes, isso importa: menos tokens significa custos mais baixos e execução mais rápida. A Anthropic também introduziu o **controle de esforço**, permitindo que desenvolvedores ajustem o quanto o modelo pensa com base na complexidade da tarefa.
 
 Talvez o mais impressionante: o Opus 4.5 superou todos os candidatos humanos já avaliados no notoriamente difícil teste técnico da Anthropic para vagas de engenharia de performance. Isso não era mais apenas reconhecimento de padrões.
 
@@ -77,7 +77,7 @@ Anthropic, OpenAI e Block se uniram sob a Linux Foundation para criar um lar neu
 
 - **MCP (Model Context Protocol)** da Anthropic: agora governado pela comunidade, não por uma única empresa
 - [**Goose**](https://github.com/block/goose) da Block: um framework de agentes open-source, local-first
-- **AGENTS.md** da OpenAI—uma convenção para descoberta e interação de agentes
+- **AGENTS.md** da OpenAI: uma convenção para descoberta e interação de agentes
 
 Isso é enorme. Os três maiores players em agentes de IA concordando em padrões abertos e governança neutra? Isso é infraestrutura amadurecendo. Isso é o ecossistema crescendo.
 

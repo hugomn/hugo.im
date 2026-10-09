@@ -11,7 +11,7 @@ tags:
   - produtividade
   - engenharia
   - programacao
-description: Dados reais mostrando ganhos de produtividade de 1082% com ferramentas de codificação IA. Métricas do GitHub, diagramas de fluxo e resposta baseada em evidências com 146.000 linhas entregues em 4 meses.
+description: O que mudou quando usei ferramentas de código com IA a sério por quatro meses, com meus dados do GitHub, os fluxos de trabalho por trás e uma resposta aos céticos baseada em 146.000 linhas entregues.
 ---
 
 Li o [artigo viral do Mike Judge](https://substack.com/inbox/post/172538377) "Where's the Shovelware? Why AI Coding Claims Don't Add Up", e respeito seu ceticismo. Ele está certíssimo em ficar frustrado com promessas de marketing exageradas e o custo humano de demissões prematuras por "eficiência de IA". Suas perguntas sobre ganhos mensuráveis de produtividade merecem respostas sérias, não mais hype.

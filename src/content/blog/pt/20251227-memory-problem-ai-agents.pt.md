@@ -27,9 +27,9 @@ Aqui está o que aprendi sobre o problema da memória: e os padrões que realmen
 
 Quando falamos sobre memória de agentes, estamos na verdade falando de três problemas distintos:
 
-**Memória de Trabalho** é o que o agente precisa agora. É a conversa atual, a tarefa em mãos, o contexto imediato. Esta é a mais fácil de implementar: é basicamente sua janela de contexto—mas também é a mais restrita. Limites de tokens são reais, e enfiar tudo no prompt não escala.
+**Memória de Trabalho** é o que o agente precisa agora. É a conversa atual, a tarefa em mãos, o contexto imediato. Esta é a mais fácil de implementar: é basicamente sua janela de contexto, mas também é a mais restrita. Limites de tokens são reais, e enfiar tudo no prompt não escala.
 
-**Memória Episódica** é o que aconteceu antes. Conversas anteriores, ações passadas, contexto histórico. É aqui que os bancos de dados vetoriais entram, mas a recuperação RAG ingênua frequentemente puxa contexto irrelevante ou perde detalhes críticos. O desafio não é armazenamento—é relevância na recuperação.
+**Memória Episódica** é o que aconteceu antes. Conversas anteriores, ações passadas, contexto histórico. É aqui que os bancos de dados vetoriais entram, mas a recuperação RAG ingênua frequentemente puxa contexto irrelevante ou perde detalhes críticos. O desafio não é armazenamento, é relevância na recuperação.
 
 **Memória Semântica** é o que o agente sabe. Fatos, preferências, padrões aprendidos. Esta é a mais difícil de acertar porque requer que o agente realmente aprenda e atualize seu entendimento ao longo do tempo, não apenas recupere eventos passados.
 
@@ -62,7 +62,7 @@ Pondere estes diferentemente baseado na tarefa. Uma consulta "me lembre" deve pe
 
 ### Consolidação de Memória
 
-Empreste da ciência cognitiva: memórias devem consolidar ao longo do tempo. Memórias recentes permanecem detalhadas. Memórias mais antigas são resumidas e comprimidas. Isso não é apenas sobre eficiência de armazenamento—é sobre relevância. A essência do que aconteceu no mês passado é mais útil que a transcrição bruta.
+Empreste da ciência cognitiva: memórias devem consolidar ao longo do tempo. Memórias recentes permanecem detalhadas. Memórias mais antigas são resumidas e comprimidas. Isso não é apenas sobre eficiência de armazenamento, é sobre relevância. A essência do que aconteceu no mês passado é mais útil que a transcrição bruta.
 
 Implemente um processo em background que periodicamente revisa e consolida memórias. Resuma, extraia fatos-chave, atualize pontuações de importância, pode o irrelevante.
 
@@ -90,7 +90,7 @@ Isso previne poluição de contexto e torna a recuperação mais precisa.
 
 Aqui está algo contraintuitivo: bons sistemas de memória precisam esquecer. Nem tudo vale a pena lembrar. Armazenar tudo cria ruído que afoga o sinal.
 
-Implemente decaimento explícito. Memórias que não são acessadas desvanecem. Memórias que são reforçadas fortalecem. Isso imita como a memória humana funciona—e funciona para agentes também.
+Implemente decaimento explícito. Memórias que não são acessadas desvanecem. Memórias que são reforçadas fortalecem. Isso imita como a memória humana funciona, e funciona para agentes também.
 
 O objetivo não é recall perfeito. É recall relevante. Um agente que lembra tudo mas recupera as coisas erradas é pior que um com memória seletiva e precisa.
 
@@ -108,7 +108,7 @@ Memória em agentes ainda é um problema não resolvido. Algumas questões em ab
 
 Memória é o que separa um agente de IA de um chatbot sem estado. É o que permite continuidade, aprendizado e utilidade genuína ao longo do tempo.
 
-Mas memória não é um problema resolvido que você pode aparafusar com um banco de dados vetorial. Requer arquitetura cuidadosa: recuperação em camadas, consolidação ativa, semântica explícita e, sim—esquecimento estratégico.
+Mas memória não é um problema resolvido que você pode aparafusar com um banco de dados vetorial. Requer arquitetura cuidadosa: recuperação em camadas, consolidação ativa, semântica explícita e, sim, esquecimento estratégico.
 
 Se você está construindo agentes, invista em arquitetura de memória cedo. É mais difícil de retrofitar do que quase qualquer outro componente, e é a fundação sobre a qual todo o resto é construído.
 

@@ -4,7 +4,7 @@ pubDatetime: 2026-02-05T10:00:00.000Z
 title: "Do Caos do OpenClaw ao Frontier da OpenAI: O Ajuste de Contas da Infraestrutura de Agentes"
 locale: pt
 postSlug: agent-security-paradox
-featured: true
+featured: false
 draft: false
 tags:
   - ai-agents
