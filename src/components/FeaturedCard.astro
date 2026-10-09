@@ -23,9 +23,10 @@ const imageMap: Record<string, ImageMetadata> = {
 export interface Props {
   href: string;
   frontmatter: CollectionEntry<"blog">["data"];
+  lead?: boolean;
 }
 
-const { href, frontmatter } = Astro.props;
+const { href, frontmatter, lead = false } = Astro.props;
 const { title, pubDatetime, description, image } = frontmatter;
 
 // Format date as "Month D, YYYY"
@@ -35,7 +36,8 @@ const formatDate = (date: Date) => {
     day: "numeric",
     year: "numeric",
   };
-  return new Intl.DateTimeFormat("en-US", options).format(date);
+  const dateLocale = Astro.currentLocale === "pt" ? "pt-BR" : "en-US";
+  return new Intl.DateTimeFormat(dateLocale, options).format(date);
 };
 
 const formattedDate = formatDate(new Date(pubDatetime));
@@ -52,7 +54,7 @@ if (image) {
 }
 ---
 
-<article class="featured-card group">
+<article class:list={["featured-card group", { "featured-card--lead": lead }]}>
   <a href={href} class="featured-card-link" aria-labelledby={titleId}>
     <!-- Top media - Cover image -->
     <div class="featured-card-image-container">
@@ -63,9 +65,9 @@ if (image) {
               src={optimizedImage}
               alt={`Featured image for ${title}`}
               class="featured-card-image"
-              loading="lazy"
-              width="400"
-              height="192"
+              loading={lead ? "eager" : "lazy"}
+              width="1200"
+              height="630"
               style={`view-transition-name: img-${slugifyStr(title)}`}
             />
           ) : (
@@ -73,9 +75,13 @@ if (image) {
               src={optimizedImage}
               alt={`Featured image for ${title}`}
               class="featured-card-image"
-              loading="lazy"
-              widths={[400, 800]}
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
+              loading={lead ? "eager" : "lazy"}
+              widths={[400, 800, 1200]}
+              sizes={
+                lead
+                  ? "(max-width: 768px) 100vw, 560px"
+                  : "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 320px"
+              }
               quality="mid"
               format="webp"
               style={`view-transition-name: img-${slugifyStr(title)}`}
@@ -93,24 +99,6 @@ if (image) {
     <div class="featured-card-content">
       <!-- Meta row -->
       <div class="featured-card-meta">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="calendar-icon"
-          aria-hidden="true"
-        >
-          <path d="M8 2v4" fill="none"></path>
-          <path d="M16 2v4" fill="none"></path>
-          <rect width="18" height="18" x="3" y="4" rx="2" fill="none"></rect>
-          <path d="M3 10h18" fill="none"></path>
-        </svg>
         <time datetime={pubDatetime.toISOString()} class="featured-card-date">
           {formattedDate}
         </time>
@@ -130,8 +118,3 @@ if (image) {
     </div>
   </a>
 </article>
-
-<style>
-  /* Import the existing styles */
-  @import url("/src/styles/featured-card.css");
-</style>

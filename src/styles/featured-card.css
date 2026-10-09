@@ -1,172 +1,213 @@
-/* ===== Featured Card Component Styles ===== */
+/* ===== Featured Card Component Styles =====
+ *
+ * Featured cards are "data cards": the same navy surface as the post covers,
+ * in both themes, so a cover and its card read as one object. On the light
+ * theme they sit on paper as dark tiles; on the dark theme they lift one step
+ * above the page.
+ */
 
 .featured-card {
-  @apply flex;
+  @apply flex min-w-0;
 }
 
 .featured-card-link {
-  @apply relative flex h-full w-full flex-col rounded-2xl bg-white shadow-sm transition-all duration-200 ease-in-out;
+  --fc-bg: #0e1117;
+  --fc-line: #232a36;
+  --fc-ink: #e6eaf0;
+  --fc-muted: #9aa5b4;
+  --fc-accent: #5aa2e0;
+  @apply relative flex h-full w-full flex-col overflow-hidden rounded-xl;
+  background: var(--fc-bg);
+  border: 1px solid var(--fc-line);
+  color: var(--fc-ink);
   text-decoration: none;
+  transition: border-color 160ms ease;
 }
 
-/* Dark mode card */
 [data-theme="dark"] .featured-card-link {
-  @apply border-gray-700 bg-skin-card;
-  border-color: #30363d;
+  --fc-bg: #151a23;
+  --fc-line: #262e3b;
 }
 
-/* Image container - full bleed at top */
+/* Cover: keep the covers' 1200x630 ratio so their headline text is never cropped */
 .featured-card-image-container {
   @apply relative overflow-hidden;
-  border-radius: 16px 16px 0 0;
-  height: 176px;
-}
-
-@media (min-width: 768px) {
-  .featured-card-image-container {
-    height: 192px;
-  }
+  aspect-ratio: 40 / 21;
+  border-bottom: 1px solid var(--fc-line);
+  background: #0e1117;
 }
 
 .featured-card-image {
   @apply h-full w-full object-cover;
 }
 
-/* Placeholder for missing image */
 .featured-card-placeholder {
-  @apply flex h-full w-full items-center justify-center bg-gray-100;
-}
-
-[data-theme="dark"] .featured-card-placeholder {
-  @apply bg-gray-800;
+  @apply flex h-full w-full items-center justify-center;
+  background:
+    linear-gradient(rgba(90, 162, 224, 0.06) 1px, transparent 1px) 0 0 / 24px
+      24px,
+    linear-gradient(90deg, rgba(90, 162, 224, 0.06) 1px, transparent 1px) 0 0 /
+      24px 24px,
+    #0e1117;
 }
 
 .placeholder-text {
-  @apply px-4 text-center text-sm font-medium text-gray-500;
-}
-
-[data-theme="dark"] .placeholder-text {
-  @apply text-gray-400;
+  @apply px-6 text-center text-base font-semibold leading-snug;
+  color: var(--fc-muted);
 }
 
 /* Content area */
 .featured-card-content {
-  @apply flex flex-1 flex-col p-5;
+  @apply flex flex-1 flex-col px-5 pb-6 pt-4;
 }
 
-/* Meta row */
 .featured-card-meta {
-  @apply mb-3 flex items-center gap-2;
-}
-
-.calendar-icon {
-  max-width: 14px;
-  max-height: 14px;
-  @apply flex-shrink-0 text-gray-500 transition-colors duration-200;
-}
-
-[data-theme="dark"] .calendar-icon {
-  @apply text-gray-400;
-}
-
-/* Hover effects for date row */
-.featured-card-link:hover .calendar-icon {
-  @apply text-skin-accent;
-}
-
-.featured-card-link:hover .featured-card-date {
-  @apply text-skin-accent;
+  @apply mb-2 flex items-center;
 }
 
 .featured-card-date {
-  @apply text-xs text-gray-400 transition-colors duration-200;
+  @apply text-[0.8125rem];
+  color: var(--fc-muted);
+  font-variant-numeric: tabular-nums;
 }
 
-[data-theme="dark"] .featured-card-date {
-  @apply text-gray-300;
-}
-
-/* Title */
 .featured-card-title {
-  @apply mb-3 text-xl font-bold leading-tight text-skin-accent;
-  font-size: 16px;
+  @apply text-[1.125rem] font-semibold leading-snug tracking-[-0.01em];
+  color: var(--fc-ink);
+  text-wrap: balance;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  transition: color 160ms ease;
 }
 
-@media (min-width: 1024px) {
-  .featured-card-title {
-    font-size: 18px;
-  }
-}
-
-/* Excerpt */
 .featured-card-excerpt {
-  @apply mt-auto leading-relaxed text-gray-600;
-  font-size: 11px;
+  @apply mt-2 text-[0.9375rem] leading-relaxed;
+  color: var(--fc-muted);
   display: -webkit-box;
-  -webkit-line-clamp: 6;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-@media (min-width: 1024px) {
-  .featured-card-excerpt {
-    font-size: 12px;
+/* ===== Lead card: the most recent featured post ===== */
+.featured-card--lead {
+  grid-column: 1 / -1;
+}
+
+.featured-card--lead .featured-card-title {
+  @apply text-2xl font-bold leading-tight tracking-[-0.02em];
+  -webkit-line-clamp: 5;
+}
+
+.featured-card--lead .featured-card-excerpt {
+  @apply mt-3 text-base;
+  -webkit-line-clamp: 4;
+}
+
+@media (min-width: 768px) {
+  .featured-card--lead .featured-card-link {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  }
+
+  /* Cover keeps its own ratio (never cropped) and centres in the navy column */
+  .featured-card--lead .featured-card-image-container {
+    aspect-ratio: auto;
+    display: flex;
+    align-items: center;
+    border-bottom: 0;
+    border-right: 1px solid var(--fc-line);
+  }
+
+  .featured-card--lead .featured-card-image {
+    height: auto;
+    aspect-ratio: 40 / 21;
+  }
+
+  .featured-card--lead .featured-card-content {
+    @apply justify-center px-8 py-8;
+  }
+
+  .featured-card--lead .featured-card-title {
+    @apply text-[1.75rem];
+    -webkit-line-clamp: 5;
+  }
+
+  .featured-card--lead .featured-card-excerpt {
+    @apply text-[1.0625rem];
+    -webkit-line-clamp: 4;
   }
 }
 
-[data-theme="dark"] .featured-card-excerpt {
-  @apply text-gray-300;
+/* ===== Orphan card =====
+ * When the last card would sit alone in its row, give it the full row and the
+ * same horizontal layout as the lead, so the grid always ends flush.
+ */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .featured-card:not(.featured-card--lead):last-child:nth-child(2n) {
+    grid-column: 1 / -1;
+  }
+  .featured-card:not(.featured-card--lead):last-child:nth-child(2n)
+    .featured-card-link {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  }
+  .featured-card:not(.featured-card--lead):last-child:nth-child(2n)
+    .featured-card-image-container {
+    border-bottom: 0;
+    border-right: 1px solid var(--fc-line);
+  }
+  .featured-card:not(.featured-card--lead):last-child:nth-child(2n)
+    .featured-card-content {
+    @apply justify-center px-7 py-6;
+  }
 }
 
-/* Hover interactions */
+@media (min-width: 1024px) {
+  .featured-card:not(.featured-card--lead):last-child:nth-child(3n + 2) {
+    grid-column: 1 / -1;
+  }
+  .featured-card:not(.featured-card--lead):last-child:nth-child(3n + 2)
+    .featured-card-link {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  }
+  .featured-card:not(.featured-card--lead):last-child:nth-child(3n + 2)
+    .featured-card-image-container {
+    border-bottom: 0;
+    border-right: 1px solid var(--fc-line);
+  }
+  .featured-card:not(.featured-card--lead):last-child:nth-child(3n + 2)
+    .featured-card-content {
+    @apply justify-center px-8 py-7;
+  }
+  .featured-card:not(.featured-card--lead):last-child:nth-child(3n + 2)
+    .featured-card-title {
+    @apply text-[1.375rem] font-bold leading-tight;
+  }
+}
+
+/* ===== Interaction ===== */
 @media (hover: hover) {
   .featured-card-link:hover {
-    @apply shadow-md;
-    transform: translateY(-2px);
+    border-color: rgba(90, 162, 224, 0.55);
   }
 
   .featured-card-link:hover .featured-card-title {
-    @apply underline underline-offset-2;
-  }
-
-  [data-theme="dark"] .featured-card-link:hover {
-    @apply shadow-lg;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    color: var(--fc-accent);
   }
 }
 
-/* Active state */
-.featured-card-link:active {
-  transform: translateY(1px);
-  @apply shadow-sm;
-}
-
-/* Focus styles for accessibility */
 .featured-card-link:focus-visible {
-  @apply outline-none ring-2 ring-offset-2;
-  ring-color: rgb(var(--color-accent));
+  outline: 2px solid rgb(var(--color-accent));
+  outline-offset: 3px;
 }
 
-[data-theme="dark"] .featured-card-link:focus-visible {
-  @apply ring-offset-gray-900;
-  ring-color: rgb(var(--color-accent));
-}
-
-/* Respect prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
-  .featured-card-link {
-    @apply transition-none;
-  }
-
-  .featured-card-link:hover {
-    transform: none;
-  }
-
-  .featured-card-link:active {
-    transform: none;
+  .featured-card-link,
+  .featured-card-title {
+    transition: none;
   }
 }

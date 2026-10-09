@@ -70,13 +70,14 @@ const t = getTranslator(Astro.currentLocale);
             <div class="featured-container">
               <h2>Featured Posts</h2>
               <div class="featured-grid">
-                {featuredPosts.map(({ data }) => (
+                {featuredPosts.map(({ data }, index) => (
                   <FeaturedCard
                     href={localizeUrl(
                       Astro.currentLocale,
                       `/posts/${data.postSlug}/`
                     )}
                     frontmatter={data}
+                    lead={index === 0}
                   />
                 ))}
               </div>
@@ -128,22 +129,27 @@ const t = getTranslator(Astro.currentLocale);
 <style>
   /* ===== Hero Section ===== */
   #hero {
-    @apply pb-6 pt-8;
+    @apply pb-10 pt-10 sm:pb-14 sm:pt-16;
   }
   #hero h1 {
-    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
+    @apply my-0 inline font-sans text-[2.5rem] font-bold leading-[1.05] tracking-[-0.035em] sm:text-[4rem];
+    text-wrap: balance;
   }
   #hero .rss-link {
-    @apply mb-6;
+    @apply ml-1 inline-block align-baseline;
   }
   #hero .rss-icon {
-    @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
+    @apply h-5 w-5 fill-skin-accent sm:h-6 sm:w-6;
   }
   #hero p {
-    @apply my-2;
+    @apply mt-6 max-w-[38rem] font-serif text-[1.1875rem] leading-relaxed text-skin-muted sm:mt-8 sm:text-[1.3125rem];
+  }
+  #hero p :global(a) {
+    @apply text-skin-base underline decoration-1 underline-offset-4 hover:text-skin-accent;
+    text-decoration-color: rgba(var(--color-accent), 0.6);
   }
   .social-wrapper {
-    @apply mt-10 flex flex-col sm:flex-row sm:items-center;
+    @apply -ml-2 mt-8 flex flex-col sm:flex-row sm:items-center;
   }
   .social-links {
     @apply mb-1 mr-2 whitespace-nowrap sm:mb-0;
@@ -151,13 +157,7 @@ const t = getTranslator(Astro.currentLocale);
 
   /* ===== Featured Posts Section ===== */
   #featured {
-    @apply py-12;
-  }
-
-  @media (min-width: 768px) {
-    #featured {
-      @apply py-16;
-    }
+    @apply pb-12 pt-10 md:pb-16 md:pt-12;
   }
 
   .featured-container {
@@ -166,7 +166,7 @@ const t = getTranslator(Astro.currentLocale);
   }
 
   .featured-grid {
-    @apply my-6 grid grid-cols-1 gap-6;
+    @apply mt-6 grid grid-cols-1 gap-5;
   }
 
   @media (min-width: 768px) {
@@ -177,19 +177,25 @@ const t = getTranslator(Astro.currentLocale);
 
   @media (min-width: 1024px) {
     .featured-grid {
-      @apply grid-cols-4;
+      @apply grid-cols-3;
     }
   }
 
   /* ===== Recent Posts Section ===== */
   #recent-posts {
-    @apply pb-6 pt-12;
+    @apply pb-4 pt-10 md:pt-12;
   }
   #recent-posts h2,
   #featured h2 {
-    @apply text-2xl font-semibold tracking-wide;
+    @apply text-xl font-bold tracking-tight sm:text-2xl;
   }
   .all-posts-btn-wrapper {
-    @apply my-8 text-center;
+    @apply mb-16 mt-6 px-4 text-center;
+  }
+  .all-posts-btn-wrapper :global(a) {
+    @apply inline-flex items-center gap-1 rounded-full border border-skin-line px-5 py-2.5 font-semibold transition-colors hover:border-skin-accent;
+  }
+  .all-posts-btn-wrapper :global(svg) {
+    @apply h-5 w-5;
   }
 </style>
