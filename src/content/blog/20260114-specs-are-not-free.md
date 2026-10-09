@@ -4,7 +4,7 @@ pubDatetime: 2026-01-14T10:00:00.000Z
 title: "Specs Are Not Free: Why AI Won't Replace Programming (It Will Transform It)"
 locale: en
 postSlug: specs-are-not-free
-featured: true
+featured: false
 draft: false
 tags:
   - ai-agents

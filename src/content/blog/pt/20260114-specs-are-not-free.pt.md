@@ -4,7 +4,7 @@ pubDatetime: 2026-01-14T10:00:00.000Z
 title: "Specs Não São de Graça: Por Que a IA Não Vai Substituir a Programação (Mas Vai Transformá-la)"
 locale: pt
 postSlug: specs-are-not-free
-featured: true
+featured: false
 draft: false
 tags:
   - agentes-ia
