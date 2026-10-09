@@ -13,7 +13,8 @@ export interface Props {
     | "search"
     | "contact"
     | "talks"
-    | "investing";
+    | "investing"
+    | "projects";
 }
 
 const { activeNav } = Astro.props;
@@ -38,9 +39,6 @@ const { activeNav } = Astro.props;
                 <img src={`/assets/profile_picture.jpg`} alt={SITE.title} />
               </div>
               {SITE.title}
-              <div class="ml-2 h-full w-5 content-center">
-                <img src={`/assets/material-symbols_verified.svg`} alt="" />
-              </div>
             </>
           )
         }
@@ -83,6 +81,14 @@ const { activeNav } = Astro.props;
           <li>
             <a href="/posts/" class={activeNav === "posts" ? "active" : ""}>
               Posts
+            </a>
+          </li>
+          <li>
+            <a
+              href={localizeUrl(Astro.currentLocale, "/projects/")}
+              class={activeNav === "projects" ? "active" : ""}
+            >
+              Research
             </a>
           </li>
           <li>
