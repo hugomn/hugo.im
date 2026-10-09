@@ -6,6 +6,7 @@ import Footer from "@components/Footer.astro";
 import Card from "@components/Card";
 import Pagination from "@components/Pagination.astro";
 import { SITE } from "@config";
+import getReadingTime from "@utils/readingTime";
 import type { Page } from "astro";
 import type { CollectionEntry } from "astro:content";
 
@@ -28,8 +29,12 @@ const { page, tag, tagName } = Astro.props;
     <h1 slot="title" transition:name={tag}>{`Tag:${tag}`}</h1>
     <ul>
       {
-        page.data.map(({ data, id }) => (
-          <Card href={`/posts/${id}/`} frontmatter={data} />
+        page.data.map(({ data, id, body }) => (
+          <Card
+            href={`/posts/${id}/`}
+            frontmatter={data}
+            readingTime={getReadingTime(body)}
+          />
         ))
       }
     </ul>

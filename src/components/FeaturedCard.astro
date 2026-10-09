@@ -24,9 +24,17 @@ export interface Props {
   href: string;
   frontmatter: CollectionEntry<"blog">["data"];
   lead?: boolean;
+  readingTime?: number;
+  readingLabel?: string;
 }
 
-const { href, frontmatter, lead = false } = Astro.props;
+const {
+  href,
+  frontmatter,
+  lead = false,
+  readingTime,
+  readingLabel = "min read",
+} = Astro.props;
 const { title, pubDatetime, description, image } = frontmatter;
 
 // Format date as "Month D, YYYY"
@@ -102,6 +110,16 @@ if (image) {
         <time datetime={pubDatetime.toISOString()} class="featured-card-date">
           {formattedDate}
         </time>
+        {
+          readingTime && (
+            <>
+              <span class="featured-card-sep" aria-hidden="true" />
+              <span class="featured-card-date">
+                {readingTime} {readingLabel}
+              </span>
+            </>
+          )
+        }
       </div>
 
       <!-- Title -->

@@ -68,7 +68,12 @@
 }
 
 .featured-card-meta {
-  @apply mb-2 flex items-center;
+  @apply mb-2 flex items-center gap-2;
+}
+
+.featured-card-sep {
+  @apply inline-block h-1 w-1 rounded-full;
+  background: var(--fc-accent);
 }
 
 .featured-card-date {

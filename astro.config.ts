@@ -4,6 +4,7 @@ import react from "@astrojs/react";
 import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
 import sitemap from "@astrojs/sitemap";
+import rehypeFigures from "./src/utils/rehypeFigures.mjs";
 import { SITE, SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from "./src/config";
 
 // https://astro.build/config
@@ -30,6 +31,7 @@ export default defineConfig({
         },
       ],
     ],
+    rehypePlugins: [rehypeFigures],
     shikiConfig: {
       // For more themes, visit https://shiki.style/themes
       themes: { light: "github-light", dark: "github-dark-default" },

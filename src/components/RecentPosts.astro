@@ -1,0 +1,63 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Card from "@components/Card";
+import { getTranslator, localizeUrl } from "@utils/i18n";
+import getReadingTime from "@utils/readingTime";
+
+export interface Props {
+  posts: CollectionEntry<"blog">[];
+}
+
+const { posts } = Astro.props;
+const t = getTranslator(Astro.currentLocale);
+
+// Group posts (already sorted newest first) by publication year
+const groups: { year: number; posts: CollectionEntry<"blog">[] }[] = [];
+for (const post of posts) {
+  const year = post.data.pubDatetime.getFullYear();
+  const last = groups[groups.length - 1];
+  if (last && last.year === year) last.posts.push(post);
+  else groups.push({ year, posts: [post] });
+}
+---
+
+<section id="recent-posts">
+  <h2>{t("home.recent")}</h2>
+  {
+    groups.map(group => (
+      <div class="year-group">
+        <h3 class="year">{group.year}</h3>
+        <ul>
+          {group.posts.map(post => (
+            <Card
+              href={localizeUrl(
+                Astro.currentLocale,
+                `/posts/${post.data.postSlug}/`
+              )}
+              frontmatter={post.data}
+              headingLevel={4}
+              readingTime={getReadingTime(post.body)}
+              readingLabel={t("post.minRead")}
+            />
+          ))}
+        </ul>
+      </div>
+    ))
+  }
+</section>
+
+<style>
+  #recent-posts {
+    @apply pb-4 pt-10 md:pt-12;
+  }
+  h2 {
+    @apply text-xl font-bold tracking-tight sm:text-2xl;
+  }
+  .year-group {
+    @apply mt-6 md:grid md:grid-cols-[6rem_minmax(0,1fr)] md:gap-x-6;
+  }
+  .year {
+    @apply font-serif text-lg font-semibold text-skin-accent md:pt-6;
+    font-variant-numeric: tabular-nums;
+  }
+</style>

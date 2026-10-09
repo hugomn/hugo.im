@@ -7,6 +7,7 @@ import { SITE } from "@config";
 import Layout from "@layouts/Layout.astro";
 import Main from "@layouts/Main.astro";
 import getPostsByGroupCondition from "@utils/getPostsByGroupCondition";
+import getReadingTime from "@utils/readingTime";
 
 // Redirect to 404 page if `showArchives` config is false
 if (!SITE.showArchives) {
@@ -59,8 +60,12 @@ const MonthMap: Record<string, string> = {
                     <sup class="text-xs">{monthGroup.length}</sup>
                   </div>
                   <ul>
-                    {monthGroup.map(({ data, id }) => (
-                      <Card href={`/posts/${id}`} frontmatter={data} />
+                    {monthGroup.map(({ data, id, body }) => (
+                      <Card
+                        href={`/posts/${id}`}
+                        frontmatter={data}
+                        readingTime={getReadingTime(body)}
+                      />
                     ))}
                   </ul>
                 </div>

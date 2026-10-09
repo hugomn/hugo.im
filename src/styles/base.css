@@ -31,14 +31,6 @@
     --color-card-muted: 33, 44, 63;
     --color-border: 31, 41, 58;
   }
-  #sun-svg,
-  html[data-theme="dark"] #moon-svg {
-    display: none;
-  }
-  #moon-svg,
-  html[data-theme="dark"] #sun-svg {
-    display: block;
-  }
   html {
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
@@ -84,7 +76,7 @@
     --tw-prose-code: rgb(var(--color-text-base));
     --tw-prose-th-borders: rgb(var(--color-border));
     --tw-prose-td-borders: rgb(var(--color-border));
-    @apply font-serif prose-headings:!mb-3 prose-headings:font-sans prose-headings:font-bold prose-headings:tracking-tight prose-headings:!text-skin-base prose-p:!text-skin-base prose-strong:font-semibold prose-strong:!text-skin-base prose-ol:!text-skin-base prose-ul:overflow-x-clip prose-ul:!text-skin-base prose-li:marker:!text-skin-accent prose-table:font-sans prose-table:text-skin-base prose-th:border prose-th:border-skin-line prose-td:border prose-td:border-skin-line prose-img:mx-auto prose-img:rounded-lg prose-hr:!border-skin-line;
+    @apply font-serif prose-headings:!mb-3 prose-headings:font-serif prose-headings:font-semibold prose-headings:tracking-[-0.015em] prose-headings:!text-skin-base prose-p:!text-skin-base prose-strong:font-semibold prose-strong:!text-skin-base prose-ol:!text-skin-base prose-ul:overflow-x-clip prose-ul:!text-skin-base prose-li:marker:!text-skin-accent prose-table:font-sans prose-table:text-skin-base prose-th:border prose-th:border-skin-line prose-td:border prose-td:border-skin-line prose-img:mx-auto prose-img:rounded-lg prose-hr:!border-skin-line;
     font-optical-sizing: auto;
   }
   .prose :where(h2):not(:where([class~="not-prose"] *)) {
@@ -120,9 +112,18 @@
   .prose thead th {
     @apply bg-skin-card/60 font-semibold;
   }
-  .prose figcaption,
-  .prose img + em {
-    @apply mt-3 block text-center font-sans text-sm not-italic text-skin-muted;
+  /* Figures (built by src/utils/rehypeFigures.mjs) */
+  .prose figure.figure {
+    @apply my-[1.75em];
+  }
+  .prose figure.figure img {
+    @apply my-0 h-auto max-w-full;
+  }
+  .prose figcaption {
+    @apply mt-3 font-sans text-sm leading-snug text-skin-muted;
+  }
+  .prose figcaption a {
+    @apply text-inherit;
   }
   .prose thead th:first-child,
   tbody td:first-child,
@@ -211,5 +212,23 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/*
+ * Large figures (marked by src/utils/rehypeFigures.mjs) break out of the
+ * reading column across the post rail. Kept outside @layer so Tailwind does
+ * not prune the generated class name.
+ */
+@media (min-width: 1024px) {
+  #article figure.figure--wide {
+    position: relative;
+    z-index: 2;
+    width: min(62rem, calc(100vw - 2rem));
+    max-width: none;
+    background: rgb(var(--color-fill));
+  }
+  #article figure.figure--wide img {
+    width: 100%;
   }
 }

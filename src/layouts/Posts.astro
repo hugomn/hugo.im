@@ -9,7 +9,8 @@ import Tag from "@components/Tag.astro";
 import { SITE } from "@config";
 import type { Page } from "astro";
 import type { CollectionEntry } from "astro:content";
-import { localizeUrl } from "@utils/i18n";
+import { getTranslator, localizeUrl } from "@utils/i18n";
+import getReadingTime from "@utils/readingTime";
 import { getCollection } from "astro:content";
 import getUniqueTags from "@utils/getUniqueTags";
 
@@ -28,6 +29,7 @@ const posts = await getCollection(
   ({ data }) => !data.draft && data.locale === currentLocale
 );
 const tags = getUniqueTags(posts);
+const t = getTranslator(currentLocale);
 ---
 
 <Layout title={`Posts | ${SITE.title}`}>
@@ -35,10 +37,12 @@ const tags = getUniqueTags(posts);
   <Main pageTitle="Posts" pageDesc="All the articles I've posted.">
     <ul>
       {
-        page.data.map(({ data }) => (
+        page.data.map(({ data, body }) => (
           <Card
             href={localizeUrl(Astro.currentLocale, `/posts/${data.postSlug}/`)}
             frontmatter={data}
+            readingTime={getReadingTime(body)}
+            readingLabel={t("post.minRead")}
           />
         ))
       }
