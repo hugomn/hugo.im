@@ -7,10 +7,10 @@ import LinkButton from "@components/LinkButton.astro";
 import Hr from "@components/Hr.astro";
 import Card from "@components/Card";
 import FeaturedCard from "@components/FeaturedCard.astro";
-import Socials from "@components/Socials.astro";
+import Hero from "@components/Hero.astro";
 import getSortedPosts from "@utils/getSortedPosts";
-import { SITE, SOCIALS } from "@config";
-import { getTranslator, localizeUrl } from "@utils/i18n";
+import { SITE } from "@config";
+import { localizeUrl } from "@utils/i18n";
 
 const posts = await getCollection("blog");
 
@@ -22,9 +22,6 @@ const featuredPosts = sortedPosts.filter(
 const recentPosts = sortedPosts.filter(
   ({ data }) => !data.featured && data.locale == locale
 );
-
-const socialCount = SOCIALS.filter(social => social.active).length;
-const t = getTranslator(Astro.currentLocale);
 
 // Structured data for Hugo Nogueira as Person
 const personStructuredData = {
@@ -122,38 +119,7 @@ const websiteStructuredData = {
 
   <Header />
   <main id="main-content">
-    <section id="hero">
-      <h1 set:html={t("home.title")} />
-      <a
-        target="_blank"
-        href="/rss.xml"
-        class="rss-link"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon"
-          ><path
-            d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
-          ></path><path
-            d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
-          ></path><circle cx="6" cy="18" r="2"></circle>
-        </svg>
-        <span class="sr-only">RSS Feed</span>
-      </a>
-
-      <p set:html={t("home.bio")} />
-      {
-        // only display if at least one social link is enabled
-        socialCount > 0 && (
-          <div class="social-wrapper">
-            <div class="social-links hidden">Social Links:</div>
-            <Socials />
-          </div>
-        )
-      }
-    </section>
-
-    <Hr />
+    <Hero />
 
     {
       featuredPosts.length > 0 && (
@@ -219,34 +185,6 @@ const websiteStructuredData = {
 </Layout>
 
 <style>
-  /* ===== Hero Section ===== */
-  #hero {
-    @apply pb-10 pt-10 sm:pb-14 sm:pt-16;
-  }
-  #hero h1 {
-    @apply my-0 inline font-sans text-[2.5rem] font-bold leading-[1.05] tracking-[-0.035em] sm:text-[4rem];
-    text-wrap: balance;
-  }
-  #hero .rss-link {
-    @apply ml-1 inline-block align-baseline;
-  }
-  #hero .rss-icon {
-    @apply h-5 w-5 fill-skin-accent sm:h-6 sm:w-6;
-  }
-  #hero p {
-    @apply mt-6 max-w-[38rem] font-serif text-[1.1875rem] leading-relaxed text-skin-muted sm:mt-8 sm:text-[1.3125rem];
-  }
-  #hero p :global(a) {
-    @apply text-skin-base underline decoration-1 underline-offset-4 hover:text-skin-accent;
-    text-decoration-color: rgba(var(--color-accent), 0.6);
-  }
-  .social-wrapper {
-    @apply -ml-2 mt-8 flex flex-col sm:flex-row sm:items-center;
-  }
-  .social-links {
-    @apply mb-1 mr-2 whitespace-nowrap sm:mb-0;
-  }
-
   /* ===== Featured Posts Section ===== */
   #featured {
     @apply pb-12 pt-10 md:pb-16 md:pt-12;

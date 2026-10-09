@@ -25,7 +25,9 @@ const { frontmatter } = Astro.props;
   <main id="main-content">
     <section id="about" class="mb-28">
       <div class="prose prose-lg max-w-[42rem]">
-        <h1 class="mt-2 text-3xl font-bold tracking-[-0.025em] sm:text-4xl">
+        <h1
+          class="mt-2 font-serif text-[2.25rem] font-semibold tracking-[-0.02em] sm:text-[2.75rem]"
+        >
           {frontmatter.title}
         </h1>
         <slot />
