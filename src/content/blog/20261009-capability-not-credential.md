@@ -12,14 +12,14 @@ tags:
   - agent-infrastructure
   - code-mode
   - engineering
-description: "Our AI agents write and run code against customers' GitHub, AWS and other systems from a sandbox with internet access, and nothing inside that sandbox can authenticate to any of them. The architecture behind it, the designs we set aside, and what it deliberately does not protect."
+description: "Our AI agents write and run code against customers' GitHub, AWS and other systems from a sandbox with internet access, and nothing inside that sandbox can authenticate to any of them. The architecture behind it, the designs we set aside, and where its boundaries are."
 keywords: Hugo Nogueira, AI agents, agent security, code mode, credential isolation, capability security, prompt injection, sandbox, egress, OAuth, enterprise AI, agent infrastructure
 image: "/images/blog/capability-not-credential.jpg"
 ---
 
 Over the past few months, the AI agents we run at Complyance have been writing and executing code against our customers' own systems: their GitHub organisations, AWS accounts, identity providers and document stores. They do this from a sandbox that can reach the internet. Nothing inside that sandbox can authenticate to any of those systems.
 
-That combination took us a while to get right, and I think the pattern behind it will matter to anyone who lets agents act on real infrastructure. The core idea fits in one sentence: **the agent receives a capability, not a credential.** This post explains what that means in practice, the designs we set aside along the way, and what the approach does not protect, which is the part I would read first if I were evaluating someone else's design.
+That combination took us a while to get right, and I think the pattern behind it will matter to anyone who lets agents act on real infrastructure. The core idea fits in one sentence: **the agent receives a capability, not a credential.** This post explains what that means in practice, the designs we set aside along the way, and where its boundaries are, which is the part I would read first if I were evaluating someone else's design.
 
 ## Why our agents write code
 
@@ -80,15 +80,15 @@ A diagram like the one above is easy to draw and easy to get subtly wrong. Four 
 
 **The boundary is physical as well as logical.** Network rules give the sandbox exactly one path to the trusted zone, ending at a terminator on the host. The mutual-TLS identity the broker requires lives there, outside every container, so a sandbox that finds the broker's port directly still cannot complete the handshake. And when something fails, the sandbox receives a fixed error instead of the raw upstream message, because error strings from auth libraries have a habit of containing exactly what you were trying to protect.
 
-## What this does not protect
+## Where the boundary ends
 
-![What the boundary protects: credentials yes; customer data, writes and credential-shaped responses no](/images/blog/capability-not-credential/fig4-what-it-protects.png)
+![Different problems, different controls: a capability broker for credentials, egress policy for customer data, read-only connections for writes, and endpoint deny-lists for credential-shaped responses](/images/blog/capability-not-credential/fig4-what-it-protects.png)
 
-It protects credentials, not data. Everything the broker returns lands in a sandbox that can reach the internet, so an injected agent could still send a repository list somewhere. The attacker leaves with a snapshot rather than the keys to come back for more. That is a real reduction in risk, but it is not data loss prevention.
+A boundary is easier to trust when it is clear about its scope. This one is built for credentials, and it is deliberately narrow. Customer data and side effects are different problems, and in our experience each is better served by its own control than by stretching the broker to cover everything.
 
-It also does not make the agent read-only. There is no allow-list of HTTP methods, partly because many providers expose reads through `POST` search endpoints. Read-only behaviour comes from the agent's instructions and from customers connecting read-only credentials, which we recommend but cannot enforce. I would describe the current design as credential-safe rather than side-effect-safe.
+Data is a question of egress. Everything the broker returns lands in the sandbox, so what the sandbox may send out is decided separately, per agent, and our runtime can run an agent with no outbound network at all. Writes are a question of intent. Evidence collection is a read workload, so we recommend read-only connections and scope agents to reading, and explicit write policies are the next layer as agents move from observing systems to fixing them.
 
-The subtlest limit is that a credential broker inherits every endpoint its credentials can reach, including the ones whose response is itself a credential. Most large APIs have them: token exchange, role assumption, secret stores, routes that authenticate as the integration rather than as the customer. The HTTP client inside the broker is part of the attack surface too. SDK conveniences such as option objects that can override the target URL, or auth hooks that switch identity depending on the route, are harmless when your own code calls them and risky when the arguments come from an agent. If you build something like this, ask two questions early. Can the agent see the token? And is there any request whose answer is a token? Deny the routes that mint credentials, and never pass agent input straight into client configuration.
+The subtlest point is that a credential broker inherits every endpoint its credentials can reach, including the ones whose response is itself a credential. Most large APIs have them: token exchange, role assumption, secret stores, routes that authenticate as the integration rather than as the customer. The HTTP client inside the broker is part of the attack surface too. SDK conveniences such as option objects that can override the target URL, or auth hooks that switch identity depending on the route, are harmless when your own code calls them and risky when the arguments come from an agent. If you build something like this, ask two questions early. Can the agent see the token? And is there any request whose answer is a token? Deny the routes that mint credentials, and never pass agent input straight into client configuration.
 
 ## Principles
 
@@ -100,7 +100,7 @@ Stripped of our specifics, this is what I would carry into any system where agen
 4. **Freeze grants when a run starts.** Changes may narrow access during a run, never widen it.
 5. **Keep long-lived secrets two steps away from model-written code.**
 6. **Treat endpoints and client libraries as part of the boundary.**
-7. **Be explicit about what you do not protect.** Credentials, data and side effects are three separate problems.
+7. **Be explicit about scope.** Credentials, data and side effects are different problems, and each deserves its own control.
 
 ## Open questions
 

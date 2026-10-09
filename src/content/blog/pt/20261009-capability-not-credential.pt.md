@@ -12,14 +12,14 @@ tags:
   - agent-infrastructure
   - code-mode
   - engineering
-description: "Nossos agentes de IA escrevem e executam código contra o GitHub, a AWS e outros sistemas dos clientes a partir de um sandbox com acesso à internet, e nada dentro desse sandbox consegue se autenticar em nenhum deles. A arquitetura por trás disso, os designs que deixamos de lado e o que ela deliberadamente não protege."
+description: "Nossos agentes de IA escrevem e executam código contra o GitHub, a AWS e outros sistemas dos clientes a partir de um sandbox com acesso à internet, e nada dentro desse sandbox consegue se autenticar em nenhum deles. A arquitetura por trás disso, os designs que deixamos de lado e onde ficam os seus limites."
 keywords: Hugo Nogueira, agentes de IA, segurança de agentes, code mode, isolamento de credenciais, capability, prompt injection, sandbox, egress, OAuth, IA corporativa, infraestrutura de agentes
 image: "/images/blog/capability-not-credential.jpg"
 ---
 
 Nos últimos meses, os agentes de IA que rodamos na Complyance passaram a escrever e executar código contra os sistemas dos próprios clientes: organizações no GitHub, contas AWS, provedores de identidade e repositórios de documentos. Eles fazem isso a partir de um sandbox que tem acesso à internet. Nada dentro desse sandbox consegue se autenticar em nenhum desses sistemas.
 
-Levamos um tempo para acertar essa combinação, e acho que o padrão por trás dela vai importar para qualquer pessoa que deixa agentes agirem sobre infraestrutura real. A ideia central cabe em uma frase: **o agente recebe uma capability, não uma credencial.** Este post explica o que isso significa na prática, os designs que deixamos de lado no caminho e o que a abordagem não protege, que é a parte que eu leria primeiro se estivesse avaliando o design de outra pessoa.
+Levamos um tempo para acertar essa combinação, e acho que o padrão por trás dela vai importar para qualquer pessoa que deixa agentes agirem sobre infraestrutura real. A ideia central cabe em uma frase: **o agente recebe uma capability, não uma credencial.** Este post explica o que isso significa na prática, os designs que deixamos de lado no caminho e onde ficam os seus limites, que é a parte que eu leria primeiro se estivesse avaliando o design de outra pessoa.
 
 ## Por que nossos agentes escrevem código
 
@@ -80,15 +80,15 @@ Um diagrama como o de cima é fácil de desenhar e fácil de errar nos detalhes.
 
 **A fronteira é física, além de lógica.** Regras de rede dão ao sandbox exatamente um caminho até a zona confiável, terminando em um terminador no host. A identidade de mutual TLS que o broker exige mora ali, fora de qualquer container, então um sandbox que encontre a porta do broker diretamente ainda não consegue completar o handshake. E quando algo falha, o sandbox recebe um erro fixo em vez da mensagem bruta do upstream, porque mensagens de erro de bibliotecas de autenticação costumam conter exatamente o que você estava tentando proteger.
 
-## O que isso não protege
+## Onde a fronteira termina
 
-![O que a fronteira protege: credenciais sim; dados do cliente, escritas e respostas com formato de credencial não](/images/blog/capability-not-credential/fig4-what-it-protects.png)
+![Problemas diferentes, controles diferentes: um broker de capabilities para credenciais, política de egress para dados do cliente, conexões somente leitura para escritas e deny-lists para respostas com formato de credencial](/images/blog/capability-not-credential/fig4-what-it-protects.png)
 
-Ela protege credenciais, não dados. Tudo o que o broker devolve cai em um sandbox com acesso à internet, então um agente comprometido por injection ainda poderia mandar uma lista de repositórios para algum lugar. O atacante sai com um retrato do momento, e não com as chaves para voltar depois. É uma redução real de risco, mas não é prevenção de vazamento de dados.
+Uma fronteira é mais fácil de confiar quando deixa claro o seu escopo. Esta foi construída para credenciais, e é estreita de propósito. Dados do cliente e efeitos colaterais são problemas diferentes, e na nossa experiência cada um é mais bem atendido por um controle próprio do que esticando o broker para cobrir tudo.
 
-Ela também não deixa o agente somente leitura. Não existe uma allow-list de métodos HTTP, em parte porque muitos provedores expõem leituras por endpoints de busca via `POST`. O comportamento somente leitura vem das instruções do agente e de os clientes conectarem credenciais somente leitura, o que recomendamos mas não conseguimos impor. Eu descreveria o design atual como seguro para credenciais, e não seguro para efeitos colaterais.
+Dados são uma questão de egress. Tudo o que o broker devolve chega ao sandbox, então o que o sandbox pode mandar para fora é decidido separadamente, por agente, e o nosso runtime consegue rodar um agente sem nenhuma rede de saída. Escritas são uma questão de intenção. Coletar evidências é um trabalho de leitura, então recomendamos conexões somente leitura e restringimos os agentes à leitura, e políticas explícitas de escrita são a próxima camada, à medida que os agentes passam de observar sistemas para corrigi-los.
 
-O limite mais sutil é que um broker de credenciais herda todos os endpoints que suas credenciais alcançam, inclusive aqueles cuja resposta já é uma credencial. A maioria das APIs grandes tem esse tipo de endpoint: troca de tokens, assunção de roles, cofres de segredos, rotas que autenticam como a própria integração em vez de como o cliente. O cliente HTTP dentro do broker também faz parte da superfície de ataque. Conveniências de SDK, como objetos de opções que podem sobrescrever a URL de destino, ou hooks de autenticação que trocam de identidade dependendo da rota, são inofensivas quando o seu código as chama e arriscadas quando os argumentos vêm de um agente. Se você for construir algo assim, faça duas perguntas cedo. O agente consegue ver o token? E existe alguma requisição cuja resposta seja um token? Bloqueie as rotas que emitem credenciais, e nunca passe input do agente direto para a configuração do cliente.
+O ponto mais sutil é que um broker de credenciais herda todos os endpoints que suas credenciais alcançam, inclusive aqueles cuja resposta já é uma credencial. A maioria das APIs grandes tem esse tipo de endpoint: troca de tokens, assunção de roles, cofres de segredos, rotas que autenticam como a própria integração em vez de como o cliente. O cliente HTTP dentro do broker também faz parte da superfície de ataque. Conveniências de SDK, como objetos de opções que podem sobrescrever a URL de destino, ou hooks de autenticação que trocam de identidade dependendo da rota, são inofensivas quando o seu código as chama e arriscadas quando os argumentos vêm de um agente. Se você for construir algo assim, faça duas perguntas cedo. O agente consegue ver o token? E existe alguma requisição cuja resposta seja um token? Bloqueie as rotas que emitem credenciais, e nunca passe input do agente direto para a configuração do cliente.
 
 ## Princípios
 
@@ -100,7 +100,7 @@ Tirando nossas especificidades, é isto que eu levaria para qualquer sistema em 
 4. **Congele os grants quando o run começa.** Mudanças podem restringir o acesso durante um run, nunca ampliar.
 5. **Mantenha os segredos de longa duração a dois passos do código escrito pelo modelo.**
 6. **Trate endpoints e bibliotecas cliente como parte da fronteira.**
-7. **Seja explícito sobre o que você não protege.** Credenciais, dados e efeitos colaterais são três problemas diferentes.
+7. **Seja explícito sobre o escopo.** Credenciais, dados e efeitos colaterais são problemas diferentes, e cada um merece um controle próprio.
 
 ## Perguntas em aberto
 
