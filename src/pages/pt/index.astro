@@ -5,12 +5,13 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import LinkButton from "@components/LinkButton.astro";
 import Hr from "@components/Hr.astro";
-import Card from "@components/Card";
+import RecentPosts from "@components/RecentPosts.astro";
 import FeaturedCard from "@components/FeaturedCard.astro";
 import Hero from "@components/Hero.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SITE } from "@config";
-import { localizeUrl } from "@utils/i18n";
+import { getTranslator, localizeUrl } from "@utils/i18n";
+import getReadingTime from "@utils/readingTime";
 
 const posts = await getCollection("blog");
 
@@ -22,10 +23,11 @@ const featuredPosts = sortedPosts.filter(
 const recentPosts = sortedPosts.filter(
   ({ data }) => !data.featured && data.locale == locale
 );
+const t = getTranslator(Astro.currentLocale);
 ---
 
 <Layout>
-  <Header />
+  <Header hideAvatar />
   <main id="main-content">
     <Hero />
 
@@ -34,9 +36,9 @@ const recentPosts = sortedPosts.filter(
         <>
           <section id="featured">
             <div class="featured-container">
-              <h2>Featured Posts</h2>
+              <h2>{t("home.featured")}</h2>
               <div class="featured-grid">
-                {featuredPosts.map(({ data }, index) => (
+                {featuredPosts.map(({ data, body }, index) => (
                   <FeaturedCard
                     href={localizeUrl(
                       Astro.currentLocale,
@@ -44,6 +46,8 @@ const recentPosts = sortedPosts.filter(
                     )}
                     frontmatter={data}
                     lead={index === 0}
+                    readingTime={getReadingTime(body)}
+                    readingLabel={t("post.minRead")}
                   />
                 ))}
               </div>
@@ -56,30 +60,13 @@ const recentPosts = sortedPosts.filter(
 
     {
       recentPosts.length > 0 && (
-        <section id="recent-posts">
-          <h2>Recent Posts</h2>
-          <ul>
-            {recentPosts.map(
-              ({ data }, index) =>
-                index < SITE.postPerIndex && (
-                  <Card
-                    href={localizeUrl(
-                      Astro.currentLocale,
-                      `/posts/${data.postSlug}/`
-                    )}
-                    frontmatter={data}
-                    secHeading={false}
-                  />
-                )
-            )}
-          </ul>
-        </section>
+        <RecentPosts posts={recentPosts.slice(0, SITE.postPerIndex)} />
       )
     }
 
     <div class="all-posts-btn-wrapper">
-      <LinkButton href="/posts/">
-        All Posts
+      <LinkButton href={`${localizeUrl(Astro.currentLocale, "/posts")}/`}>
+        {t("home.allPosts")}
         <svg xmlns="http://www.w3.org/2000/svg"
           ><path
             d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
@@ -119,11 +106,6 @@ const recentPosts = sortedPosts.filter(
     }
   }
 
-  /* ===== Recent Posts Section ===== */
-  #recent-posts {
-    @apply pb-4 pt-10 md:pt-12;
-  }
-  #recent-posts h2,
   #featured h2 {
     @apply text-xl font-bold tracking-tight sm:text-2xl;
   }

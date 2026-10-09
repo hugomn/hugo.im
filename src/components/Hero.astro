@@ -1,11 +1,10 @@
 ---
 import { Picture } from "astro:assets";
-import Socials from "@components/Socials.astro";
-import { SOCIALS } from "@config";
-import { getTranslator } from "@utils/i18n";
+import { getTranslator, localizeUrl } from "@utils/i18n";
 import heroPortrait from "@assets/images/hero-portrait.jpg";
 
-const t = getTranslator(Astro.currentLocale);
+const locale = Astro.currentLocale;
+const t = getTranslator(locale);
 
 // Set a trailing full stop in the accent colour (typographic detail only;
 // the copy itself lives in translations.ts).
@@ -13,7 +12,13 @@ const title = t("home.title").replace(
   /\.(\s*)$/,
   '<span class="hero-stop">.</span>$1'
 );
-const socialCount = SOCIALS.filter(social => social.active).length;
+
+const credentials = [
+  { label: t("home.cred.1") },
+  { label: t("home.cred.2") },
+  { label: t("home.cred.3") },
+  { label: t("home.cred.4"), href: "https://huggingface.co/hugonogueira" },
+];
 ---
 
 <!--
@@ -25,7 +30,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   <div class="hero-art">
     <Picture
       src={heroPortrait}
-      alt="Portrait of Hugo Nogueira"
+      alt={t("rail.portraitAlt")}
       formats={["avif", "webp"]}
       widths={[480, 800, 1100, 1383]}
       sizes="(min-width: 1024px) 960px, 100vw"
@@ -39,35 +44,46 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 
   <section id="hero">
     <div class="hero-copy">
-      <span class="hero-rule" aria-hidden="true"></span>
+      <p class="hero-eyebrow">
+        <span>{t("home.eyebrow")}</span>
+        <span class="hero-rule" aria-hidden="true"></span>
+      </p>
       <h1 set:html={title} />
-      <a
-        target="_blank"
-        href="/rss.xml"
-        class="rss-link"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon"
-          ><path
-            d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
-          ></path><path
-            d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
-          ></path><circle cx="6" cy="18" r="2"></circle>
-        </svg>
-        <span class="sr-only">RSS Feed</span>
-      </a>
-
-      <p set:html={t("home.bio")} />
-      {
-        socialCount > 0 && (
-          <div class="social-wrapper">
-            <Socials />
-          </div>
-        )
-      }
+      <p class="hero-bio" set:html={t("home.bio")} />
+      <div class="hero-ctas">
+        <a
+          class="hero-cta hero-cta--primary"
+          href={`${localizeUrl(locale, "/projects")}/`}
+        >
+          {t("home.cta.primary")}
+        </a>
+        <a
+          class="hero-cta hero-cta--secondary"
+          href={`${localizeUrl(locale, "/posts")}/`}
+        >
+          {t("home.cta.secondary")}
+        </a>
+      </div>
     </div>
   </section>
+</div>
+
+<div class="hero-cred">
+  <ul>
+    {
+      credentials.map(item => (
+        <li>
+          {item.href ? (
+            <a href={item.href} target="_blank" rel="noopener noreferrer">
+              {item.label}
+            </a>
+          ) : (
+            item.label
+          )}
+        </li>
+      ))
+    }
+  </ul>
 </div>
 
 <style>
@@ -92,7 +108,6 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       ),
       linear-gradient(180deg, #0a1e2a 0%, var(--hero-navy) 100%);
   }
-
   :global([data-theme="dark"]) .hero-band {
     --hero-navy: #0b1220;
   }
@@ -119,31 +134,70 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   .hero-copy {
     @apply max-w-[36rem];
   }
+  .hero-eyebrow {
+    @apply mb-5 flex items-center gap-3 text-[0.9375rem] font-medium text-skin-accent;
+  }
   .hero-rule {
-    @apply mb-6 block h-[3px] w-14 rounded-full bg-skin-accent;
+    @apply block h-px w-12 bg-skin-accent;
   }
   #hero h1 {
-    @apply inline font-serif text-[2.6rem] font-semibold leading-[1.04] tracking-[-0.025em] sm:text-[3.5rem];
+    @apply font-serif text-[2.4rem] font-semibold leading-[1.06] tracking-[-0.025em] sm:text-[3.25rem];
     text-wrap: balance;
   }
   #hero h1 :global(.hero-stop) {
     @apply text-skin-accent;
   }
-  #hero .rss-link {
-    @apply ml-1 inline-block align-baseline;
+  .hero-bio {
+    @apply mt-6 font-serif text-[1.0625rem] leading-relaxed text-skin-muted sm:text-[1.125rem];
   }
-  #hero .rss-icon {
-    @apply h-5 w-5 fill-skin-accent sm:h-6 sm:w-6;
-  }
-  #hero p {
-    @apply mt-6 font-serif text-[1.125rem] leading-relaxed text-skin-muted sm:text-[1.1875rem];
-  }
-  #hero p :global(a) {
+  .hero-bio :global(a) {
     @apply text-skin-base underline decoration-1 underline-offset-4 transition-colors hover:text-skin-accent;
     text-decoration-color: rgba(var(--color-accent), 0.7);
   }
-  .social-wrapper {
-    @apply -ml-2 mt-7 flex;
+  .hero-ctas {
+    @apply mt-8 flex flex-wrap gap-3;
+  }
+  .hero-cta {
+    @apply inline-flex items-center rounded-full px-5 py-2.5 text-[0.9375rem] font-semibold transition-colors;
+  }
+  .hero-cta--primary {
+    background: #e3b25a;
+    color: #0b1220;
+  }
+  .hero-cta--primary:hover {
+    background: #edc679;
+  }
+  .hero-cta--secondary {
+    @apply text-skin-base;
+    box-shadow: inset 0 0 0 1px rgba(238, 241, 245, 0.35);
+  }
+  .hero-cta--secondary:hover {
+    box-shadow: inset 0 0 0 1px rgba(227, 178, 90, 0.9);
+  }
+
+  /* ---- Credibility strip ---- */
+  .hero-cred {
+    @apply border-b border-skin-line;
+  }
+  .hero-cred ul {
+    @apply mx-auto flex max-w-5xl flex-col gap-y-1.5 px-4 py-4 text-sm text-skin-muted sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-3;
+  }
+  .hero-cred li {
+    @apply flex items-center gap-x-3;
+  }
+  /* Mobile: a short list with gold bullets; wider screens: one line with gold separators */
+  .hero-cred li::before {
+    content: "";
+    @apply inline-block h-1 w-1 shrink-0 rounded-full bg-skin-accent;
+  }
+  @media (min-width: 640px) {
+    .hero-cred li:first-child::before {
+      content: none;
+    }
+  }
+  .hero-cred a {
+    @apply underline decoration-1 underline-offset-4 transition-colors hover:text-skin-accent;
+    text-decoration-color: rgba(var(--color-accent), 0.5);
   }
 
   /* ---- Desktop: copy left, portrait right, edges dissolved into the band ---- */
@@ -156,7 +210,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       position: absolute;
       top: 0;
       bottom: 0;
-      left: calc(50% - 8rem);
+      left: calc(50% - 6rem);
       width: auto;
       height: auto;
       /* fade the left and right edges and the bottom of the sweater */
@@ -193,10 +247,54 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       @apply mt-0 w-full py-20;
     }
     .hero-copy {
-      @apply max-w-[29rem];
+      @apply max-w-[31rem];
     }
     #hero h1 {
-      @apply text-[3.75rem];
+      @apply text-[3.25rem];
+    }
+  }
+
+  /* Wide screens: room for a two-line bio beside the portrait */
+  @media (min-width: 1280px) {
+    .hero-art {
+      left: calc(50% + 1rem);
+    }
+    .hero-copy {
+      @apply max-w-[43rem];
+    }
+    #hero h1 {
+      @apply max-w-[36rem] text-[3.5rem];
+    }
+    .hero-bio {
+      @apply text-[1.0625rem];
+    }
+  }
+
+  /* One orchestrated entrance: copy rises in, the portrait fades up behind it */
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-copy {
+      animation: hero-rise 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    }
+    .hero-art {
+      animation: hero-fade 1100ms ease-out both;
+    }
+  }
+  @keyframes hero-rise {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes hero-fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
     }
   }
 </style>
