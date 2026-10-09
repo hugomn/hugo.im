@@ -4,29 +4,32 @@
 
 @layer base {
   /*
-   * Palette derived from the post covers (navy data cards):
-   * bg #0e1117, blue #5aa2e0, green #7cc79b, red #e86a5c, amber #e3b25a.
-   * Light theme is the same system printed on cool paper, with the blue
-   * darkened to keep AA contrast for body-size links.
+   * Navy and gold, taken from the post covers (amber #e3b25a, navy #0e1117)
+   * and the portrait banner. Gold is the single UI accent; blue stays in
+   * data figures and code. Light theme is warm paper with navy ink and a
+   * bronze accent dark enough for AA body text.
+   *
+   *   light  ink #0e1726 on #f7f5f0 16.5:1, muted 5.9:1, bronze 5.4:1
+   *   dark   ink #e6eaf0 on #0b1220 15.5:1, muted 7.3:1, gold 9.6:1
    */
   :root,
   html[data-theme="light"] {
-    --color-fill: 244, 246, 248;
+    --color-fill: 247, 245, 240;
     --color-text-base: 14, 23, 38;
-    --color-text-muted: 78, 90, 107;
-    --color-accent: 26, 92, 158;
-    --color-card: 228, 233, 240;
-    --color-card-muted: 211, 218, 227;
-    --color-border: 213, 219, 227;
+    --color-text-muted: 88, 95, 109;
+    --color-accent: 138, 90, 18;
+    --color-card: 236, 232, 222;
+    --color-card-muted: 221, 215, 202;
+    --color-border: 226, 221, 210;
   }
   html[data-theme="dark"] {
-    --color-fill: 14, 17, 23;
+    --color-fill: 11, 18, 32;
     --color-text-base: 230, 234, 240;
-    --color-text-muted: 139, 150, 166;
-    --color-accent: 90, 162, 224;
-    --color-card: 26, 32, 43;
-    --color-card-muted: 37, 45, 58;
-    --color-border: 38, 46, 59;
+    --color-text-muted: 151, 163, 180;
+    --color-accent: 227, 178, 90;
+    --color-card: 22, 31, 47;
+    --color-card-muted: 33, 44, 63;
+    --color-border: 31, 41, 58;
   }
   #sun-svg,
   html[data-theme="dark"] #moon-svg {

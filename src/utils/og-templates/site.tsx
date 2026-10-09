@@ -22,7 +22,7 @@ export default async () => {
           style={{
             width: 72,
             height: 6,
-            background: "#5aa2e0",
+            background: "#e3b25a",
             borderRadius: 3,
             marginBottom: 40,
           }}
