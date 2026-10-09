@@ -6,6 +6,11 @@ const currentUrlPath = Astro.url.pathname.replace(/\/+$/, "");
 // eg: /tags/tailwindcss => ['tags', 'tailwindcss']
 const breadcrumbList = currentUrlPath.split("/").slice(1);
 
+// Locale prefix (/pt/...) is not a level of its own: Home points to /pt/
+const isPt = breadcrumbList[0] === "pt";
+if (isPt) breadcrumbList.shift();
+const homeHref = isPt ? "/pt/" : "/";
+
 // if breadcrumb is Home > Posts > 1 <etc>
 // replace Posts with Posts (page number)
 breadcrumbList[0] === "posts" &&
@@ -27,7 +32,7 @@ breadcrumbList[0] === "tags" &&
 <nav class="breadcrumb" aria-label="breadcrumb">
   <ul>
     <li>
-      <a href="/">Home</a>
+      <a href={homeHref}>{isPt ? "Início" : "Home"}</a>
       <span aria-hidden="true">&raquo;</span>
     </li>
     {
@@ -44,7 +49,7 @@ breadcrumbList[0] === "tags" &&
           </li>
         ) : (
           <li>
-            <a href={`/${breadcrumb}/`}>{breadcrumb}</a>
+            <a href={`${isPt ? "/pt" : ""}/${breadcrumb}/`}>{breadcrumb}</a>
             <span aria-hidden="true">&raquo;</span>
           </li>
         )

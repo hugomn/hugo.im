@@ -1,8 +1,7 @@
 ---
 import { LOGO_IMAGE, SITE } from "@config";
 import Hr from "./Hr.astro";
-import LinkButton from "./LinkButton.astro";
-import { localizeUrl } from "@utils/i18n";
+import { getTranslator, localizeUrl } from "@utils/i18n";
 
 export interface Props {
   activeNav?:
@@ -15,16 +14,48 @@ export interface Props {
     | "talks"
     | "investing"
     | "projects";
+  /** Hide the small header avatar (the homepage hero already shows the portrait) */
+  hideAvatar?: boolean;
 }
 
-const { activeNav } = Astro.props;
+const { activeNav, hideAvatar = false } = Astro.props;
+const t = getTranslator(Astro.currentLocale);
+const locale = Astro.currentLocale;
+
+const navItems = [
+  { key: "about", href: localizeUrl(locale, "/about"), label: t("nav.about") },
+  {
+    key: "posts",
+    href: `${localizeUrl(locale, "/posts")}/`,
+    label: t("nav.posts"),
+  },
+  {
+    key: "projects",
+    href: localizeUrl(locale, "/projects"),
+    label: t("nav.research"),
+  },
+  { key: "talks", href: localizeUrl(locale, "/talks"), label: t("nav.talks") },
+  {
+    key: "investing",
+    href: localizeUrl(locale, "/investing"),
+    label: t("nav.investing"),
+  },
+  {
+    key: "contact",
+    href: localizeUrl(locale, "/contact"),
+    label: t("nav.contact"),
+  },
+] as const;
 ---
 
 <header>
   <a id="skip-to-content" href="#main-content">Skip to content</a>
   <div class="nav-container">
     <div class="top-nav-wrap">
-      <a href="/" class="logo flex flex-row items-center whitespace-nowrap">
+      <a
+        href={localizeUrl(locale, "/")}
+        class="logo flex flex-row items-center whitespace-nowrap"
+      >
         {
           LOGO_IMAGE.enable ? (
             <img
@@ -35,7 +66,9 @@ const { activeNav } = Astro.props;
             />
           ) : (
             <>
-              <div class="avatar mr-2">
+              <div
+                class:list={["avatar mr-2", { "avatar--hidden": hideAvatar }]}
+              >
                 <img src={`/assets/profile_picture.jpg`} alt={SITE.title} />
               </div>
               {SITE.title}
@@ -70,125 +103,65 @@ const { activeNav } = Astro.props;
           </svg>
         </button>
         <ul id="menu-items" class="display-none md:flex">
-          <li>
-            <a
-              href={localizeUrl(Astro.currentLocale, "/about")}
-              class={activeNav === "about" ? "active" : ""}
-            >
-              About
-            </a>
-          </li>
-          <li>
-            <a href="/posts/" class={activeNav === "posts" ? "active" : ""}>
-              Posts
-            </a>
-          </li>
-          <li>
-            <a
-              href={localizeUrl(Astro.currentLocale, "/projects/")}
-              class={activeNav === "projects" ? "active" : ""}
-            >
-              Research
-            </a>
-          </li>
-          <li>
-            <a
-              href={localizeUrl(Astro.currentLocale, "/talks")}
-              class={activeNav === "talks" ? "active" : ""}
-            >
-              Talks
-            </a>
-          </li>
-          <li>
-            <a
-              href={localizeUrl(Astro.currentLocale, "/investing")}
-              class={activeNav === "investing" ? "active" : ""}
-            >
-              Investing
-            </a>
-          </li>
-          <li>
-            <a
-              href={localizeUrl(Astro.currentLocale, "/contact")}
-              class={activeNav === "contact" ? "active" : ""}
-            >
-              Contact
-            </a>
-          </li>
           {
-            SITE.showArchives && (
+            navItems.map(item => (
               <li>
-                <LinkButton
-                  href="/archives/"
-                  className={`focus-outline flex justify-center p-3 md:p-1`}
-                  ariaLabel="archives"
-                  title="Archives"
+                <a
+                  href={item.href}
+                  class={activeNav === item.key ? "active" : ""}
+                  aria-current={activeNav === item.key ? "page" : undefined}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class:list={[
-                      "icon icon-tabler icons-tabler-outline !hidden md:!inline-block",
-                      activeNav === "archives" && "!stroke-skin-accent",
-                    ]}
-                  >
-                    <>
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
-                      <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
-                      <path d="M10 12l4 0" />
-                    </>
-                  </svg>
-                  <span
-                    class:list={[
-                      "md:sr-only",
-                      activeNav === "archives" && "active",
-                    ]}
-                  >
-                    Archives
-                  </span>
-                </LinkButton>
+                  {item.label}
+                </a>
               </li>
-            )
+            ))
           }
-          <li>
-            <LinkButton
+          <li class="nav-utils">
+            <a
               href="/search/"
-              className={`focus-outline p-3 md:p-1 ${
-                activeNav === "search" ? "active" : ""
-              } flex`}
-              ariaLabel="search"
-              title="Search"
+              class:list={["icon-btn", { active: activeNav === "search" }]}
+              aria-label={t("nav.search")}
+              title={t("nav.search")}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="scale-125 md:scale-100"
-                ><path
-                  d="M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z"
-                ></path>
+                viewBox="0 0 24 24"
+                class="ui-icon"
+                aria-hidden="true"
+              >
+                <circle cx="11" cy="11" r="6.25"></circle>
+                <path d="m19.5 19.5-3.9-3.9"></path>
               </svg>
-              <span class="sr-only">Search</span>
-            </LinkButton>
-          </li>
-          {
-            SITE.lightAndDarkMode && (
-              <li>
+            </a>
+            {
+              SITE.lightAndDarkMode && (
                 <button
                   id="theme-btn"
-                  class="focus-outline"
-                  title="Toggles light & dark"
-                  aria-label="auto"
-                  aria-live="polite"
+                  class="icon-btn theme-toggle"
+                  title={t("nav.theme")}
+                  aria-label={t("nav.theme")}
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" id="moon-svg">
-                    <path d="M20.742 13.045a8.088 8.088 0 0 1-2.077.271c-2.135 0-4.14-.83-5.646-2.336a8.025 8.025 0 0 1-2.064-7.723A1 1 0 0 0 9.73 2.034a10.014 10.014 0 0 0-4.489 2.582c-3.898 3.898-3.898 10.243 0 14.143a9.937 9.937 0 0 0 7.072 2.93 9.93 9.93 0 0 0 7.07-2.929 10.007 10.007 0 0 0 2.583-4.491 1.001 1.001 0 0 0-1.224-1.224zm-2.772 4.301a7.947 7.947 0 0 1-5.656 2.343 7.953 7.953 0 0 1-5.658-2.344c-3.118-3.119-3.118-8.195 0-11.314a7.923 7.923 0 0 1 2.06-1.483 10.027 10.027 0 0 0 2.89 7.848 9.972 9.972 0 0 0 7.848 2.891 8.036 8.036 0 0 1-1.484 2.059z" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    class="ui-icon icon-moon"
+                    aria-hidden="true"
+                  >
+                    <path d="M19.5 14.2A7.75 7.75 0 0 1 9.8 4.5a7.75 7.75 0 1 0 9.7 9.7Z" />
                   </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" id="sun-svg">
-                    <path d="M6.993 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007S14.761 6.993 12 6.993 6.993 9.239 6.993 12zM12 8.993c1.658 0 3.007 1.349 3.007 3.007S13.658 15.007 12 15.007 8.993 13.658 8.993 12 10.342 8.993 12 8.993zM10.998 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2h-3zm17 0h3v2h-3zM4.219 18.363l2.12-2.122 1.415 1.414-2.12 2.122zM16.24 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.342 7.759 4.22 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    class="ui-icon icon-sun"
+                    aria-hidden="true"
+                  >
+                    <circle cx="12" cy="12" r="3.75" />
+                    <path d="M12 3v1.75M12 19.25V21M3 12h1.75M19.25 12H21M5.64 5.64l1.24 1.24M17.12 17.12l1.24 1.24M5.64 18.36l1.24-1.24M17.12 6.88l1.24-1.24" />
                   </svg>
                 </button>
-              </li>
-            )
-          }
+              )
+            }
+          </li>
         </ul>
       </nav>
     </div>
@@ -226,6 +199,12 @@ const { activeNav } = Astro.props;
     padding: var(--size-border);
     border: 0;
   }
+  .logo {
+    min-height: var(--size-avatar);
+  }
+  .logo .avatar.avatar--hidden {
+    display: none;
+  }
   .logo > .avatar > img {
     @apply rounded-full;
     height: auto;
@@ -253,13 +232,6 @@ const { activeNav } = Astro.props;
   nav ul li a {
     @apply w-full px-4 py-3 text-center text-[0.9375rem] font-medium text-skin-muted transition-colors hover:text-skin-base md:my-0 md:px-2 md:py-1;
   }
-  nav ul li:nth-last-child(2) a {
-    @apply w-auto;
-  }
-  nav ul li:nth-last-child(1),
-  nav ul li:nth-last-child(2) {
-    @apply col-span-1;
-  }
   nav .active {
     @apply text-skin-base underline decoration-2 underline-offset-[6px];
     text-decoration-color: rgb(var(--color-accent));
@@ -268,17 +240,48 @@ const { activeNav } = Astro.props;
     @apply fill-skin-accent;
   }
 
-  nav button {
-    @apply p-1;
+  /* ---- Utility icons: one outline family, 20px, 1.5px stroke ---- */
+  .nav-utils {
+    @apply mt-2 gap-1 md:ml-1 md:mt-0 md:border-l md:border-skin-line md:pl-3;
   }
-  nav button svg {
-    @apply h-6 w-6 fill-skin-base hover:fill-skin-accent;
+  .icon-btn {
+    @apply relative inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full p-0 text-skin-muted transition-colors hover:text-skin-accent;
   }
-  #theme-btn {
-    @apply p-3 md:p-1;
+  .icon-btn.active {
+    @apply text-skin-accent;
   }
-  #theme-btn svg {
-    @apply scale-125 hover:rotate-12 md:scale-100;
+  .icon-btn:focus-visible {
+    outline: 2px solid rgb(var(--color-accent));
+    outline-offset: 2px;
+  }
+  .ui-icon {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* Sun and moon share the button and cross-fade with a quarter turn */
+  .theme-toggle .ui-icon {
+    position: absolute;
+    transition:
+      opacity 250ms ease,
+      transform 350ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .theme-toggle .icon-sun {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.6);
+  }
+  :global(html[data-theme="dark"]) .theme-toggle .icon-sun {
+    opacity: 1;
+    transform: none;
+  }
+  :global(html[data-theme="dark"]) .theme-toggle .icon-moon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.6);
   }
 
   .menu-icon line {

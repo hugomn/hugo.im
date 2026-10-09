@@ -2,19 +2,45 @@
 import Hr from "./Hr.astro";
 import LanguagePicker from "./LanguagePicker.astro";
 import Socials from "./Socials.astro";
+import { getTranslator } from "@utils/i18n";
 
 export interface Props {
   noMarginTop?: boolean;
 }
 
 const { noMarginTop = false } = Astro.props;
+const t = getTranslator(Astro.currentLocale);
 ---
 
 <footer class={`${noMarginTop ? "" : "mt-auto"}`}>
   <Hr noPadding />
   <div class="footer-wrapper">
-    <Socials centered />
-    <LanguagePicker centered />
+    <div class="flex items-center">
+      <Socials centered />
+      <a
+        href="/rss.xml"
+        class="rss-link"
+        target="_blank"
+        aria-label="RSS feed"
+        title="RSS feed"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          class="rss-icon"
+          aria-hidden="true"
+        >
+          <path d="M5 11a8 8 0 0 1 8 8M5 5a14 14 0 0 1 14 14"></path>
+          <circle cx="6" cy="18" r="1.25"></circle>
+        </svg>
+      </a>
+    </div>
+    <div class="flex items-center gap-5">
+      <a href="/archives/" class="transition-colors hover:text-skin-accent">
+        {t("footer.archives")}
+      </a>
+      <LanguagePicker centered />
+    </div>
     <div class="copyright-wrapper">
       <span>Designed and coded by Hugo Nogueira.</span>
     </div>
@@ -33,6 +59,21 @@ const { noMarginTop = false } = Astro.props;
   }
   .link-button svg {
     @apply scale-125;
+  }
+  .rss-link {
+    @apply inline-flex h-10 w-10 items-center justify-center rounded-full text-skin-base transition-colors hover:text-skin-accent sm:h-8 sm:w-8;
+  }
+  .rss-icon {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+  }
+  .rss-icon circle {
+    fill: currentColor;
+    stroke: none;
   }
   .copyright-wrapper {
     @apply my-2 flex flex-col items-center whitespace-nowrap sm:flex-row;
