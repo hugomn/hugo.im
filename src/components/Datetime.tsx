@@ -1,9 +1,10 @@
-import { LOCALE, SITE } from "@config";
+import { SITE } from "@config";
 import type { CollectionEntry } from "astro:content";
 
 interface DatetimesProps {
   pubDatetime: string | Date;
   modDatetime: string | Date | undefined | null;
+  locale?: string;
 }
 
 interface EditPostProps {
@@ -23,6 +24,7 @@ export default function Datetime({
   className = "",
   editPost,
   postId,
+  locale = "en",
 }: Props) {
   const textSize = size === "sm" ? "text-sm" : "text-[0.9375rem]";
   const isUpdated = modDatetime && modDatetime > pubDatetime;
@@ -41,6 +43,7 @@ export default function Datetime({
         <FormattedDatetime
           pubDatetime={pubDatetime}
           modDatetime={modDatetime}
+          locale={locale}
         />
       </span>
       {size === "lg" && <EditPost editPost={editPost} postId={postId} />}
@@ -48,16 +51,20 @@ export default function Datetime({
   );
 }
 
-const FormattedDatetime = ({ pubDatetime, modDatetime }: DatetimesProps) => {
+const FormattedDatetime = ({
+  pubDatetime,
+  modDatetime,
+  locale = "en",
+}: DatetimesProps) => {
   const myDatetime = new Date(
     modDatetime && modDatetime > pubDatetime ? modDatetime : pubDatetime
   );
 
-  const date = myDatetime.toLocaleDateString(LOCALE.langTag, {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
+  // Fixed per-post locale, so dates never depend on the build machine.
+  const date = myDatetime.toLocaleDateString(
+    locale === "pt" ? "pt-BR" : "en-US",
+    { year: "numeric", month: "long", day: "numeric" }
+  );
 
   return <time dateTime={myDatetime.toISOString()}>{date}</time>;
 };

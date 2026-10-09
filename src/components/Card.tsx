@@ -39,7 +39,11 @@ export default function Card({
         </a>
       </Heading>
       <div className="mt-1.5 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-sm text-skin-muted">
-        <Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} />
+        <Datetime
+          pubDatetime={pubDatetime}
+          modDatetime={modDatetime}
+          locale={frontmatter.locale}
+        />
         {readingTime && (
           <>
             <span
