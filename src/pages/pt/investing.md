@@ -21,7 +21,7 @@ Não invisto em empresas que competem com a Complyance.
 ## Como posso ajudar
 
 - **Arquitetura e segurança de agentes.** Construí infraestrutura de agentes que roda dentro dos ambientes de clientes enterprise, e posso revisar a sua: sandboxing, credenciais, evals, modos de falha.
-- **Do primeiro contratado à Série A.** Entrei na Complyance como primeiro funcionário e construí a organização de produto, engenharia e design até uma Série A liderada pela GV.
+- **Do primeiro dia à Série A.** Entrei na Complyance como CTO e primeiro funcionário, e construí a organização de produto, engenharia e design até uma Série A liderada pela GV.
 - **Vender para empresas exigentes em segurança.** Revisões de segurança, questionários e como conquistar a confiança de compradores que dizem não por profissão.
 - **Construir do zero, mais de uma vez.** Cofundei uma startup que foi adquirida e construí mais de 8 ventures como venture CTO na BCG Digital Ventures.
 

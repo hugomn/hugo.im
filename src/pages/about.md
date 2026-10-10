@@ -5,7 +5,7 @@ slug: "about"
 description: "Hugo Nogueira is CPTO at Complyance, where he built the agent infrastructure behind its compliance agents. He writes about AI agents in production and publishes open research on how they fail."
 ---
 
-I'm CPTO at [Complyance](https://www.complyance.com), an AI-native governance, risk and compliance platform. I joined in 2022 as the first employee and now lead product, engineering and design. Complyance is used by Fortune 500 enterprises, and in 2026 we raised a $20M Series A led by GV.
+I'm CPTO at [Complyance](https://www.complyance.com), an AI-native governance, risk and compliance platform. I joined in 2022 as CTO and the first employee, and I lead product, engineering and design. Complyance is used by Fortune 500 enterprises, and in 2026 we raised a $20M Series A led by GV.
 
 ## What I work on
 

@@ -21,7 +21,7 @@ I don't invest in companies that compete with Complyance.
 ## How I can help
 
 - **Agent architecture and security.** I've built agent infrastructure that runs inside enterprise customers' environments, and I'm happy to review yours: sandboxing, credentials, evals, failure modes.
-- **From first hire to Series A.** I joined Complyance as its first employee and built the product, engineering and design organisation through a Series A led by GV.
+- **From day one to Series A.** I joined Complyance as CTO and its first employee, and built the product, engineering and design organisation through a Series A led by GV.
 - **Selling to security-conscious enterprises.** Security reviews, questionnaires, and earning the trust of buyers who say no for a living.
 - **Building from zero, more than once.** I co-founded a startup that was acquired, and built 8+ ventures as a venture CTO at BCG Digital Ventures.
 

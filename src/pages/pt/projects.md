@@ -31,7 +31,7 @@ Na Complyance construí o runtime em que nossos agentes de compliance rodam, e u
 
 ## Empresas e ventures
 
-- **Complyance** (2022 até hoje). Primeiro funcionário, hoje CPTO. Uma plataforma de GRC nativa em IA usada por empresas da Fortune 500, com uma Série A liderada pela GV.
+- **Complyance** (2022 até hoje). CPTO e primeiro funcionário da empresa. Uma plataforma de GRC nativa em IA usada por empresas da Fortune 500, com uma Série A liderada pela GV.
 - **BCG Digital Ventures**. Venture CTO em mais de oito ventures, incluindo a Tilda, um aplicativo de terapia digital certificado como DiGA, e a Tenera, machine learning para concorrências da construção civil.
 - **finleap**. Engineering lead de uma venture de banking para PMEs construída sob os requisitos do BaFin e de KYC.
 - **meuingresso.com**. Cofundador. Venda de ingressos self-service no Brasil, adquirida em 2018. [A história](/pt/posts/my-first-exit/).
