@@ -4,7 +4,7 @@ pubDatetime: 2026-05-10T20:00:00.000Z
 title: "LHC v0.2: A Benchmark for Long-Horizon Agent Coherence (and the Methodology That Got It Honest)"
 locale: en
 postSlug: lhc-v02-long-horizon-coherence-benchmark
-featured: true
+featured: false
 draft: false
 tags:
   - ai-agents
