@@ -1,0 +1,116 @@
+---
+author: Hugo Nogueira
+pubDatetime: 2026-10-20T22:00:00.000Z
+title: "Machines Read, Humans Sign: Code Review in One Year"
+locale: en
+postSlug: code-review-in-one-year
+featured: true
+draft: false
+tags:
+  - ai-agents
+  - engineering
+  - leadership
+  - code-review
+description: "What building our own review agent taught us, with our numbers, what Anthropic and one open-source pull request show about where review is going, and eight bets on how teams will review code by October 2027."
+keywords: Hugo Nogueira, code review, AI code review, AI agents, coding agents, Claude Code, GPT-6, review agent, software engineering, DevOps, compliance, change management, DORA, SOC 2
+image: /images/blog/code-review-in-one-year.jpg
+---
+
+Every pull request in our main repository that is ready for review goes to Hopper, the review agent we built in house, before any person looks at it. She runs on Claude Opus 5.5, and the concerns she dismisses during her own review go to two second reviewers, one on Opus 5.5 and one on GPT-6 Astra. This post shares what building her taught us, with our numbers, and my eight bets on how teams will review code by October 2027. My short answer is that machines will read every change, people will sign for the ones that can hurt the company, and compliance will make that split mandatory.
+
+## Pencils down
+
+Last month, in his [Rails World keynote](https://www.youtube.com/watch?v=vDjW_dRyKXY), DHH said 37signals has gone "pencils down" on handwritten code. The person who spent twenty years arguing for programmer happiness and beautiful Ruby is having agents rebuild the HEY backend in Rust, a language he has called painful to read and now never has to. His keynote ended on "total optimism", and I share most of it. The part I want to add is review. If humans stop writing the code and stop reading it, something has to catch what goes wrong, and last week we got the best public look yet at what that something looks like.
+
+## What Anthropic published last week
+
+Anthropic [published how it reviews code](https://claude.dev/blog/solving-code-review-at-anthropic/) now that Claude writes about 90% of Claude Code itself, in a post by Addy Osmani, Morgan Westlee Lunt and Qing Wang. They kept review, moved most of the reading to machines and left humans with what machines are bad at. A classifier puts every change into a risk tier, and the tier decides whether it needs zero, one or two people, with the lighter paths open only to authors on a trusted list. Some paths, like CI workflow files, always need a person, and in their words, "an agent's approval never counts as a person's". The person who asked for the change signs off on how it was tested and how to undo it, and the team norm is "you land it, you own it": if your change breaks something, you usually fix it. Their reviewer runs every day against past pull requests that caused incidents, and after three rounds without converging it asks the author to step back and rethink the approach, a rule that exists because one pull request went through more than fifty rounds overnight.
+
+Between June and September, merged pull requests to Claude Code more than doubled while the share that needed a revert fell by more than 40%, and that is what made me write this post. Review also converges faster now: after they reworked it, the share of pull requests needing five or more rounds dropped from 8.9% to 1.5%.
+
+![What changed when Anthropic reworked its code review: pull requests with substantive AI comments rose from 16% to 54%, passing after one round rose from 65% to 78%, five or more rounds fell from 8.9% to 1.5%, and average rounds to pass fell from 2.08 to 1.32](/images/blog/code-review-in-one-year/fig1-anthropic-review.png)
+
+Changes landing in Anthropic's monorepo went from about 2,500 a day in May to more than 30,000 in September. The same week as the review post, [Code Review became generally available](https://x.com/ClaudeDevs/status/2110866210573386065) for Team and Enterprise plans, and Anthropic's [report on its own workforce](https://www.anthropic.com/research/employment-at-anthropic) said agent hours now outnumber employee hours six to one, and that around 80% of the agents' interactive session time is spent waiting for a person. I think a lot of that waiting is review: writing code got cheap, and the people who read and approve it did not get any faster.
+
+![Three numbers from Anthropic: changes landing in its monorepo grew from about 2,500 a day in May 2026 to more than 30,000 in September, agent hours outnumbered employee hours six to one in August 2026, and agents spend about 80% of interactive session time waiting for a person](/images/blog/code-review-in-one-year/fig2-review-load.png)
+
+## What the research says about AI-written code
+
+Sundar Pichai [wrote in April](https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/) that 75% of all new code at Google is generated by AI and approved by engineers, up from 50% the previous fall and from more than a quarter in late 2024. Every company counts this differently, so the exact numbers matter less than the direction.
+
+![How much new code AI writes, as reported by the companies: Google above 25% in October 2024, about 50% in fall 2025 and 75% in April 2026, and about 90% for Claude Code in October 2026](/images/blog/code-review-in-one-year/fig7-ai-code-share.png)
+
+On quality the research disagrees. Google's [DORA research](https://dora.dev/insights/balancing-ai-tensions/) found that higher AI adoption goes with higher throughput and also with more instability. CodeRabbit [looked at 470 open-source pull requests](https://www.coderabbit.ai/blog/state-of-ai-vs-human-code-generation-report) and found about 1.7 times as many issues in the ones written with AI, though that is a review vendor's data. Anthropic's workforce report compared the same people in the same month and directory and found no difference in how often agent-written code was later removed or reverted. My read is that all three can be true at once. AI-written code is about as good as the review system around it, and most teams still run a review process built for a few changes a day written by people.
+
+## One small fix, sixteen findings
+
+Last Friday I sent a small fix to [hol-guard](https://github.com/hashgraph-online/hol-guard/pull/4934), an open-source scanner for AI plugins. Its "approval bypass" check was flagging documentation that only mentions a risky Codex sandbox setting, so my change taught it to tell a mention apart from an instruction. The repository has four AI review bots installed. Three of them reviewed it (CodeRabbit, Qodo and Gitar), and Greptile's trigger rule skipped it. Two maintainers reviewed it too: one requested changes with three false negatives he had reproduced, and the other pushed fixes straight to my branch. It went through 10 commits and was merged five and a half hours after I opened it.
+
+The bots were fast and almost always right. I counted sixteen findings, and fifteen of them were new instances of three weaknesses: hand-rolled Markdown parsing (code inside a block quote, a list or a nested list, fences closed at the wrong depth), reading English with regular expressions (negations, warning words, setup steps written as prose) and which files count as instructions. I fixed them one at a time. One bot's summary even ended with a green "Approved" badge, the kind of signal Anthropic's rule refuses to count. So on one small fix, three bots read the change and two maintainers decided, and between us we caught every instance without anybody, bot or person, naming the weaknesses behind them.
+
+![The sixteen findings on hol-guard pull request 4934 grouped by root cause: seven about hand-rolled Markdown parsing, six about reading English with regular expressions, two about which files count as instructions and one about performance, thirteen from AI review bots and three from a maintainer](/images/blog/code-review-in-one-year/fig3-hol-guard.png)
+
+## What we learned building our own reviewer
+
+Hopper runs on every pull request in our main repository that is ready for review, and a person still approves every merge. This is how she works today:
+
+![How Hopper reviews a pull request: Hopper on Claude Opus 5.5 reviews first and writes down the doubts she sets aside, two read-only second reviewers on Claude Opus 5.5 and GPT-6 Astra check those doubts with the same prompt, and the findings merge into one verdict under rules that came from past mistakes](/images/blog/code-review-in-one-year/fig4-hopper-pipeline.png)
+
+**The misses are doubts she talked herself out of.** When we looked at the defects Hopper missed, about half were things she had noticed in her own reasoning and then dismissed as minor or already handled: 13 of 24 in the sample we checked. A prompt telling her to finish what she finds changed nothing. What worked was handing those set-aside doubts, with the file and her reason for dropping each one, to a second reviewer starting from a fresh context. Of the doubts that survive that second look, 27 of 30 turned out to be real.
+
+**A second model family finds different bugs.** Both second reviewers get the same prompt on purpose, so the only thing that changes is the model. On 19 replayed cases the GPT reviewer found 16 real defects the Claude reviewer missed, and Claude found 4 that GPT missed, and neither raised a correctness finding that turned out to be wrong. GPT's extra finds leaned toward races and inverted logic, like a filter where "less than 5" rejected 4, or two simultaneous first messages creating two separate conversations. Claude's leaned toward UI data that goes stale after an edit. GPT also overstated severity on 6 of its 21 blocking findings, against 0 of 6 for Claude. So the final verdict takes the union of both reviewers' findings. Where they disagree on severity, the lower one wins unless Hopper verified the higher one, and a blocking finding that only GPT raised stays blocking only if Hopper confirms the path herself.
+
+**Measuring a reviewer is harder than building one.** Our first recall numbers were too good. When you replay an old pull request, the reviewer can read the future: a later commit named after the fix, or a description edited after the review. Runs that could see the future found 68% of the defects and clean runs found 44%. We now check every run for leaks and score those separately. Against what human reviewers raised, Hopper catches about 45% of the blocking defects, but that undercounts her: in one sample of 30 findings she added, 25 were confirmed real, none were shown to be false, and most were bugs no human had commented on. Of what she posts, 96% is true, though only about a quarter of it is material, and engineers push back on almost none of it.
+
+![Hopper in numbers: 13 of 24 misses were dismissed doubts, 27 of 30 doubts that survived a second look were real, the GPT reviewer found 16 defects the Claude reviewer missed against 4 the other way, recall was 68% on leaky replays against 44% on clean ones, 96% of posted findings are true with about a quarter material, and the count guard refused 5 of 181 reviews](/images/blog/code-review-in-one-year/fig5-hopper-numbers.png)
+
+**Most of her rules came from her mistakes.** She never approves a pull request, and that is enforced as a tool permission, not a line in a prompt, because a green badge from a bot reads as one more approval than there is. In her first week she made up a finding about another reviewer's comment that did not exist, so now any claim about a reviewer, a version, a CI result or a library has to carry the link or the command that showed it. Her verdicts sometimes counted findings whose inline comments never made it, and those findings went out as a loose comment or got lost. A guard now refuses any review whose counts don't match its inline comments, and it has caught 5 real slips in 181 reviews. Early on, 28% of her review spend posted nothing, because runs that ran out of budget ended mid-thought, so an exhausted run now gets one last step whose only allowed action is posting what she has, marked as partial.
+
+**Her blind spot is anything you only see by running the code.** Lifecycle and runtime bugs, the ones that show up when a session refreshes mid-stream or a user navigates away, she almost never catches by reading, which is why my second bet below is about review that runs the code.
+
+## What I would copy first
+
+If you run a review agent or are about to build one, these are the parts of our setup I'd copy first, roughly in order of value for effort:
+
+1. Take the approve permission away from the agent's credentials instead of asking it in the prompt not to approve.
+2. Ask the reviewer to write down what it dismissed and why, and give those doubts to a second reviewer on a different model family, with a fresh context and the same prompt.
+3. Before you trust a recall number, check whether the replayed run could see the fix.
+4. Require every claim to carry its evidence, a link or a command.
+5. Refuse any review whose summary doesn't match its inline comments.
+
+## Eight bets for October 2027
+
+Here is where I think this goes in a year. At the end there's a scorecard with how confident I am in each bet and what would tell me I got it wrong, so I can grade myself next October.
+
+**1. Humans stop typing code, and keep owning it.** Almost nobody on a strong team will write code by hand for production. Accountability does not move to the machine though. "You land it, you own it" becomes the default everywhere: the person who asked for the change answers for it in review and in the postmortem.
+
+**2. Review moves from reading diffs to proving behavior.** Coding agents get real development harnesses: they start the environment, click through the flow they changed, compare screenshots and read the logs. Many Anthropic engineers already run a skill that checks behavior end to end before they open a pull request. Before production, a strict review agent does the same on a real environment for every critical flow. Reading the diff becomes the cheap first filter, and what the reviewer posts is a failing run you can reproduce.
+
+**3. Code gets written for machines to check.** I'm least sure of this one. DHH is already living a version of it with a Rust backend he doesn't read, chosen for the CPU and memory it saves. A lot of what we added to languages over the last decades exists so people can read and write code comfortably, and Ruby is the clearest case of paying for that in performance. When people stop reading most code, I think that trade-off flips. Code moves closer to the machine, guarded by stronger types, invariants and contracts that a compiler or an agent can check. The evidence so far says this happens through strict languages that already exist. Agents are still cheapest and most reliable in the languages they saw most in training, and they need meaningful names as much as we do. [Removing names](https://arxiv.org/abs/2510.03178) badly hurts how well models understand what code is for, and one experiment that [compressed logs for an agent](https://arxiv.org/abs/2604.07502) cut input tokens by 17% and raised the total cost of a session by 67%, because the model spent the savings decoding them. So I'd only half bet on brand new agent-first languages. If one shows up, I expect it to be strict and hard for people to read.
+
+**4. Cheap decision models scan every line.** Frontier models are too slow and expensive to read every line of every change with full attention. A new class of models that return typed, calibrated decisions instead of text, like TypeSafe's [Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev), could score each hunk for risk in well under a second and send only the risky ones to the expensive reviewer. Review becomes a pipeline: a fast model triages, a frontier model investigates, a human signs. Jev is named after William Stanley Jevons, whose paradox describes this whole post: when code gets cheaper we write much more of it, and the review load grows with it.
+
+**5. Human review shrinks to what can hurt you.** Migrations, infrastructure code that touches production, authentication, permissions and billing will keep a human reviewer. Most other changes merge with agent review and green checks, the way Anthropic's risk tiers already work. The human reviewer's job becomes judging intent and blast radius, which is the part of review we were always too busy to do well. What worries me is where those reviewers come from. Anthropic's junior share of technical hires fell from 27% to 9%, and I don't know who becomes the senior who signs the migration in 2030 if nobody hires juniors now.
+
+![My bet for how a change gets reviewed in October 2027: an agent writes the change against a spec, proves it in a real environment, a decision model scores every hunk, review agents investigate what was flagged, most changes merge on green, a person signs migrations, infrastructure, authentication, permissions and billing, and after merge there is a staged rollout, fast rollback and a reviewer scored daily against past incidents](/images/blog/code-review-in-one-year/fig6-review-2027.png)
+
+**6. Compliance will make that human gate mandatory.** Auditors already ask who approved a change to production. The EU's [DORA regulation](https://eur-lex.europa.eu/eli/reg_del/2024/1774/oj) for financial services (the Digital Operational Resilience Act, no relation to Google's DORA research) goes further and requires the function that approves a change to be independent from the ones that request and implement it. PCI DSS requires code reviewed by hand to be checked by someone other than its author and approved by management. SOC 2 requires changes to be authorized and approved but doesn't say who approves them, which is exactly why I think companies will write risk-tier policies that spell out which changes need a person, and that list will look a lot like bet 5. The EU's new Product Liability Directive, which treats software as a product and has to be in national law by December, adds a reason to keep a named person on the riskiest changes. Anthropic's rule already says this. I work in compliance, and this is the bet I'm most confident about.
+
+**7. Specs and review rules become the thing we review.** Our review rules live in the repository next to the code and apply from the pull request that changes them, and our specs describe what each module must do. When agents write the code, the place where humans add the most value is the contract: what this module promises, what counts as a blocking problem here. Specs are also where architecture gets decided. Every pull request can look fine while the architecture rots, and no per-change review, by a person or an agent, will see it, so someone has to own how the system is structured over time. I expect more review time on specs and rules than on code.
+
+**8. Reviewers get tested like software, and rollback beats reading.** Every serious team will run its review agent against a set built from its own past incidents, every day, the way Anthropic does. And teams will invest more in noticing and reverting fast than in reading more before merge, because past a certain speed of change, detection and rollback are the cheaper safety net. Anthropic says the piece it hasn't built yet is a circuit breaker that tightens approval rules automatically when reverts or incidents go up. I think that becomes standard too.
+
+## How I'll grade myself
+
+| Bet | Confidence | What would tell me I'm wrong |
+| --- | --- | --- |
+| 1. Humans stop typing code, and keep owning it | High | Most production code on strong teams is still typed by hand, or postmortems start blaming "the agent" instead of the person who landed the change |
+| 2. Review moves to proving behavior | Medium | Outside the largest companies, review agents still only read diffs |
+| 3. Code written for machines to check | Low | Strict, compiled languages don't gain share in new projects |
+| 4. Cheap decision models scan every line | Medium | Frontier models get cheap enough to read everything, or triage misses push teams back to full reads |
+| 5. Human review shrinks to what can hurt you | High | Review load outgrows the reviewers and people get pulled back into reading most changes |
+| 6. Compliance makes the human gate mandatory | Very high | Auditors and regulators accept an agent's approval as the control for production changes |
+| 7. Specs and rules become what we review | Medium | Teams still spend most of their review time on diffs |
+| 8. Reviewers tested on incidents, rollback over reading | Medium | Incident-based reviewer evals stay a big-company practice |
+
+If you run a review agent, or you're convinced I'm wrong about any of these, I'd love to hear it. I'm happy to be argued out of any of them, except maybe the compliance one.
