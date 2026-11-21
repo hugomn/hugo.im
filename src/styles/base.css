@@ -76,7 +76,7 @@
     --tw-prose-code: rgb(var(--color-text-base));
     --tw-prose-th-borders: rgb(var(--color-border));
     --tw-prose-td-borders: rgb(var(--color-border));
-    @apply font-serif prose-headings:!mb-3 prose-headings:font-serif prose-headings:font-semibold prose-headings:tracking-[-0.015em] prose-headings:!text-skin-base prose-p:!text-skin-base prose-strong:font-semibold prose-strong:!text-skin-base prose-ol:!text-skin-base prose-ul:overflow-x-clip prose-ul:!text-skin-base prose-li:marker:!text-skin-accent prose-table:font-sans prose-table:text-skin-base prose-th:border prose-th:border-skin-line prose-td:border prose-td:border-skin-line prose-img:mx-auto prose-img:rounded-lg prose-hr:!border-skin-line;
+    @apply font-serif prose-headings:!mb-3 prose-headings:font-serif prose-headings:font-medium prose-headings:tracking-[-0.015em] prose-headings:!text-skin-base prose-p:!text-skin-base prose-strong:font-semibold prose-strong:!text-skin-base prose-ol:!text-skin-base prose-ul:overflow-x-clip prose-ul:!text-skin-base prose-li:marker:!text-skin-accent prose-table:font-sans prose-table:text-skin-base prose-th:border prose-th:border-skin-line prose-td:border prose-td:border-skin-line prose-img:mx-auto prose-img:rounded-lg prose-hr:!border-skin-line;
     font-optical-sizing: auto;
   }
   .prose :where(h2):not(:where([class~="not-prose"] *)) {

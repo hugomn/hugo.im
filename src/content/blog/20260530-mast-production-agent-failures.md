@@ -4,7 +4,7 @@ pubDatetime: 2026-05-30T18:00:00.000Z
 title: "What 639,000 Execution Steps Taught Me About How AI Agents Really Fail"
 locale: en
 postSlug: mast-production-agent-failures
-featured: true
+featured: false
 draft: false
 tags:
   - ai-agents

@@ -15,10 +15,10 @@
   --fc-ink: #e6eaf0;
   --fc-muted: #9eaabb;
   --fc-accent: #e3b25a;
-  --fc-shadow:
-    0 1px 2px rgba(14, 23, 38, 0.08), 0 10px 28px -14px rgba(14, 23, 38, 0.35);
-  --fc-shadow-hover:
-    0 2px 4px rgba(14, 23, 38, 0.1), 0 18px 40px -16px rgba(14, 23, 38, 0.5);
+  --fc-shadow: 0 1px 2px rgba(14, 23, 38, 0.08),
+    0 10px 28px -14px rgba(14, 23, 38, 0.35);
+  --fc-shadow-hover: 0 2px 4px rgba(14, 23, 38, 0.1),
+    0 18px 40px -16px rgba(14, 23, 38, 0.5);
   @apply relative flex h-full w-full flex-col overflow-hidden rounded-xl;
   background: var(--fc-bg);
   color: var(--fc-ink);
@@ -123,16 +123,25 @@
     grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
   }
 
-  /* Cover keeps its own ratio (never cropped) and centres in the navy column */
+  /* Cover fills the whole column. When the text column is taller than the
+     cover's 40:21 ratio, the cover is cropped slightly at the sides */
   .featured-card--lead .featured-card-image-container {
     aspect-ratio: auto;
-    display: flex;
-    align-items: center;
+  }
+
+  /* Keeps the column at least as tall as a 40:21 cover */
+  .featured-card--lead .featured-card-image-container::before {
+    content: "";
+    display: block;
+    padding-top: 52.5%;
   }
 
   .featured-card--lead .featured-card-image {
-    height: auto;
-    aspect-ratio: 40 / 21;
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 
   .featured-card--lead .featured-card-content {
